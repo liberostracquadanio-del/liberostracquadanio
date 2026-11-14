@@ -2,6 +2,6 @@
   "_istruzioni": "Puoi modificare fonte, link_fonte, nota e aggiornato direttamente da GitHub (icona della matita, poi Commit changes). Cambia solo il testo tra virgolette e lascia le virgole a fine riga. Niente punto finale. La pagina online si aggiorna in qualche minuto (fino a 10)",
   "fonte": "adsb.lol, dati ADS-B del 13 novembre 2026 (licenza ODbL); confini: US Census Bureau",
   "link_fonte": "https://github.com/adsblol/globe_history_2026/releases/tag/v2026.11.13-planes-readsb-prod-0",
-  "nota": "Voli di linea: aerei con sigla di compagnia sopra i 500 piedi rilevati dai ricevitori della rete adsb.lol, che non coprono ogni zona; escluse scuole di volo e aerotaxi. Stop nazionale della FAA dalle 15:54 alle 20:15 di New York",
-  "aggiornato": "14 novembre 2026"
+  "nota": "",
+  "aggiornato": ""
 }

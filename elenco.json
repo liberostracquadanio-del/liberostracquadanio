@@ -1,5 +1,5 @@
 {
- "generato": "2026-11-14T14:42:19",
+ "generato": "2026-11-14T15:06:30",
  "indirizzo_base": "https://liberostracquadanio-del.github.io/liberostracquadanio/",
  "grafici": [
   {
@@ -10,12 +10,12 @@
    "titolo": "Il giorno in cui gli Stati Uniti hanno spento il cielo",
    "pubblicato": "2026-11-14",
    "modificato": "2026-11-14",
-   "altezza_360": 992,
-   "altezza_640": 1040,
-   "altezza_fissa": 1070,
+   "altezza_360": 893,
+   "altezza_640": 959,
+   "altezza_fissa": 989,
    "fonte": "adsb.lol, dati ADS-B del 13 novembre 2026 (licenza ODbL); confini: US Census Bureau",
-   "codice_script": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-blocco-voli-usa/01-cielo/\" title=\"Il giorno in cui gli Stati Uniti hanno spento il cielo\" style=\"width:100%;border:0;height:992px\" loading=\"lazy\"></iframe><script src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/incorpora.js\" async></script>",
-   "codice_fisso": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-blocco-voli-usa/01-cielo/\" title=\"Il giorno in cui gli Stati Uniti hanno spento il cielo\" style=\"width:100%;border:0;height:1070px\" loading=\"lazy\"></iframe>",
+   "codice_script": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-blocco-voli-usa/01-cielo/\" title=\"Il giorno in cui gli Stati Uniti hanno spento il cielo\" style=\"width:100%;border:0;height:893px\" loading=\"lazy\"></iframe><script src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/incorpora.js\" async></script>",
+   "codice_fisso": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-blocco-voli-usa/01-cielo/\" title=\"Il giorno in cui gli Stati Uniti hanno spento il cielo\" style=\"width:100%;border:0;height:989px\" loading=\"lazy\"></iframe>",
    "problemi": []
   },
   {
@@ -26,12 +26,12 @@
    "titolo": "Nel 2026 il vuoto più lungo",
    "pubblicato": "2026-11-14",
    "modificato": "2026-11-14",
-   "altezza_360": 1352,
-   "altezza_640": 924,
-   "altezza_fissa": 1382,
+   "altezza_360": 1253,
+   "altezza_640": 861,
+   "altezza_fissa": 1283,
    "fonte": "Elaborazione Radar su dati ADS-B adsb.lol (licenza ODbL)",
-   "codice_script": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-blocco-voli-usa/02-confronto/\" title=\"Nel 2026 il vuoto più lungo\" style=\"width:100%;border:0;height:1352px\" loading=\"lazy\"></iframe><script src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/incorpora.js\" async></script>",
-   "codice_fisso": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-blocco-voli-usa/02-confronto/\" title=\"Nel 2026 il vuoto più lungo\" style=\"width:100%;border:0;height:1382px\" loading=\"lazy\"></iframe>",
+   "codice_script": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-blocco-voli-usa/02-confronto/\" title=\"Nel 2026 il vuoto più lungo\" style=\"width:100%;border:0;height:1253px\" loading=\"lazy\"></iframe><script src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/incorpora.js\" async></script>",
+   "codice_fisso": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-blocco-voli-usa/02-confronto/\" title=\"Nel 2026 il vuoto più lungo\" style=\"width:100%;border:0;height:1283px\" loading=\"lazy\"></iframe>",
    "problemi": []
   },
   {
@@ -42,12 +42,12 @@
    "titolo": "Chicago, l'aeroporto che ha perso più voli",
    "pubblicato": "2026-11-14",
    "modificato": "2026-11-14",
-   "altezza_360": 908,
-   "altezza_640": 704,
-   "altezza_fissa": 938,
+   "altezza_360": 791,
+   "altezza_640": 622,
+   "altezza_fissa": 821,
    "fonte": "Elaborazione Radar su dati ADS-B adsb.lol (licenza ODbL)",
-   "codice_script": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-blocco-voli-usa/03-aeroporti/\" title=\"Chicago, l'aeroporto che ha perso più voli\" style=\"width:100%;border:0;height:908px\" loading=\"lazy\"></iframe><script src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/incorpora.js\" async></script>",
-   "codice_fisso": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-blocco-voli-usa/03-aeroporti/\" title=\"Chicago, l'aeroporto che ha perso più voli\" style=\"width:100%;border:0;height:938px\" loading=\"lazy\"></iframe>",
+   "codice_script": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-blocco-voli-usa/03-aeroporti/\" title=\"Chicago, l'aeroporto che ha perso più voli\" style=\"width:100%;border:0;height:791px\" loading=\"lazy\"></iframe><script src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/incorpora.js\" async></script>",
+   "codice_fisso": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-blocco-voli-usa/03-aeroporti/\" title=\"Chicago, l'aeroporto che ha perso più voli\" style=\"width:100%;border:0;height:821px\" loading=\"lazy\"></iframe>",
    "problemi": []
   },
   {
@@ -58,12 +58,12 @@
    "titolo": "Cinque volte che il cielo si è fermato",
    "pubblicato": "2026-11-14",
    "modificato": "2026-11-14",
-   "altezza_360": 969,
-   "altezza_640": 701,
-   "altezza_fissa": 999,
+   "altezza_360": 888,
+   "altezza_640": 638,
+   "altezza_fissa": 918,
    "fonte": "Transport Canada, Eurocontrol, Enac, FAA, adsb.lol; cronache per i dettagli",
-   "codice_script": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-blocco-voli-usa/04-storia/\" title=\"Cinque volte che il cielo si è fermato\" style=\"width:100%;border:0;height:969px\" loading=\"lazy\"></iframe><script src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/incorpora.js\" async></script>",
-   "codice_fisso": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-blocco-voli-usa/04-storia/\" title=\"Cinque volte che il cielo si è fermato\" style=\"width:100%;border:0;height:999px\" loading=\"lazy\"></iframe>",
+   "codice_script": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-blocco-voli-usa/04-storia/\" title=\"Cinque volte che il cielo si è fermato\" style=\"width:100%;border:0;height:888px\" loading=\"lazy\"></iframe><script src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/incorpora.js\" async></script>",
+   "codice_fisso": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-blocco-voli-usa/04-storia/\" title=\"Cinque volte che il cielo si è fermato\" style=\"width:100%;border:0;height:918px\" loading=\"lazy\"></iframe>",
    "problemi": []
   },
   {
