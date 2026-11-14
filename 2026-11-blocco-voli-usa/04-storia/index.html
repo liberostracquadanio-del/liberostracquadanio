@@ -37,7 +37,10 @@ body{font-family:'Source Serif 4',Georgia,serif;color:#000000;font-size:16px;lin
 .mg-zona{display:flex;flex-wrap:wrap;gap:1rem;align-items:stretch}
 .mg-glob{flex:1 1 20rem;min-width:0;position:relative}
 .mg-glob canvas{display:block;width:100%;touch-action:pan-y}
-.mg-card{flex:1 1 17rem;min-width:0;position:relative;overflow:hidden;background:#f1f1ef;min-height:24rem;display:flex;flex-direction:column;justify-content:flex-end}
+.mg-card{flex:1 1 17rem;min-width:0;position:relative;overflow:hidden;background:#f1f1ef;display:flex;flex-direction:column;justify-content:flex-end}
+.mg-foto{position:relative}
+.mg-foto img{display:block;width:100%;height:auto}
+.mg-card .mg-foto+.mg-txt{margin:-1.6rem .8rem .8rem}
 .mg-bg{position:absolute;inset:0}
 .mg-bg svg{width:100%;height:100%;display:block}
 .mg-txt{position:relative;background:#ffffff;margin:9rem .8rem .8rem;padding:.9rem 1rem 1rem;border-top:4px solid #009cdf}
@@ -133,7 +136,7 @@ if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){dis
 </div>
 <footer class="radar-piede">
 <p id="radar-riga-fonte">Fonte: <a id="radar-fonte" href="https://www.eurocontrol.int/archive_download/all/node/10542" rel="noopener">Transport Canada, Eurocontrol, Enac, FAA, adsb.lol; cronache per i dettagli</a></p>
-<p id="radar-nota">Illustrazioni ridisegnate da foto. Terre emerse: Natural Earth. Dati 2026: decolli di voli di linea rilevati dalla rete adsb.lol</p>
+<p id="radar-nota">Illustrazioni realizzate con l&#x27;intelligenza artificiale (Gemini). Terre emerse: Natural Earth. Dati 2026: decolli di voli di linea rilevati dalla rete adsb.lol</p>
 <p id="radar-aggiornato">Aggiornamento: 14 novembre 2026</p>
 </footer>
 </div>
