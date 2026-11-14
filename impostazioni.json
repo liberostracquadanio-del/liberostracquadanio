@@ -1,0 +1,5 @@
+{
+  "_istruzioni": "Indirizzo pubblico del repository su GitHub Pages, con la barra finale. Se il repository passa a un account dell'organizzazione o a un dominio del giornale, cambia solo questa riga e rigenera l'indice (python strumenti/pubblica.py --indice). Attenzione: i codici già incorporati nel CMS continuano a puntare al vecchio indirizzo",
+  "indirizzo_base": "https://liberostracquadanio-del.github.io/grafici/",
+  "titolo_indice": "Grafici Radar"
+}

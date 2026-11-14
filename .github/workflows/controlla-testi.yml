@@ -1,0 +1,61 @@
+name: Controllo dei testi dei grafici
+
+# Gira a ogni modifica di un testi.json (anche fatta dal sito di GitHub con la matita).
+# Se un file è scritto male (una virgola o una virgoletta di troppo) la pagina del grafico
+# non lo legge e mostra i vecchi testi: questo controllo lo segnala con un'email e una issue.
+on:
+  push:
+    paths:
+      - "**/testi.json"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  controlla:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Controlla tutti i testi.json
+        shell: python
+        run: |
+          import json, pathlib, re, sys
+          problemi = []
+          for f in sorted(pathlib.Path(".").glob("*/*/testi.json")):
+              try:
+                  t = json.loads(f.read_text(encoding="utf-8"))
+              except json.JSONDecodeError as e:
+                  problemi.append(f"{f}: file scritto male alla riga {e.lineno} ({e.msg})")
+                  continue
+              for campo in ("fonte", "link_fonte", "nota", "aggiornato"):
+                  if not isinstance(t.get(campo), str):
+                      problemi.append(f"{f}: manca il campo «{campo}» o non è un testo tra virgolette")
+              link = t.get("link_fonte") or ""
+              if isinstance(link, str) and link and not re.match(r"^https?://", link):
+                  problemi.append(f"{f}: link_fonte deve cominciare con https://")
+          if problemi:
+              print("\n".join(problemi))
+              pathlib.Path("problemi.txt").write_text("\n".join(problemi), encoding="utf-8")
+              sys.exit(1)
+          print("Tutti i testi.json sono a posto")
+
+      - name: Segnala il problema
+        if: failure()
+        run: |
+          {
+            echo "Un file testi.json non è valido: la pagina del grafico continua a mostrare i testi di prima."
+            echo
+            echo '```'
+            cat problemi.txt 2>/dev/null || echo "Dettagli nel registro dell'esecuzione"
+            echo '```'
+            echo
+            echo "Correggi il file dal sito (matita) e salva: il controllo ripartirà da solo."
+            echo "Registro: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          } > corpo.md
+          gh issue create --assignee "${{ github.repository_owner }}" \
+            --title "testi.json da correggere ($(date -u +%Y-%m-%d))" --body-file corpo.md

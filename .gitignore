@@ -1,0 +1,8 @@
+# File di lavoro che non devono finire online
+__pycache__/
+*.pyc
+anteprime/
+*.png.tmp
+.DS_Store
+Thumbs.db
+desktop.ini

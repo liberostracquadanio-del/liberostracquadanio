@@ -1,0 +1,7 @@
+{
+  "_istruzioni": "Puoi modificare fonte, link_fonte, nota e aggiornato direttamente da GitHub (icona della matita, poi Commit changes). Cambia solo il testo tra virgolette e lascia le virgole a fine riga. Niente punto finale. La pagina online si aggiorna in qualche minuto (fino a 10)",
+  "fonte": "Transport Canada, Eurocontrol, Enac, FAA, adsb.lol; cronache per i dettagli",
+  "link_fonte": "https://www.eurocontrol.int/archive_download/all/node/10542",
+  "nota": "Illustrazioni ridisegnate da foto. Terre emerse: Natural Earth. Dati 2026: decolli di voli di linea rilevati dalla rete adsb.lol",
+  "aggiornato": "14 novembre 2026"
+}
