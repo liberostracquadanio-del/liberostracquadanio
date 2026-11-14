@@ -56,14 +56,15 @@ body{font-family:'Source Serif 4',Georgia,serif;color:#000000;font-size:16px;lin
 .mg-ctrl button:disabled{opacity:.35;cursor:default}
 .mg-ctrl button:focus-visible{outline:2px solid #000;outline-offset:2px}
 .mg-punti{display:flex;gap:.35rem;margin-left:auto;flex-wrap:wrap}
-.mg-punti span{font-size:.75rem;font-weight:700;padding:.1rem .35rem;border:1px solid #d9d9d9;color:#3a3a3a}
-.mg-punti span.on{background:#009cdf;border-color:#009cdf;color:#fff}
+.mg-punti button{font:inherit;font-size:.75rem;font-weight:700;padding:.15rem .4rem;border:1px solid #d9d9d9;background:#fff;color:#3a3a3a;cursor:pointer;border-radius:0}
+.mg-punti button:hover{border-color:#009cdf}
+.mg-punti button.on{background:#009cdf;border-color:#009cdf;color:#fff}
 .mg-card.mg-intro{min-height:0;justify-content:flex-start;background:#ffffff}
 .mg-card.mg-intro .mg-txt{margin:0;background:#f4f4f2}
 .mg-card.cambia .mg-txt{animation:mgin .45s ease-out}
 @keyframes mgin{from{opacity:0;transform:translateY(.8rem)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){.mg-card.cambia .mg-txt{animation:none}}
-</style><div class='mg' id='mappamondo'><p class='mg-nojs' style='background:#f4f4f2;padding:.8rem'>Il mappamondo ha bisogno di JavaScript</p><div class='mg-si' style='display:none'><div class='mg-zona'><div class='mg-glob'><canvas role='img'></canvas><div class='mg-ctrl'><button type='button' class='mg-in' aria-label='Tappa precedente'><svg width='14' height='12' viewBox='0 0 14 12' aria-hidden='true'><path d='M14 6H3M7 1L2 6l5 5' fill='none' stroke='currentColor' stroke-width='2'/></svg></button><button type='button' class='mg-av'><span>Avanti</span><svg width='14' height='12' viewBox='0 0 14 12' aria-hidden='true'><path d='M0 6h11M7 1l5 5-5 5' fill='none' stroke='currentColor' stroke-width='2'/></svg></button><div class='mg-punti' aria-hidden='true'></div></div></div><div class='mg-card' aria-live='polite'></div></div></div><script src='globo.js'></script><script>(function(){
+</style><div class='mg' id='mappamondo'><p class='mg-nojs' style='background:#f4f4f2;padding:.8rem'>Il mappamondo ha bisogno di JavaScript</p><div class='mg-si' style='display:none'><div class='mg-zona'><div class='mg-glob'><canvas role='img'></canvas><div class='mg-ctrl'><button type='button' class='mg-in' aria-label='Tappa precedente'><svg width='14' height='12' viewBox='0 0 14 12' aria-hidden='true'><path d='M14 6H3M7 1L2 6l5 5' fill='none' stroke='currentColor' stroke-width='2'/></svg></button><button type='button' class='mg-av'><span>Avanti</span><svg width='14' height='12' viewBox='0 0 14 12' aria-hidden='true'><path d='M0 6h11M7 1l5 5-5 5' fill='none' stroke='currentColor' stroke-width='2'/></svg></button><div class='mg-punti' role='group' aria-label='Anni'></div></div></div><div class='mg-card' aria-live='polite'></div></div></div><script src='globo.js'></script><script>(function(){
 'use strict';
 var O={"id":"mappamondo","var":"GLOBO"}, R=document.getElementById(O.id); if(!R) return;
 var D=window[O.var];
@@ -74,7 +75,9 @@ var T=D.tappe, terra=D.terra, rad=Math.PI/180, rid=window.matchMedia&&window.mat
 var W=0,H=0,dpr=1, cur=-1, anim=null;
 var vista={lon:D.inizio[0],lat:D.inizio[1],z:1};
 var scia=[];   // tratti già volati [[lon,lat]...]
-T.forEach(function(t,i){var s=document.createElement('span');s.textContent=t.anno;pu.appendChild(s);});
+T.forEach(function(t,i){var s=document.createElement('button');s.type='button';s.textContent=t.anno;s.setAttribute('aria-label','Vai al '+t.anno);
+ s.addEventListener('click',function(){vai(i);});pu.appendChild(s);});
+function sciaFino(k){var o=[];for(var i=0;i<k;i++)o.push(arco([T[i].lon,T[i].lat],[T[i+1].lon,T[i+1].lat],1));return o;}
 function v3(lon,lat){var a=lon*rad,b=lat*rad;return[Math.cos(b)*Math.cos(a),Math.cos(b)*Math.sin(a),Math.sin(b)];}
 function ll(v){return[Math.atan2(v[1],v[0])/rad,Math.asin(Math.max(-1,Math.min(1,v[2])))/rad];}
 function slerp(p,q,t){var a=v3(p[0],p[1]),b=v3(q[0],q[1]);var d=Math.max(-1,Math.min(1,a[0]*b[0]+a[1]*b[1]+a[2]*b[2])),w=Math.acos(d);
@@ -105,22 +108,22 @@ function disegna(volo){var c=cv.getContext('2d');c.setTransform(dpr,0,0,dpr,0,0)
  if(volo&&volo.p){q=pr(volo.p[0],volo.p[1],r);var q2=pr(volo.dopo[0],volo.dopo[1],r);if(q[2]>0){c.fillStyle='#005f8a';aereo(c,q[0],q[1],Math.atan2(q2[1]-q[1],q2[0]-q[0]),11);}}
  c.restore();}
 function mostra(k){card.classList.remove('cambia');void card.offsetWidth;card.innerHTML=k<0?D.intro:T[k].html;card.classList.toggle('mg-intro',k<0);card.classList.add('cambia');
- [].forEach.call(pu.children,function(s,i){s.className=i===k?'on':'';});
+ [].forEach.call(pu.children,function(s,i){s.className=i===k?'on':'';if(i===k)s.setAttribute('aria-current','step');else s.removeAttribute('aria-current');});
  bI.disabled=k<0;bA.disabled=k>=T.length-1;bA.querySelector('span').textContent=k<0?D.parti:'Avanti';
  cv.setAttribute('aria-label',k<0?D.intro_aria:T[k].aria);}
-function vai(k){if(anim||k<-1||k>=T.length)return;var da=cur,a0=[vista.lon,vista.lat],z0=vista.z;
+function vai(k){if(anim||k<-1||k>=T.length||k===cur)return;var da=cur,a0=[vista.lon,vista.lat],z0=vista.z;
  var meta=k<0?D.inizio:[T[k].lon,T[k].lat],zf=k<0?1:(T[k].zoom||2.2);
  var part=da<0?(k<0?null:[T[k].lon,T[k].lat-0.0001]):[T[da].lon,T[da].lat];
  if(k>da&&da>=0)part=[T[da].lon,T[da].lat];
  var avanti=k>da&&da>=0, dist=ang(a0,meta), dur=rid?0:Math.min(3200,1200+dist/rad*16);
- if(k<da){scia=scia.slice(0,Math.max(0,k));}
+ scia=sciaFino(Math.max(0,Math.min(da,k)));
  var t0=null;anim=true;
  function passo(ts){if(t0===null)t0=ts;var t=dur?Math.min(1,(ts-t0)/dur):1,e=t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
   var c=slerp(a0,meta,e);vista.lon=c[0];vista.lat=c[1];
   var giu=Math.min(1,0.25+dist/2.2);vista.z=z0+(zf-z0)*e-(Math.sin(Math.PI*e)*giu*Math.min(z0,zf)*0.55);
   var volo=null;if(avanti){var A=[T[da].lon,T[da].lat],B=meta;volo={pts:arco(A,B,e),p:slerp(A,B,e),dopo:slerp(A,B,Math.min(1,e+0.02))};}
   disegna(volo);
-  if(t<1)requestAnimationFrame(passo);else{if(avanti)scia.push(arco([T[da].lon,T[da].lat],meta,1));cur=k;anim=null;disegna(null);mostra(k);}}
+  if(t<1)requestAnimationFrame(passo);else{scia=sciaFino(Math.max(0,k));cur=k;anim=null;disegna(null);mostra(k);}}
  if(k!==cur&&!avanti)card.classList.remove('cambia');
  requestAnimationFrame(passo);}
 bA.addEventListener('click',function(){vai(cur+1);});bI.addEventListener('click',function(){vai(cur-1);});
@@ -129,7 +132,7 @@ var x0=null;cv.addEventListener('touchstart',function(e){x0=e.touches[0].clientX
 cv.addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>50)vai(cur+(dx<0?1:-1));x0=null;},{passive:true});
 var mh=/[#&]tappa=(\d+)/.exec(location.hash||'');
 misura();mostra(-1);
-if(mh){var k=Math.min(T.length-1,+mh[1]);for(var i=0;i<k;i++)scia.push(arco([T[i].lon,T[i].lat],[T[i+1].lon,T[i+1].lat],1));cur=k;vista={lon:T[k].lon,lat:T[k].lat,z:T[k].zoom||2.2};disegna(null);mostra(k);}
+if(mh){var k=Math.min(T.length-1,+mh[1]);scia=sciaFino(k);cur=k;vista={lon:T[k].lon,lat:T[k].lat,z:T[k].zoom||2.2};disegna(null);mostra(k);}
 var rt;window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(misura,120);});
 if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){disegna(null);});
 })();</script></div></div>
