@@ -1,12 +1,12 @@
 {
- "generato": "2026-11-14T13:49:17",
- "indirizzo_base": "https://liberostracquadanio-del.github.io/grafici/",
+ "generato": "2026-11-14T14:40:57",
+ "indirizzo_base": "https://liberostracquadanio-del.github.io/liberostracquadanio/",
  "grafici": [
   {
    "articolo": "2026-11-blocco-voli-usa",
    "grafico": "01-cielo",
    "percorso": "2026-11-blocco-voli-usa/01-cielo",
-   "indirizzo": "https://liberostracquadanio-del.github.io/grafici/2026-11-blocco-voli-usa/01-cielo/",
+   "indirizzo": "https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-blocco-voli-usa/01-cielo/",
    "titolo": "Il giorno in cui gli Stati Uniti hanno spento il cielo",
    "pubblicato": "2026-11-14",
    "modificato": "2026-11-14",
@@ -14,15 +14,15 @@
    "altezza_640": 1040,
    "altezza_fissa": 1070,
    "fonte": "adsb.lol, dati ADS-B del 13 novembre 2026 (licenza ODbL); confini: US Census Bureau",
-   "codice_script": "<iframe src=\"https://liberostracquadanio-del.github.io/grafici/2026-11-blocco-voli-usa/01-cielo/\" title=\"Il giorno in cui gli Stati Uniti hanno spento il cielo\" style=\"width:100%;border:0;height:992px\" loading=\"lazy\"></iframe><script src=\"https://liberostracquadanio-del.github.io/grafici/incorpora.js\" async></script>",
-   "codice_fisso": "<iframe src=\"https://liberostracquadanio-del.github.io/grafici/2026-11-blocco-voli-usa/01-cielo/\" title=\"Il giorno in cui gli Stati Uniti hanno spento il cielo\" style=\"width:100%;border:0;height:1070px\" loading=\"lazy\"></iframe>",
+   "codice_script": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-blocco-voli-usa/01-cielo/\" title=\"Il giorno in cui gli Stati Uniti hanno spento il cielo\" style=\"width:100%;border:0;height:992px\" loading=\"lazy\"></iframe><script src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/incorpora.js\" async></script>",
+   "codice_fisso": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-blocco-voli-usa/01-cielo/\" title=\"Il giorno in cui gli Stati Uniti hanno spento il cielo\" style=\"width:100%;border:0;height:1070px\" loading=\"lazy\"></iframe>",
    "problemi": []
   },
   {
    "articolo": "2026-11-blocco-voli-usa",
    "grafico": "02-confronto",
    "percorso": "2026-11-blocco-voli-usa/02-confronto",
-   "indirizzo": "https://liberostracquadanio-del.github.io/grafici/2026-11-blocco-voli-usa/02-confronto/",
+   "indirizzo": "https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-blocco-voli-usa/02-confronto/",
    "titolo": "Nel 2026 il vuoto più lungo",
    "pubblicato": "2026-11-14",
    "modificato": "2026-11-14",
@@ -30,15 +30,15 @@
    "altezza_640": 924,
    "altezza_fissa": 1382,
    "fonte": "Elaborazione Radar su dati ADS-B adsb.lol (licenza ODbL)",
-   "codice_script": "<iframe src=\"https://liberostracquadanio-del.github.io/grafici/2026-11-blocco-voli-usa/02-confronto/\" title=\"Nel 2026 il vuoto più lungo\" style=\"width:100%;border:0;height:1352px\" loading=\"lazy\"></iframe><script src=\"https://liberostracquadanio-del.github.io/grafici/incorpora.js\" async></script>",
-   "codice_fisso": "<iframe src=\"https://liberostracquadanio-del.github.io/grafici/2026-11-blocco-voli-usa/02-confronto/\" title=\"Nel 2026 il vuoto più lungo\" style=\"width:100%;border:0;height:1382px\" loading=\"lazy\"></iframe>",
+   "codice_script": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-blocco-voli-usa/02-confronto/\" title=\"Nel 2026 il vuoto più lungo\" style=\"width:100%;border:0;height:1352px\" loading=\"lazy\"></iframe><script src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/incorpora.js\" async></script>",
+   "codice_fisso": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-blocco-voli-usa/02-confronto/\" title=\"Nel 2026 il vuoto più lungo\" style=\"width:100%;border:0;height:1382px\" loading=\"lazy\"></iframe>",
    "problemi": []
   },
   {
    "articolo": "2026-11-blocco-voli-usa",
    "grafico": "03-aeroporti",
    "percorso": "2026-11-blocco-voli-usa/03-aeroporti",
-   "indirizzo": "https://liberostracquadanio-del.github.io/grafici/2026-11-blocco-voli-usa/03-aeroporti/",
+   "indirizzo": "https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-blocco-voli-usa/03-aeroporti/",
    "titolo": "Chicago, l'aeroporto che ha perso più voli",
    "pubblicato": "2026-11-14",
    "modificato": "2026-11-14",
@@ -46,15 +46,15 @@
    "altezza_640": 704,
    "altezza_fissa": 938,
    "fonte": "Elaborazione Radar su dati ADS-B adsb.lol (licenza ODbL)",
-   "codice_script": "<iframe src=\"https://liberostracquadanio-del.github.io/grafici/2026-11-blocco-voli-usa/03-aeroporti/\" title=\"Chicago, l'aeroporto che ha perso più voli\" style=\"width:100%;border:0;height:908px\" loading=\"lazy\"></iframe><script src=\"https://liberostracquadanio-del.github.io/grafici/incorpora.js\" async></script>",
-   "codice_fisso": "<iframe src=\"https://liberostracquadanio-del.github.io/grafici/2026-11-blocco-voli-usa/03-aeroporti/\" title=\"Chicago, l'aeroporto che ha perso più voli\" style=\"width:100%;border:0;height:938px\" loading=\"lazy\"></iframe>",
+   "codice_script": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-blocco-voli-usa/03-aeroporti/\" title=\"Chicago, l'aeroporto che ha perso più voli\" style=\"width:100%;border:0;height:908px\" loading=\"lazy\"></iframe><script src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/incorpora.js\" async></script>",
+   "codice_fisso": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-blocco-voli-usa/03-aeroporti/\" title=\"Chicago, l'aeroporto che ha perso più voli\" style=\"width:100%;border:0;height:938px\" loading=\"lazy\"></iframe>",
    "problemi": []
   },
   {
    "articolo": "2026-11-blocco-voli-usa",
    "grafico": "04-storia",
    "percorso": "2026-11-blocco-voli-usa/04-storia",
-   "indirizzo": "https://liberostracquadanio-del.github.io/grafici/2026-11-blocco-voli-usa/04-storia/",
+   "indirizzo": "https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-blocco-voli-usa/04-storia/",
    "titolo": "Cinque volte che il cielo si è fermato",
    "pubblicato": "2026-11-14",
    "modificato": "2026-11-14",
@@ -62,15 +62,15 @@
    "altezza_640": 701,
    "altezza_fissa": 999,
    "fonte": "Transport Canada, Eurocontrol, Enac, FAA, adsb.lol; cronache per i dettagli",
-   "codice_script": "<iframe src=\"https://liberostracquadanio-del.github.io/grafici/2026-11-blocco-voli-usa/04-storia/\" title=\"Cinque volte che il cielo si è fermato\" style=\"width:100%;border:0;height:969px\" loading=\"lazy\"></iframe><script src=\"https://liberostracquadanio-del.github.io/grafici/incorpora.js\" async></script>",
-   "codice_fisso": "<iframe src=\"https://liberostracquadanio-del.github.io/grafici/2026-11-blocco-voli-usa/04-storia/\" title=\"Cinque volte che il cielo si è fermato\" style=\"width:100%;border:0;height:999px\" loading=\"lazy\"></iframe>",
+   "codice_script": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-blocco-voli-usa/04-storia/\" title=\"Cinque volte che il cielo si è fermato\" style=\"width:100%;border:0;height:969px\" loading=\"lazy\"></iframe><script src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/incorpora.js\" async></script>",
+   "codice_fisso": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-blocco-voli-usa/04-storia/\" title=\"Cinque volte che il cielo si è fermato\" style=\"width:100%;border:0;height:999px\" loading=\"lazy\"></iframe>",
    "problemi": []
   },
   {
    "articolo": "2026-11-esempio",
    "grafico": "01-prova",
    "percorso": "2026-11-esempio/01-prova",
-   "indirizzo": "https://liberostracquadanio-del.github.io/grafici/2026-11-esempio/01-prova/",
+   "indirizzo": "https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-esempio/01-prova/",
    "titolo": "Grafico di prova",
    "pubblicato": "2026-11-11",
    "modificato": "2026-11-11",
@@ -78,8 +78,8 @@
    "altezza_640": 476,
    "altezza_fissa": 679,
    "fonte": "Dati inventati per provare la pubblicazione",
-   "codice_script": "<iframe src=\"https://liberostracquadanio-del.github.io/grafici/2026-11-esempio/01-prova/\" title=\"Grafico di prova\" style=\"width:100%;border:0;height:649px\" loading=\"lazy\"></iframe><script src=\"https://liberostracquadanio-del.github.io/grafici/incorpora.js\" async></script>",
-   "codice_fisso": "<iframe src=\"https://liberostracquadanio-del.github.io/grafici/2026-11-esempio/01-prova/\" title=\"Grafico di prova\" style=\"width:100%;border:0;height:679px\" loading=\"lazy\"></iframe>",
+   "codice_script": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-esempio/01-prova/\" title=\"Grafico di prova\" style=\"width:100%;border:0;height:649px\" loading=\"lazy\"></iframe><script src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/incorpora.js\" async></script>",
+   "codice_fisso": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-esempio/01-prova/\" title=\"Grafico di prova\" style=\"width:100%;border:0;height:679px\" loading=\"lazy\"></iframe>",
    "problemi": []
   }
  ]

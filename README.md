@@ -2,7 +2,7 @@
 
 Schede grafiche dello stile «Radar» pubblicate con GitHub Pages, da incorporare negli articoli con un iframe.
 
-Indice di tutti i grafici, con anteprima e codici da copiare: https://liberostracquadanio-del.github.io/grafici/
+Indice di tutti i grafici, con anteprima e codici da copiare: https://liberostracquadanio-del.github.io/liberostracquadanio/
 
 ## Come è fatto
 ```
