@@ -1,5 +1,5 @@
 {
- "generato": "2026-11-15T17:42:09",
+ "generato": "2026-11-15T18:23:57",
  "indirizzo_base": "https://liberostracquadanio-del.github.io/liberostracquadanio/",
  "grafici": [
   {
@@ -138,12 +138,12 @@
    "titolo": "I soldi che girano intorno a Nvidia",
    "pubblicato": "2026-11-15",
    "modificato": "2026-11-15",
-   "altezza_360": 1517,
-   "altezza_640": 1186,
-   "altezza_fissa": 1547,
+   "altezza_360": 1418,
+   "altezza_640": 1122,
+   "altezza_fissa": 1448,
    "fonte": "Elaborazione della redazione su documenti Sec, comunicati delle aziende e stampa (Reuters, Bloomberg, Financial Times, Wall Street Journal, The Information)",
-   "codice_script": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-nvidia-bolla-ai/01-cerchio/\" title=\"I soldi che girano intorno a Nvidia\" style=\"width:100%;border:0;height:1517px\" loading=\"lazy\"></iframe><script src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/incorpora.js\" async></script>",
-   "codice_fisso": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-nvidia-bolla-ai/01-cerchio/\" title=\"I soldi che girano intorno a Nvidia\" style=\"width:100%;border:0;height:1547px\" loading=\"lazy\"></iframe>",
+   "codice_script": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-nvidia-bolla-ai/01-cerchio/\" title=\"I soldi che girano intorno a Nvidia\" style=\"width:100%;border:0;height:1418px\" loading=\"lazy\"></iframe><script src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/incorpora.js\" async></script>",
+   "codice_fisso": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-nvidia-bolla-ai/01-cerchio/\" title=\"I soldi che girano intorno a Nvidia\" style=\"width:100%;border:0;height:1448px\" loading=\"lazy\"></iframe>",
    "problemi": []
   },
   {
@@ -154,12 +154,12 @@
    "titolo": "In sei mesi Nvidia ha quasi triplicato le partecipazioni",
    "pubblicato": "2026-11-15",
    "modificato": "2026-11-15",
-   "altezza_360": 903,
-   "altezza_640": 763,
-   "altezza_fissa": 933,
+   "altezza_360": 804,
+   "altezza_640": 681,
+   "altezza_fissa": 834,
    "fonte": "Nvidia, Form 10-Q del secondo trimestre fiscale 2027 (stato patrimoniale e nota 10)",
-   "codice_script": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-nvidia-bolla-ai/02-partecipazioni/\" title=\"In sei mesi Nvidia ha quasi triplicato le partecipazioni\" style=\"width:100%;border:0;height:903px\" loading=\"lazy\"></iframe><script src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/incorpora.js\" async></script>",
-   "codice_fisso": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-nvidia-bolla-ai/02-partecipazioni/\" title=\"In sei mesi Nvidia ha quasi triplicato le partecipazioni\" style=\"width:100%;border:0;height:933px\" loading=\"lazy\"></iframe>",
+   "codice_script": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-nvidia-bolla-ai/02-partecipazioni/\" title=\"In sei mesi Nvidia ha quasi triplicato le partecipazioni\" style=\"width:100%;border:0;height:804px\" loading=\"lazy\"></iframe><script src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/incorpora.js\" async></script>",
+   "codice_fisso": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-nvidia-bolla-ai/02-partecipazioni/\" title=\"In sei mesi Nvidia ha quasi triplicato le partecipazioni\" style=\"width:100%;border:0;height:834px\" loading=\"lazy\"></iframe>",
    "problemi": []
   },
   {
@@ -170,12 +170,12 @@
    "titolo": "Chi vende i chip dell'IA",
    "pubblicato": "2026-11-15",
    "modificato": "2026-11-15",
-   "altezza_360": 1052,
-   "altezza_640": 703,
-   "altezza_fissa": 1082,
+   "altezza_360": 940,
+   "altezza_640": 626,
+   "altezza_fissa": 970,
    "fonte": "Nvidia, Amd e Broadcom: Form 10-Q e comunicato sui risultati di Broadcom del 2/9/2026",
-   "codice_script": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-nvidia-bolla-ai/03-mercato/\" title=\"Chi vende i chip dell'IA\" style=\"width:100%;border:0;height:1052px\" loading=\"lazy\"></iframe><script src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/incorpora.js\" async></script>",
-   "codice_fisso": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-nvidia-bolla-ai/03-mercato/\" title=\"Chi vende i chip dell'IA\" style=\"width:100%;border:0;height:1082px\" loading=\"lazy\"></iframe>",
+   "codice_script": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-nvidia-bolla-ai/03-mercato/\" title=\"Chi vende i chip dell'IA\" style=\"width:100%;border:0;height:940px\" loading=\"lazy\"></iframe><script src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/incorpora.js\" async></script>",
+   "codice_fisso": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-nvidia-bolla-ai/03-mercato/\" title=\"Chi vende i chip dell'IA\" style=\"width:100%;border:0;height:970px\" loading=\"lazy\"></iframe>",
    "problemi": []
   },
   {
@@ -186,12 +186,12 @@
    "titolo": "Chi può fare a meno di Nvidia",
    "pubblicato": "2026-11-15",
    "modificato": "2026-11-15",
-   "altezza_360": 913,
-   "altezza_640": 793,
-   "altezza_fissa": 943,
+   "altezza_360": 832,
+   "altezza_640": 730,
+   "altezza_fissa": 862,
    "fonte": "Elaborazione della redazione su comunicati delle aziende e stampa (Financial Times, The Information)",
-   "codice_script": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-nvidia-bolla-ai/04-alternative/\" title=\"Chi può fare a meno di Nvidia\" style=\"width:100%;border:0;height:913px\" loading=\"lazy\"></iframe><script src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/incorpora.js\" async></script>",
-   "codice_fisso": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-nvidia-bolla-ai/04-alternative/\" title=\"Chi può fare a meno di Nvidia\" style=\"width:100%;border:0;height:943px\" loading=\"lazy\"></iframe>",
+   "codice_script": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-nvidia-bolla-ai/04-alternative/\" title=\"Chi può fare a meno di Nvidia\" style=\"width:100%;border:0;height:832px\" loading=\"lazy\"></iframe><script src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/incorpora.js\" async></script>",
+   "codice_fisso": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-nvidia-bolla-ai/04-alternative/\" title=\"Chi può fare a meno di Nvidia\" style=\"width:100%;border:0;height:862px\" loading=\"lazy\"></iframe>",
    "problemi": []
   }
  ]
