@@ -1,0 +1,7 @@
+{
+  "_istruzioni": "Puoi modificare fonte, link_fonte, nota e aggiornato direttamente da GitHub (icona della matita, poi Commit changes). Cambia solo il testo tra virgolette e lascia le virgole a fine riga. Niente punto finale. La pagina online si aggiorna in qualche minuto (fino a 10)",
+  "fonte": "Nvidia, Amd e Broadcom: Form 10-Q e comunicato sui risultati di Broadcom del 2/9/2026",
+  "link_fonte": "https://www.sec.gov/Archives/edgar/data/1730168/000173016826000076/avgo-08022026x8kxex99.htm",
+  "nota": "Trimestri diversi: Nvidia maggio-luglio, Amd aprile-giugno, Broadcom maggio-agosto 2026. Voci diverse: Data Center per Nvidia (comprende le reti) e Amd (comprende i processori per server), ricavi dai chip per l'IA per Broadcom. Restano fuori i chip che Google e Amazon producono per sé senza Broadcom",
+  "aggiornato": "15 novembre 2026"
+}
