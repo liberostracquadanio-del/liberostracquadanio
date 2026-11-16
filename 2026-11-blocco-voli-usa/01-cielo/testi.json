@@ -1,7 +1,7 @@
 {
   "_istruzioni": "Puoi modificare fonte, link_fonte, nota e aggiornato direttamente da GitHub (icona della matita, poi Commit changes). Cambia solo il testo tra virgolette e lascia le virgole a fine riga. Niente punto finale. La pagina online si aggiorna in qualche minuto (fino a 10)",
-  "fonte": "adsb.lol, dati ADS-B del 13 novembre 2026 (licenza ODbL); confini: US Census Bureau",
-  "link_fonte": "https://github.com/adsblol/globe_history_2026/releases/tag/v2026.11.13-planes-readsb-prod-0",
+  "fonte": "adsb.lol, dati ADS-B del 13 e 14 novembre 2026 (licenza ODbL); confini: US Census Bureau",
+  "link_fonte": "https://github.com/adsblol/globe_history_2026/releases",
   "nota": "",
   "aggiornato": ""
 }
