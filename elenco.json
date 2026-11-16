@@ -1,5 +1,5 @@
 {
- "generato": "2026-11-15T18:23:57",
+ "generato": "2026-11-16T11:42:32",
  "indirizzo_base": "https://liberostracquadanio-del.github.io/liberostracquadanio/",
  "grafici": [
   {
@@ -57,13 +57,13 @@
    "indirizzo": "https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-blocco-voli-usa/01-cielo/",
    "titolo": "Il giorno in cui gli Stati Uniti hanno spento il cielo",
    "pubblicato": "2026-11-14",
-   "modificato": "2026-11-14",
-   "altezza_360": 893,
-   "altezza_640": 959,
-   "altezza_fissa": 989,
-   "fonte": "adsb.lol, dati ADS-B del 13 novembre 2026 (licenza ODbL); confini: US Census Bureau",
-   "codice_script": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-blocco-voli-usa/01-cielo/\" title=\"Il giorno in cui gli Stati Uniti hanno spento il cielo\" style=\"width:100%;border:0;height:893px\" loading=\"lazy\"></iframe><script src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/incorpora.js\" async></script>",
-   "codice_fisso": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-blocco-voli-usa/01-cielo/\" title=\"Il giorno in cui gli Stati Uniti hanno spento il cielo\" style=\"width:100%;border:0;height:989px\" loading=\"lazy\"></iframe>",
+   "modificato": "2026-11-16",
+   "altezza_360": 711,
+   "altezza_640": 856,
+   "altezza_fissa": 886,
+   "fonte": "adsb.lol, dati ADS-B del 13 e 14 novembre 2026 (licenza ODbL); confini: US Census Bureau",
+   "codice_script": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-blocco-voli-usa/01-cielo/\" title=\"Il giorno in cui gli Stati Uniti hanno spento il cielo\" style=\"width:100%;border:0;height:711px\" loading=\"lazy\"></iframe><script src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/incorpora.js\" async></script>",
+   "codice_fisso": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-blocco-voli-usa/01-cielo/\" title=\"Il giorno in cui gli Stati Uniti hanno spento il cielo\" style=\"width:100%;border:0;height:886px\" loading=\"lazy\"></iframe>",
    "problemi": []
   },
   {
