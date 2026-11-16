@@ -1,5 +1,5 @@
 {
- "generato": "2026-11-16T14:34:46",
+ "generato": "2026-11-16T16:54:08",
  "indirizzo_base": "https://liberostracquadanio-del.github.io/liberostracquadanio/",
  "grafici": [
   {
@@ -9,13 +9,13 @@
    "indirizzo": "https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-asili-nido-lep/01-regioni/",
    "titolo": "Asili nido, dove il sindaco è commissario",
    "pubblicato": "2026-11-14",
-   "modificato": "2026-11-14",
-   "altezza_360": 1177,
-   "altezza_640": 946,
-   "altezza_fissa": 1207,
+   "modificato": "2026-11-16",
+   "altezza_360": 981,
+   "altezza_640": 862,
+   "altezza_fissa": 1011,
    "fonte": "Ministero dell'Interno, decreto 5 novembre 2025, allegato A (commissariamento per gli obiettivi di servizio 2024)",
-   "codice_script": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-asili-nido-lep/01-regioni/\" title=\"Asili nido, dove il sindaco è commissario\" style=\"width:100%;border:0;height:1177px\" loading=\"lazy\"></iframe><script src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/incorpora.js\" async></script>",
-   "codice_fisso": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-asili-nido-lep/01-regioni/\" title=\"Asili nido, dove il sindaco è commissario\" style=\"width:100%;border:0;height:1207px\" loading=\"lazy\"></iframe>",
+   "codice_script": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-asili-nido-lep/01-regioni/\" title=\"Asili nido, dove il sindaco è commissario\" style=\"width:100%;border:0;height:981px\" loading=\"lazy\"></iframe><script src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/incorpora.js\" async></script>",
+   "codice_fisso": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-asili-nido-lep/01-regioni/\" title=\"Asili nido, dove il sindaco è commissario\" style=\"width:100%;border:0;height:1011px\" loading=\"lazy\"></iframe>",
    "problemi": []
   },
   {
@@ -25,13 +25,13 @@
    "indirizzo": "https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-asili-nido-lep/02-capoluoghi/",
    "titolo": "Asili nido, i capoluoghi",
    "pubblicato": "2026-11-14",
-   "modificato": "2026-11-14",
-   "altezza_360": 1088,
-   "altezza_640": 963,
-   "altezza_fissa": 1118,
+   "modificato": "2026-11-16",
+   "altezza_360": 1007,
+   "altezza_640": 913,
+   "altezza_fissa": 1037,
    "fonte": "Istat, Servizi socio-educativi per la prima infanzia (47_850_DF_DCIS_SERVSOCEDU1_6); Ministero dell'Interno, decreto 5 novembre 2025 (allegato A) e decreto 10 marzo 2026; Italia Domani, Progetti del Pnrr (versione 13.0)",
-   "codice_script": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-asili-nido-lep/02-capoluoghi/\" title=\"Asili nido, i capoluoghi\" style=\"width:100%;border:0;height:1088px\" loading=\"lazy\"></iframe><script src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/incorpora.js\" async></script>",
-   "codice_fisso": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-asili-nido-lep/02-capoluoghi/\" title=\"Asili nido, i capoluoghi\" style=\"width:100%;border:0;height:1118px\" loading=\"lazy\"></iframe>",
+   "codice_script": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-asili-nido-lep/02-capoluoghi/\" title=\"Asili nido, i capoluoghi\" style=\"width:100%;border:0;height:1007px\" loading=\"lazy\"></iframe><script src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/incorpora.js\" async></script>",
+   "codice_fisso": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-asili-nido-lep/02-capoluoghi/\" title=\"Asili nido, i capoluoghi\" style=\"width:100%;border:0;height:1037px\" loading=\"lazy\"></iframe>",
    "problemi": []
   },
   {
@@ -41,13 +41,13 @@
    "indirizzo": "https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-asili-nido-lep/03-mappa/",
    "titolo": "Asili nido, cerca il tuo Comune",
    "pubblicato": "2026-11-14",
-   "modificato": "2026-11-14",
-   "altezza_360": 1371,
-   "altezza_640": 1532,
-   "altezza_fissa": 1562,
+   "modificato": "2026-11-16",
+   "altezza_360": 1169,
+   "altezza_640": 1401,
+   "altezza_fissa": 1431,
    "fonte": "Istat, Servizi socio-educativi per la prima infanzia (47_850_DF_DCIS_SERVSOCEDU1_6); Ministero dell'Interno, decreto 5 novembre 2025 (allegato A) e decreto 10 marzo 2026; Italia Domani, Progetti del Pnrr (versione 13.0)",
-   "codice_script": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-asili-nido-lep/03-mappa/\" title=\"Asili nido, cerca il tuo Comune\" style=\"width:100%;border:0;height:1371px\" loading=\"lazy\"></iframe><script src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/incorpora.js\" async></script>",
-   "codice_fisso": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-asili-nido-lep/03-mappa/\" title=\"Asili nido, cerca il tuo Comune\" style=\"width:100%;border:0;height:1562px\" loading=\"lazy\"></iframe>",
+   "codice_script": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-asili-nido-lep/03-mappa/\" title=\"Asili nido, cerca il tuo Comune\" style=\"width:100%;border:0;height:1169px\" loading=\"lazy\"></iframe><script src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/incorpora.js\" async></script>",
+   "codice_fisso": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-asili-nido-lep/03-mappa/\" title=\"Asili nido, cerca il tuo Comune\" style=\"width:100%;border:0;height:1431px\" loading=\"lazy\"></iframe>",
    "problemi": []
   },
   {

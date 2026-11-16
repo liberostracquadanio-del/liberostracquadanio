@@ -1,7 +1,7 @@
 {
-  "_istruzioni": "Puoi modificare fonte, link_fonte, nota e aggiornato direttamente da GitHub (icona della matita, poi Commit changes). Cambia solo il testo tra virgolette e lascia le virgole a fine riga. Niente punto finale. La pagina online si aggiorna in qualche minuto (fino a 10)",
+  "_istruzioni": "Questa pagina è fatta con la skill radar-dataviz: fonte e piede sono scritti nell'index.html, questo file serve solo all'indice del repository. Niente punto finale",
   "fonte": "Istat, Servizi socio-educativi per la prima infanzia (47_850_DF_DCIS_SERVSOCEDU1_6); Ministero dell'Interno, decreto 5 novembre 2025 (allegato A) e decreto 10 marzo 2026; Italia Domani, Progetti del Pnrr (versione 13.0)",
   "link_fonte": "https://esploradati.istat.it/SDMXWS/rest/data/IT1,47_850_DF_DCIS_SERVSOCEDU1_6,1.0/A..P_100CH_Y0_2+AUTP.ALL.ALL.9/?startPeriod=2024&format=csv",
-  "nota": "Posti autorizzati pubblici e privati ogni 100 bambini sotto i 3 anni, anno educativo 2024/2025. Posti da aggiungere: utenti aggiuntivi assegnati dal riparto 2026. Cantieri Pnrr: progetti della misura M4C1I1.1 nella categoria asili nido, stato a giugno 2026",
-  "aggiornato": "14 novembre 2026"
+  "nota": "",
+  "aggiornato": ""
 }
