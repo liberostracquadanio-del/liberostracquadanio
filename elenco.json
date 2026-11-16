@@ -1,5 +1,5 @@
 {
- "generato": "2026-11-16T11:48:18",
+ "generato": "2026-11-16T14:34:46",
  "indirizzo_base": "https://liberostracquadanio-del.github.io/liberostracquadanio/",
  "grafici": [
   {
@@ -192,6 +192,22 @@
    "fonte": "Elaborazione della redazione su comunicati delle aziende e stampa (Financial Times, The Information)",
    "codice_script": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-nvidia-bolla-ai/04-alternative/\" title=\"Chi può fare a meno di Nvidia\" style=\"width:100%;border:0;height:832px\" loading=\"lazy\"></iframe><script src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/incorpora.js\" async></script>",
    "codice_fisso": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-nvidia-bolla-ai/04-alternative/\" title=\"Chi può fare a meno di Nvidia\" style=\"width:100%;border:0;height:862px\" loading=\"lazy\"></iframe>",
+   "problemi": []
+  },
+  {
+   "articolo": "2026-11-revolut-utili",
+   "grafico": "01-utili",
+   "percorso": "2026-11-revolut-utili/01-utili",
+   "indirizzo": "https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-revolut-utili/01-utili/",
+   "titolo": "Revolut, gli utili degli ultimi cinque anni",
+   "pubblicato": "2026-11-16",
+   "modificato": "2026-11-16",
+   "altezza_360": 700,
+   "altezza_640": 688,
+   "altezza_fissa": 730,
+   "fonte": "Revolut Group Holdings Ltd, bilanci consolidati 2022-2025 (Consolidated Statement of Comprehensive Income)",
+   "codice_script": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-revolut-utili/01-utili/\" title=\"Revolut, gli utili degli ultimi cinque anni\" style=\"width:100%;border:0;height:700px\" loading=\"lazy\"></iframe><script src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/incorpora.js\" async></script>",
+   "codice_fisso": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-revolut-utili/01-utili/\" title=\"Revolut, gli utili degli ultimi cinque anni\" style=\"width:100%;border:0;height:730px\" loading=\"lazy\"></iframe>",
    "problemi": []
   }
  ]
