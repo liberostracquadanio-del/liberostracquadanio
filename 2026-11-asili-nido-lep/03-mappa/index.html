@@ -236,6 +236,28 @@
     bIt.addEventListener("click", function () { vai(VB0); bIt.hidden = true; svg.classList.remove("zoom"); });
     gC.addEventListener("click", function (e) { var id = e.target.getAttribute && e.target.getAttribute("data-id"); if (id) scegli(id, false); });
 
+    // ---- Popup al passaggio (mouse) o al tocco: commissariamento e posti ogni 100 bambini ----
+    var tip = R.tooltip(box);
+    function popup(e) {
+      var id = e.target.getAttribute && e.target.getAttribute("data-id"), r = id && perId[id];
+      if (!r) { tip.hide(); return; }
+      var rows, note = null;
+      if (!r.dentro) { rows = []; note = "Fuori dal Fondo per i nidi (Regione a statuto speciale)"; }
+      else {
+        rows = [["Sindaco commissario", r.comm > 0 ? '<span style="color:var(--red)">Sì</span>' : "No"],
+                ["Posti ogni 100 bambini", r.p100 == null ? "n.d." : fmt(r.p100, 1)]];
+        if (r.comm === 1) note = "Obiettivo 2024 non raggiunto";
+        else if (r.comm === 2) note = "Certificazione 2024 non inviata";
+        else if (r.posti === 0) note = "Nessun posto nel Comune";
+      }
+      var b = box.getBoundingClientRect();
+      tip.show(R.tipHTML({ title: esc(r.nome), value: null, rows: rows, note: note }), e.clientX - b.left, e.clientY - b.top);
+    }
+    gC.addEventListener("pointermove", function (e) { if (e.pointerType === "mouse") popup(e); });
+    gC.addEventListener("pointerdown", function (e) { if (e.pointerType !== "mouse") popup(e); });
+    gC.addEventListener("pointerleave", function (e) { if (e.pointerType === "mouse") tip.hide(); });
+    R.dismissOutside(box, function () { tip.hide(); });
+
     var cand = [], att = -1;
     function chiudi() { sug.hidden = true; inp.setAttribute("aria-expanded", "false"); }
     function suggerisci() {
