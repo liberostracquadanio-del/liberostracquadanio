@@ -1,5 +1,5 @@
 {
- "generato": "2026-11-17T11:23:05",
+ "generato": "2026-11-17T13:10:07",
  "indirizzo_base": "https://liberostracquadanio-del.github.io/liberostracquadanio/",
  "grafici": [
   {
@@ -250,12 +250,12 @@
    "titolo": "Il reddito per età in Italia e in Europa",
    "pubblicato": "2026-11-17",
    "modificato": "2026-11-17",
-   "altezza_360": 642,
-   "altezza_640": 622,
-   "altezza_fissa": 672,
+   "altezza_360": 582,
+   "altezza_640": 576,
+   "altezza_fissa": 612,
    "fonte": "Fonte: Eurostat, EU-SILC (ilc_di03)",
-   "codice_script": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-redditi-famiglie/04-reddito-eta/\" width=\"100%\" height=\"622\" frameborder=\"0\" scrolling=\"no\" title=\"Il reddito per età in Italia e in Europa\"></iframe>\n<script>\n(function(){if(window.__radarQNv2)return;window.__radarQNv2=1;var O=\"https://liberostracquadanio-del.github.io\";var MQ=window.matchMedia(\"(prefers-color-scheme:dark)\");function frames(){return Array.prototype.filter.call(document.getElementsByTagName(\"iframe\"),function(f){return(f.getAttribute(\"src\")||\"\").indexOf(O+\"/\")===0;});}function theme(){var t=document.documentElement.getAttribute(\"data-theme\");return t===\"dark\"||t===\"light\"?t:(MQ.matches?\"dark\":\"light\");}function bgOf(el){for(;el&&el.nodeType===1;el=el.parentElement){var c=getComputedStyle(el).backgroundColor;if(c&&c !==\"transparent\"&&!/rgba\\([^)]*,\\s*0\\)$/.test(c))return c;}return null;}function send(f){try{f.contentWindow.postMessage({sentinel:\"radar-qn\",type:\"theme\",theme:theme(),bg:bgOf(f.parentElement)},O);}catch(e){}}function sendAll(){frames().forEach(send);}window.addEventListener(\"message\",function(e){if(e.origin !==O)return;var d=e.data;if(!d||d.sentinel !==\"radar-qn\"||d.type !==\"height\")return;frames().forEach(function(f){if(f.contentWindow !==e.source)return;var h=Math.ceil(+d.height);if(h > 0&&20000 > h)f.style.height=h+\"px\";send(f);});});new MutationObserver(function(){sendAll();setTimeout(sendAll,400);}).observe(document.documentElement,{attributes:true,attributeFilter:[\"data-theme\"]});if(MQ.addEventListener)MQ.addEventListener(\"change\",sendAll);})();\n</script>",
-   "codice_fisso": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-redditi-famiglie/04-reddito-eta/\" title=\"Il reddito per età in Italia e in Europa\" style=\"width:100%;border:0;height:672px\" loading=\"lazy\"></iframe>",
+   "codice_script": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-redditi-famiglie/04-reddito-eta/\" width=\"100%\" height=\"576\" frameborder=\"0\" scrolling=\"no\" title=\"Il reddito per età in Italia e in Europa\"></iframe>\n<script>\n(function(){if(window.__radarQNv2)return;window.__radarQNv2=1;var O=\"https://liberostracquadanio-del.github.io\";var MQ=window.matchMedia(\"(prefers-color-scheme:dark)\");function frames(){return Array.prototype.filter.call(document.getElementsByTagName(\"iframe\"),function(f){return(f.getAttribute(\"src\")||\"\").indexOf(O+\"/\")===0;});}function theme(){var t=document.documentElement.getAttribute(\"data-theme\");return t===\"dark\"||t===\"light\"?t:(MQ.matches?\"dark\":\"light\");}function bgOf(el){for(;el&&el.nodeType===1;el=el.parentElement){var c=getComputedStyle(el).backgroundColor;if(c&&c !==\"transparent\"&&!/rgba\\([^)]*,\\s*0\\)$/.test(c))return c;}return null;}function send(f){try{f.contentWindow.postMessage({sentinel:\"radar-qn\",type:\"theme\",theme:theme(),bg:bgOf(f.parentElement)},O);}catch(e){}}function sendAll(){frames().forEach(send);}window.addEventListener(\"message\",function(e){if(e.origin !==O)return;var d=e.data;if(!d||d.sentinel !==\"radar-qn\"||d.type !==\"height\")return;frames().forEach(function(f){if(f.contentWindow !==e.source)return;var h=Math.ceil(+d.height);if(h > 0&&20000 > h)f.style.height=h+\"px\";send(f);});});new MutationObserver(function(){sendAll();setTimeout(sendAll,400);}).observe(document.documentElement,{attributes:true,attributeFilter:[\"data-theme\"]});if(MQ.addEventListener)MQ.addEventListener(\"change\",sendAll);})();\n</script>",
+   "codice_fisso": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-redditi-famiglie/04-reddito-eta/\" title=\"Il reddito per età in Italia e in Europa\" style=\"width:100%;border:0;height:612px\" loading=\"lazy\"></iframe>",
    "problemi": []
   },
   {
