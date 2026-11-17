@@ -14,6 +14,7 @@
   --red-1: #440909;  --red-2: #a21014;  --red-3: #e63633;  --red-4: #ff7f7b;  --red-5: #ffc0c0;
   --grey-1: #333536; --grey-2: #616467; --grey-3: #8a8e91; --grey-4: #b1b4b8; --grey-5: #d7d8da;
   --title: #0c0c0c;
+  --logo: #0e0f11;
   --serif: "Newsreader", Georgia, serif;
   --sans: "Libre Franklin", "Helvetica Neue", Arial, sans-serif;
   --font-title: var(--serif);
@@ -39,12 +40,20 @@
   --red-1: #ffc0c0;  --red-2: #ff7f7b;  --red-3: #e63633;  --red-4: #a21014;  --red-5: #5c1212;
   --grey-1: #d7d8da; --grey-2: #b1b4b8; --grey-3: #8a8e91; --grey-4: #616467; --grey-5: #3f4245;
   --title: #f5f5f5;
+  --logo: #ffffff;
   --bg: #121212;
   --tip-bg: #1e1f21;
   --on-dark: #ffffff;
   --on-light: #121212;
   color-scheme: dark;
 }
+
+/* Sfondi QN riconosciuti (data-bg, impostato da radar.js): piccoli ritocchi perché
+   tooltip e griglie restino distinti dal fondo */
+:root[data-bg="bianco"] { --tip-bg: #ffffff; --rule: #e6e7e8; }
+:root[data-bg="grigio"] { --tip-bg: #ffffff; }
+:root[data-bg="nero"]   { --tip-bg: #1e1f21; }
+:root[data-bg="notte"]  { --tip-bg: #101b20; --rule: #1d2a30; --grey-5: #2c3a40; }
 
 * { box-sizing: border-box; }
 
@@ -66,9 +75,31 @@ html, body {
 }
 
 /* ---------- Testata ---------- */
+/* Testata: titolo a sinistra, logo QN a destra sulla stessa riga della prima riga del titolo.
+   Dimensioni in vw (larghezza dell'iframe) con minimo e massimo; mai vh dentro un iframe,
+   perché l'altezza dell'iframe dipende dal contenuto e si innescherebbe un ciclo. */
+.radar > header {
+  --title-size: clamp(26px, 6vw, 32.8px);
+  --logo-h: clamp(16px, 3.2vw, 24px);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: clamp(12px, 3vw, 24px);
+}
+.radar > header > * { grid-column: 1 / -1; }
+.radar > header > .r-title { grid-column: 1; grid-row: 1; }
+.radar > header > .r-logo { grid-column: 2; grid-row: 1; justify-self: end; }
+.r-logo {
+  height: var(--logo-h);
+  width: auto;
+  aspect-ratio: 795 / 407;
+  color: var(--logo);
+  /* centrato sulla prima riga del titolo (interlinea 1,05) */
+  margin-top: calc((var(--title-size) * 1.05 - var(--logo-h)) / 2);
+  flex: none;
+}
 .r-title {
   font-family: var(--font-title);
-  font-size: clamp(26px, 6vw, 32.8px);
+  font-size: var(--title-size, clamp(26px, 6vw, 32.8px));
   line-height: 1.05;
   font-weight: 700;
   letter-spacing: -0.005em;
