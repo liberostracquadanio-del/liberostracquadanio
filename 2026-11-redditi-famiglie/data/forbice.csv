@@ -1,0 +1,391 @@
+codice;paese;data;reddito;pil
+DEU;Germania;2007-01-01;0,0;0,0
+DEU;Germania;2007-04-01;-0,3;0,7
+DEU;Germania;2007-07-01;-0,5;1,3
+DEU;Germania;2007-10-01;0,0;2,1
+DEU;Germania;2008-01-01;0,5;2,8
+DEU;Germania;2008-04-01;1,2;2,5
+DEU;Germania;2008-07-01;0,7;2,0
+DEU;Germania;2008-10-01;-1,1;0,5
+DEU;Germania;2009-01-01;-0,0;-4,1
+DEU;Germania;2009-04-01;0,6;-3,8
+DEU;Germania;2009-07-01;0,4;-3,1
+DEU;Germania;2009-10-01;0,7;-2,3
+DEU;Germania;2010-01-01;0,2;-1,5
+DEU;Germania;2010-04-01;0,8;0,7
+DEU;Germania;2010-07-01;1,6;1,7
+DEU;Germania;2010-10-01;2,2;2,3
+DEU;Germania;2011-01-01;1,5;4,2
+DEU;Germania;2011-04-01;2,6;4,5
+DEU;Germania;2011-07-01;2,8;5,0
+DEU;Germania;2011-10-01;3,0;4,9
+DEU;Germania;2012-01-01;4,0;5,2
+DEU;Germania;2012-04-01;3,0;5,3
+DEU;Germania;2012-07-01;3,2;5,5
+DEU;Germania;2012-10-01;2,5;5,1
+DEU;Germania;2013-01-01;2,0;4,5
+DEU;Germania;2013-04-01;3,4;5,8
+DEU;Germania;2013-07-01;3,9;6,2
+DEU;Germania;2013-10-01;3,0;6,3
+DEU;Germania;2014-01-01;3,4;7,4
+DEU;Germania;2014-04-01;4,4;7,3
+DEU;Germania;2014-07-01;5,2;7,7
+DEU;Germania;2014-10-01;5,3;8,5
+DEU;Germania;2015-01-01;5,5;8,0
+DEU;Germania;2015-04-01;6,1;8,4
+DEU;Germania;2015-07-01;6,9;8,8
+DEU;Germania;2015-10-01;8,0;9,1
+DEU;Germania;2016-01-01;7,8;9,9
+DEU;Germania;2016-04-01;8,6;10,0
+DEU;Germania;2016-07-01;8,6;10,4
+DEU;Germania;2016-10-01;9,3;10,8
+DEU;Germania;2017-01-01;10,0;12,2
+DEU;Germania;2017-04-01;10,5;13,0
+DEU;Germania;2017-07-01;10,5;13,9
+DEU;Germania;2017-10-01;11,5;15,1
+DEU;Germania;2018-01-01;13,1;14,4
+DEU;Germania;2018-04-01;13,4;15,2
+DEU;Germania;2018-07-01;13,2;14,6
+DEU;Germania;2018-10-01;14,1;15,1
+DEU;Germania;2019-01-01;14,5;15,9
+DEU;Germania;2019-04-01;14,5;15,8
+DEU;Germania;2019-07-01;15,5;16,5
+DEU;Germania;2019-10-01;15,4;16,0
+DEU;Germania;2020-01-01;14,6;13,8
+DEU;Germania;2020-04-01;12,2;3,7
+DEU;Germania;2020-07-01;16,8;12,8
+DEU;Germania;2020-10-01;17,2;13,9
+DEU;Germania;2021-01-01;15,2;13,3
+DEU;Germania;2021-04-01;16,0;16,0
+DEU;Germania;2021-07-01;15,2;16,2
+DEU;Germania;2021-10-01;17,5;16,8
+DEU;Germania;2022-01-01;18,1;17,8
+DEU;Germania;2022-04-01;18,4;17,0
+DEU;Germania;2022-07-01;18,5;17,0
+DEU;Germania;2022-10-01;17,4;16,4
+DEU;Germania;2023-01-01;16,7;15,3
+DEU;Germania;2023-04-01;18,2;15,1
+DEU;Germania;2023-07-01;17,3;15,2
+DEU;Germania;2023-10-01;17,1;14,7
+DEU;Germania;2024-01-01;19,2;14,8
+DEU;Germania;2024-04-01;19,5;14,6
+DEU;Germania;2024-07-01;20,0;14,7
+DEU;Germania;2024-10-01;20,3;14,9
+DEU;Germania;2025-01-01;19,7;15,1
+DEU;Germania;2025-04-01;20,0;15,1
+DEU;Germania;2025-07-01;20,5;15,1
+DEU;Germania;2025-10-01;21,1;15,4
+DEU;Germania;2026-01-01;20,7;16,0
+DEU;Germania;2026-04-01;20,8;16,5
+ESP;Spagna;2007-01-01;0,0;0,0
+ESP;Spagna;2007-04-01;-1,3;0,4
+ESP;Spagna;2007-07-01;-2,8;0,6
+ESP;Spagna;2007-10-01;1,0;0,7
+ESP;Spagna;2008-01-01;-0,5;0,5
+ESP;Spagna;2008-04-01;-1,2;0,2
+ESP;Spagna;2008-07-01;-2,3;-0,3
+ESP;Spagna;2008-10-01;0,9;-2,2
+ESP;Spagna;2009-01-01;-1,6;-4,9
+ESP;Spagna;2009-04-01;-0,9;-5,0
+ESP;Spagna;2009-07-01;-0,7;-4,9
+ESP;Spagna;2009-10-01;-1,5;-5,1
+ESP;Spagna;2010-01-01;-1,5;-5,2
+ESP;Spagna;2010-04-01;-2,2;-5,2
+ESP;Spagna;2010-07-01;-3,7;-5,3
+ESP;Spagna;2010-10-01;-4,3;-5,4
+ESP;Spagna;2011-01-01;-3,7;-5,5
+ESP;Spagna;2011-04-01;-3,7;-5,8
+ESP;Spagna;2011-07-01;-4,9;-6,5
+ESP;Spagna;2011-10-01;-7,2;-7,1
+ESP;Spagna;2012-01-01;-8,7;-8,0
+ESP;Spagna;2012-04-01;-11,5;-8,8
+ESP;Spagna;2012-07-01;-11,4;-9,2
+ESP;Spagna;2012-10-01;-14,9;-9,9
+ESP;Spagna;2013-01-01;-11,9;-10,0
+ESP;Spagna;2013-04-01;-11,8;-10,0
+ESP;Spagna;2013-07-01;-12,6;-10,0
+ESP;Spagna;2013-10-01;-13,4;-9,7
+ESP;Spagna;2014-01-01;-13,5;-9,3
+ESP;Spagna;2014-04-01;-13,9;-8,8
+ESP;Spagna;2014-07-01;-11,5;-8,0
+ESP;Spagna;2014-10-01;-9,4;-7,0
+ESP;Spagna;2015-01-01;-8,9;-5,9
+ESP;Spagna;2015-04-01;-9,1;-4,8
+ESP;Spagna;2015-07-01;-7,4;-3,9
+ESP;Spagna;2015-10-01;-7,8;-3,2
+ESP;Spagna;2016-01-01;-6,6;-2,5
+ESP;Spagna;2016-04-01;-5,3;-2,2
+ESP;Spagna;2016-07-01;-6,4;-1,4
+ESP;Spagna;2016-10-01;-6,3;-1,0
+ESP;Spagna;2017-01-01;-6,0;-0,3
+ESP;Spagna;2017-04-01;-4,5;0,8
+ESP;Spagna;2017-07-01;-5,2;1,3
+ESP;Spagna;2017-10-01;-3,8;1,8
+ESP;Spagna;2018-01-01;-4,9;2,1
+ESP;Spagna;2018-04-01;-4,1;2,7
+ESP;Spagna;2018-07-01;-4,0;3,1
+ESP;Spagna;2018-10-01;-2,8;3,5
+ESP;Spagna;2019-01-01;-2,1;3,9
+ESP;Spagna;2019-04-01;0,5;4,0
+ESP;Spagna;2019-07-01;-1,6;4,0
+ESP;Spagna;2019-10-01;-0,7;4,3
+ESP;Spagna;2020-01-01;-2,6;-1,2
+ESP;Spagna;2020-04-01;-9,5;-18,8
+ESP;Spagna;2020-07-01;-0,4;-6,0
+ESP;Spagna;2020-10-01;-2,6;-5,3
+ESP;Spagna;2021-01-01;-3,4;-4,1
+ESP;Spagna;2021-04-01;-2,3;-2,7
+ESP;Spagna;2021-07-01;0,7;-0,9
+ESP;Spagna;2021-10-01;0,0;1,0
+ESP;Spagna;2022-01-01;-2,7;2,3
+ESP;Spagna;2022-04-01;-3,4;3,7
+ESP;Spagna;2022-07-01;-3,9;4,2
+ESP;Spagna;2022-10-01;-3,2;4,4
+ESP;Spagna;2023-01-01;-1,9;4,5
+ESP;Spagna;2023-04-01;-0,4;4,4
+ESP;Spagna;2023-07-01;1,6;5,0
+ESP;Spagna;2023-10-01;-0,1;5,5
+ESP;Spagna;2024-01-01;2,3;6,6
+ESP;Spagna;2024-04-01;2,4;7,3
+ESP;Spagna;2024-07-01;4,2;7,9
+ESP;Spagna;2024-10-01;4,4;8,3
+ESP;Spagna;2025-01-01;3,7;8,6
+ESP;Spagna;2025-04-01;4,0;9,0
+ESP;Spagna;2025-07-01;4,8;9,4
+ESP;Spagna;2025-10-01;5,2;9,9
+ESP;Spagna;2026-01-01;5,3;10,4
+ESP;Spagna;2026-04-01;5,5;10,9
+FRA;Francia;2007-01-01;0,0;0,0
+FRA;Francia;2007-04-01;0,4;0,5
+FRA;Francia;2007-07-01;0,5;0,7
+FRA;Francia;2007-10-01;0,8;0,6
+FRA;Francia;2008-01-01;0,9;1,4
+FRA;Francia;2008-04-01;0,3;0,5
+FRA;Francia;2008-07-01;-0,3;0,1
+FRA;Francia;2008-10-01;0,7;-1,3
+FRA;Francia;2009-01-01;1,1;-3,3
+FRA;Francia;2009-04-01;1,6;-3,2
+FRA;Francia;2009-07-01;2,1;-3,1
+FRA;Francia;2009-10-01;2,3;-2,5
+FRA;Francia;2010-01-01;2,5;-2,4
+FRA;Francia;2010-04-01;2,7;-2,0
+FRA;Francia;2010-07-01;3,3;-1,5
+FRA;Francia;2010-10-01;3,3;-1,0
+FRA;Francia;2011-01-01;3,0;0,2
+FRA;Francia;2011-04-01;2,8;0,0
+FRA;Francia;2011-07-01;2,8;0,3
+FRA;Francia;2011-10-01;2,6;0,5
+FRA;Francia;2012-01-01;2,5;0,3
+FRA;Francia;2012-04-01;2,5;-0,2
+FRA;Francia;2012-07-01;2,3;0,0
+FRA;Francia;2012-10-01;1,2;-0,2
+FRA;Francia;2013-01-01;0,8;-0,1
+FRA;Francia;2013-04-01;0,9;0,7
+FRA;Francia;2013-07-01;0,5;0,3
+FRA;Francia;2013-10-01;0,5;0,8
+FRA;Francia;2014-01-01;1,0;0,7
+FRA;Francia;2014-04-01;1,3;0,8
+FRA;Francia;2014-07-01;1,8;1,3
+FRA;Francia;2014-10-01;1,8;0,9
+FRA;Francia;2015-01-01;2,0;1,4
+FRA;Francia;2015-04-01;1,8;1,3
+FRA;Francia;2015-07-01;1,9;1,5
+FRA;Francia;2015-10-01;2,3;1,7
+FRA;Francia;2016-01-01;2,9;1,9
+FRA;Francia;2016-04-01;2,8;1,6
+FRA;Francia;2016-07-01;3,4;1,7
+FRA;Francia;2016-10-01;3,5;2,2
+FRA;Francia;2017-01-01;4,1;2,8
+FRA;Francia;2017-04-01;4,5;3,4
+FRA;Francia;2017-07-01;4,7;4,1
+FRA;Francia;2017-10-01;4,8;4,6
+FRA;Francia;2018-01-01;4,3;4,4
+FRA;Francia;2018-04-01;4,6;4,5
+FRA;Francia;2018-07-01;5,0;5,0
+FRA;Francia;2018-10-01;6,2;5,7
+FRA;Francia;2019-01-01;7,1;6,6
+FRA;Francia;2019-04-01;7,1;7,0
+FRA;Francia;2019-07-01;7,1;6,9
+FRA;Francia;2019-10-01;7,7;6,3
+FRA;Francia;2020-01-01;6,3;0,8
+FRA;Francia;2020-04-01;4,3;-11,6
+FRA;Francia;2020-07-01;7,1;1,7
+FRA;Francia;2020-10-01;9,9;1,6
+FRA;Francia;2021-01-01;8,8;1,9
+FRA;Francia;2021-04-01;9,6;3,1
+FRA;Francia;2021-07-01;10,5;6,1
+FRA;Francia;2021-10-01;12,2;6,5
+FRA;Francia;2022-01-01;10,0;6,3
+FRA;Francia;2022-04-01;9,1;6,6
+FRA;Francia;2022-07-01;10,4;7,0
+FRA;Francia;2022-10-01;12,0;7,3
+FRA;Francia;2023-01-01;11,1;7,4
+FRA;Francia;2023-04-01;10,7;8,3
+FRA;Francia;2023-07-01;11,1;8,6
+FRA;Francia;2023-10-01;12,1;9,0
+FRA;Francia;2024-01-01;12,8;9,2
+FRA;Francia;2024-04-01;13,3;9,4
+FRA;Francia;2024-07-01;14,2;9,8
+FRA;Francia;2024-10-01;14,1;9,7
+FRA;Francia;2025-01-01;12,9;9,7
+FRA;Francia;2025-04-01;12,9;9,9
+FRA;Francia;2025-07-01;12,5;10,3
+FRA;Francia;2025-10-01;12,7;10,5
+FRA;Francia;2026-01-01;12,5;10,3
+FRA;Francia;2026-04-01;11,9;10,2
+ITA;Italia;2007-01-01;0,0;0,0
+ITA;Italia;2007-04-01;0,8;-0,0
+ITA;Italia;2007-07-01;-0,3;-0,3
+ITA;Italia;2007-10-01;-0,5;-0,6
+ITA;Italia;2008-01-01;-0,8;0,2
+ITA;Italia;2008-04-01;-1,0;-0,9
+ITA;Italia;2008-07-01;-3,0;-2,6
+ITA;Italia;2008-10-01;-4,5;-5,0
+ITA;Italia;2009-01-01;-3,2;-7,4
+ITA;Italia;2009-04-01;-5,1;-8,1
+ITA;Italia;2009-07-01;-4,9;-7,9
+ITA;Italia;2009-10-01;-5,4;-7,8
+ITA;Italia;2010-01-01;-6,4;-7,5
+ITA;Italia;2010-04-01;-6,8;-7,0
+ITA;Italia;2010-07-01;-7,0;-6,8
+ITA;Italia;2010-10-01;-6,3;-6,0
+ITA;Italia;2011-01-01;-6,5;-5,7
+ITA;Italia;2011-04-01;-6,9;-5,9
+ITA;Italia;2011-07-01;-7,6;-6,4
+ITA;Italia;2011-10-01;-7,7;-7,3
+ITA;Italia;2012-01-01;-11,0;-8,4
+ITA;Italia;2012-04-01;-11,7;-9,2
+ITA;Italia;2012-07-01;-13,0;-9,9
+ITA;Italia;2012-10-01;-14,1;-10,5
+ITA;Italia;2013-01-01;-13,6;-11,3
+ITA;Italia;2013-04-01;-14,1;-11,2
+ITA;Italia;2013-07-01;-12,6;-10,9
+ITA;Italia;2013-10-01;-12,8;-11,0
+ITA;Italia;2014-01-01;-13,1;-11,1
+ITA;Italia;2014-04-01;-13,2;-11,1
+ITA;Italia;2014-07-01;-12,4;-11,0
+ITA;Italia;2014-10-01;-12,6;-11,1
+ITA;Italia;2015-01-01;-12,2;-10,8
+ITA;Italia;2015-04-01;-11,9;-10,3
+ITA;Italia;2015-07-01;-11,4;-10,1
+ITA;Italia;2015-10-01;-11,5;-9,5
+ITA;Italia;2016-01-01;-10,9;-9,3
+ITA;Italia;2016-04-01;-10,9;-8,9
+ITA;Italia;2016-07-01;-10,8;-8,2
+ITA;Italia;2016-10-01;-10,7;-7,8
+ITA;Italia;2017-01-01;-10,8;-7,3
+ITA;Italia;2017-04-01;-10,3;-6,9
+ITA;Italia;2017-07-01;-9,4;-6,7
+ITA;Italia;2017-10-01;-9,2;-6,1
+ITA;Italia;2018-01-01;-9,8;-6,2
+ITA;Italia;2018-04-01;-9,9;-5,8
+ITA;Italia;2018-07-01;-9,9;-5,7
+ITA;Italia;2018-10-01;-9,0;-5,3
+ITA;Italia;2019-01-01;-9,7;-5,1
+ITA;Italia;2019-04-01;-9,2;-4,6
+ITA;Italia;2019-07-01;-9,4;-5,0
+ITA;Italia;2019-10-01;-10,0;-5,3
+ITA;Italia;2020-01-01;-10,8;-10,3
+ITA;Italia;2020-04-01;-15,0;-21,5
+ITA;Italia;2020-07-01;-10,6;-10,2
+ITA;Italia;2020-10-01;-10,0;-9,7
+ITA;Italia;2021-01-01;-9,2;-8,1
+ITA;Italia;2021-04-01;-8,5;-5,5
+ITA;Italia;2021-07-01;-6,6;-3,0
+ITA;Italia;2021-10-01;-7,6;-1,4
+ITA;Italia;2022-01-01;-7,4;-0,7
+ITA;Italia;2022-04-01;-7,9;0,9
+ITA;Italia;2022-07-01;-6,8;1,1
+ITA;Italia;2022-10-01;-9,1;0,8
+ITA;Italia;2023-01-01;-7,6;1,5
+ITA;Italia;2023-04-01;-7,5;1,4
+ITA;Italia;2023-07-01;-7,1;1,6
+ITA;Italia;2023-10-01;-6,7;2,1
+ITA;Italia;2024-01-01;-6,3;2,3
+ITA;Italia;2024-04-01;-6,1;2,6
+ITA;Italia;2024-07-01;-5,9;2,7
+ITA;Italia;2024-10-01;-6,3;2,8
+ITA;Italia;2025-01-01;-6,3;3,2
+ITA;Italia;2025-04-01;-5,3;3,2
+ITA;Italia;2025-07-01;-4,6;3,5
+ITA;Italia;2025-10-01;-5,2;3,7
+ITA;Italia;2026-01-01;-4,8;4,0
+ITA;Italia;2026-04-01;-5,7;4,2
+USA;Stati Uniti;2007-01-01;0,0;0,0
+USA;Stati Uniti;2007-04-01;0,2;0,4
+USA;Stati Uniti;2007-07-01;0,1;0,7
+USA;Stati Uniti;2007-10-01;-0,1;1,1
+USA;Stati Uniti;2008-01-01;0,2;0,4
+USA;Stati Uniti;2008-04-01;2,1;0,8
+USA;Stati Uniti;2008-07-01;-0,1;0,0
+USA;Stati Uniti;2008-10-01;1,0;-2,4
+USA;Stati Uniti;2009-01-01;0,7;-3,7
+USA;Stati Uniti;2009-04-01;1,1;-4,1
+USA;Stati Uniti;2009-07-01;-0,4;-3,9
+USA;Stati Uniti;2009-10-01;-0,5;-3,1
+USA;Stati Uniti;2010-01-01;-0,1;-2,8
+USA;Stati Uniti;2010-04-01;1,4;-2,1
+USA;Stati Uniti;2010-07-01;1,7;-1,6
+USA;Stati Uniti;2010-10-01;1,9;-1,3
+USA;Stati Uniti;2011-01-01;2,8;-1,7
+USA;Stati Uniti;2011-04-01;2,4;-1,2
+USA;Stati Uniti;2011-07-01;2,7;-1,4
+USA;Stati Uniti;2011-10-01;2,7;-0,5
+USA;Stati Uniti;2012-01-01;4,1;0,2
+USA;Stati Uniti;2012-04-01;4,6;0,4
+USA;Stati Uniti;2012-07-01;3,6;0,3
+USA;Stati Uniti;2012-10-01;6,2;0,3
+USA;Stati Uniti;2013-01-01;2,0;1,1
+USA;Stati Uniti;2013-04-01;2,7;1,2
+USA;Stati Uniti;2013-07-01;2,9;1,8
+USA;Stati Uniti;2013-10-01;2,9;2,5
+USA;Stati Uniti;2014-01-01;3,9;2,0
+USA;Stati Uniti;2014-04-01;5,0;3,1
+USA;Stati Uniti;2014-07-01;5,8;4,1
+USA;Stati Uniti;2014-10-01;7,0;4,4
+USA;Stati Uniti;2015-01-01;8,3;5,2
+USA;Stati Uniti;2015-04-01;8,3;5,6
+USA;Stati Uniti;2015-07-01;8,7;5,8
+USA;Stati Uniti;2015-10-01;9,1;5,8
+USA;Stati Uniti;2016-01-01;9,8;6,2
+USA;Stati Uniti;2016-04-01;9,5;6,4
+USA;Stati Uniti;2016-07-01;9,9;6,9
+USA;Stati Uniti;2016-10-01;10,4;7,3
+USA;Stati Uniti;2017-01-01;11,4;7,7
+USA;Stati Uniti;2017-04-01;12,4;8,1
+USA;Stati Uniti;2017-07-01;13,0;8,8
+USA;Stati Uniti;2017-10-01;13,4;9,8
+USA;Stati Uniti;2018-01-01;14,5;10,6
+USA;Stati Uniti;2018-04-01;15,3;11,0
+USA;Stati Uniti;2018-07-01;16,3;11,5
+USA;Stati Uniti;2018-10-01;17,3;11,5
+USA;Stati Uniti;2019-01-01;18,7;12,1
+USA;Stati Uniti;2019-04-01;18,4;12,9
+USA;Stati Uniti;2019-07-01;19,0;14,0
+USA;Stati Uniti;2019-10-01;19,4;14,7
+USA;Stati Uniti;2020-01-01;20,2;13,0
+USA;Stati Uniti;2020-04-01;32,2;4,1
+USA;Stati Uniti;2020-07-01;27,9;12,1
+USA;Stati Uniti;2020-10-01;25,5;13,3
+USA;Stati Uniti;2021-01-01;40,5;15,0
+USA;Stati Uniti;2021-04-01;29,9;17,0
+USA;Stati Uniti;2021-07-01;28,7;17,7
+USA;Stati Uniti;2021-10-01;27,4;19,5
+USA;Stati Uniti;2022-01-01;23,6;19,1
+USA;Stati Uniti;2022-04-01;22,8;19,1
+USA;Stati Uniti;2022-07-01;24,1;19,7
+USA;Stati Uniti;2022-10-01;24,7;20,2
+USA;Stati Uniti;2023-01-01;27,8;21,0
+USA;Stati Uniti;2023-04-01;28,8;21,4
+USA;Stati Uniti;2023-07-01;29,2;22,4
+USA;Stati Uniti;2023-10-01;30,1;23,2
+USA;Stati Uniti;2024-01-01;31,1;23,4
+USA;Stati Uniti;2024-04-01;31,6;24,2
+USA;Stati Uniti;2024-07-01;31,8;24,9
+USA;Stati Uniti;2024-10-01;32,2;25,5
+USA;Stati Uniti;2025-01-01;32,4;25,4
+USA;Stati Uniti;2025-04-01;33,1;26,5
+USA;Stati Uniti;2025-07-01;33,4;27,5
+USA;Stati Uniti;2025-10-01;33,5;27,5
+USA;Stati Uniti;2026-01-01;34,2;28,2
+USA;Stati Uniti;2026-04-01;34,1;28,9

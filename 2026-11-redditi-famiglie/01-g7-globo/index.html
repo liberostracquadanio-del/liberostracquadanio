@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="radar:altezza-640" content="713">
+<meta name="radar:altezza-360" content="744">
+<meta name="radar:titolo" content="Il reddito delle famiglie nel G7 e nel mondo">
+<meta name="radar:pubblicato" content="2026-11-17">
+<meta name="radar:modificato" content="2026-11-17">
+<meta name="radar:modello" content="radar-dataviz">
+<title>Il reddito delle famiglie nel G7 e nel mondo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,700&display=swap">
+<link rel="stylesheet" href="../assets/radar.css">
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0"></script>
+<script src="../assets/topojson-client-3.1.0.min.js"></script>
+<script src="../assets/radar.js"></script>
+<style>
+  /* regole solo di questa dataviz */
+  .tabs { display: flex; gap: 0; margin: 22px 0 0; border: 1px solid var(--rule); border-radius: 3px; width: max-content; max-width: 100%; }
+  .tabs button {
+    font: 600 13px/1 var(--sans); color: var(--ink-2); background: transparent; border: 0;
+    padding: 9px 14px; cursor: pointer; border-radius: 2px;
+  }
+  .tabs button[aria-selected="true"] { background: var(--ink); color: var(--bg); }
+  .view[hidden] { display: none; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 16px 0 0; }
+  .chips button {
+    font: 500 13px/1 var(--sans); color: var(--ink); background: transparent;
+    border: 1px solid var(--rule); border-radius: 14px; padding: 6px 11px; cursor: pointer;
+  }
+  .chips button[aria-pressed="true"] { border-color: var(--ink); font-weight: 700; }
+  .globe-wrap { position: relative; margin: 10px auto 0; }
+  .globe-wrap svg { display: block; margin: 0 auto; touch-action: pan-y; cursor: grab; }
+  .globe-wrap svg:active { cursor: grabbing; }
+  .country { stroke: var(--bg); stroke-width: 0.5; }
+  .country.has { cursor: pointer; }
+  .country.sel { stroke: var(--ink); stroke-width: 1.6; }
+  .ocean { fill: var(--rule); opacity: 0.45; }
+  .grat { fill: none; stroke: var(--grey-light); stroke-width: 0.4; opacity: 0.6; }
+  .card { margin: 14px 0 0; border-top: 1px solid var(--rule); padding-top: 12px; }
+  .card__t { font-size: 14px; font-weight: 700; margin: 0 0 8px; }
+  .card__row { display: grid; grid-template-columns: 92px 1fr 64px; align-items: center; gap: 8px; font-size: 13px; margin: 6px 0; }
+  .card__bar { position: relative; height: 16px; }
+  .card__bar i { position: absolute; top: 0; height: 16px; border-radius: 2px; transition: all 600ms cubic-bezier(.2,.7,.3,1); }
+  .card__bar b { position: absolute; top: -3px; bottom: -3px; width: 1px; background: var(--ink); }
+  .card__v { font-weight: 700; text-align: right; font-variant-numeric: tabular-nums; }
+  .card__q { font-size: 12px; color: var(--ink-2); margin: 8px 0 0; }
+  .scale { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 12px; color: var(--ink-2); margin: 8px 0 0; justify-content: center; }
+  .scale span { display: inline-flex; align-items: center; gap: 5px; }
+</style>
+</head>
+<body>
+<main class="radar">
+  <header>
+    <h1 class="r-title">Italia ultima nel G7: il reddito delle famiglie perde l'1%</h1>
+    <p class="r-sub" id="sub">Reddito e Pil pro capite al netto dell'inflazione, variazione nel 2° trimestre 2026</p>
+  </header>
+
+  <div class="tabs" role="tablist" aria-label="Scegli la vista">
+    <button role="tab" aria-selected="true" id="tab-g7">Il G7 nel trimestre</button>
+    <button role="tab" aria-selected="false" id="tab-mondo">Il mondo dal 2007</button>
+  </div>
+
+  <section class="view" id="v-g7">
+    <div class="r-key" style="margin:20px 0 0;font-size:13px;color:var(--ink)"><span><i class="sw" style="background:var(--blue)"></i>Reddito delle famiglie</span><span><i class="sw" style="background:var(--grey-light)"></i>Pil</span><span><i class="sw" style="background:var(--red)"></i>Italia</span></div>
+    <figure class="r-chart" id="g7" style="margin-top:4px"></figure>
+  </section>
+
+  <section class="view" id="v-mondo" hidden>
+    <div class="chips" id="chips" aria-label="Paesi del G7"></div>
+    <div class="globe-wrap" id="globo"></div>
+    <div class="scale" id="scale"></div>
+    <div class="card" id="card" aria-live="polite"></div>
+  </section>
+
+  <footer class="r-foot">
+    <span>Fonte: Ocse, Household indicators dashboard</span>
+    <span>Elaborazione Radar – QN</span>
+  </footer>
+  <p class="r-note" id="nota">Giappone: reddito del 2° trimestre 2026 non ancora disponibile</p>
+</main>
+
+<script>
+(function () {
+  var R = Radar, fmt = R.fmt;
+  // stato finale animato (transizione) o immediato (selezione: resize e movimento ridotto)
+  function grow(s, f) {
+    if (typeof s.attrTween === "function") s.attrTween("d", function (d) { return function (t) { return f(d, t); }; });
+    else s.attr("d", function (d) { return f(d, 1); });
+  }
+  var sg = function (v, d) { return v == null ? "n.d." : (v > 0 ? "+" : "") + fmt(v, d == null ? 1 : d); };
+
+  // ---------- Bandiere disegnate (24 x 16) ----------
+  function flag(g, code, x, y, w) {
+    var h = w * 2 / 3, f = g.append("g").attr("transform", "translate(" + x + "," + y + ")");
+    function r(a, b, c, d, col) { f.append("rect").attr("x", a * w).attr("y", b * h).attr("width", c * w).attr("height", d * h).style("fill", col); }
+    if (code === "ITA") { r(0, 0, 1/3, 1, "#009246"); r(1/3, 0, 1/3, 1, "#fff"); r(2/3, 0, 1/3, 1, "#ce2b37"); }
+    if (code === "FRA") { r(0, 0, 1/3, 1, "#0055a4"); r(1/3, 0, 1/3, 1, "#fff"); r(2/3, 0, 1/3, 1, "#ef4135"); }
+    if (code === "DEU") { r(0, 0, 1, 1/3, "#000"); r(0, 1/3, 1, 1/3, "#dd0000"); r(0, 2/3, 1, 1/3, "#ffce00"); }
+    if (code === "JPN") { r(0, 0, 1, 1, "#fff"); f.append("circle").attr("cx", w / 2).attr("cy", h / 2).attr("r", h * 0.3).style("fill", "#bc002d"); }
+    if (code === "CAN") {
+      r(0, 0, 1/4, 1, "#d80621"); r(1/4, 0, 1/2, 1, "#fff"); r(3/4, 0, 1/4, 1, "#d80621");
+      var s = h / 16; // foglia d'acero stilizzata
+      f.append("path").attr("transform", "translate(" + (w / 2) + "," + (h / 2) + ") scale(" + s + ")")
+        .attr("d", "M0,-6 L1.2,-3.6 L2.6,-4.2 L2.2,-1.2 L4.6,-2.6 L4,-0.6 L5.4,0 L2.4,2.2 L2.8,3.4 L0.4,2.9 L0.5,6 L-0.5,6 L-0.4,2.9 L-2.8,3.4 L-2.4,2.2 L-5.4,0 L-4,-0.6 L-4.6,-2.6 L-2.2,-1.2 L-2.6,-4.2 L-1.2,-3.6Z")
+        .style("fill", "#d80621");
+    }
+    if (code === "GBR") {
+      r(0, 0, 1, 1, "#012169");
+      f.append("path").attr("d", "M0,0L" + w + "," + h + "M" + w + ",0L0," + h).style("stroke", "#fff").style("stroke-width", h / 5);
+      f.append("path").attr("d", "M0,0L" + w + "," + h + "M" + w + ",0L0," + h).style("stroke", "#c8102e").style("stroke-width", h / 15);
+      r(0, 0.4 - 0.07, 1, 0.34, "#fff"); r(0.5 - 0.11, 0, 0.22, 1, "#fff");
+      r(0, 0.4, 1, 0.2, "#c8102e"); r(0.5 - 0.065, 0, 0.13, 1, "#c8102e");
+    }
+    if (code === "USA") {
+      for (var i = 0; i < 7; i++) r(0, i / 7, 1, 1 / 14, "#b22234");
+      for (var j = 0; j < 7; j++) r(0, j / 7 + 1 / 14, 1, 1 / 14, "#fff");
+      r(0, 0, 0.42, 4 / 7, "#3c3b6e");
+    }
+    f.append("rect").attr("width", w).attr("height", h).style("fill", "none").style("stroke", "var(--rule)").style("stroke-width", 0.75);
+  }
+
+  Promise.all([
+    R.loadCSV("../data/g7-trimestre.csv"),
+    R.loadCSV("../data/mondo-dal-2007.csv"),
+    fetch("../data/mondo-110m.json").then(function (r) { return r.json(); })
+  ]).then(function (res) {
+    var g7 = res[0].map(function (r) { return { c: r.codice, n: r.paese, red: R.num(r.reddito), pil: R.num(r.pil) }; });
+    var avg = g7.find(function (d) { return d.c === "G7"; });
+    g7 = g7.filter(function (d) { return d.c !== "G7"; });
+    var mondo = res[1].map(function (r) { return { c: r.codice, iso: +r.iso_num, n: r.paese, v: R.num(r.dal_2007), q: R.num(r.ultimo_trim), p: r.periodo }; });
+    var byIso = {}; mondo.forEach(function (d) { byIso[d.iso] = d; });
+    var byCode = {}; mondo.forEach(function (d) { byCode[d.c] = d; });
+    var ita = byCode.ITA;
+
+    // ================= Vista 1: G7 nel trimestre =================
+    var host = document.getElementById("g7");
+    var tip = R.tooltip(host), clear = function () {};
+    R.dismissOutside(host, function () { tip.hide(); clear(); });
+
+    R.responsive(host, function (W, phase) {
+      var narrow = R.isNarrow(W);
+      var m = { top: 24, right: narrow ? 4 : 132, bottom: 62, left: 4 };
+      var H = narrow ? 360 : 400;
+      var w = W - m.left - m.right, h = H - m.top - m.bottom;
+      var x = d3.scaleBand().domain(g7.map(function (d) { return d.c; })).range([0, w]).paddingInner(narrow ? 0.18 : 0.26).paddingOuter(0.04);
+      var x2 = d3.scaleBand().domain(["red", "pil"]).range([0, x.bandwidth()]).paddingInner(0.12);
+      var y = d3.scaleLinear().domain([-1.25, 1.75]).range([h, 0]);
+
+      d3.select(host).select("svg").remove();
+      var svg = d3.select(host).insert("svg", ".r-tip").attr("width", W).attr("height", H).attr("role", "img")
+        .attr("aria-label", "Colonne affiancate: nel secondo trimestre 2026 il reddito reale pro capite delle famiglie è sceso dell'1% in Italia, il calo più forte del G7, mentre il Pil pro capite è salito dello " + fmt(g7.find(function (d) { return d.c === "ITA"; }).pil, 1) + "%. Media G7: reddito " + sg(avg.red) + "%, Pil " + sg(avg.pil) + "%.");
+      svg.append("title").text("Reddito e Pil pro capite nel G7, 2° trimestre 2026");
+      var g = svg.append("g").attr("transform", "translate(" + m.left + "," + m.top + ")");
+
+      // banda dell'Italia
+      g.append("rect").attr("x", x("ITA") - x.step() * x.paddingInner() / 2).attr("width", x.step()).attr("y", -m.top + 4).attr("height", h + m.top + 52)
+        .style("fill", "var(--blue-5)").style("opacity", 0.35);
+
+
+      g.append("line").attr("class", "baseline").attr("x1", 0).attr("x2", w).attr("y1", Math.round(y(0)) + 0.5).attr("y2", Math.round(y(0)) + 0.5);
+
+      var bars = [];
+      g7.forEach(function (d) { bars.push({ d: d, k: "red", v: d.red }); bars.push({ d: d, k: "pil", v: d.pil }); });
+      function col(b) { return b.k === "pil" ? "var(--grey-light)" : (b.d.c === "ITA" ? "var(--red)" : "var(--blue)"); }
+      function path(b, t) {
+        var bx = x(b.d.c) + x2(b.k), bw = x2.bandwidth(), v = (b.v || 0) * t;
+        var y0 = y(0), y1 = y(v);
+        if (v >= 0) return R.barPathV(bx, y1, bw, y0 - y1, 2);
+        // barra negativa: angoli smussati in basso
+        var hh = y1 - y0, rr = Math.min(2, bw / 2, hh);
+        if (hh <= 0) return "M" + bx + "," + y0 + "h" + bw + "v0h" + (-bw) + "Z";
+        return "M" + bx + "," + y0 + "V" + (y1 - rr) + "Q" + bx + "," + y1 + " " + (bx + rr) + "," + y1 + "H" + (bx + bw - rr) + "Q" + (bx + bw) + "," + y1 + " " + (bx + bw) + "," + (y1 - rr) + "V" + y0 + "Z";
+      }
+      var bs = g.append("g").selectAll("path").data(bars).join("path").attr("class", "mark").style("fill", col);
+      R.enter(bs, phase, function (s) { s.attr("d", function (b) { return path(b, 0); }); },
+        function (s) { grow(s, path); });
+
+      var vl = g.append("g").selectAll("text").data(bars).join("text").attr("class", function (b) { return "val-label mark" + (b.k === "pil" ? " val-label--muted" : ""); })
+        .attr("text-anchor", "middle").style("font-size", narrow ? "10.5px" : null)
+        .attr("x", function (b) { return x(b.d.c) + x2(b.k) + x2.bandwidth() / 2; })
+        .attr("y", function (b) { return b.v == null ? y(0) - 6 : (b.v >= 0 ? y(b.v) - 5 : y(b.v) + 13); })
+        .style("fill", function (b) { return b.d.c === "ITA" && b.k === "red" ? "var(--red)" : null; })
+        .text(function (b) { return b.v == null ? "n.d." : sg(b.v); });
+      R.enter(vl, phase, function (s) { s.style("opacity", 0); }, function (s) { s.style("opacity", 1); }, R.DUR * 0.6);
+
+      // medie G7 (linee tratteggiate)
+      var an = g.append("g").attr("class", "anno");
+      [["red", avg.red, "var(--blue)"], ["pil", avg.pil, "var(--grey)"]].forEach(function (a) {
+        an.append("line").attr("x1", 0).attr("x2", w).attr("y1", y(a[1])).attr("y2", y(a[1]))
+          .style("stroke", a[2]).style("stroke-dasharray", "4 3").style("stroke-width", 1);
+        if (!narrow) an.append("text").attr("x", w + 8).attr("y", y(a[1])).attr("dy", a[0] === "pil" ? "-0.1em" : "0.9em").style("font-size", "12px")
+          .text("Media G7 " + (a[0] === "red" ? "reddito" : "Pil") + " " + sg(a[1]));
+      });
+      if (narrow) an.append("text").attr("x", 0).attr("y", h + 58).style("font-size", "12px").style("fill", "var(--ink-2)")
+        .text("Tratteggio: media G7, reddito " + sg(avg.red) + " e Pil " + sg(avg.pil));
+      R.enter(an, phase, function (s) { s.style("opacity", 0); }, function (s) { s.style("opacity", 1); }, R.DUR);
+
+      // nomi e bandiere
+      var fw = narrow ? 20 : 26;
+      g7.forEach(function (d) {
+        var cx = x(d.c) + x.bandwidth() / 2;
+        g.append("text").attr("class", "tick-label").attr("text-anchor", "middle").attr("x", cx).attr("y", h + 16)
+          .style("fill", d.c === "ITA" ? "var(--ink)" : null).style("font-weight", d.c === "ITA" ? 700 : null)
+          .style("font-size", narrow ? "10.5px" : null)
+          .text(narrow ? ({ "Regno Unito": "Regno U.", "Stati Uniti": "Usa", "Germania": "Germ.", "Giappone": "Giapp." }[d.n] || d.n) : d.n);
+        flag(g, d.c, cx - fw / 2, h + 24, fw);
+      });
+
+      clear = function () { bs.classed("is-dimmed", false); vl.classed("is-dimmed", false); };
+      g.append("g").selectAll("rect").data(g7).join("rect").attr("class", "hit")
+        .attr("x", function (d) { return x(d.c) - x.step() * x.paddingInner() / 2; }).attr("width", x.step()).attr("y", -10).attr("height", h + 50)
+        .on("pointerenter pointerdown", function (ev, d) {
+          bs.classed("is-dimmed", function (b) { return b.d !== d; }); vl.classed("is-dimmed", function (b) { return b.d !== d; });
+          tip.show(R.tipHTML({ title: d.n, value: d.red == null ? "n.d." : sg(d.red) + "%", unit: "reddito delle famiglie",
+            rows: [["Pil pro capite", sg(d.pil) + "%"]], note: d.red == null ? "Dato del reddito non ancora disponibile" : null }),
+            x(d.c) + x.bandwidth() / 2 + m.left, y(Math.max(d.red || 0, d.pil || 0)) + m.top);
+        })
+        .on("pointerleave", function (ev) { if (ev.pointerType === "mouse") { tip.hide(); clear(); } });
+    });
+
+    // ================= Vista 2: il globo dal 2007 =================
+    var world = topojson.feature(res[2], res[2].objects.countries).features;
+    var classi = [
+      { lim: [-Infinity, 0], col: "var(--red)", t: "Sotto il 2007" },
+      { lim: [0, 10], col: "var(--blue-5)", t: "0-10%" },
+      { lim: [10, 25], col: "var(--blue-4)", t: "10-25%" },
+      { lim: [25, 50], col: "var(--blue-3)", t: "25-50%" },
+      { lim: [50, Infinity], col: "var(--blue-2)", t: "Oltre 50%" }
+    ];
+    function colore(v) { for (var i = 0; i < classi.length; i++) if (v < classi[i].lim[1]) return classi[i].col; return classi[4].col; }
+    d3.select("#scale").html(classi.map(function (k) { return '<span><i class="sw" style="background:' + k.col + '"></i>' + k.t + "</span>"; }).join("") +
+      '<span><i class="sw" style="background:var(--grey-5)"></i>Dato non disponibile</span>');
+
+    var CENTRI = { CAN: [-100, 56], FRA: [2, 46], DEU: [10, 51], ITA: [12, 42], JPN: [138, 37], GBR: [-2, 54], USA: [-98, 39], GRC: [22, 39] };
+    var sel = "DEU", rot = [-12, -42], svgG, proj, pathG, countries, gW = 0;
+    var started = false;
+
+    var chips = d3.select("#chips").selectAll("button").data(["CAN", "FRA", "DEU", "JPN", "GBR", "USA", "GRC"]).join("button")
+      .text(function (c) { return byCode[c].n; })
+      .on("click", function (ev, c) { select(c, true); });
+
+    function card() {
+      var d = byCode[sel], same = sel === "ITA";
+      var rows = same ? [ita] : [d, ita];
+      var mx = d3.max(mondo, function (q) { return Math.abs(q.v); });
+      var lim = Math.max(40, Math.abs(d.v) + 5, Math.abs(ita.v) + 5);
+      var sc = d3.scaleLinear().domain([-15, lim]).range([0, 100]);
+      var html = '<p class="card__t">' + (same ? "Italia" : d.n + " e Italia") + ": reddito delle famiglie dal 2007</p>";
+      rows.forEach(function (q) {
+        var a = sc(Math.min(0, q.v)), b = sc(Math.max(0, q.v));
+        html += '<div class="card__row"><span' + (q.c === "ITA" ? ' style="font-weight:700"' : "") + ">" + q.n + '</span><span class="card__bar"><i style="left:' + a + "%;width:" + (b - a) + "%;background:" + (q.v < 0 ? "var(--red)" : "var(--blue)") + '"></i><b style="left:' + sc(0) + '%"></b></span><span class="card__v" style="color:' + (q.v < 0 ? "var(--red)" : "var(--ink)") + '">' + sg(q.v) + "%</span></div>";
+      });
+      html += '<p class="card__q">Ultimo trimestre (' + d.p + "): " + d.n + " " + sg(d.q) + "%" + (same ? "" : " · Italia " + sg(ita.q) + "%") + "</p>";
+      d3.select("#card").html(html);
+      chips.attr("aria-pressed", function (c) { return c === sel; });
+      if (countries) countries.classed("sel", function (f) { var q = byIso[+f.id]; return q && (q.c === sel || q.c === "ITA"); });
+    }
+
+    function select(c, animate) {
+      sel = c; card();
+      if (!proj) return;
+      var to = [-CENTRI[c][0], -CENTRI[c][1] * 0.75];
+      if (!animate || R.reduced) { rot = to; redraw(); return; }
+      var from = rot.slice(), it = d3.interpolate(from, to);
+      d3.select("#globo").transition().duration(1100).ease(d3.easeCubicInOut).tween("rot", function () {
+        return function (t) { rot = it(t); redraw(); };
+      });
+    }
+
+    function redraw() {
+      proj.rotate(rot);
+      svgG.select(".ocean").attr("d", pathG);
+      countries.attr("d", pathG);
+      svgG.select(".grat").attr("d", pathG(d3.geoGraticule10()));
+    }
+
+    function drawGlobe() {
+      var host2 = document.getElementById("globo");
+      var W = Math.floor(host2.getBoundingClientRect().width) || Math.floor(document.querySelector(".radar").getBoundingClientRect().width - 32);
+      if (!W || W === gW) return;
+      gW = W;
+      var S = Math.min(W, 460);
+      d3.select(host2).select("svg").remove();
+      var svg = d3.select(host2).append("svg").attr("width", S).attr("height", S).attr("role", "img")
+        .attr("aria-label", "Globo: variazione del reddito reale pro capite delle famiglie dal 2007. Solo Italia (" + sg(ita.v) + "%) e Grecia (" + sg(byCode.GRC.v) + "%) sono sotto il livello del 2007 tra i Paesi Ocse con i dati.");
+      proj = d3.geoOrthographic().scale(S / 2 - 6).translate([S / 2, S / 2]).clipAngle(90).rotate(rot);
+      pathG = d3.geoPath(proj);
+      svgG = svg.append("g");
+      svgG.append("path").attr("class", "ocean").datum({ type: "Sphere" }).attr("d", pathG);
+      svgG.append("path").attr("class", "grat").attr("d", pathG(d3.geoGraticule10()));
+      countries = svgG.append("g").selectAll("path").data(world).join("path")
+        .attr("class", function (f) { return "country" + (byIso[+f.id] ? " has" : ""); })
+        .style("fill", function (f) { var q = byIso[+f.id]; return q ? colore(q.v) : "var(--grey-5)"; })
+        .attr("d", pathG)
+        .on("click", function (ev, f) { var q = byIso[+f.id]; if (q) { if (!CENTRI[q.c]) CENTRI[q.c] = d3.geoCentroid(f); select(q.c, true); } });
+      countries.append("title").text(function (f) { var q = byIso[+f.id]; return q ? q.n + ": " + sg(q.v) + "% dal 2007" : ""; });
+      // trascinamento solo con il mouse: sul telefono la pagina deve scorrere
+      svg.call(d3.drag().filter(function (ev) { return ev.type === "mousedown" || ev.pointerType === "mouse"; })
+        .on("drag", function (ev) {
+          var k = 75 / proj.scale();
+          rot = [rot[0] + ev.dx * k * 1.6, Math.max(-60, Math.min(60, rot[1] - ev.dy * k * 1.6))];
+          redraw();
+        }));
+      card();
+      R.scheduleHeight();
+    }
+
+    // ---------- Schede ----------
+    var tabs = d3.selectAll(".tabs button");
+    tabs.on("click", function () {
+      var mondoOn = this.id === "tab-mondo";
+      tabs.attr("aria-selected", function () { return String((this.id === "tab-mondo") === mondoOn); });
+      d3.select("#v-g7").attr("hidden", mondoOn ? "" : null);
+      d3.select("#v-mondo").attr("hidden", mondoOn ? null : "");
+      d3.select("#sub").text(mondoOn ? "Reddito delle famiglie pro capite al netto dell'inflazione, variazione dall'inizio del 2007"
+        : "Reddito e Pil pro capite al netto dell'inflazione, variazione nel 2° trimestre 2026");
+      d3.select("#nota").text(mondoOn ? "Grecia: dati al 1° trimestre 2026; Giappone al 1° trimestre 2025"
+        : "Giappone: reddito del 2° trimestre 2026 non ancora disponibile");
+      if (mondoOn) {
+        drawGlobe();
+        if (!started) { started = true; rot = [100, -30]; redraw(); select(sel, true); }
+      }
+      R.scheduleHeight();
+    });
+    window.addEventListener("resize", function () { if (!document.getElementById("v-mondo").hidden) { drawGlobe(); } });
+  }).catch(function (e) { R.fail("#g7", e); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="radar:altezza-640" content="622">
+<meta name="radar:altezza-360" content="642">
+<meta name="radar:titolo" content="Il reddito per età in Italia e in Europa">
+<meta name="radar:pubblicato" content="2026-11-17">
+<meta name="radar:modificato" content="2026-11-17">
+<meta name="radar:modello" content="radar-dataviz">
+<title>Il reddito per età in Italia e in Europa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,700&display=swap">
+<link rel="stylesheet" href="../assets/radar.css">
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0"></script>
+<script src="../assets/radar.js"></script>
+<style>
+  /* regole solo di questa dataviz */
+  .dot { stroke: var(--bg); stroke-width: 1.5; }
+  .range { stroke: var(--grey-light); stroke-width: 2; }
+  .r-key { font-size: 13px; color: var(--ink); }
+  .sw--dot { border-radius: 50%; width: 12px; height: 12px; }
+</style>
+</head>
+<body>
+<main class="radar">
+  <header>
+    <h1 class="r-title">Il reddito degli italiani resta indietro finché si lavora</h1>
+    <p class="r-sub">Reddito disponibile equivalente mediano per classe di età, in standard di potere d'acquisto (Pps). Redditi del 2024</p>
+  </header>
+
+  <div class="r-key" id="key" style="margin:22px 0 0"></div>
+  <figure class="r-chart" id="grafico" style="margin-top:6px"></figure>
+
+  <footer class="r-foot">
+    <span>Fonte: Eurostat, EU-SILC (ilc_di03)</span>
+    <span>Elaborazione Radar – QN</span>
+  </footer>
+  <p class="r-note">I Pps correggono le differenze di prezzo tra Paesi. La classe 75 anni e più è compresa in 65 anni e più</p>
+</main>
+
+<script>
+(function () {
+  var R = Radar, fmt = R.fmt, f0 = function (v) { return fmt(v, 0); };
+  var PAESI = [
+    { k: "Italia", col: "var(--red)" },
+    { k: "Francia", col: "var(--blue-3)" },
+    { k: "Germania", col: "var(--blue-1)" },
+    { k: "Spagna", col: "var(--grey-3)" }
+  ];
+
+  d3.select("#key").html(PAESI.map(function (p) { return '<span><i class="sw sw--dot" style="background:' + p.col + '"></i>' + p.k + "</span>"; }).join(""));
+
+  R.loadCSV("../data/reddito-eta-pps.csv").then(function (rows) {
+    var data = rows.map(function (r) {
+      return { c: r.classe, v: PAESI.map(function (p) { return { k: p.k, col: p.col, v: R.num(r[p.k]) }; }) };
+    });
+    var host = document.getElementById("grafico");
+    var tip = R.tooltip(host), clear = function () {};
+    R.dismissOutside(host, function () { tip.hide(); clear(); });
+    var g1824 = data.find(function (d) { return d.c === "18-24 anni"; });
+    var it = function (d, k) { return d.v.find(function (q) { return q.k === k; }).v; };
+
+    R.responsive(host, function (W, phase) {
+      var narrow = R.isNarrow(W);
+      var labW = narrow ? 96 : 130, row = narrow ? 42 : 46;
+      var m = { top: 10, right: 14, bottom: 46, left: labW };
+      var H = m.top + m.bottom + row * data.length + 8;
+      var w = W - m.left - m.right;
+      var x = d3.scaleLinear().domain([20000, 30000]).range([0, w]);
+      var yy = function (i) { return i * row + row / 2 + (i > 0 ? 8 : 0); };
+
+      d3.select(host).select("svg").remove();
+      var svg = d3.select(host).insert("svg", ".r-tip").attr("width", W).attr("height", H).attr("role", "img")
+        .attr("aria-label", "Punti per classe di età: tra i 18 e i 24 anni il reddito mediano italiano è di " + f0(it(g1824, "Italia")) + " Pps contro " + f0(it(g1824, "Germania")) +
+          " in Germania; dopo i 65 anni le distanze tra Italia, Francia, Germania e Spagna quasi si annullano.");
+      svg.append("title").text("Reddito mediano per classe di età in Italia, Francia, Germania e Spagna");
+      var g = svg.append("g").attr("transform", "translate(" + m.left + "," + m.top + ")");
+
+      var ticks = d3.range(20000, 30001, narrow ? 5000 : 2000);
+      g.append("g").attr("class", "grid").selectAll("line").data(ticks).join("line")
+        .attr("x1", function (d) { return Math.round(x(d)) + 0.5; }).attr("x2", function (d) { return Math.round(x(d)) + 0.5; })
+        .attr("y1", 0).attr("y2", yy(data.length - 1) + row / 2);
+      g.append("g").selectAll("text").data(ticks).join("text").attr("class", "tick-label").attr("text-anchor", "middle")
+        .attr("x", function (d) { return x(d); }).attr("y", yy(data.length - 1) + row / 2 + 16).text(function (d) { return f0(d); });
+      g.append("text").attr("class", "tick-label").attr("text-anchor", "end").attr("x", w).attr("y", yy(data.length - 1) + row / 2 + 34)
+        .text("Reddito mediano in Pps");
+      // separatore dopo il totale
+      g.append("line").attr("x1", -labW).attr("x2", w).attr("y1", row + 4).attr("y2", row + 4)
+        .style("stroke", "var(--grey-light)").style("stroke-dasharray", "3 3");
+
+      var rowsG = g.append("g").selectAll("g").data(data).join("g").attr("class", "mark")
+        .attr("transform", function (d, i) { return "translate(0," + yy(i) + ")"; });
+      rowsG.append("text").attr("class", "tick-label").attr("x", -labW).attr("dy", "0.35em")
+        .style("fill", "var(--ink)").style("font-size", narrow ? "12.5px" : "14px")
+        .style("font-weight", function (d) { return d.c === "Totale" ? 600 : 400; }).text(function (d) { return d.c; });
+
+      function ext(d) { return d3.extent(d.v, function (q) { return q.v; }); }
+      var rng = rowsG.append("line").attr("class", "range");
+      var dots = rowsG.selectAll("circle").data(function (d) { return d.v.slice().sort(function (a, b) { return a.k === "Italia" ? 1 : b.k === "Italia" ? -1 : 0; }); })
+        .join("circle").attr("class", "dot").attr("r", narrow ? 6.5 : 7.5).style("fill", function (q) { return q.col; });
+
+      function place(t) {
+        rng.attr("x1", function (d) { return x(ext(d)[0]); }).attr("x2", function (d) { return x(ext(d)[0] + (ext(d)[1] - ext(d)[0]) * t); });
+        dots.attr("cx", function (q) { var d = d3.select(this.parentNode).datum(); var a = ext(d)[0]; return x(a + (q.v - a) * t); });
+      }
+      if (phase === "static") place(1);
+      else {
+        place(0);
+        if (phase === "play") svg.transition().duration(R.DUR * 1.4).ease(R.EASE).tween("pts", function () { return place; });
+      }
+
+      clear = function () { rowsG.classed("is-dimmed", false); };
+      rowsG.append("rect").attr("class", "hit").attr("x", -labW).attr("width", W).attr("y", -row / 2).attr("height", row)
+        .on("pointerenter pointerdown", function (ev, d) {
+          rowsG.classed("is-dimmed", function (q) { return q !== d; });
+          var ord = d.v.slice().sort(function (a, b) { return b.v - a.v; });
+          tip.show(R.tipHTML({ title: d.c, rows: ord.map(function (q) { return [q.k, f0(q.v) + " Pps"]; }) }),
+            Math.min(x(ext(d)[1]) + m.left, W - 30), yy(data.indexOf(d)) + m.top);
+        })
+        .on("pointerleave", function (ev) { if (ev.pointerType === "mouse") { tip.hide(); clear(); } });
+    });
+  }).catch(function (e) { R.fail("#grafico", e); });
+})();
+</script>
+</body>
+</html>

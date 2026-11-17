@@ -1,0 +1,175 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="30 60 248 300" role="img" aria-label="Illustrazione: un signore anziano con la coppola preleva banconote da uno sportello bancomat">
+  <!-- Illustrazione disegnata con codice per Radar – QN. Tavola realistica, toni smorzati, luce laterale da destra -->
+  <defs>
+    <linearGradient id="muro" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d9ccb2"/><stop offset="1" stop-color="#bba985"/>
+    </linearGradient>
+    <linearGradient id="muroLuce" x1="1" y1="0" x2="0" y2="0">
+      <stop offset="0" stop-color="#f3ead6" stop-opacity="0.35"/><stop offset="0.6" stop-color="#f3ead6" stop-opacity="0"/>
+      <stop offset="1" stop-color="#6b5c45" stop-opacity="0.22"/>
+    </linearGradient>
+    <pattern id="conci" width="80" height="44" patternUnits="userSpaceOnUse">
+      <path d="M0,0.5H80M0,22.5H80M0.5,0V22M40.5,22V44" fill="none" stroke="#9f8c6c" stroke-width="1.3"/>
+      <path d="M1.5,2H79M1.5,24H79" fill="none" stroke="#e8dcc3" stroke-width="0.8" opacity="0.7"/>
+      <circle cx="18" cy="11" r="0.7" fill="#a38f70"/><circle cx="61" cy="33" r="0.6" fill="#a38f70"/>
+      <circle cx="52" cy="8" r="0.5" fill="#a38f70"/><circle cx="12" cy="35" r="0.6" fill="#a38f70"/>
+    </pattern>
+    <pattern id="tratteggio" width="3" height="3" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
+      <line x1="0" y1="0" x2="0" y2="3" stroke="#2c2620" stroke-width="0.7"/>
+    </pattern>
+    <pattern id="tweed" width="3.2" height="3.2" patternUnits="userSpaceOnUse">
+      <rect width="3.2" height="3.2" fill="#6f6250"/>
+      <path d="M0,0L3.2,3.2M3.2,0L0,3.2" stroke="#4f4436" stroke-width="0.55"/>
+    </pattern>
+    <linearGradient id="acciaio" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#7c8387"/><stop offset="0.45" stop-color="#a9b0b3"/><stop offset="1" stop-color="#868d91"/>
+    </linearGradient>
+    <linearGradient id="schermo" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d7e6e1"/><stop offset="1" stop-color="#a9c2bd"/>
+    </linearGradient>
+    <linearGradient id="cappotto" x1="1" y1="0" x2="0" y2="0">
+      <stop offset="0" stop-color="#5d554c"/><stop offset="0.55" stop-color="#4a433c"/><stop offset="1" stop-color="#37322d"/>
+    </linearGradient>
+    <linearGradient id="manica" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3c3631"/><stop offset="1" stop-color="#57504a"/>
+    </linearGradient>
+    <linearGradient id="pelle" x1="1" y1="0" x2="0" y2="0">
+      <stop offset="0" stop-color="#e2c4aa"/><stop offset="1" stop-color="#c79f82"/>
+    </linearGradient>
+    <linearGradient id="marciapiede" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8f8576"/><stop offset="1" stop-color="#a99f8f"/>
+    </linearGradient>
+    <filter id="sfuma" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="5"/></filter>
+    <filter id="sfuma2" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="1.6"/></filter>
+    <filter id="grana" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="3" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0.23  0 0 0 0 0.19  0 0 0 0 0.14  0 0 0 -1.1 0.62"/>
+    </filter>
+    <filter id="macchie" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="9" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0.35  0 0 0 0 0.28  0 0 0 0 0.18  0 0 0 -1.6 0.95"/>
+    </filter>
+    <clipPath id="vista"><rect width="320" height="360" rx="2"/></clipPath>
+  </defs>
+
+  <g clip-path="url(#vista)">
+    <!-- sportello bancomat scontornato: cassa e pannello in acciaio -->
+            <rect x="38" y="72" width="112" height="184" fill="#3f4244"/>
+    <path d="M38,72H150L144,78H44Z" fill="#2a2c2e"/>
+    <!-- sportello in acciaio -->
+    <rect x="44" y="78" width="100" height="178" fill="url(#acciaio)"/>
+    <path d="M44,78H144V92L134,98H54L44,92Z" fill="#6e7579"/>
+    <!-- schermo -->
+    <rect x="56" y="100" width="76" height="54" rx="2" fill="#2d3537"/>
+    <rect x="59" y="103" width="70" height="48" rx="1.5" fill="url(#schermo)"/>
+    <rect x="66" y="111" width="40" height="3.2" rx="1.2" fill="#6d8b86"/>
+    <rect x="66" y="120" width="54" height="2.2" rx="1" fill="#8aa6a1"/>
+    <rect x="66" y="126" width="48" height="2.2" rx="1" fill="#8aa6a1"/>
+    <rect x="66" y="138" width="22" height="7" rx="1.5" fill="#7a9792"/>
+    <rect x="98" y="138" width="22" height="7" rx="1.5" fill="#7a9792"/>
+    <path d="M59,103H129L104,151H59Z" fill="#ffffff" opacity="0.12"/>
+    <!-- tastiera -->
+    <g fill="#d3d6d6" stroke="#7a8084" stroke-width="0.6">
+      <rect x="58" y="168" width="11" height="8" rx="1.3"/><rect x="72" y="168" width="11" height="8" rx="1.3"/><rect x="86" y="168" width="11" height="8" rx="1.3"/>
+      <rect x="58" y="179" width="11" height="8" rx="1.3"/><rect x="72" y="179" width="11" height="8" rx="1.3"/><rect x="86" y="179" width="11" height="8" rx="1.3"/>
+      <rect x="58" y="190" width="11" height="8" rx="1.3"/><rect x="72" y="190" width="11" height="8" rx="1.3"/><rect x="86" y="190" width="11" height="8" rx="1.3"/>
+      <rect x="72" y="201" width="11" height="8" rx="1.3"/>
+    </g>
+    <rect x="102" y="168" width="11" height="8" rx="1.3" fill="#b06b5c"/>
+    <rect x="102" y="179" width="11" height="8" rx="1.3" fill="#c9b36a"/>
+    <rect x="102" y="190" width="11" height="8" rx="1.3" fill="#7d9a6e"/>
+    <!-- fessura della carta con luce -->
+    <rect x="118" y="170" width="18" height="5" rx="1.5" fill="#25282a"/>
+    <circle cx="140" cy="172.5" r="1.3" fill="#8fd18a"/>
+    <!-- bocchetta delle banconote -->
+    <rect x="56" y="226" width="76" height="12" rx="2" fill="#5a6064"/>
+    <rect x="60" y="230" width="68" height="4" rx="1" fill="#1c1e20"/>
+    <!-- banconote che escono -->
+    <g>
+      <path d="M78,231 L134,224 L142,236 L86,243 Z" fill="#c4c79f" stroke="#7f8460" stroke-width="0.8"/>
+      <path d="M74,233 L130,228 L136,240 L80,245 Z" fill="#b5bc92" stroke="#737a55" stroke-width="0.8"/>
+      <ellipse cx="108" cy="236.5" rx="6" ry="3.2" fill="none" stroke="#7f8460" stroke-width="0.7"/>
+      <path d="M84,239 L100,237.5" stroke="#8a9068" stroke-width="0.6"/>
+    </g>
+
+    <rect x="38" y="256" width="112" height="96" fill="#3f4244"/>
+    <rect x="44" y="256" width="100" height="92" fill="url(#acciaio)" opacity="0.85"/>
+    <ellipse cx="94" cy="352" rx="62" ry="6" fill="#3a3229" opacity="0.3" filter="url(#sfuma2)"/>
+    <!-- ombra a terra -->
+    <ellipse cx="236" cy="352" rx="62" ry="7" fill="#3a3229" opacity="0.35" filter="url(#sfuma2)"/>
+
+    <!-- gambe e scarpe -->
+    <path d="M214,300 L210,350 L228,351 L230,300 Z" fill="#55575a"/>
+    <path d="M238,300 L244,348 L262,347 L256,300 Z" fill="#4a4c4f"/>
+    <path d="M204,346 C204,342 212,341 228,343 L230,352 L202,353 Z" fill="#2b2622"/>
+    <path d="M240,344 C242,340 252,340 264,342 L266,351 L238,352 Z" fill="#2b2622"/>
+
+    <!-- cappotto -->
+    <path d="M206,140 C196,150 192,170 194,200 C196,240 198,280 202,312 L268,314 C268,280 266,230 262,190 C260,166 254,146 240,136 C230,132 216,134 206,140 Z" fill="url(#cappotto)"/>
+    <!-- abbottonatura, tasca e pieghe -->
+    <path d="M200,160 C202,200 204,260 206,312" fill="none" stroke="#2c2824" stroke-width="1.2"/>
+    <circle cx="204" cy="196" r="1.8" fill="#2a2522"/><circle cx="205" cy="232" r="1.8" fill="#2a2522"/><circle cx="206" cy="268" r="1.8" fill="#2a2522"/>
+    <path d="M214,258 L240,256" stroke="#2c2824" stroke-width="1.4"/>
+    <path d="M248,170 C254,210 256,260 258,312" fill="none" stroke="#2f2a25" stroke-width="0.9" opacity="0.7"/>
+    <path d="M226,280 C228,292 230,302 232,312" fill="none" stroke="#2f2a25" stroke-width="0.9" opacity="0.6"/>
+    <path d="M196,170 C196,220 200,270 202,312 L214,312 C210,270 206,220 206,170 Z" fill="url(#tratteggio)" opacity="0.35"/>
+    <path d="M244,150 C252,190 256,250 260,312 L268,314 C268,280 266,230 262,190 C260,170 254,154 244,142 Z" fill="url(#tratteggio)" opacity="0.4"/>
+    <path d="M206,190 C214,186 222,182 230,176 L232,204 C222,208 212,210 206,212 Z" fill="url(#tratteggio)" opacity="0.3"/>
+    <path d="M218,200 C220,240 222,280 224,312 M236,190 C238,230 240,272 242,312" fill="none" stroke="#2f2a25" stroke-width="0.5" opacity="0.5"/>
+    <!-- bavero -->
+    <path d="M208,140 L222,172 L214,150 Z" fill="#2f2a26"/>
+    <path d="M238,136 C236,150 230,162 224,172 L228,140 Z" fill="#3a342f"/>
+
+    <!-- sciarpa -->
+    <path d="M210,128 C218,136 236,136 244,128 L246,138 C238,146 216,146 208,138 Z" fill="#7b4c43"/>
+    <path d="M214,140 L210,170 L218,172 L222,142 Z" fill="#6c3f37"/>
+    <path d="M212,134 C220,140 236,140 244,133" fill="none" stroke="#5a332c" stroke-width="0.8"/>
+    <path d="M211,150 L218,151 M210,160 L217,161" stroke="#5a332c" stroke-width="0.7"/>
+
+    <!-- braccio teso verso le banconote -->
+    <path d="M214,150 C200,160 182,184 166,204 C158,214 150,222 144,228 L152,240 C162,232 176,220 190,206 C204,192 218,176 226,160 Z" fill="url(#manica)"/>
+    <path d="M196,176 C188,186 180,196 172,204" fill="none" stroke="#2a2521" stroke-width="0.9" opacity="0.8"/>
+    <path d="M206,170 C198,180 192,186 186,192" fill="none" stroke="#6a625a" stroke-width="0.8" opacity="0.7"/>
+    <!-- polsino della camicia -->
+    <path d="M143,227 L152,240 L148,243 L139,230 Z" fill="#e9e4da"/>
+    <!-- mano che prende le banconote -->
+    <path d="M140,229 C134,228 128,229 124,232 C121,234 121,238 125,239 L131,239 C129,242 131,245 135,244 C140,243 146,240 149,242 L148,236 C147,232 144,230 140,229 Z" fill="url(#pelle)" stroke="#9c7660" stroke-width="0.7"/>
+    <path d="M126,233 L133,233.5 M127,236.5 L134,237" stroke="#9c7660" stroke-width="0.6"/>
+    <path d="M124,231 C122,229 123,227 126,227.5 L131,229" fill="url(#pelle)" stroke="#9c7660" stroke-width="0.6"/>
+
+    <!-- collo -->
+    <path d="M214,114 C214,122 214,128 212,132 L240,132 C236,124 234,118 234,112 Z" fill="#c89f82"/>
+    <!-- testa di profilo, rivolta a sinistra -->
+    <path d="M204,84 C214,76 234,76 242,86 C248,94 248,106 245,116 C242,124 236,128 228,128 C222,128 216,126 212,122 C210,120 208,118 206,118 C203,118 201,116 202,113 C200,112 199,110 200,108 C198,106 196,104 197,101 L199,98 C197,95 199,90 204,84 Z" fill="url(#pelle)"/>
+    <!-- ombra sulla guancia e sulla nuca -->
+    <path d="M216,104 C220,112 222,120 228,126 C222,127 216,125 212,121 C214,116 214,110 216,104 Z" fill="#b48c70" opacity="0.45"/>
+    <!-- naso, bocca, mento -->
+    <path d="M200,95 C198,99 195,103 196,105 C198,106 200,106 202,105" fill="none" stroke="#9c7660" stroke-width="0.9"/>
+    <path d="M202,112 C204,113 207,113 209,112" fill="none" stroke="#8b6550" stroke-width="0.9"/>
+    <path d="M206,119 C209,121 213,122 216,121" fill="none" stroke="#9c7660" stroke-width="0.6" opacity="0.7"/>
+    <!-- rughe -->
+    <path d="M212,98 C215,100 216,103 215,106" fill="none" stroke="#a8826b" stroke-width="0.6"/>
+    <path d="M207,104 C210,108 210,112 208,115" fill="none" stroke="#a8826b" stroke-width="0.6"/>
+    <path d="M216,92 L222,91 M216,95 L221,94.5" stroke="#a8826b" stroke-width="0.5" opacity="0.8"/>
+    <!-- capelli bianchi su tempia e nuca -->
+    <path d="M226,90 C236,90 244,94 246,102 C247,110 246,118 242,123 C240,116 238,108 232,102 C230,98 228,94 226,90 Z" fill="#ebe7df" stroke="#bdb6aa" stroke-width="0.6"/>
+    <path d="M232,100 L240,112 M236,98 L243,108 M230,104 L236,116" stroke="#c9c2b5" stroke-width="0.5"/>
+    <!-- orecchio -->
+    <path d="M226,98 C230,96 234,100 233,106 C232,111 229,113 226,111 C227,107 227,102 226,98 Z" fill="#d6b195" stroke="#9c7660" stroke-width="0.7"/>
+    <path d="M228,101 C230,103 230,106 228,108" fill="none" stroke="#9c7660" stroke-width="0.5"/>
+    <!-- sopracciglio e occhio -->
+    <path d="M203,92 C206,90 210,90 213,91" fill="none" stroke="#d9d4cb" stroke-width="2"/>
+    <path d="M205,97 C207,96 209,96 210,97.5" fill="none" stroke="#4a3a30" stroke-width="0.9"/>
+    <!-- occhiali in metallo -->
+    <ellipse cx="207" cy="97.5" rx="6.2" ry="5" fill="#e6eef0" fill-opacity="0.25" stroke="#5b4f45" stroke-width="0.9"/>
+    <path d="M213,97 L227,100" stroke="#5b4f45" stroke-width="0.9"/>
+    <!-- coppola in tweed -->
+    <path d="M200,86 C202,74 216,68 230,69 C242,70 250,77 249,88 C240,85 226,83 214,84 C208,85 204,85 200,86 Z" fill="url(#tweed)"/>
+    <path d="M200,86 C204,85 208,85 214,84 C226,83 240,85 249,88 L248,91 C238,88 224,87 212,88 C206,88 202,88 200,89 Z" fill="#544839"/>
+    <path d="M192,90 C194,86 200,84 210,84.5 L208,89 C202,89 196,90 192,90 Z" fill="#5c4f3f"/>
+    <path d="M226,71 C236,72 243,76 246,82" fill="none" stroke="#a3927a" stroke-width="1.2" opacity="0.7"/>
+    <path d="M240,138 C250,146 256,158 258,172" fill="none" stroke="#7a7066" stroke-width="1.4" opacity="0.6"/>
+    <path d="M204,78 C216,72 234,72 246,80" fill="none" stroke="#4a3f33" stroke-width="0.8"/>
+    <path d="M232,72 C240,74 246,78 249,86 C246,80 240,76 232,72 Z" fill="#3e352b" opacity="0.6"/>
+  </g>
+</svg>

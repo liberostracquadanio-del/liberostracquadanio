@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="radar:altezza-640" content="874">
+<meta name="radar:altezza-360" content="903">
+<meta name="radar:titolo" content="La corsa dei salari dal 1990">
+<meta name="radar:pubblicato" content="2026-11-17">
+<meta name="radar:modificato" content="2026-11-17">
+<meta name="radar:modello" content="radar-dataviz">
+<title>La corsa dei salari dal 1990</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,700&display=swap">
+<link rel="stylesheet" href="../assets/radar.css">
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0"></script>
+<script src="../assets/radar.js"></script>
+<style>
+  /* regole solo di questa dataviz */
+  .lane { stroke: var(--rule); stroke-width: 1; stroke-dasharray: 2 4; }
+  .start { stroke: var(--ink); stroke-width: 2; }
+  .trail { stroke-width: 3; stroke-linecap: round; opacity: 0.35; }
+  .runner path, .runner line { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+</style>
+</head>
+<body>
+<main class="radar">
+  <header>
+    <h1 class="r-title">Salari, l'Italia è ultima: −2,1% dal 1990</h1>
+    <p class="r-sub">Variazione del salario medio annuo al netto dell'inflazione, dal 1990 al 2025</p>
+  </header>
+
+  <figure class="r-chart" id="grafico"></figure>
+
+  <footer class="r-foot">
+    <span>Fonte: Ocse, Average annual wages</span>
+    <span>Elaborazione Radar – QN</span>
+  </footer>
+  <p class="r-note">Salario medio per dipendente a tempo pieno; 23 Paesi Ocse con i dati dal 1990</p>
+</main>
+
+<script>
+(function () {
+  var R = Radar, fmt = R.fmt;
+  var sg = function (v) { return (v > 0 ? "+" : "") + fmt(v, 1); };
+
+  // corridore stilizzato: il punto (0,0) è il piede avanti
+  function runner(g, col, size) {
+    var k = size / 20, r = g.append("g").attr("class", "runner").attr("transform", "scale(" + k + ")");
+    r.append("circle").attr("cx", -3).attr("cy", -18).attr("r", 2.6).style("fill", col);
+    r.append("path").attr("d", "M-3.5,-14.5 L-5.5,-7").style("stroke", col).style("stroke-width", 2.6);           // busto
+    r.append("path").attr("d", "M-3.8,-13 L0,-10.5 L2,-13").style("stroke", col).style("stroke-width", 2);         // braccio avanti
+    r.append("path").attr("d", "M-3.8,-13 L-7.5,-11 L-9.5,-13.5").style("stroke", col).style("stroke-width", 2);  // braccio dietro
+    r.append("path").attr("d", "M-5.5,-7 L-1.5,-3.5 L0,0").style("stroke", col).style("stroke-width", 2.4);       // gamba avanti
+    r.append("path").attr("d", "M-5.5,-7 L-8,-2.5 L-12,-3.5").style("stroke", col).style("stroke-width", 2.4);    // gamba dietro
+    return r;
+  }
+
+  R.loadCSV("../data/salari.csv").then(function (rows) {
+    var data = rows.map(function (r) {
+      return { c: r.codice, n: r.paese, a: R.num(r.salario_1990), b: R.num(r.salario_2025), v: R.num(r.variazione) };
+    }).sort(function (p, q) { return q.v - p.v; });
+    var ita = data.find(function (d) { return d.c === "ITA"; });
+    var nPaesi = data.filter(function (d) { return d.c !== "OECD"; }).length;
+    var rank = data.filter(function (d) { return d.c !== "OECD"; }).indexOf(ita) + 1;
+    var host = document.getElementById("grafico");
+    var tip = R.tooltip(host), clear = function () {};
+    R.dismissOutside(host, function () { tip.hide(); clear(); });
+
+    R.responsive(host, function (W, phase) {
+      var narrow = R.isNarrow(W);
+      var labW = narrow ? 92 : 118, row = narrow ? 24 : 26;
+      var m = { top: 30, right: narrow ? 54 : 70, bottom: 8, left: labW };
+      var H = m.top + m.bottom + row * data.length;
+      var w = W - m.left - m.right;
+      var x = d3.scaleLinear().domain([-12, d3.max(data, function (d) { return d.v; })]).range([0, w]);
+
+      d3.select(host).select("svg").remove();
+      var svg = d3.select(host).insert("svg", ".r-tip").attr("width", W).attr("height", H).attr("role", "img")
+        .attr("aria-label", "Corsa dei salari reali dal 1990 al 2025: l'Italia è " + (rank === nPaesi ? "ultima" : rank + "ª") + " su " + nPaesi + " Paesi Ocse con " + sg(ita.v) +
+          "%. In testa " + data[0].n + " con " + sg(data[0].v) + "%. Media Ocse " + sg(data.find(function (d) { return d.c === "OECD"; }).v) + "%.");
+      svg.append("title").text("Variazione dei salari medi reali dal 1990 al 2025");
+      var g = svg.append("g").attr("transform", "translate(" + m.left + "," + m.top + ")");
+
+      // linea del via
+      g.append("line").attr("class", "start").attr("x1", x(0)).attr("x2", x(0)).attr("y1", -8).attr("y2", row * data.length);
+      g.append("text").attr("class", "tick-label").attr("x", x(0)).attr("y", -14).attr("text-anchor", "middle").style("font-weight", 600).style("fill", "var(--ink)").text("Via: 1990");
+      [50, 100].forEach(function (t) {
+        g.append("line").attr("class", "lane").attr("x1", x(t)).attr("x2", x(t)).attr("y1", -4).attr("y2", row * data.length).style("stroke-dasharray", "1 3");
+        g.append("text").attr("class", "tick-label").attr("x", x(t)).attr("y", -14).attr("text-anchor", "middle").text("+" + t + "%");
+      });
+
+      var lanes = g.append("g").selectAll("g").data(data).join("g").attr("class", "mark")
+        .attr("transform", function (d, i) { return "translate(0," + (i * row + row - 6) + ")"; });
+      lanes.append("line").attr("class", "lane").attr("x1", x(-12)).attr("x2", w);
+      lanes.append("text").attr("class", "tick-label").attr("x", -labW).attr("y", -3)
+        .style("fill", function (d) { return d.c === "ITA" ? "var(--red)" : (d.c === "OECD" ? "var(--ink-2)" : "var(--ink)"); })
+        .style("font-weight", function (d) { return d.c === "ITA" || d.c === "OECD" ? 700 : 400; })
+        .style("font-style", function (d) { return d.c === "OECD" ? "italic" : null; })
+        .style("font-size", narrow ? "11.5px" : "13px")
+        .text(function (d) { return d.n; });
+      function col(d) { return d.c === "ITA" ? "var(--red)" : (d.c === "OECD" ? "var(--grey-dark)" : "var(--blue)"); }
+      var trails = lanes.append("line").attr("class", "trail").style("stroke", col).attr("y1", -4).attr("y2", -4).attr("x1", x(0));
+      var runners = lanes.append("g");
+      runners.each(function (d) { runner(d3.select(this), col(d), narrow ? 17 : 19); });
+      var vals = lanes.append("text").attr("class", "val-label").attr("y", -3)
+        .style("fill", function (d) { return d.c === "ITA" ? "var(--red)" : null; })
+        .style("font-size", narrow ? "11.5px" : null);
+
+      function place(sel, t) {
+        sel.select(".trail").attr("x2", function (d) { return x(d.v * t); });
+        sel.select("g").attr("transform", function (d) { return "translate(" + (x(d.v * t) + (d.v < 0 ? -3 : 2)) + ",0)"; });
+        sel.select(".val-label").attr("x", function (d) { return d.v < 0 ? x(0) + 8 : x(d.v * t) + 8; }).text(function (d) { return sg(d.v * t) + "%"; });
+      }
+      if (phase === "static") place(lanes, 1);
+      else {
+        place(lanes, 0);
+        if (phase === "play") {
+          lanes.transition().delay(function (d, i) { return i * 35; }).duration(R.DUR * 2.2).ease(d3.easeCubicInOut)
+            .tween("corsa", function () { var s = d3.select(this); return function (t) { place(s, t); }; });
+        }
+      }
+
+      clear = function () { lanes.classed("is-dimmed", false); };
+      lanes.append("rect").attr("class", "hit").attr("x", -labW).attr("width", W).attr("y", -row + 6).attr("height", row)
+        .on("pointerenter pointerdown", function (ev, d) {
+          lanes.classed("is-dimmed", function (q) { return q !== d; });
+          tip.show(R.tipHTML({ title: d.n, value: sg(d.v) + "%", unit: "dal 1990",
+            rows: [["1990", fmt(d.a, 0) + " $"], ["2025", fmt(d.b, 0) + " $"]],
+            note: "Dollari a parità di potere d'acquisto, prezzi 2025" }),
+            Math.min(x(Math.max(d.v, 0)) + m.left, W - 40), data.indexOf(d) * row + m.top);
+        })
+        .on("pointerleave", function (ev) { if (ev.pointerType === "mouse") { tip.hide(); clear(); } });
+    });
+  }).catch(function (e) { R.fail("#grafico", e); });
+})();
+</script>
+</body>
+</html>

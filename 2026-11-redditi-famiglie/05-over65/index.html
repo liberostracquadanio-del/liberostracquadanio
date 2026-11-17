@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="radar:altezza-640" content="505">
+<meta name="radar:altezza-360" content="778">
+<meta name="radar:titolo" content="Il reddito reale per età in Italia">
+<meta name="radar:pubblicato" content="2026-11-17">
+<meta name="radar:modificato" content="2026-11-17">
+<meta name="radar:modello" content="radar-dataviz">
+<title>Il reddito reale per età in Italia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,700&display=swap">
+<link rel="stylesheet" href="../assets/radar.css">
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0"></script>
+<script src="../assets/radar.js"></script>
+<style>
+  /* regole solo di questa dataviz */
+  .wrap2 { display: flex; gap: 20px; align-items: center; margin-top: 26px; }
+  .wrap2 .r-chart { flex: 1 1 auto; min-width: 0; margin: 0; }
+  .illu { flex: 0 0 240px; }
+  .illu svg { display: block; width: 100%; height: auto; }
+  @media (max-width: 559px) {
+    .wrap2 { flex-direction: column-reverse; align-items: stretch; gap: 8px; }
+    .illu { flex: none; width: 200px; margin: 0 auto; }
+  }
+  .illu img { display: block; width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<main class="radar">
+  <header>
+    <h1 class="r-title">Gli unici che hanno guadagnato: gli over 65, +11,2%</h1>
+    <p class="r-sub">Variazione del reddito mediano al netto dell'inflazione tra il 2007 e il 2024, per età</p>
+  </header>
+
+  <div class="wrap2">
+    <figure class="r-chart" id="grafico"></figure>
+    <div class="illu" aria-hidden="true">
+      <img src="illustrazione.svg" alt="" width="248" height="300">
+    </div>
+  </div>
+
+  <footer class="r-foot">
+    <span>Fonte: Eurostat, EU-SILC (ilc_di03) e prezzi al consumo armonizzati</span>
+    <span>Elaborazione Radar – QN</span>
+  </footer>
+</main>
+
+<script>
+(function () {
+  var R = Radar, fmt = R.fmt;
+  var sg = function (v) { return (v > 0 ? "+" : "") + fmt(v, 1); };
+
+  R.loadCSV("../data/over65.csv").then(function (rows) {
+    var data = rows.map(function (r) {
+      return { c: r.classe, v: R.num(r.variazione_reale), a: R.num(r.euro_2008), b: R.num(r.euro_2025) };
+    });
+    var top = data.reduce(function (p, q) { return q.v > p.v ? q : p; });
+    var host = document.getElementById("grafico");
+    var tip = R.tooltip(host), clear = function () {};
+    R.dismissOutside(host, function () { tip.hide(); clear(); });
+
+    R.responsive(host, function (W, phase) {
+      var narrow = R.isNarrow(W);
+      var labW = narrow ? 112 : 124, row = 46, bh = 24;
+      var m = { top: 6, right: 52, bottom: 6, left: labW };
+      var H = m.top + m.bottom + row * data.length;
+      var w = W - m.left - m.right;
+      var x = d3.scaleLinear().domain([-5, 12]).range([0, w]);
+
+      d3.select(host).select("svg").remove();
+      var svg = d3.select(host).insert("svg", ".r-tip").attr("width", W).attr("height", H).attr("role", "img")
+        .attr("aria-label", "Barre: tra il 2007 e il 2024 il reddito mediano reale degli over 65 è cresciuto del " + fmt(top.v, 1) + "%; " +
+          data.filter(function (d) { return d !== top; }).map(function (d) { return d.c + " " + sg(d.v) + "%"; }).join(", ") + ".");
+      svg.append("title").text("Variazione reale del reddito mediano per età in Italia, 2007-2024");
+      var g = svg.append("g").attr("transform", "translate(" + m.left + "," + m.top + ")");
+      var yy = function (i) { return i * row + (row - bh) / 2; };
+
+      g.append("line").attr("class", "baseline").attr("x1", x(0) + 0.5).attr("x2", x(0) + 0.5).attr("y1", 0).attr("y2", row * data.length);
+      g.append("g").selectAll("text").data(data).join("text").attr("class", "tick-label")
+        .attr("x", -labW).attr("y", function (d, i) { return yy(i) + bh / 2; }).attr("dy", "0.35em")
+        .style("fill", "var(--ink)").style("font-size", "14px").style("font-weight", function (d) { return d === top ? 700 : 400; })
+        .text(function (d) { return d.c; });
+
+      function col(d) { return d === top ? "var(--blue)" : "var(--grey-light)"; }
+      function bar(d, t) {
+        var i = data.indexOf(d), v = d.v * t, x0 = x(0), x1 = x(v);
+        if (v >= 0) return R.barPathH(x0, yy(i), x1 - x0, bh, 2);
+        var ww = x0 - x1, r = Math.min(2, bh / 2, ww);
+        if (ww <= 0) return "M" + x0 + "," + yy(i) + "h0v" + bh + "h0Z";
+        return "M" + x0 + "," + yy(i) + "H" + (x1 + r) + "Q" + x1 + "," + yy(i) + " " + x1 + "," + (yy(i) + r) + "V" + (yy(i) + bh - r) + "Q" + x1 + "," + (yy(i) + bh) + " " + (x1 + r) + "," + (yy(i) + bh) + "H" + x0 + "Z";
+      }
+      var bars = g.append("g").selectAll("path").data(data).join("path").attr("class", "mark").style("fill", col);
+      var vals = g.append("g").selectAll("text").data(data).join("text").attr("class", "val-label mark")
+        .attr("y", function (d) { return yy(data.indexOf(d)) + bh / 2; }).attr("dy", "0.35em")
+        .style("font-size", function (d) { return d === top ? "15px" : null; })
+        .style("fill", function (d) { return d === top ? "var(--blue)" : null; });
+      function place(t) {
+        bars.attr("d", function (d) { return bar(d, t); });
+        vals.attr("x", function (d) { return d.v >= 0 ? x(d.v * t) + 6 : x(0) + 6; })
+          .text(function (d) { return d.v === 0 ? "0,0%" : sg(d.v * t) + "%"; });
+      }
+      if (phase === "static") place(1);
+      else { place(0); if (phase === "play") svg.transition().duration(R.DUR * 1.2).ease(R.EASE).tween("b", function () { return place; }); }
+
+      clear = function () { bars.classed("is-dimmed", false); vals.classed("is-dimmed", false); };
+      g.append("g").selectAll("rect").data(data).join("rect").attr("class", "hit")
+        .attr("x", -labW).attr("width", W).attr("y", function (d, i) { return i * row; }).attr("height", row)
+        .on("pointerenter pointerdown", function (ev, d) {
+          bars.classed("is-dimmed", function (q) { return q !== d; }); vals.classed("is-dimmed", function (q) { return q !== d; });
+          tip.show(R.tipHTML({ title: d.c, value: sg(d.v) + "%", unit: "al netto dell'inflazione",
+            rows: [["2007", fmt(d.a, 0) + " euro"], ["2024", fmt(d.b, 0) + " euro"]], note: "Reddito mediano a prezzi correnti" }),
+            Math.min(x(Math.max(d.v, 0)) + m.left, W - 40), yy(data.indexOf(d)) + m.top);
+        })
+        .on("pointerleave", function (ev) { if (ev.pointerType === "mouse") { tip.hide(); clear(); } });
+    });
+  }).catch(function (e) { R.fail("#grafico", e); });
+})();
+</script>
+</body>
+</html>

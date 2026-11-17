@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="radar:altezza-640" content="650">
+<meta name="radar:altezza-360" content="676">
+<meta name="radar:titolo" content="La forbice tra Pil e reddito delle famiglie">
+<meta name="radar:pubblicato" content="2026-11-17">
+<meta name="radar:modificato" content="2026-11-17">
+<meta name="radar:modello" content="radar-dataviz">
+<title>La forbice tra Pil e reddito delle famiglie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,700&display=swap">
+<link rel="stylesheet" href="../assets/radar.css">
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0"></script>
+<script src="../assets/radar.js"></script>
+<style>
+  /* regole solo di questa dataviz */
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 20px 0 0; }
+  .chips button {
+    font: 500 13px/1 var(--sans); color: var(--ink); background: transparent;
+    border: 1px solid var(--rule); border-radius: 14px; padding: 6px 11px; cursor: pointer;
+  }
+  .chips button[aria-pressed="true"] { border-color: var(--ink); font-weight: 700; }
+  .gap-label { font-size: 15px; font-weight: 700; }
+</style>
+</head>
+<body>
+<main class="radar">
+  <header>
+    <h1 class="r-title">Il Pil sale, il reddito delle famiglie scende: la forbice italiana dal 2007</h1>
+    <p class="r-sub">Pil e reddito delle famiglie pro capite al netto dell'inflazione, variazione dall'inizio del 2007</p>
+  </header>
+
+  <div class="chips" id="chips" aria-label="Scegli il Paese"></div>
+  <figure class="r-chart" id="grafico" style="margin-top:14px"></figure>
+
+  <footer class="r-foot">
+    <span>Fonte: Ocse, Household indicators dashboard</span>
+    <span>Elaborazione Radar – QN</span>
+  </footer>
+</main>
+
+<script>
+(function () {
+  var R = Radar, fmt = R.fmt;
+  var sg = function (v) { return (v > 0 ? "+" : "") + fmt(v, 1); };
+  var parse = d3.utcParse("%Y-%m-%d");
+  var ORD = ["ITA", "DEU", "FRA", "ESP", "USA"];
+
+  R.loadCSV("../data/forbice.csv").then(function (rows) {
+    var data = {};
+    rows.forEach(function (r) {
+      (data[r.codice] = data[r.codice] || { n: r.paese, s: [] }).s.push({ d: parse(r.data), red: R.num(r.reddito), pil: R.num(r.pil) });
+    });
+    var sel = "ITA";
+    var host = document.getElementById("grafico");
+    var tip = R.tooltip(host);
+    var cur = null;
+    R.dismissOutside(host, function () { tip.hide(); if (cur) cur.hide(); });
+
+    var chips = d3.select("#chips").selectAll("button").data(ORD).join("button")
+      .text(function (c) { return data[c].n; })
+      .attr("aria-pressed", function (c) { return c === sel; })
+      .on("click", function (ev, c) { sel = c; chips.attr("aria-pressed", function (k) { return k === sel; }); draw(lastW, "switch"); });
+
+    var all = [];
+    ORD.forEach(function (c) { all = all.concat(data[c].s); });
+    var yDom = [d3.min(all, function (p) { return Math.min(p.red, p.pil); }) - 2, d3.max(all, function (p) { return Math.max(p.red, p.pil); }) + 2];
+    var lastW = 0, svg, g, x, y, w, h, m;
+
+    function draw(W, phase) {
+      lastW = W;
+      var narrow = R.isNarrow(W), S = data[sel].s, last = S[S.length - 1];
+      var first = phase !== "switch";
+      if (first) {
+        m = { top: narrow ? 30 : 16, right: narrow ? 96 : 150, bottom: 26, left: 34 };
+        var H = narrow ? 340 : 400;
+        w = W - m.left - m.right; h = H - m.top - m.bottom;
+        x = d3.scaleUtc().domain(d3.extent(S, function (p) { return p.d; })).range([0, w]);
+        y = d3.scaleLinear().domain(yDom).nice().range([h, 0]);
+        d3.select(host).select("svg").remove();
+        svg = d3.select(host).insert("svg", ".r-tip").attr("width", W).attr("height", H).attr("role", "img");
+        svg.append("title").text("Pil e reddito delle famiglie pro capite dal 2007");
+        g = svg.append("g").attr("transform", "translate(" + m.left + "," + m.top + ")");
+        var ticks = y.ticks(narrow ? 5 : 6);
+        g.append("g").attr("class", "grid").selectAll("line").data(ticks).join("line")
+          .attr("x1", -m.left).attr("x2", w).attr("y1", function (d) { return Math.round(y(d)) + 0.5; }).attr("y2", function (d) { return Math.round(y(d)) + 0.5; })
+          .attr("class", function (d) { return d === 0 ? "baseline" : null; });
+        g.append("g").selectAll("text").data(ticks).join("text").attr("class", "tick-label")
+          .attr("x", -m.left).attr("y", function (d) { return y(d) - 5; }).text(function (d) { return (d > 0 ? "+" : "") + fmt(d, 0) + (d === ticks[ticks.length - 1] ? "%" : ""); });
+        var years = narrow ? [2008, 2012, 2016, 2020, 2024] : [2008, 2010, 2012, 2014, 2016, 2018, 2020, 2022, 2024, 2026];
+        g.append("g").selectAll("text").data(years).join("text").attr("class", "tick-label").attr("text-anchor", "middle")
+          .attr("x", function (yr) { return x(new Date(Date.UTC(yr, 0, 1))); }).attr("y", h + 18)
+          .text(function (yr) { return narrow ? "’" + String(yr).slice(2) : yr; });
+        g.append("path").attr("class", "a-gap-pos").style("fill", "var(--red)").style("opacity", 0.16);
+        g.append("path").attr("class", "a-gap-neg").style("fill", "var(--blue)").style("opacity", 0.14);
+        g.append("path").attr("class", "l-pil").style("fill", "none").style("stroke", "var(--grey)").style("stroke-width", 2.25);
+        g.append("path").attr("class", "l-red").style("fill", "none").style("stroke", "var(--blue)").style("stroke-width", 2.75);
+        g.append("g").attr("class", "ends");
+        g.append("line").attr("class", "cross crosshair").style("opacity", 0);
+        g.append("rect").attr("class", "hit").attr("width", w).attr("height", h);
+      }
+      var c = d3.curveMonotoneX;
+      var lRed = d3.line().curve(c).x(function (p) { return x(p.d); }).y(function (p) { return y(p.red); });
+      var lPil = d3.line().curve(c).x(function (p) { return x(p.d); }).y(function (p) { return y(p.pil); });
+      var aPos = d3.area().curve(c).x(function (p) { return x(p.d); }).y0(function (p) { return y(p.red); }).y1(function (p) { return y(Math.max(p.pil, p.red)); });
+      var aNeg = d3.area().curve(c).x(function (p) { return x(p.d); }).y0(function (p) { return y(p.pil); }).y1(function (p) { return y(Math.max(p.pil, p.red)); });
+
+      var gap = last.pil - last.red;
+      svg.attr("aria-label", data[sel].n + ": dall'inizio del 2007 il Pil pro capite è a " + sg(last.pil) + "% e il reddito delle famiglie a " + sg(last.red) + "%, " +
+        (gap > 0 ? "una forbice di " + fmt(gap, 1) + " punti a sfavore delle famiglie." : "il reddito supera il Pil di " + fmt(-gap, 1) + " punti."));
+
+      var parts = [[g.select(".l-red"), lRed], [g.select(".l-pil"), lPil], [g.select(".a-gap-pos"), aPos], [g.select(".a-gap-neg"), aNeg]];
+      parts.forEach(function (pp) {
+        var el = pp[0], fn = pp[1];
+        if (phase === "switch" && !R.reduced) el.transition().duration(650).ease(R.EASE).attr("d", fn(S));
+        else el.attr("d", fn(S));
+      });
+      if (phase === "pre" || phase === "play") {
+        [g.select(".l-red"), g.select(".l-pil")].forEach(function (el) {
+          var L = el.node().getTotalLength();
+          el.attr("stroke-dasharray", L + " " + L).attr("stroke-dashoffset", phase === "pre" ? L : L);
+          if (phase === "play") el.transition().duration(R.DUR * 1.6).ease(R.EASE).attr("stroke-dashoffset", 0).on("end", function () { d3.select(this).attr("stroke-dasharray", null); });
+        });
+        g.selectAll(".a-gap-pos, .a-gap-neg").style("opacity", 0);
+        if (phase === "play") {
+          g.select(".a-gap-pos").transition().delay(R.DUR * 1.2).duration(500).style("opacity", 0.16);
+          g.select(".a-gap-neg").transition().delay(R.DUR * 1.2).duration(500).style("opacity", 0.14);
+        }
+      }
+
+      // etichette finali e parentesi della forbice
+      var ends = g.select(".ends");
+      ends.selectAll("*").remove();
+      var xr = w + 8, yP = y(last.pil), yR = y(last.red);
+      if (Math.abs(yP - yR) < 30) { var mid = (yP + yR) / 2, s = yP < yR ? -1 : 1; yP = mid + s * 15; yR = mid - s * 15; }
+      ends.append("text").attr("class", "series-label").style("font-size", narrow ? "12px" : null).attr("x", xr).attr("y", yP).attr("dy", "0.35em").style("fill", "var(--grey)").text("Pil " + sg(last.pil) + "%");
+      ends.append("text").attr("class", "series-label").style("font-size", narrow ? "12px" : null).attr("x", xr).attr("y", yR).attr("dy", "0.35em").style("fill", "var(--blue)").text((narrow ? "Redd. " : "Reddito ") + sg(last.red) + "%");
+      if (!narrow) {
+        var bx = w + 112, y1 = y(last.pil), y2 = y(last.red);
+        var an = ends.append("g").attr("class", "anno");
+        an.append("path").attr("d", "M" + (bx - 4) + "," + y1 + "H" + bx + "V" + y2 + "H" + (bx - 4));
+        var col = gap > 0 ? "var(--red)" : "var(--blue)";
+        var t = an.append("text").attr("x", bx + 6).attr("y", (y1 + y2) / 2).attr("dy", "-0.2em").style("fill", col);
+        t.append("tspan").attr("class", "gap-label").style("font-weight", 700).text(fmt(Math.abs(gap), 1));
+        t.append("tspan").attr("x", bx + 6).attr("dy", "1.25em").style("font-size", "12px").text("punti");
+      } else {
+        ends.append("text").attr("x", -m.left).attr("y", -16).style("font-size", "13px").style("font-weight", 700)
+          .style("fill", gap > 0 ? "var(--red)" : "var(--blue)")
+          .text(gap > 0 ? "Forbice: " + fmt(gap, 1) + " punti" : "Il reddito supera il Pil di " + fmt(-gap, 1) + " punti");
+      }
+      if (phase === "pre") ends.style("opacity", 0);
+      else if (phase === "play") ends.style("opacity", 0).transition().delay(R.DUR * 1.4).duration(400).style("opacity", 1);
+      else ends.style("opacity", 1);
+
+      // crosshair e tooltip
+      var cross = g.select(".cross");
+      var bis = d3.bisector(function (p) { return p.d; }).center;
+      cur = { hide: function () { tip.hide(); cross.style("opacity", 0); } };
+      g.select(".hit").on("pointermove pointerdown", function (ev) {
+        var px = d3.pointer(ev, this)[0], p = S[bis(S, x.invert(px))];
+        cross.attr("x1", x(p.d)).attr("x2", x(p.d)).attr("y1", 0).attr("y2", h).style("opacity", 1);
+        var q = Math.floor(p.d.getUTCMonth() / 3) + 1;
+        tip.show(R.tipHTML({ title: data[sel].n + ", " + q + "° trim. " + p.d.getUTCFullYear(),
+          rows: [["Reddito delle famiglie", sg(p.red) + "%"], ["Pil", sg(p.pil) + "%"], ["Differenza", fmt(Math.abs(p.pil - p.red), 1) + " punti"]] }),
+          x(p.d) + m.left, y(Math.max(p.red, p.pil)) + m.top);
+      }).on("pointerleave", function (ev) { if (ev.pointerType === "mouse") cur.hide(); });
+    }
+
+    R.responsive(host, draw);
+  }).catch(function (e) { R.fail("#grafico", e); });
+})();
+</script>
+</body>
+</html>
