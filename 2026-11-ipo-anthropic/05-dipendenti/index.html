@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="radar:altezza-640" content="758">
+<meta name="radar:altezza-360" content="924">
+<meta name="radar:titolo" content="A 74 dollari le azioni dei dipendenti valgono 209 miliardi">
+<meta name="radar:pubblicato" content="2026-11-17">
+<meta name="radar:modificato" content="2026-11-17">
+<meta name="radar:modello" content="radar-dataviz">
+<title>A 74 dollari le azioni dei dipendenti valgono 209 miliardi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,700&display=swap">
+<link rel="stylesheet" href="../assets/radar.css">
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0"></script>
+<script src="../assets/radar.js"></script>
+<style>
+  .ctrl { margin: 24px 0 0; }
+  .ctrl__row { display: flex; align-items: last baseline; gap: 10px; flex-wrap: wrap; }
+  .ctrl__lab { font-size: 14px; color: var(--ink-2); }
+  .ctrl__price { font-size: 40px; font-weight: 700; letter-spacing: -0.03em; line-height: 1; font-variant-numeric: tabular-nums; }
+  .ctrl__price small { font-size: 20px; font-weight: 600; }
+  input[type=range] { width: 100%; margin: 14px 0 0; accent-color: var(--red); height: 28px; cursor: pointer; }
+  .marks { position: relative; height: 44px; font-size: 11px; color: var(--ink-2); }
+  .marks button {
+    position: absolute; top: 0; transform: translateX(-50%); font: 500 11px/1.2 var(--sans); color: var(--ink-2);
+    background: none; border: 0; border-top: 2px solid var(--grey-light); padding: 4px 2px 0; cursor: pointer; white-space: nowrap;
+  }
+  .marks button.is-it { white-space: normal; width: 92px; line-height: 1.15; transform: translateX(-10%); text-align: left; }
+  .marks button.is-ipo { color: var(--red); border-top-color: var(--red); font-weight: 700; }
+  .kpi { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 18px 0 0; }
+  @media (max-width: 519px) { .kpi { grid-template-columns: 1fr; gap: 10px; } }
+  .kpi div { border-top: 1px solid var(--rule); padding-top: 8px; }
+  .kpi b { display: block; font-size: 26px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; font-variant-numeric: tabular-nums; }
+  .kpi span { font-size: 13px; color: var(--ink-2); line-height: 1.35; display: block; }
+  .kpi .is-red b { color: var(--red); }
+  .msg { font-size: 15px; line-height: 1.45; margin: 16px 0 0; min-height: 44px; }
+  .cur-line { stroke: var(--ink); stroke-width: 1; }
+  .band { fill: var(--red); opacity: .08; }
+</style>
+</head>
+<body>
+<main class="radar">
+  <header>
+    <h1 class="r-title">A 74 dollari le azioni dei dipendenti valgono 209 miliardi</h1>
+    <p class="r-sub">Valore delle azioni e delle opzioni di dipendenti, dirigenti ed ex dipendenti, e valore di Anthropic, secondo il prezzo dell'azione</p>
+  </header>
+
+  <div class="ctrl">
+    <div class="ctrl__row"><span class="ctrl__price" id="price"></span><span class="ctrl__lab">prezzo di un'azione</span></div>
+    <input type="range" id="slider" min="0" max="200" step="1" value="74" aria-label="Prezzo di un'azione di Anthropic in dollari">
+    <div class="marks" id="marks"></div>
+  </div>
+
+  <div class="kpi">
+    <div class="is-red"><b id="k-emp"></b><span>miliardi di dollari: azioni e opzioni dei dipendenti</span></div>
+    <div><b id="k-avg"></b><span>milioni di dollari in media per dipendente</span></div>
+    <div><b id="k-co"></b><span>miliardi di dollari: valore di Anthropic</span></div>
+  </div>
+  <p class="msg" id="msg"></p>
+
+  <figure class="r-chart" id="grafico" style="margin-top:18px"></figure>
+
+  <footer class="r-foot">
+    <span>Fonte: Sec, prospetto S-1/A di Anthropic (dati al 30 settembre 2026); companiesmarketcap</span>
+    <span>Elaborazione Radar – QN</span>
+    <span style="flex-basis:100%">Media su circa 5.300 dipendenti; il prospetto non distingue le azioni di dirigenti, ex dipendenti e consulenti</span>
+  </footer>
+</main>
+
+<script>
+(function () {
+  var R = Radar, fmt = R.fmt;
+  R.loadCSV("../data/dipendenti.csv").then(function (rows) {
+    var P = {};
+    rows.forEach(function (r) { P[r.Parametro] = R.num(r.Valore); });
+    var IPO = P.prezzo_ipo, TENDER = P.prezzo_offerta_dipendenti_apr2026;
+    var ITA = P.valore_societa_italiane, ITA_PRICE = ITA * 1e9 / P.azioni_totali;
+    function emp(p) { return (P.opzioni * Math.max(p - P.prezzo_esercizio, 0) + P.rsu * p) / 1e9; }
+    function co(p) { return P.azioni_totali * p / 1e9; }
+    var price = IPO, phaseNow = "pre", geo = null;
+
+    var nar = window.innerWidth < 520;
+    var MARKS = [
+      { p: TENDER, t: nar ? "apr. 2026" : "aprile 2026" },
+      { p: IPO, t: "IPO", ipo: true },
+      { p: ITA_PRICE, t: "tutte le società italiane", it: true }
+    ];
+    var slider = d3.select("#slider");
+    var marks = d3.select("#marks").selectAll("button").data(MARKS).join("button").attr("type", "button")
+      .classed("is-ipo", function (d) { return d.ipo; }).classed("is-it", function (d) { return d.it; })
+      .style("left", function (d) { return (d.p / 200 * 100) + "%"; })
+      .text(function (d) { return d.t; })
+      .on("click", function (e, d) { set(d.p, true); });
+
+    function msg(p) {
+      if (p <= 0) return "A zero dollari le azioni non valgono nulla";
+      if (Math.abs(p - TENDER) < 0.6) return "Ad aprile 2026 alcuni investitori hanno comprato azioni da dipendenti ed ex dipendenti a " + fmt(TENDER, 2) + " dollari";
+      if (p >= 70 && p <= 78) return "È la forchetta di prezzo dell'offerta: da 70 a 78 dollari per azione";
+      if (p >= ITA_PRICE) return "Sopra i " + fmt(ITA_PRICE, 0) + " dollari Anthropic vale più di tutte le " + "società italiane quotate insieme (" + fmt(ITA) + " miliardi)";
+      return "";
+    }
+
+    function set(p, animate) {
+      price = Math.max(0, Math.min(200, p));
+      slider.property("value", Math.round(price));
+      d3.select("#price").html(fmt(price, price % 1 ? 2 : 0) + " <small>$</small>");
+      var dur = R.reduced ? 0 : (animate ? 400 : 120);
+      [["#k-emp", emp(price), 0], ["#k-avg", emp(price) * 1e3 / P.dipendenti, 1], ["#k-co", co(price), 0]].forEach(function (k) {
+        var el = d3.select(k[0]), from = +el.attr("data-v") || 0;
+        el.attr("data-v", k[1]).interrupt().transition().duration(dur).tween("text", function () {
+          var i = d3.interpolateNumber(from, k[1]), n = this;
+          return function (t) { n.textContent = fmt(i(t), k[2]); };
+        });
+      });
+      d3.select("#msg").text(msg(price));
+      if (geo) moveCursor(dur);
+      R.scheduleHeight();
+    }
+    slider.on("input", function () { set(+this.value, false); });
+
+    var host = document.getElementById("grafico");
+    function draw(W, phase) {
+      phaseNow = phase;
+      var narrow = R.isNarrow(W);
+      var bh = narrow ? 34 : 42, gap = 34, m = { t: 24, r: 8, l: 0 };
+      var H = m.t + 2 * (bh + gap) + 10;
+      d3.select(host).selectAll("svg").remove();
+      var svg = d3.select(host).append("svg").attr("width", W).attr("height", H).attr("role", "img")
+        .attr("aria-label", "Barre del valore di Anthropic e del guadagno dei dipendenti al prezzo scelto");
+      var x = d3.scaleLinear().domain([0, co(200)]).range([m.l, W - m.r]);
+      var ticks = [0, 500, 1000, 1500, 2000, 2500];
+      svg.append("g").attr("class", "grid").selectAll("line").data(ticks).join("line")
+        .attr("x1", x).attr("x2", x).attr("y1", m.t - 4).attr("y2", H - 6);
+      svg.append("g").selectAll("text").data(ticks.filter(function (t) { return !narrow || t % 1000 === 0; })).join("text").attr("class", "tick-label")
+        .attr("x", x).attr("y", 12).attr("text-anchor", function (t) { return t === 0 ? "start" : "middle"; })
+        .text(function (t) { return t === 0 ? "0" : fmt(t) + (t === 2500 || (narrow && t === 2000) ? " mld $" : ""); });
+      var rows = [
+        { k: "co", lab: "Anthropic (valore)", f: co, col: "var(--grey-2)" },
+        { k: "emp", lab: "Dipendenti (guadagno)", f: emp, col: "var(--red)" }
+      ];
+      var g = svg.selectAll("g.br").data(rows).join("g").attr("class", "br")
+        .attr("transform", function (d, i) { return "translate(0," + (m.t + 16 + i * (bh + gap)) + ")"; });
+      g.append("text").attr("class", "series-label").attr("x", 0).attr("y", -6).text(function (d) { return d.lab; })
+        .style("fill", function (d) { return d.k === "emp" ? "var(--red)" : null; });
+      g.append("rect").attr("class", "bar-bg").attr("x", x(0)).attr("width", x(co(200)) - x(0)).attr("height", bh).style("fill", "var(--rule)").style("opacity", .5);
+      g.append("path").attr("class", "bar").style("fill", function (d) { return d.col; });
+      g.append("text").attr("class", "val-label bar-val").attr("y", bh / 2 + 5);
+      // tutte le società italiane quotate: riferimento sulla barra di Anthropic
+      var ref = svg.append("g").attr("class", "anno");
+      var yA = m.t + 16;
+      ref.append("line").attr("class", "dash").attr("x1", x(ITA)).attr("x2", x(ITA)).attr("y1", yA - 4).attr("y2", yA + bh + 4);
+      ref.append("text").attr("x", x(ITA) + 4).attr("y", yA + bh + 16).style("font-size", "12px").text("tutte le società italiane");
+      geo = { x: x, bh: bh, g: g };
+      moveCursor(phase === "play" ? R.DUR : 0, phase === "pre");
+    }
+    function moveCursor(dur, zero) {
+      var x = geo.x, bh = geo.bh;
+      geo.g.each(function (d) {
+        var v = zero ? 0 : d.f(price), sel = d3.select(this);
+        sel.select(".bar").interrupt().transition().duration(dur).ease(R.EASE)
+          .attr("d", R.barPathH(x(0), 0, Math.max(0, x(v) - x(0)), bh, 2));
+        var inside = x(v) - x(0) > 90;
+        sel.select(".bar-val").interrupt().transition().duration(dur).ease(R.EASE)
+          .attr("x", inside ? x(v) - 8 : x(v) + 6)
+          .attr("text-anchor", inside ? "end" : "start")
+          .style("fill", inside ? "#fff" : "var(--ink)")
+          .tween("text", function () {
+            var n = this, from = +n.getAttribute("data-v") || 0, i = d3.interpolateNumber(from, v);
+            n.setAttribute("data-v", v);
+            return function (t) { n.textContent = fmt(i(t)) + " mld"; };
+          });
+      });
+    }
+
+    set(IPO, false);
+    R.responsive(host, draw);
+  }).catch(function (e) { R.fail("#grafico", e); });
+})();
+</script>
+</body>
+</html>

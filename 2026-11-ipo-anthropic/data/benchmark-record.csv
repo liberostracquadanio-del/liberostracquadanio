@@ -1,0 +1,25 @@
+Data;Laboratorio;Modello;Eci
+2023-02-24;Meta;LLaMA-65B;101,7
+2023-03-14;OpenAI;GPT-4 (Mar 2023);121,8
+2024-01-25;OpenAI;GPT-4 Turbo (Nov 2023);124,8
+2024-02-29;Anthropic;Claude 3 Opus;125,5
+2024-04-09;OpenAI;GPT-4 Turbo (Apr 2024);125,8
+2024-05-13;OpenAI;GPT-4o (May 2024);128,2
+2024-06-20;Anthropic;Claude 3.5 Sonnet;130,0
+2024-09-12;OpenAI;o1-mini;135,3
+2024-12-17;OpenAI;o1;141,2
+2025-03-31;Google;Gemini 2.5 Pro (Mar 2025);143,9
+2025-04-16;OpenAI;o3;147,1
+2025-06-10;OpenAI;o3-pro;147,5
+2025-08-07;OpenAI;GPT-5;150,0
+2025-10-07;OpenAI;GPT-5 Pro;151,2
+2025-11-18;Google;Gemini 3 Pro;153,0
+2025-12-11;OpenAI;GPT-5.2 Pro;157,3
+2026-03-05;OpenAI;GPT-5.4 Pro;160,2
+2026-04-23;OpenAI;GPT-5.5 Pro;162,7
+2026-06-09;Anthropic;Claude Fable 5;164,1
+2026-07-24;Anthropic;Claude Opus 5;164,7
+2026-09-01;Anthropic;Claude Fable 5.1;167,0
+2026-09-03;OpenAI;GPT-6 Astra;169,0
+2026-10-28;Google;Gemini 4 Carbon;169,8
+2026-11-09;Anthropic;Claude Fable 5.2;173,4

@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="radar:altezza-640" content="726">
+<meta name="radar:altezza-360" content="922">
+<meta name="radar:titolo" content="Claude è primo nell'indice generale, ma non in tutti i test">
+<meta name="radar:pubblicato" content="2026-11-17">
+<meta name="radar:modificato" content="2026-11-17">
+<meta name="radar:modello" content="radar-dataviz">
+<title>Claude è primo nell'indice generale, ma non in tutti i test</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,700&display=swap">
+<link rel="stylesheet" href="../assets/radar.css">
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0"></script>
+<script src="../assets/radar.js"></script>
+<style>
+  .seg { display: flex; flex-wrap: wrap; gap: 6px; margin: 22px 0 0; }
+  .seg button {
+    font: 600 13px/1.2 var(--sans); color: var(--ink); background: transparent;
+    border: 1px solid var(--grey-light); border-radius: 16px; padding: 7px 12px; cursor: pointer;
+  }
+  .seg button.is-on { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .desc { font-size: 14px; line-height: 1.45; color: var(--ink-2); margin: 14px 0 0; min-height: 40px; }
+  .logo { clip-path: inset(0 round 5px); }
+  .lab { font-size: 13px; font-weight: 600; fill: var(--ink); }
+  .mod { font-size: 12px; fill: var(--ink-2); }
+  .stick { stroke-width: 2; }
+  .ci { stroke-width: 6; stroke-linecap: round; opacity: .25; }
+  .step-line { fill: none; stroke: var(--grey); stroke-width: 1.5; }
+  .rec-label { font-size: 12px; fill: var(--ink); paint-order: stroke; stroke: var(--bg); stroke-width: 4px; stroke-linejoin: round; }
+</style>
+</head>
+<body>
+<main class="radar">
+  <header>
+    <h1 class="r-title">Claude è primo nell'indice generale, ma non in tutti i test</h1>
+    <p class="r-sub">Il miglior modello di ogni laboratorio nei test di Epoch AI</p>
+  </header>
+
+  <div class="seg" id="seg" role="tablist"></div>
+  <p class="desc" id="desc"></p>
+  <figure class="r-chart" id="grafico" style="margin-top:8px"></figure>
+
+  <footer class="r-foot">
+    <span>Fonte: Epoch AI, Capabilities &amp; benchmarking (17 novembre 2026)</span>
+    <span>Elaborazione Radar – QN</span>
+    <span style="flex-basis:100%">Non tutti i modelli più recenti sono misurati su ogni test. Claude Fable 5.2: risultati da test prima del lancio</span>
+  </footer>
+</main>
+
+<script>
+(function () {
+  var R = Radar, fmt = R.fmt;
+  var VIEWS = [
+    { key: "eci", label: "Indice generale", desc: "Combina i risultati di molti test in un solo punteggio. Le barre chiare indicano il margine d'incertezza: tra i primi tre si sovrappongono" },
+    { key: "arc", label: "Ragionamento astratto", desc: "ARC-AGI-2: rompicapi visivi, facili per le persone e difficili per le macchine. Percentuale di risposte giuste" },
+    { key: "hle", label: "L'ultimo esame dell'umanità", desc: "Humanity's Last Exam: domande di livello specialistico in molte materie, scritte da esperti. Percentuale di risposte giuste" },
+    { key: "gpqa", label: "Scienza da dottorato", desc: "GPQA Diamond: domande di biologia, fisica e chimica a livello di dottorato. Percentuale di risposte giuste" },
+    { key: "rec", label: "Il record nel tempo", desc: "Ogni punto è un modello che ha superato il primato precedente nell'indice generale di Epoch AI" }
+  ];
+  Promise.all([R.loadCSV("../data/benchmark.csv"), R.loadCSV("../data/benchmark-record.csv")]).then(function (res) {
+    var B = res[0].map(function (r) {
+      return { test: r.Test, lab: r.Laboratorio, model: r.Modello, date: r.Data, v: R.num(r.Valore),
+        lo: R.num(r.Minimo), hi: R.num(r.Massimo), unit: r["Unità"] };
+    });
+    var REC = res[1].map(function (r) {
+      return { date: d3.timeParse("%Y-%m-%d")(r.Data), lab: r.Laboratorio, model: r.Modello, v: R.num(r.Eci) };
+    });
+    var view = "eci", phaseNow = "pre", W0 = 0;
+    var host = document.getElementById("grafico");
+    var tip = R.tooltip(host);
+    R.dismissOutside(host, tip.hide);
+
+    var seg = d3.select("#seg").selectAll("button").data(VIEWS).join("button").attr("type", "button")
+      .attr("role", "tab").text(function (d) { return d.label; })
+      .on("click", function (e, d) { setView(d.key); });
+
+    function setView(k) {
+      view = k;
+      seg.classed("is-on", function (d) { return d.key === k; }).attr("aria-selected", function (d) { return d.key === k; });
+      d3.select("#desc").text(VIEWS.filter(function (v) { return v.key === k; })[0].desc);
+      if (W0) render(W0, phaseNow === "pre" ? "pre" : "play", true);
+    }
+
+    var LOGO = { "Anthropic": "anthropic.png", "OpenAI": "openai.png", "Google": "google.png", "xAI": "xai.png",
+      "Meta": "meta.png", "DeepSeek": "deepseek.png", "Alibaba": "alibaba-qwen.png", "Moonshot": "moonshot.png" };
+    function col(lab) { return lab === "Anthropic" ? "var(--red)" : "var(--blue)"; }
+
+    function render(W, phase, switching) {
+      W0 = W; phaseNow = phase;
+      if (view === "rec") { drawRec(W, phase); return; }
+      var data = B.filter(function (d) { return d.test === view; });
+      var narrow = R.isNarrow(W);
+      var rowH = narrow ? 48 : 42, labW = narrow ? 0 : 262, m = { t: 22, r: 44, l: labW };
+      var H = m.t + rowH * data.length + 6;
+      var svg = d3.select(host).selectAll("svg").data([0]).join("svg");
+      svg.attr("width", W).attr("height", H).attr("role", "img")
+        .attr("aria-label", data.map(function (d) { return d.lab + " " + d.model + ": " + fmt(d.v, 1); }).join("; "));
+      if (switching !== true || svg.select(".bars").empty() || svg.classed("is-rec")) { svg.selectAll("*").remove(); }
+      svg.classed("is-rec", false);
+      var isEci = view === "eci";
+      var x = d3.scaleLinear().domain(isEci ? [150, 180] : [0, 100]).range([m.l, W - m.r]);
+      var dur = phase === "static" ? 0 : (phase === "pre" ? 0 : R.DUR);
+
+      var axis = svg.selectAll("g.axis").data([0]).join("g").attr("class", "axis");
+      var ticks = isEci ? [150, 160, 170, 180] : [0, 25, 50, 75, 100];
+      var tk = axis.selectAll("g.tk").data(ticks, function (d) { return d + "_" + view; });
+      tk.exit().remove();
+      var tke = tk.enter().append("g").attr("class", "tk");
+      tke.append("line").attr("class", "grid-l").style("stroke", "var(--rule)");
+      tke.append("text").attr("class", "tick-label").attr("text-anchor", "middle");
+      tke.merge(tk).select("line").attr("x1", x).attr("x2", x).attr("y1", m.t - 6).attr("y2", H);
+      tke.merge(tk).select("text").attr("x", x).attr("y", 10)
+        .attr("text-anchor", function (d, i) { return i === 0 && narrow ? "start" : (i === ticks.length - 1 && narrow ? "end" : "middle"); }).text(function (d) { return isEci ? fmt(d) : fmt(d) + "%"; });
+
+      var gb = svg.selectAll("g.bars").data([0]).join("g").attr("class", "bars");
+      var rows = gb.selectAll("g.row").data(data, function (d) { return d.lab; });
+      rows.exit().transition().duration(dur / 2).style("opacity", 0).remove();
+      var en = rows.enter().append("g").attr("class", "row mark")
+        .attr("transform", function (d, i) { return "translate(0," + (m.t + i * rowH) + ")"; })
+        .style("opacity", 0);
+      en.append("image").attr("class", "logo").attr("preserveAspectRatio", "xMidYMid meet")
+        .attr("href", function (d) { return "../assets/loghi/" + LOGO[d.lab]; });
+      en.append("text").attr("class", "lab");
+      en.append("text").attr("class", "mod");
+      en.append("line").attr("class", "ci");
+      en.append("line").attr("class", "stick");
+      en.append("circle").attr("r", 6);
+      en.append("text").attr("class", "val-label");
+      en.append("rect").attr("class", "hit");
+      var all = en.merge(rows);
+      all.sort(function (a, b) { return b.v - a.v; });
+      all.transition().duration(dur).ease(R.EASE)
+        .attr("transform", function (d) { return "translate(0," + (m.t + data.indexOf(d) * rowH) + ")"; })
+        .style("opacity", 1);
+      var yMid = narrow ? 30 : rowH / 2;
+      var LS = narrow ? 18 : 26;
+      all.select(".logo").attr("x", 0).attr("y", narrow ? 0 : yMid - LS / 2).attr("width", LS).attr("height", LS);
+      all.select(".lab").attr("x", LS + 7).attr("y", narrow ? 13 : yMid - 2)
+        .text(function (d) { return d.lab; });
+      all.select(".mod").attr("x", LS + 7).attr("y", narrow ? 12 : yMid + 13)
+        .attr("dx", narrow ? 0 : 0)
+        .text(function (d) { return narrow ? "" : d.model; });
+      if (narrow) all.select(".lab").text(function (d) { return d.lab + " · " + d.model; });
+      all.select(".ci").style("stroke", function (d) { return col(d.lab); })
+        .attr("y1", yMid).attr("y2", yMid)
+        .transition().duration(dur).ease(R.EASE)
+        .attr("x1", function (d) { return d.lo != null ? x(d.lo) : x(d.v); })
+        .attr("x2", function (d) { return d.hi != null ? x(d.hi) : x(d.v); })
+        .style("opacity", function (d) { return d.lo != null ? .25 : 0; });
+      var x0 = x.domain()[0];
+      all.select(".stick").style("stroke", function (d) { return col(d.lab); }).attr("y1", yMid).attr("y2", yMid)
+        .attr("x1", x(x0))
+        .transition().duration(dur).ease(R.EASE)
+        .attr("x2", function (d) { return phase === "pre" ? x(x0) : x(d.v); });
+      all.select("circle").style("fill", function (d) { return col(d.lab); }).attr("cy", yMid)
+        .transition().duration(dur).ease(R.EASE)
+        .attr("cx", function (d) { return phase === "pre" ? x(x0) : x(d.v); });
+      all.select(".val-label").attr("y", yMid + 4)
+        .transition().duration(dur).ease(R.EASE)
+        .attr("x", function (d) { return (phase === "pre" ? x(x0) : x(Math.max(d.v, d.hi || 0))) + 10; })
+        .text(function (d) { return fmt(d.v, 1) + (isEci ? "" : "%"); });
+      all.select(".hit").attr("x", 0).attr("y", 0).attr("width", W).attr("height", rowH)
+        .on("pointerenter pointerdown", function (e, d) {
+          var p = d3.pointer(e, host);
+          all.classed("is-dimmed", function (o) { return o !== d; });
+          var rowsT = [["Data", d3.timeFormat("%d/%m/%Y")(d3.timeParse("%Y-%m-%d")(d.date))]];
+          if (d.lo != null) rowsT.push(["Margine", fmt(d.lo, 1) + "–" + fmt(d.hi, 1)]);
+          tip.show(R.tipHTML({ title: d.model, value: fmt(d.v, 1) + (isEci ? "" : "%"), unit: isEci ? "punti" : "", rows: rowsT }), p[0], p[1]);
+        })
+        .on("pointerleave", function () { all.classed("is-dimmed", false); tip.hide(); });
+      R.scheduleHeight();
+    }
+
+    function drawRec(W, phase) {
+      var narrow = R.isNarrow(W);
+      var H = narrow ? 300 : 340, m = { t: 20, r: narrow ? 12 : 20, b: 26, l: 34 };
+      var svg = d3.select(host).selectAll("svg").data([0]).join("svg");
+      svg.selectAll("*").remove();
+      svg.classed("is-rec", true).attr("width", W).attr("height", H).attr("role", "img")
+        .attr("aria-label", "Record dell'indice generale nel tempo, dal 2023 a oggi");
+      var x = d3.scaleTime().domain([new Date(2023, 0, 1), new Date(2026, 11, 31)]).range([m.l, W - m.r]);
+      var y = d3.scaleLinear().domain([100, 180]).range([H - m.b, m.t]);
+      var g = svg.append("g");
+      g.append("g").attr("class", "grid").selectAll("line").data([100, 120, 140, 160, 180]).join("line")
+        .attr("x1", m.l).attr("x2", W - m.r).attr("y1", y).attr("y2", y);
+      g.append("g").selectAll("text").data([100, 120, 140, 160, 180]).join("text").attr("class", "tick-label")
+        .attr("x", m.l - 6).attr("y", function (v) { return y(v) + 4; }).attr("text-anchor", "end").text(function (v) { return fmt(v); });
+      g.append("g").selectAll("text").data([2023, 2024, 2025, 2026]).join("text").attr("class", "tick-label")
+        .attr("x", function (v) { return x(new Date(v, 6, 1)); }).attr("y", H - 6).attr("text-anchor", "middle").text(function (v) { return v; });
+      var pts = REC.concat([{ date: new Date(2026, 10, 17), v: REC[REC.length - 1].v, end: true }]);
+      var line = d3.line().curve(d3.curveStepAfter).x(function (d) { return x(d.date); }).y(function (d) { return y(d.v); });
+      var path = g.append("path").attr("class", "step-line").attr("d", line(pts));
+      var L = path.node().getTotalLength();
+      if (phase !== "static") path.attr("stroke-dasharray", L + " " + L).attr("stroke-dashoffset", L)
+        .transition().duration(R.DUR * 2).ease(d3.easeCubicInOut).attr("stroke-dashoffset", 0);
+      var dots = g.selectAll("circle.d").data(REC).join("circle").attr("class", "d mark")
+        .attr("cx", function (d) { return x(d.date); }).attr("cy", function (d) { return y(d.v); })
+        .attr("r", function (d) { return d.lab === "Anthropic" ? 5 : 4; })
+        .style("fill", function (d) { return d.lab === "Anthropic" ? "var(--red)" : (d.lab === "OpenAI" ? "var(--grey-1)" : "var(--blue)"); })
+        .style("stroke", "var(--bg)").style("stroke-width", 1.5)
+        .style("opacity", phase === "static" ? 1 : 0);
+      if (phase !== "static") dots.transition().delay(function (d) { return (x(d.date) - m.l) / (W - m.l - m.r) * R.DUR * 2; }).duration(200).style("opacity", 1);
+      var last = REC[REC.length - 1];
+      var lab = [
+        { d: REC.filter(function (r) { return /^GPT-4 \(Mar/.test(r.model); })[0], t: "GPT-4", dx: 6, dy: -8 },
+        { d: last, t: last.model, dx: -8, dy: -10, end: true }
+      ];
+      g.selectAll("text.rec-label").data(lab.filter(function (l) { return l.d; })).join("text").attr("class", "rec-label")
+        .attr("x", function (l) { return x(l.d.date) + l.dx; }).attr("y", function (l) { return y(l.d.v) + l.dy; })
+        .attr("text-anchor", function (l) { return l.end ? "end" : "start"; })
+        .style("font-weight", function (l) { return l.end ? 700 : 400; }).text(function (l) { return l.t; });
+      var key = d3.select(host).selectAll("div.r-key").data([0]).join("div").attr("class", "r-key");
+      key.html('<span><i class="sw" style="background:var(--red)"></i>Anthropic</span>' +
+        '<span><i class="sw" style="background:var(--grey-1)"></i>OpenAI</span>' +
+        '<span><i class="sw" style="background:var(--blue)"></i>Altri</span>');
+      var hit = g.selectAll("circle.h").data(REC).join("circle").attr("class", "hit h")
+        .attr("cx", function (d) { return x(d.date); }).attr("cy", function (d) { return y(d.v); }).attr("r", 12)
+        .on("pointerenter pointerdown", function (e, d) {
+          var p = d3.pointer(e, host);
+          tip.show(R.tipHTML({ title: d.model, value: fmt(d.v, 1), unit: "punti",
+            rows: [["Laboratorio", d.lab], ["Data", d3.timeFormat("%m/%Y")(d.date)]] }), p[0], p[1]);
+        })
+        .on("pointerleave", tip.hide);
+      R.scheduleHeight();
+    }
+
+    var keyHide = function () { d3.select(host).selectAll("div.r-key").remove(); };
+    var _render = render;
+    render = function (W, phase, sw) { if (view !== "rec") keyHide(); _render(W, phase, sw); };
+
+    var q = new URLSearchParams(location.search).get("vista");
+    setView(VIEWS.some(function (v) { return v.key === q; }) ? q : "eci");
+    R.responsive(host, function (W, phase) { render(W, phase); });
+  }).catch(function (e) { R.fail("#grafico", e); });
+})();
+</script>
+</body>
+</html>

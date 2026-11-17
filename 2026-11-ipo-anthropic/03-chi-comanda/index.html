@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="radar:altezza-640" content="1079">
+<meta name="radar:altezza-360" content="980">
+<meta name="radar:titolo" content="La struttura di Anthropic">
+<meta name="radar:pubblicato" content="2026-11-17">
+<meta name="radar:modificato" content="2026-11-17">
+<meta name="radar:modello" content="radar-dataviz">
+<title>La struttura di Anthropic</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,700&display=swap">
+<link rel="stylesheet" href="../assets/radar.css">
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0"></script>
+<script src="../assets/radar.js"></script>
+<style>
+  .levels { display: flex; flex-wrap: wrap; gap: 6px; margin: 20px 0 0; }
+  .levels button {
+    font: 600 12px/1.2 var(--sans); color: var(--ink); background: transparent;
+    border: 1px solid var(--grey-light); border-radius: 16px; padding: 6px 10px; cursor: pointer;
+  }
+  .levels button.is-on { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .chipwrap { position: relative; margin: 14px auto 0; overflow: hidden; border-radius: 6px; }
+  .trace { fill: none; stroke: var(--grey-light); stroke-width: 1; }
+  .trace--on { stroke: var(--blue); stroke-width: 1.5; }
+  .ring { fill: none; stroke: var(--grey-light); stroke-width: 1; }
+  .ring--on { stroke: var(--blue); stroke-width: 2; }
+  .via { fill: var(--bg); stroke: var(--grey); stroke-width: 1; }
+  .pad { stroke-width: 1.5; }
+  .node-label { font-size: 14px; font-weight: 600; fill: var(--ink); text-anchor: middle; paint-order: stroke; stroke: var(--bg); stroke-width: 4px; stroke-linejoin: round; }
+  .node-sub { font-size: 12px; fill: var(--ink-2); text-anchor: middle; paint-order: stroke; stroke: var(--bg); stroke-width: 3px; }
+  .ring-name { font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; fill: var(--ink-2); text-anchor: middle; }
+  .die { fill: none; stroke: var(--grey-light); stroke-width: 1.5; }
+  .pin { fill: var(--grey-light); }
+  .dots { display: flex; justify-content: center; gap: 6px; margin-top: 10px; }
+  .dots i { width: 7px; height: 7px; border-radius: 50%; background: var(--grey-light); display: block; }
+  .dots i.is-on { background: var(--ink); }
+  .card { margin-top: 14px; border-top: 1px solid var(--rule); padding-top: 12px; min-height: 150px; }
+  .card__t { font-family: var(--serif); font-weight: 700; font-size: 22px; line-height: 1.15; margin: 0 0 6px; color: var(--title); }
+  .card__num { display: flex; align-items: last baseline; gap: 8px; flex-wrap: wrap; margin: 4px 0 8px; }
+  .card__num b { font-size: 32px; letter-spacing: -0.03em; line-height: 1; font-variant-numeric: tabular-nums; }
+  .card__num span { font-size: 14px; color: var(--ink-2); }
+  .card p { font-size: 15px; line-height: 1.5; margin: 0; }
+  .nav { display: flex; justify-content: space-between; gap: 12px; margin-top: 14px; }
+  .nav button { font: 600 14px/1 var(--sans); color: var(--ink); background: transparent; border: 1px solid var(--grey-light); border-radius: 2px; padding: 10px 14px; cursor: pointer; }
+  .nav button.is-next { background: var(--blue); border-color: var(--blue); color: #fff; }
+  .nav button[disabled] { opacity: .35; cursor: default; }
+  .bars { margin-top: 16px; }
+  .bars h3 { font-size: 13px; font-weight: 700; margin: 12px 0 4px; }
+  .bar { display: flex; height: 30px; border-radius: 2px; overflow: hidden; }
+  .bar div { height: 100%; border-right: 2px solid var(--bg); display: flex; align-items: center; padding-left: 3px; font-size: 10.5px; font-weight: 600; color: #fff; white-space: nowrap; overflow: hidden; transition: flex-basis 700ms cubic-bezier(.215,.61,.355,1); }
+  .bar-key { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 12px; color: var(--ink-2); margin-top: 6px; }
+  .bar-key span { display: inline-flex; gap: 5px; align-items: center; }
+</style>
+</head>
+<body>
+<main class="radar">
+  <header>
+    <h1 class="r-title">La struttura di Anthropic</h1>
+    <p class="r-sub">Chi decide nell'azienda dopo la quotazione, livello per livello</p>
+  </header>
+
+  <div class="levels" id="levels"></div>
+  <div class="chipwrap" id="chip"></div>
+  <div class="dots" id="dots" aria-hidden="true"></div>
+  <section class="card" id="card" aria-live="polite"></section>
+  <div class="bars" id="bars"></div>
+  <div class="nav">
+    <button type="button" id="prev">‹</button>
+    <button type="button" id="next" class="is-next">Avanti ›</button>
+  </div>
+
+  <footer class="r-foot">
+    <span>Fonte: Sec, prospetto S-1/A di Anthropic (10 novembre 2026)</span>
+    <span>Elaborazione Radar – QN</span>
+    <span style="flex-basis:100%">Capitale: azioni di tutte le classi dopo l'offerta</span>
+  </footer>
+</main>
+
+<script>
+(function () {
+  var R = Radar, fmt = R.fmt;
+  var FOUNDERS = [ // Dario Amodei in alto al centro, poi in senso orario
+    { id: "dario-amodei", n: "Dario Amodei", r: "amministratore delegato" },
+    { id: "daniela-amodei", n: "Daniela Amodei", r: "presidente" },
+    { id: "jared-kaplan", n: "Jared Kaplan" },
+    { id: "jack-clark", n: "Jack Clark" },
+    { id: "sam-mccandlish", n: "Sam McCandlish" },
+    { id: "tom-brown", n: "Tom Brown" },
+    { id: "chris-olah", n: "Chris Olah" }
+  ];
+  var TRUST = ["Neil Buddy Shah", "Richard Fontaine", "Ben Bernanke", "Christopher Stubbs", "posto vacante"];
+  var BOARD = [
+    { n: "Dario Amodei", by: "F" }, { n: "Daniela Amodei", by: "F" }, { n: "Yasmin Razavi", by: "F" },
+    { n: "Reed Hastings", by: "T" }, { n: "Vas Narasimhan", by: "T" }, { n: "Chris Liddell", by: "T" }, { n: "posto vacante", by: "T" }
+  ];
+  var OUTER = [
+    { n: "Amazon", s: "14,7% del capitale" }, { n: "Google", s: "13,7%" }, { n: "Fondo di beneficenza", s: "6,5%" },
+    { n: "Produttori di chip", s: "1,7%" }, { n: "Dipendenti", s: "classe E" }
+  ];
+
+  R.loadCSV("../data/chi-comanda.csv").then(function (rows) {
+    var CAP = rows.filter(function (r) { return r.Misura === "Capitale"; }).map(function (r) { return { n: r.Gruppo, v: R.num(r.Quota) }; });
+    var VOT = rows.filter(function (r) { return r.Misura === "Voti"; }).map(function (r) { return { n: r.Gruppo, v: R.num(r.Quota) }; });
+    var capF = CAP.filter(function (d) { return d.n === "Fondatori"; })[0].v;
+    var votF = VOT.filter(function (d) { return d.n === "Fondatori"; })[0].v;
+    var capAG = CAP.filter(function (d) { return d.n === "Amazon" || d.n === "Google"; }).reduce(function (s, d) { return s + d.v; }, 0);
+    var capIPO = CAP.filter(function (d) { return d.n === "Nuovi azionisti dell'IPO"; })[0].v;
+
+    // raggi in frazioni del lato del chip
+    var RING = [0, 0.165, 0.255, 0.335, 0.405, 0.465];
+    var LEVELS = [
+      { k: 1, label: "I fondatori", title: "Il nucleo: i sette fondatori", big: fmt(votF, 1) + "%", bigl: "dei voti in assemblea",
+        txt: "Un'unica azione di classe F, intestata alla società dei sette cofondatori, vale da sola il 50,1% dei voti e permette di eleggere 3 consiglieri su 7. Con le loro azioni ordinarie arrivano al " + fmt(votF, 1) + "%, pur avendo il " + fmt(capF, 1) + "% del capitale" },
+      { k: 2, label: "Il Trust", title: "Il Long-Term Benefit Trust", big: "4 su 7", bigl: "consiglieri vengono eletti dal Trust",
+        txt: "Un comitato di fiduciari senza interessi economici nell'azienda. Ha una sola azione, di classe T, che non vota in assemblea ma elegge la maggioranza del consiglio. Su cinque posti, uno è vacante. Non decide la gestione di tutti i giorni" },
+      { k: 3, label: "Il consiglio", title: "Il consiglio di amministrazione", big: "7", bigl: "posti, uno vacante",
+        txt: "Quattro consiglieri li sceglie il Trust: Reed Hastings, cofondatore di Netflix, Vas Narasimhan, amministratore delegato di Novartis, Chris Liddell, già direttore finanziario di Microsoft e General Motors, e un posto ancora libero. Gli altri tre li eleggono gli azionisti con voto, cioè in pratica i fondatori: Dario e Daniela Amodei e Yasmin Razavi, del fondo Spark Capital" },
+      { k: 4, label: "Chi vota", title: "Gli azionisti con voto", big: "49,9%", bigl: "il massimo dei voti delle azioni di classe A",
+        txt: "Un voto per azione, ma tutte insieme non possono superare il 49,9%. Qui entra chi compra in Borsa: le 825 milioni di azioni dell'offerta sono il " + fmt(capIPO, 1) + "% del capitale" },
+      { k: 5, label: "Senza voto", title: "Il cerchio esterno: chi paga ma non vota", big: fmt(capAG, 1) + "%", bigl: "del capitale ad Amazon e Google, senza voto",
+        txt: "Amazon e Google hanno azioni di classe N, che danno diritto agli utili ma non al voto, come i produttori di chip del collocamento privato. Il fondo di beneficenza di Anthropic ha il 6,5%. I dipendenti avranno azioni di classe E, che votano solo su poche materie" },
+      { k: 0, label: "Da fuori", title: "Chi possiede e chi decide", big: fmt(capF, 1) + "% → " + fmt(votF, 1) + "%", bigl: "i fondatori: dal capitale ai voti",
+        txt: "Visto da fuori, il chip ha due misure molto diverse: le azioni dicono chi possiede l'azienda, i voti chi la comanda" }
+    ];
+    var cur = 0;
+
+    var levels = d3.select("#levels").selectAll("button").data(LEVELS).join("button").attr("type", "button")
+      .text(function (d, i) { return (i + 1) + " " + d.label; }).on("click", function (e, d) { go(LEVELS.indexOf(d)); });
+
+    var host = document.getElementById("chip"), S = 0, svg, gRoot;
+    function zoomFor(k) { return k === 0 ? 1 : (RING[5] * 0.98) / RING[k] * (k === 5 ? 0.84 : (k === 1 ? 0.74 : (k === 4 ? 0.86 : 0.9))); }
+
+    function draw(W) {
+      S = Math.min(W, 660);
+      d3.select(host).style("width", S + "px").style("height", S + "px").selectAll("svg").remove();
+      svg = d3.select(host).append("svg").attr("width", S).attr("height", S).attr("role", "img")
+        .attr("aria-label", "Schema a cerchi del potere in Anthropic: al centro i sette fondatori, poi il Trust, il consiglio, gli azionisti con voto e, all'esterno, i soci senza voto");
+      gRoot = svg.append("g");
+      layout(0);
+    }
+
+    function pol(r, a) { return [S / 2 + r * Math.sin(a), S / 2 - r * Math.cos(a)]; }
+
+    function layout(dur) {
+      var L = LEVELS[cur], z = zoomFor(L.k), narrow = S < 420;
+      var t = gRoot.transition().duration(dur).ease(d3.easeCubicInOut);
+      function R_(i) { return RING[i] * S * z; }
+
+      // contorno del die e pin (visibili solo da fuori)
+      var die = gRoot.selectAll("g.die-g").data([0]).join(function (e) {
+        var g = e.append("g").attr("class", "die-g");
+        g.append("rect").attr("class", "die");
+        return g;
+      });
+      var dieS = S * 0.96 * z;
+      die.select("rect").transition(t).attr("x", S / 2 - dieS / 2).attr("y", S / 2 - dieS / 2).attr("width", dieS).attr("height", dieS).attr("rx", 10 * z);
+      var pins = [];
+      for (var i = 0; i < 14; i++) ["t", "b", "l", "r"].forEach(function (s) { pins.push({ s: s, i: i }); });
+      die.selectAll("rect.pin").data(pins).join("rect").attr("class", "pin").transition(t)
+        .attr("x", function (p) { var o = -dieS / 2 + dieS * (p.i + 1.5) / 16; return p.s === "l" ? S / 2 - dieS / 2 - 6 : p.s === "r" ? S / 2 + dieS / 2 + 1 : S / 2 + o - 2; })
+        .attr("y", function (p) { var o = -dieS / 2 + dieS * (p.i + 1.5) / 16; return p.s === "t" ? S / 2 - dieS / 2 - 6 : p.s === "b" ? S / 2 + dieS / 2 + 1 : S / 2 + o - 2; })
+        .attr("width", function (p) { return p.s === "l" || p.s === "r" ? 5 : 4; })
+        .attr("height", function (p) { return p.s === "l" || p.s === "r" ? 4 : 5; });
+
+      // anelli
+      gRoot.selectAll("circle.ring").data([1, 2, 3, 4, 5]).join("circle")
+        .attr("class", function (i) { return "ring" + (i === L.k ? " ring--on" : ""); })
+        .attr("cx", S / 2).attr("cy", S / 2).transition(t).attr("r", function (i) { return R_(i) + (i === 1 ? 0 : 0); });
+
+      // tracce radiali tra un anello e l'altro (32 direzioni, a gomito)
+      var tr = d3.range(32).map(function (j) { return { a: j / 32 * 2 * Math.PI + Math.PI / 32, j: j }; });
+      gRoot.selectAll("path.trace").data(tr).join("path").attr("class", "trace").transition(t)
+        .attr("d", function (d) {
+          var p0 = pol(R_(1), d.a), p1 = pol(R_(3), d.a), p2 = pol(R_(3), d.a + (d.j % 2 ? 0.06 : -0.06)), p3 = pol(R_(5), d.a + (d.j % 2 ? 0.06 : -0.06));
+          return "M" + p0 + "L" + p1 + "L" + p2 + "L" + p3;
+        });
+      gRoot.selectAll("circle.via").data(tr).join("circle").attr("class", "via").attr("r", 2.2).transition(t)
+        .attr("cx", function (d) { return pol(R_(3), d.a)[0]; }).attr("cy", function (d) { return pol(R_(3), d.a)[1]; });
+
+      function opa(k) { return L.k === 0 || L.k === k ? 1 : 0.25; }
+      function showLabel(k) { return L.k === k ? 1 : 0; }
+
+      // 1. fondatori con i ritratti
+      var fr = R_(1), fsz = Math.min(fr * 2 * Math.PI / 7 * (narrow ? 0.7 : 0.82), 120);
+      var gF = gRoot.selectAll("g.f").data(FOUNDERS).join(function (e) {
+        var g = e.append("g").attr("class", "f");
+        g.append("circle").attr("class", "pad").style("fill", "var(--bg)").style("stroke", "var(--red)");
+        g.append("image").attr("preserveAspectRatio", "xMidYMid slice")
+          .attr("href", function (d) { return "../assets/ritratti/" + d.id + ".png"; });
+        g.append("text").attr("class", "node-label");
+        g.append("text").attr("class", "node-sub");
+        return g;
+      });
+      gF.transition(t).style("opacity", opa(1)).attr("transform", function (d, i) { var p = pol(fr, i / 7 * 2 * Math.PI); return "translate(" + p + ")"; });
+      gF.select("circle").transition(t).attr("r", fsz / 2 + 2);
+      gF.select("image").transition(t).attr("x", -fsz / 2).attr("y", -fsz / 2).attr("width", fsz).attr("height", fsz);
+      gF.select(".node-label").text(function (d) { return d.n; }).transition(t).attr("y", fsz / 2 + 14).style("opacity", showLabel(1));
+      gF.select(".node-sub").text(function (d) { return narrow ? "" : (d.r || ""); }).transition(t).attr("y", fsz / 2 + 26).style("opacity", showLabel(1));
+      // cuore: azione F
+      var core = gRoot.selectAll("g.core").data([0]).join(function (e) {
+        var g = e.append("g").attr("class", "core");
+        g.append("circle").style("fill", "var(--red)");
+        g.append("text").attr("class", "node-label").style("fill", "#fff").style("stroke", "none");
+        return g;
+      });
+      core.attr("transform", "translate(" + S / 2 + "," + S / 2 + ")");
+      core.select("circle").transition(t).attr("r", Math.max(12, fr * 0.3)).style("opacity", opa(1));
+      core.select("text").attr("y", 4).text(L.k === 1 ? "F · 50,1%" : "F").style("font-size", L.k === 1 ? "13px" : "10px");
+
+      // nodi generici sugli anelli 2-5
+      function ringNodes(cls, data, k, color, fmtL, fmtS, r0) {
+        var n = data.length, rr = R_(k);
+        var g = gRoot.selectAll("g." + cls).data(data).join(function (e) {
+          var gg = e.append("g").attr("class", cls);
+          gg.append("rect").attr("class", "pad");
+          gg.append("text").attr("class", "node-label");
+          gg.append("text").attr("class", "node-sub");
+          return gg;
+        });
+        var sz = L.k === k ? (narrow ? 12 : 14) : 7;
+        g.transition(t).style("opacity", opa(k)).attr("transform", function (d, i) { var p = pol(rr, (i + (r0 || 0)) / n * 2 * Math.PI); return "translate(" + p + ")"; });
+        g.select("rect").transition(t).attr("x", -sz / 2).attr("y", -sz / 2).attr("width", sz).attr("height", sz).attr("rx", 2)
+          .style("fill", function (d) { return color(d); }).style("stroke", "var(--bg)");
+        function anc(d, i) { var px = pol(rr, (i + (r0 || 0)) / n * 2 * Math.PI)[0]; return px < S * 0.22 ? "start" : (px > S * 0.78 ? "end" : "middle"); }
+        function dx(d, i) { var a = anc(d, i); return a === "start" ? -sz / 2 : (a === "end" ? sz / 2 : 0); }
+        g.select(".node-label").text(fmtL).style("text-anchor", anc).transition(t).attr("x", dx).attr("y", -sz / 2 - 7).style("opacity", showLabel(k));
+        g.select(".node-sub").text(fmtS).style("text-anchor", anc).transition(t).attr("x", dx).attr("y", sz / 2 + 16).style("opacity", showLabel(k));
+      }
+      ringNodes("tr", TRUST, 2, function (d) { return d === "posto vacante" ? "var(--grey-light)" : "var(--blue)"; }, function (d) { return d; }, function (d, i) { return i === 0 ? "presidente" : ""; }, 0.5);
+      ringNodes("bd", BOARD, 3, function (d) { return d.n === "posto vacante" ? "var(--grey-light)" : (d.by === "T" ? "var(--blue)" : "var(--red)"); },
+        function (d) { return d.n; }, function (d) { return d.by === "T" ? "scelto dal Trust" : "scelto dai soci"; }, 0);
+      ringNodes("ca", [{ n: "Investitori dell'IPO", s: "6,3% del capitale" }, { n: "Fondi e altri soci", s: "" }, { n: "Dipendenti con azioni A", s: "" }, { n: "Fondatori", s: "11,2% dei voti" }], 4,
+        function (d) { return d.n === "Fondatori" ? "var(--red)" : "var(--blue)"; }, function (d) { return d.n; }, function (d) { return d.s; }, 0.5);
+      ringNodes("ou", OUTER, 5, function () { return "var(--grey)"; }, function (d) { return d.n; }, function (d) { return d.s; }, 0.5);
+
+      // nomi degli anelli (in alto, solo da fuori)
+      var NAMES = [[1, "fondatori"], [2, "trust"], [3, "consiglio"], [4, "voto"], [5, "senza voto"]];
+      gRoot.selectAll("text.ring-name").data(NAMES).join("text").attr("class", "ring-name").text(function (d) { return d[1]; })
+        .transition(t).attr("x", S / 2).attr("y", function (d) { return S / 2 + R_(d[0]) + 12; })
+        .style("opacity", L.k === 0 && !narrow ? 1 : 0);
+    }
+
+    function card() {
+      var L = LEVELS[cur], c = d3.select("#card").html("");
+      c.append("div").attr("class", "card__t").text(L.title);
+      var n = c.append("div").attr("class", "card__num");
+      n.append("b").style("color", L.k === 1 || L.k === 0 ? "var(--red)" : null).text(L.big);
+      n.append("span").text(L.bigl);
+      c.append("p").text(L.txt);
+      levels.classed("is-on", function (d) { return d === L; });
+      d3.select("#dots").selectAll("i").data(LEVELS).join("i").classed("is-on", function (d) { return d === L; });
+      d3.select("#prev").attr("disabled", cur === 0 ? true : null);
+      d3.select("#next").attr("disabled", cur === LEVELS.length - 1 ? true : null).text(cur === LEVELS.length - 1 ? "Fine" : "Avanti ›");
+      bars();
+      R.scheduleHeight();
+    }
+
+    var PAL = { "Fondatori": "var(--red)", "Amazon": "var(--grey-1)", "Google": "var(--grey-2)", "Fondo di beneficenza": "var(--grey-3)",
+      "Nuovi azionisti dell'IPO": "var(--blue-2)", "Produttori di chip": "var(--grey-4)", "Altri azionisti": "var(--grey-5)", "Altri azionisti di classe A": "var(--blue-3)" };
+    function bars() {
+      var b = d3.select("#bars");
+      if (LEVELS[cur].k !== 0) { b.html(""); return; }
+      b.html("");
+      [["Chi possiede: quote del capitale", CAP], ["Chi decide: voti in assemblea", VOT]].forEach(function (blk) {
+        b.append("h3").text(blk[0]);
+        var bar = b.append("div").attr("class", "bar");
+        bar.selectAll("div").data(blk[1]).join("div").style("flex-basis", "0%").style("background", function (d) { return PAL[d.n]; })
+          .style("color", function (d) { return d.n === "Altri azionisti" || d.n === "Produttori di chip" ? "var(--on-light)" : "#fff"; })
+          .attr("title", function (d) { return d.n + ": " + fmt(d.v, 1) + "%"; })
+          .text(function (d) { return d.v >= 14 || d.n === "Fondatori" ? fmt(d.v, 1) + "%" : ""; });
+        setTimeout(function () { bar.selectAll("div").style("flex-basis", function (d) { return d.v + "%"; }); }, 30);
+      });
+      var key = b.append("div").attr("class", "bar-key");
+      CAP.concat(VOT.slice(1)).forEach(function (d) {
+        key.append("span").html('<i class="sw" style="background:' + PAL[d.n] + '"></i>' + d.n + " " + fmt(d.v, 1) + "%");
+      });
+      key.append("span").html("Amazon, Google, fondo e produttori di chip: 0% dei voti");
+    }
+
+    function go(i) {
+      cur = Math.max(0, Math.min(LEVELS.length - 1, i));
+      layout(R.reduced || S < 520 ? 0 : 900);   // su telefono il passaggio è netto, come un carosello
+      card();
+    }
+    // scorrimento orizzontale con il dito sul chip (verticale libero per scorrere la pagina)
+    (function () {
+      var el = document.getElementById("chip"), x0 = null, y0 = null;
+      el.style.touchAction = "pan-y";
+      el.addEventListener("pointerdown", function (e) { x0 = e.clientX; y0 = e.clientY; });
+      el.addEventListener("pointerup", function (e) {
+        if (x0 == null) return;
+        var dx = e.clientX - x0, dy = e.clientY - y0; x0 = null;
+        if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) go(cur + (dx < 0 ? 1 : -1));
+      });
+      el.addEventListener("pointercancel", function () { x0 = null; });
+    })();
+    d3.select("#prev").on("click", function () { go(cur - 1); });
+    d3.select("#next").on("click", function () { go(cur + 1); });
+
+    var q = +(new URLSearchParams(location.search).get("livello") || 1);
+    cur = Math.max(0, Math.min(LEVELS.length - 1, q - 1));
+    R.responsive(document.querySelector(".radar"), function (W) { draw(Math.min(W - 32, 728)); card(); });
+  }).catch(function (e) { R.fail("#chip", e); });
+})();
+</script>
+</body>
+</html>

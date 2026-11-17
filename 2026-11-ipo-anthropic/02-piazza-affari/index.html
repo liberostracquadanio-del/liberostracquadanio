@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="radar:altezza-640" content="1177">
+<meta name="radar:altezza-360" content="1310">
+<meta name="radar:titolo" content="Per pareggiare Anthropic servono le prime 20 società italiane">
+<meta name="radar:pubblicato" content="2026-11-17">
+<meta name="radar:modificato" content="2026-11-17">
+<meta name="radar:modello" content="radar-dataviz">
+<title>Per pareggiare Anthropic servono le prime 20 società italiane</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,700&display=swap">
+<link rel="stylesheet" href="../assets/radar.css">
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0"></script>
+<script src="../assets/radar.js"></script>
+<style>
+  .tabs { display: flex; gap: 0; margin: 22px 0 0; border-bottom: 1px solid var(--rule); }
+  .tabs button {
+    font: 600 14px/1 var(--sans); color: var(--ink-2); background: none; border: 0;
+    border-bottom: 3px solid transparent; padding: 10px 12px 9px; cursor: pointer; margin-bottom: -1px;
+  }
+  .tabs button.is-on { color: var(--ink); border-bottom-color: var(--blue); }
+  .status { display: flex; flex-wrap: wrap; align-items: last baseline; gap: 2px 10px; margin: 16px 0 6px; min-height: 44px; }
+  .status__num { font-size: 34px; font-weight: 700; letter-spacing: -0.03em; line-height: 1; font-variant-numeric: tabular-nums; }
+  .status__txt { font-size: 14px; color: var(--ink-2); line-height: 1.35; max-width: 460px; }
+  .status__txt b { color: var(--ink); }
+  .status.is-done .status__num { color: var(--red); }
+  .blk { stroke: var(--bg); stroke-width: 2; }
+  .blk-label { font-size: 12px; font-weight: 600; fill: #fff; pointer-events: none; }
+  .target-label { font-size: 14px; font-weight: 700; fill: var(--ink-2); }
+  .target-line { stroke: var(--red); stroke-width: 2; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .chip {
+    font: 500 13px/1.2 var(--sans); color: var(--ink); background: var(--bg);
+    border: 1px solid var(--grey-light); border-radius: 16px; padding: 7px 11px; cursor: pointer;
+    display: inline-flex; gap: 6px; align-items: baseline;
+  }
+  .chip small { color: var(--ink-2); font-size: 12px; font-variant-numeric: tabular-nums; }
+  .chip.is-in { background: var(--blue); border-color: var(--blue); color: #fff; }
+  .chip.is-in small { color: rgba(255,255,255,.8); }
+  .chip:hover:not(.is-in) { border-color: var(--ink); }
+  @media (max-width: 519px) {
+    .chips { gap: 4px; }
+    .chip { font-size: 12px; padding: 5px 8px; }
+    .chip small { font-size: 11px; }
+  }
+  .actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+  .actions button {
+    font: 600 13px/1 var(--sans); color: var(--ink); background: transparent;
+    border: 1px solid var(--grey-light); border-radius: 2px; padding: 9px 12px; cursor: pointer;
+  }
+  .actions button.is-main { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .extra { font-size: 14px; line-height: 1.5; margin: 16px 0 0; }
+</style>
+</head>
+<body>
+<main class="radar">
+  <header>
+    <h1 class="r-title">Per pareggiare Anthropic servono le prime 20 società italiane</h1>
+    <p class="r-sub">Valore di Borsa in miliardi di dollari: Anthropic al prezzo dell'offerta contro le società quotate</p>
+  </header>
+
+  <div class="tabs" role="tablist" id="tabs"></div>
+  <div class="status" id="status" aria-live="polite"></div>
+  <figure class="r-chart" id="grafico" style="margin-top:8px"></figure>
+  <div class="actions">
+    <button type="button" class="is-main" id="fill">Riempi con le più grandi</button>
+    <button type="button" id="empty">Svuota</button>
+  </div>
+  <div class="chips" id="chips"></div>
+  <p class="extra" id="extra"></p>
+
+  <footer class="r-foot">
+    <span>Fonte: valutazioni di companiesmarketcap al 17 novembre 2026; Sec (Anthropic S-1/A)</span>
+    <span>Elaborazione Radar – QN</span>
+    <span style="flex-basis:100%">Anthropic: tutte le azioni dopo l'offerta al prezzo di metà forchetta (74 dollari). Società assegnate al Paese della sede</span>
+  </footer>
+</main>
+
+<script>
+(function () {
+  var R = Radar, fmt = R.fmt;
+  var GROUPS = [
+    { key: "Italia", label: "Italia" },
+    { key: "Europa", label: "Europa" },
+    { key: "Mondo", label: "Marchi famosi" }
+  ];
+  R.loadCSV("../data/piazza-affari.csv").then(function (rows) {
+    var A = R.num(rows.filter(function (r) { return r.Gruppo === "Anthropic"; })[0].Capitalizzazione);
+    var allIt = rows.filter(function (r) { return r.Gruppo === "Tutte le italiane"; })[0];
+    var allItVal = R.num(allIt.Capitalizzazione);
+    var apple = R.num(rows.filter(function (r) { return r.Gruppo === "Riferimento"; })[0].Capitalizzazione);
+    var data = {};
+    GROUPS.forEach(function (g) {
+      data[g.key] = rows.filter(function (r) { return r.Gruppo === g.key; })
+        .map(function (r, i) { return { id: g.key + i, name: r.Società, v: R.num(r.Capitalizzazione) }; });
+    });
+    var group = "Italia", picked = [], phaseNow = "pre", geo = null, timer = null;
+
+    // quante ne servono, prendendo le più grandi
+    function minNeeded(list) {
+      var s = 0;
+      for (var i = 0; i < list.length; i++) { s += list[i].v; if (s >= A) return i + 1; }
+      return null;
+    }
+    function sum() { return d3.sum(picked, function (d) { return d.v; }); }
+
+    var tabs = d3.select("#tabs").selectAll("button").data(GROUPS).join("button")
+      .attr("type", "button").attr("role", "tab").text(function (d) { return d.label; })
+      .on("click", function (e, d) { setGroup(d.key); });
+
+    var host = document.getElementById("grafico");
+
+    // ---------- la bolla di Anthropic che si riempie di liquido ----------
+    // Il livello rispetta il volume: la quota del valore di Anthropic è la quota dell'area del cerchio.
+    function levelFor(f) {            // f = quota dell'area (0-1) -> altezza del liquido in frazioni del diametro
+      f = Math.max(0, Math.min(1, f));
+      var lo = 0, hi = 1;
+      for (var i = 0; i < 30; i++) {
+        var h = (lo + hi) / 2, t = 1 - 2 * h;        // segmento circolare di raggio 1, altezza 2h
+        var area = (Math.acos(t) - t * Math.sqrt(1 - t * t)) / Math.PI;
+        if (area < f) lo = h; else hi = h;
+      }
+      return (lo + hi) / 2;
+    }
+    var shown = [], wave = { amp: 2, phase: 0 }, raf = null;
+
+    function draw(W, phase) {
+      phaseNow = phase;
+      d3.select(host).selectAll("svg").remove();
+      var D = Math.min(R.isNarrow(W) ? W * 0.82 : W - 8, 420), R0 = D / 2 - 3, H = D + 8;
+      var svg = d3.select(host).append("svg").attr("width", W).attr("height", H).attr("role", "img")
+        .attr("aria-label", "Una bolla che rappresenta il valore di Anthropic, " + fmt(A) + " miliardi di dollari, si riempie con il valore delle società scelte");
+      var cx = W / 2, cy = D / 2 + 4;
+      var id = "clip" + Math.round(Math.random() * 1e6);
+      svg.append("clipPath").attr("id", id).append("circle").attr("cx", cx).attr("cy", cy).attr("r", R0);
+      svg.append("circle").attr("cx", cx).attr("cy", cy).attr("r", R0).style("fill", "var(--rule)").style("opacity", .45);
+      var liq = svg.append("g").attr("clip-path", "url(#" + id + ")");
+      var gBands = liq.append("g"), back = liq.append("path"), front = liq.append("path"), gLab = liq.append("g");
+      var rim = svg.append("circle").attr("class", "rim").attr("cx", cx).attr("cy", cy).attr("r", R0)
+        .style("fill", "none").style("stroke", "var(--ink)").style("stroke-width", 2);
+      // riflesso sul vetro
+      svg.append("path").attr("d", d3.arc()({ innerRadius: R0 * 0.82, outerRadius: R0 * 0.88, startAngle: -1.15, endAngle: -0.45 }))
+        .attr("transform", "translate(" + cx + "," + cy + ")").style("fill", "#fff").style("opacity", .55);
+      var top = svg.append("text").attr("class", "target-label").attr("x", cx).attr("y", cy - R0 * 0.55)
+        .attr("text-anchor", "middle");
+      geo = { svg: svg, cx: cx, cy: cy, R0: R0, D: D, gBands: gBands, back: back, front: front, gLab: gLab, rim: rim, top: top };
+      shown = picked.map(function (d) { return { d: d, v: phase === "static" ? d.v : 0 }; });
+      render(phase === "pre" ? 0 : R.DUR);
+      if (!raf && !R.reduced) raf = requestAnimationFrame(tick);
+    }
+
+    function paint() {
+      if (!geo) return;
+      var g = geo, R0 = g.R0, base = g.cy + R0, total = 0;
+      var cum = [], acc = 0;
+      shown.forEach(function (s) { acc += s.v; cum.push(acc); });
+      total = acc;
+      var lev = function (v) { return base - 2 * R0 * levelFor(v / A); };
+      var yTop = lev(total), full = total >= A;
+      var amp = full ? 0 : wave.amp;
+      var bands = g.gBands.selectAll("rect").data(shown, function (s) { return s.d.id; });
+      bands.exit().remove();
+      bands.enter().append("rect").merge(bands)
+        .attr("x", g.cx - R0).attr("width", 2 * R0)
+        .attr("y", function (s, i) { return lev(cum[i]) + (i === shown.length - 1 ? amp : 0); })
+        .attr("height", function (s, i) { var y0 = lev(cum[i] - s.v), y1 = lev(cum[i]) + (i === shown.length - 1 ? amp : 0); return Math.max(0, y0 - y1 + 0.5); })
+        .style("fill", function (s, i) { return i % 2 ? "var(--blue-3)" : "var(--blue-2)"; });
+      function wavePath(ph, a) {
+        var pts = [], x0 = g.cx - R0, w = 2 * R0;
+        for (var k = 0; k <= 40; k++) { var xx = x0 + w * k / 40; pts.push([xx, yTop + a * Math.sin(k / 40 * Math.PI * 3 + ph)]); }
+        return "M" + pts.join("L") + "L" + (x0 + w) + "," + (yTop + amp + 1) + "L" + x0 + "," + (yTop + amp + 1) + "Z";
+      }
+      var topCol = shown.length ? ((shown.length - 1) % 2 ? "var(--blue-3)" : "var(--blue-2)") : "none";
+      g.back.attr("d", shown.length && !full ? wavePath(wave.phase + 1.7, amp * 0.8) : "").style("fill", topCol).style("opacity", .45);
+      g.front.attr("d", shown.length && !full ? wavePath(wave.phase, amp) : "").style("fill", topCol);
+      var labs = g.gLab.selectAll("text").data(shown, function (s) { return s.d.id; });
+      labs.exit().remove();
+      labs.enter().append("text").attr("class", "blk-label").attr("text-anchor", "middle").merge(labs)
+        .attr("x", g.cx)
+        .attr("y", function (s, i) { return (lev(cum[i] - s.v) + lev(cum[i])) / 2 + 4; })
+        .text(function (s) { return s.d.name; })
+        .style("opacity", function (s, i) { return lev(cum[i] - s.v) - lev(cum[i]) > 14 ? 1 : 0; });
+      g.rim.style("stroke", full ? "var(--red)" : "var(--ink)").style("stroke-width", full ? 3 : 2);
+      g.top.text(full ? "" : "Anthropic " + fmt(A) + " miliardi").attr("y", Math.min(g.cy - R0 * 0.55, yTop - 14)).style("opacity", yTop - 14 > g.cy - R0 + 20 ? 1 : 0);
+    }
+
+    function tick() {
+      wave.phase += 0.07;
+      wave.amp += (2.2 - wave.amp) * 0.03;      // dopo lo scossone torna a un'increspatura leggera
+      paint();
+      raf = requestAnimationFrame(tick);
+    }
+
+    function render(dur) {
+      if (!geo) return;
+      // allinea l'elenco mostrato a quello scelto, poi porta i valori a destinazione con un'animazione
+      var old = {}; shown.forEach(function (s) { old[s.d.id] = s; });
+      shown = picked.map(function (d) { return old[d.id] || { d: d, v: 0 }; });
+      var from = shown.map(function (s) { return s.v; });
+      wave.amp = R.reduced ? 0 : Math.min(14, wave.amp + 9);    // il liquido si agita a ogni aggiunta
+      if (!dur || R.reduced) { shown.forEach(function (s) { s.v = s.d.v; }); paint(); }
+      else d3.select(geo.svg.node()).interrupt().transition().duration(dur).ease(d3.easeCubicOut).tween("lev", function () {
+        return function (t) { shown.forEach(function (s, i) { s.v = from[i] + (s.d.v - from[i]) * t; }); if (R.reduced) paint(); };
+      });
+      status();
+      R.scheduleHeight();
+    }
+
+    function status() {
+      var s = sum(), n = picked.length, st = d3.select("#status").html("");
+      var done = s >= A;
+      st.classed("is-done", done);
+      var big = st.append("span").attr("class", "status__num");
+      big.text(fmt(s));
+      var t = st.append("span").attr("class", "status__txt");
+      if (!n) t.html("miliardi di dollari: nessuna società scelta. Anthropic ne vale <b>" + fmt(A) + "</b>");
+      else if (!done) t.html("miliardi con " + n + (n === 1 ? " società" : " società") + ". Ne mancano <b>" + fmt(A - s) + "</b> per arrivare ad Anthropic");
+      else {
+        var mn = minNeeded(data[group]);
+        t.html(n === mn ? "miliardi: servono le <b>" + n + " società più grandi</b> per superare Anthropic"
+          : "miliardi: ce l'hai fatta con <b>" + n + " società</b>. Prendendo le più grandi ne bastano " + mn);
+      }
+      d3.selectAll(".chip").classed("is-in", function (d) { return picked.indexOf(d) >= 0; })
+        .attr("aria-pressed", function (d) { return picked.indexOf(d) >= 0; });
+    }
+
+    function chips() {
+      var c = d3.select("#chips").selectAll("button.chip").data(data[group], function (d) { return d.id; });
+      c.exit().remove();
+      var en = c.enter().append("button").attr("type", "button").attr("class", "chip")
+        .on("click", function (e, d) { toggle(d); });
+      en.append("span").text(function (d) { return d.name; });
+      en.append("small").text(function (d) { return fmt(d.v); });
+      c.merge(en).order();
+      var ex = d3.select("#extra");
+      if (group === "Italia") ex.html("Tutte le 163 società italiane della classifica valgono insieme <b>" + fmt(allItVal) +
+        " miliardi</b>. Anthropic le supererebbe tutte con un'azione sopra i <b>" + fmt(allItVal * 1e9 / 13086672593, 0) + " dollari</b>");
+      else if (group === "Europa") ex.html("Le 30 società europee più grandi, Italia esclusa");
+      else ex.html("Alcuni marchi conosciuti in tutto il mondo, Italia esclusa. Apple da sola vale " + fmt(apple / A, 1) + " volte Anthropic");
+    }
+
+    function toggle(d) {
+      clearInterval(timer);
+      var i = picked.indexOf(d);
+      if (i >= 0) picked.splice(i, 1); else picked.push(d);
+      render(700);
+    }
+    function setGroup(k) {
+      clearInterval(timer);
+      group = k; picked = [];
+      tabs.classed("is-on", function (d) { return d.key === k; }).attr("aria-selected", function (d) { return d.key === k; });
+      chips(); render(700);
+    }
+    d3.select("#empty").on("click", function () { clearInterval(timer); picked = []; render(700); });
+    d3.select("#fill").on("click", function () {
+      clearInterval(timer);
+      picked = [];
+      var list = data[group].slice(), k = 0;
+      render(0);
+      timer = setInterval(function () {
+        if (sum() >= A || k >= list.length) { clearInterval(timer); return; }
+        picked.push(list[k++]); render(260);
+      }, R.reduced ? 0 : 280);
+    });
+
+    var q = new URLSearchParams(location.search);
+    setGroup(GROUPS.some(function (g) { return g.key === q.get("gruppo"); }) ? q.get("gruppo") : "Italia");
+    R.responsive(host, draw);
+    if (q.get("riempi") === "1") document.getElementById("fill").click();
+    if (+q.get("prime") > 0) { picked = data[group].slice(0, +q.get("prime")); render(0); }
+  }).catch(function (e) { R.fail("#grafico", e); });
+})();
+</script>
+</body>
+</html>

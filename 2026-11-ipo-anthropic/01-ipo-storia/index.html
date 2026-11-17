@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="radar:altezza-640" content="873">
+<meta name="radar:altezza-360" content="930">
+<meta name="radar:titolo" content="Con Google e Nvidia, Anthropic fa la quotazione più ricca della storia">
+<meta name="radar:pubblicato" content="2026-11-17">
+<meta name="radar:modificato" content="2026-11-17">
+<meta name="radar:modello" content="radar-dataviz">
+<title>Con Google e Nvidia, Anthropic fa la quotazione più ricca della storia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,700&display=swap">
+<link rel="stylesheet" href="../assets/radar.css">
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0"></script>
+<script src="../assets/radar.js"></script>
+<style>
+  .stem { stroke-width: 3; stroke-linecap: round; }
+  .step { cursor: pointer; }
+  .step:focus { outline: none; }
+  .name-label { font-size: 11px; fill: var(--ink-2); paint-order: stroke; stroke: var(--bg); stroke-width: 3px; }
+  .yr { font-size: 11px; fill: var(--ink-2); text-anchor: middle; }
+  .yr.is-on { fill: var(--ink); font-weight: 700; }
+  .ref-line { stroke: var(--ink-2); stroke-width: 1; stroke-dasharray: 3 3; }
+  .ref-text { font-size: 12px; fill: var(--ink-2); paint-order: stroke; stroke: var(--bg); stroke-width: 4px; }
+  .card { margin-top: 18px; border-top: 1px solid var(--rule); padding-top: 14px; min-height: 196px; }
+  .card__n { font-size: 12px; color: var(--ink-2); letter-spacing: .02em; }
+  .card__name img { width: 34px; height: 34px; border-radius: 7px; vertical-align: -6px; margin-right: 10px; background: #fff; }
+  .card__name { font-family: var(--serif); font-weight: 700; font-size: 26px; line-height: 1.1; margin: 4px 0 2px; color: var(--title); }
+  .card__when { font-size: 13px; color: var(--ink-2); }
+  .card__num { display: flex; flex-wrap: wrap; align-items: last baseline; gap: 2px 10px; margin: 12px 0 8px; }
+  .card__big { font-size: 38px; font-weight: 700; letter-spacing: -0.03em; line-height: 1; font-variant-numeric: tabular-nums; }
+  .card__unit { font-size: 14px; color: var(--ink-2); line-height: 1.35; max-width: 340px; }
+  .card__txt { font-size: 15px; line-height: 1.5; margin: 0; max-width: 620px; }
+  .card__split { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 13px; color: var(--ink-2); margin: -2px 0 10px; }
+  .card__split span { display: inline-flex; align-items: center; gap: 6px; }
+  .nav { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 16px; }
+  .nav button {
+    font: 600 14px/1 var(--sans); color: var(--ink); background: transparent;
+    border: 1px solid var(--grey-light); border-radius: 2px; padding: 10px 14px; cursor: pointer; min-width: 44px;
+  }
+  .nav button:hover:not([disabled]) { border-color: var(--ink); }
+  .nav button[disabled] { opacity: .35; cursor: default; }
+  .nav button.is-next { background: var(--blue); border-color: var(--blue); color: #fff; }
+  .dots { display: flex; gap: 5px; flex-wrap: wrap; justify-content: center; }
+  .dots i { width: 7px; height: 7px; border-radius: 50%; background: var(--grey-light); display: block; }
+  .dots i.is-seen { background: var(--grey); }
+  .dots i.is-on { background: var(--ink); }
+  .sw--red { background: var(--red); }
+  .sw--red-light { background: var(--red-4); }
+</style>
+</head>
+<body>
+<main class="radar">
+  <header>
+    <h1 class="r-title">Con Google e Nvidia, Anthropic fa la quotazione più ricca della storia</h1>
+    <p class="r-sub">Denaro raccolto da alcune grandi quotazioni in Borsa, in miliardi di dollari di oggi</p>
+  </header>
+
+  <figure class="r-chart" id="grafico" style="margin-top:22px"></figure>
+
+  <section class="card" id="card" aria-live="polite"></section>
+
+  <div class="nav">
+    <button type="button" id="prev" aria-label="Quotazione precedente">‹</button>
+    <div class="dots" id="dots" aria-hidden="true"></div>
+    <button type="button" id="next" class="is-next">Avanti ›</button>
+  </div>
+
+  <footer class="r-foot">
+    <span>Fonte: Renaissance Capital, prospetti e comunicati delle società, Sec (Anthropic S-1/A), Bureau of Labor Statistics</span>
+    <span>Elaborazione Radar – QN</span>
+    <span style="flex-basis:100%">Offerta base, senza l'opzione delle banche; valori corretti per l'inflazione Usa. Anthropic: prezzo di metà forchetta (74 dollari)</span>
+  </footer>
+</main>
+
+<script>
+(function () {
+  var R = Radar, fmt = R.fmt;
+  R.loadCSV("../data/ipo-storia.csv").then(function (rows) {
+    var D = rows.map(function (r) {
+      var ipo = R.num(r["Raccolta dollari 2026"]), pp = R.num(r["Collocamento privato"]) || 0;
+      return {
+        i: +r.Ordine - 1, name: r.Azienda, year: +r.Anno, when: r.Data, where: r.Borsa,
+        nom: R.num(r["Raccolta nominale"]), ipo: ipo, pp: pp, tot: ipo + pp, ctx: r.Contesto
+      };
+    });
+    var N = D.length, LAST = N - 1;
+    var spacex = D.filter(function (d) { return d.name === "SpaceX"; })[0];
+    var cur = 0, seen = 0, phaseNow = "pre", geo = null, geo_hr = 15;
+    var LOGO = { "NTT Docomo": "ntt-docomo.png", "Enel": "enel.png", "Visa": "visa.svg", "General Motors": "general-motors.png",
+      "Facebook": "facebook.png", "Alibaba": "alibaba.png", "SoftBank Corp": "softbank.png", "Saudi Aramco": "saudi-aramco.png",
+      "Rivian": "rivian.png", "SpaceX": "spacex.png", "SK hynix": "sk-hynix.png", "Anthropic": "anthropic.png" };
+
+    var host = document.getElementById("grafico");
+    var card = d3.select("#card");
+    var dots = d3.select("#dots").selectAll("i").data(D).join("i");
+
+    function color(d) { return d.i === LAST ? "var(--red)" : "var(--blue)"; }
+
+    function draw(W, phase) {
+      phaseNow = phase;
+      var narrow = R.isNarrow(W);
+      var H = narrow ? 260 : 320, m = { t: 40, r: 6, b: 24, l: 6 };
+      d3.select(host).selectAll("svg").remove();
+      var svg = d3.select(host).append("svg").attr("width", W).attr("height", H)
+        .attr("role", "img")
+        .attr("aria-label", "Raccolta delle grandi quotazioni in dollari di oggi: " +
+          D.map(function (d) { return d.name + " " + d.year + " " + fmt(d.tot, 1) + " miliardi"; }).join("; "));
+      var x = d3.scalePoint().domain(d3.range(N)).range([m.l + 12, W - m.r - 12]).padding(0.3);
+      var y = d3.scaleLinear().domain([0, 90]).range([H - m.b, m.t]);
+      geo = { svg: svg, x: x, y: y, H: H, m: m, narrow: narrow };
+
+      svg.append("g").attr("class", "grid").selectAll("line").data([25, 50, 75]).join("line")
+        .attr("x1", 0).attr("x2", W).attr("y1", y).attr("y2", y);
+      svg.append("g").selectAll("text").data([25, 50, 75]).join("text").attr("class", "tick-label")
+        .attr("x", 0).attr("y", function (v) { return y(v) - 4; }).text(function (v) { return fmt(v) + (v === 75 ? " miliardi" : ""); });
+      svg.append("line").attr("class", "baseline").attr("x1", 0).attr("x2", W).attr("y1", y(0)).attr("y2", y(0));
+
+      // linea del record di SpaceX (compare all'ultima tappa)
+      var ref = svg.append("g").attr("class", "ref").style("opacity", 0);
+      ref.append("line").attr("class", "ref-line").attr("x1", x(spacex.i)).attr("x2", W - m.r).attr("y1", y(spacex.tot)).attr("y2", y(spacex.tot));
+      ref.append("text").attr("class", "ref-text").attr("x", x(spacex.i) - (narrow ? 14 : 22)).attr("y", y(spacex.tot) + 4).attr("text-anchor", "end")
+        .text("record di SpaceX");
+
+      var g = svg.append("g").selectAll("g").data(D).join("g").attr("class", "step mark")
+        .attr("tabindex", -1)
+        .on("click", function (e, d) { go(d.i); });
+      g.append("rect").attr("class", "hit").attr("x", function (d) { return x(d.i) - x.step() / 2; })
+        .attr("width", x.step()).attr("y", m.t - 20).attr("height", H - m.t - m.b + 20);
+      g.append("line").attr("class", "stem stem--ipo").attr("x1", function (d) { return x(d.i); }).attr("x2", function (d) { return x(d.i); })
+        .attr("y1", y(0)).attr("y2", y(0));
+      g.filter(function (d) { return d.pp > 0; }).append("line").attr("class", "stem stem--pp")
+        .attr("x1", function (d) { return x(d.i); }).attr("x2", function (d) { return x(d.i); })
+        .attr("y1", y(0)).attr("y2", y(0)).style("stroke", "var(--red-4)");
+      var HR = narrow ? 10 : 15; geo_hr = HR;
+      g.append("circle").attr("class", "head").attr("cx", function (d) { return x(d.i); }).attr("cy", y(0)).attr("r", HR + 2);
+      g.append("image").attr("class", "logo-head").attr("preserveAspectRatio", "xMidYMid meet")
+        .attr("href", function (d) { return "../assets/loghi/" + LOGO[d.name]; })
+        .attr("x", function (d) { return x(d.i) - HR; }).attr("y", y(0) - HR).attr("width", HR * 2).attr("height", HR * 2)
+        .style("clip-path", "circle(50%)").style("opacity", 0);
+      g.append("text").attr("class", "val-label").attr("text-anchor", "middle").attr("x", function (d) { return x(d.i); });
+      g.append("text").attr("class", "name-label").attr("text-anchor", "middle").attr("x", function (d) { return x(d.i); });
+
+      svg.append("g").selectAll("text").data(D).join("text")
+        .attr("class", "yr").attr("x", function (d) { return x(d.i); }).attr("y", H - 6)
+        .text(function (d) { return narrow ? "’" + String(d.year).slice(2) : d.year; });
+
+      update(phase === "play" ? "play" : phase);
+    }
+
+    function update(phase) {
+      if (!geo) return;
+      var x = geo.x, y = geo.y, svg = geo.svg;
+      var dur = phase === "static" || phase === "pre" ? 0 : R.DUR;
+      var steps = svg.selectAll(".step");
+      steps.each(function (d) {
+        var gsel = d3.select(this);
+        var vis = d.i <= seen;
+        var on = d.i === cur;
+        var stemCol = !vis ? "var(--grey-light)" : (on ? color(d) : (d.i === LAST ? "var(--red)" : "var(--grey)"));
+        var top = vis && phase !== "pre" ? d.ipo : 0;
+        var topPP = vis && phase !== "pre" ? d.tot : 0;
+        gsel.select(".stem--ipo").style("stroke", stemCol).attr("y1", y(0))
+          .transition().duration(dur).ease(R.EASE).attr("y2", y(vis && phase !== "pre" ? d.ipo : (vis ? 0 : 1.2)));
+        gsel.select(".stem--pp").attr("y1", y(top)).transition().duration(dur).ease(R.EASE)
+          .attr("y1", y(top)).attr("y2", y(topPP));
+        var hy = y(vis && phase !== "pre" ? d.tot : 0);
+        gsel.select(".head").style("fill", vis ? "#fff" : "var(--bg)").style("stroke", stemCol).style("stroke-width", on ? 3 : 1.5)
+          .transition().duration(dur).ease(R.EASE).attr("cy", hy);
+        gsel.select(".logo-head").style("opacity", vis ? 1 : 0)
+          .transition().duration(dur).ease(R.EASE).attr("y", hy - geo_hr);
+        gsel.select(".val-label").text(fmt(d.tot, 1))
+          .attr("y", y(d.tot) - geo_hr - 9)
+          .style("opacity", vis && phase !== "pre" && on ? 1 : 0);
+        gsel.select(".name-label").text(d.name === "General Motors" ? "GM" : d.name.replace(" Corp", ""))
+          .attr("y", y(d.tot) - geo_hr - 8)
+          .style("opacity", vis && phase !== "pre" && !on && !geo.narrow && d.i !== LAST ? 1 : 0);
+        gsel.classed("is-dimmed", false);
+      });
+      svg.selectAll(".yr").classed("is-on", function (d) { return d.i === cur; });
+      svg.select(".ref").transition().duration(dur).style("opacity", cur === LAST && phase !== "pre" ? 1 : 0);
+    }
+
+    function renderCard() {
+      var d = D[cur];
+      card.html("");
+      card.append("div").attr("class", "card__n").text("Tappa " + (cur + 1) + " di " + N);
+      var nm = card.append("div").attr("class", "card__name");
+      nm.append("img").attr("src", "../assets/loghi/" + LOGO[d.name]).attr("alt", "");
+      nm.append("span").text(d.name);
+      card.append("div").attr("class", "card__when").text(d.when + " · " + d.where);
+      var num = card.append("div").attr("class", "card__num");
+      var big = num.append("span").attr("class", "card__big").style("color", d.i === LAST ? "var(--red)" : null);
+      R.countUp(big, d.tot, function (v) { return fmt(v, 1); }, phaseNow === "pre" ? "static" : "play");
+      num.append("span").attr("class", "card__unit").text(
+        d.pp > 0 ? "miliardi di dollari" :
+        "miliardi di dollari di oggi" + (Math.abs(d.nom - d.ipo) >= 0.1 ? " (" + fmt(d.nom, 1) + " miliardi di allora)" : ""));
+      if (d.pp > 0) {
+        var s = card.append("div").attr("class", "card__split");
+        s.append("span").html('<i class="sw sw--red"></i>' + fmt(d.ipo, 1) + " in Borsa");
+        s.append("span").html('<i class="sw sw--red-light"></i>' + fmt(d.pp, 1) + " dal collocamento riservato");
+      }
+      card.append("p").attr("class", "card__txt").text(d.ctx);
+      dots.classed("is-on", function (e) { return e.i === cur; }).classed("is-seen", function (e) { return e.i <= seen; });
+      d3.select("#prev").attr("disabled", cur === 0 ? true : null);
+      d3.select("#next").attr("disabled", cur === LAST ? true : null)
+        .text(cur === LAST ? "Fine" : (cur === LAST - 1 ? "Anthropic ›" : "Avanti ›"));
+      R.scheduleHeight();
+    }
+
+    function go(i) {
+      i = Math.max(0, Math.min(LAST, i));
+      cur = i; seen = Math.max(seen, i);
+      if (phaseNow === "pre") phaseNow = "play";
+      update("play");
+      renderCard();
+    }
+
+    d3.select("#prev").on("click", function () { go(cur - 1); });
+    d3.select("#next").on("click", function () { go(cur + 1); });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowRight") go(cur + 1);
+      if (e.key === "ArrowLeft") go(cur - 1);
+    });
+
+    R.responsive(host, draw);
+    renderCard();
+    // ?tappa=N apre direttamente una tappa (link diretto e anteprime)
+    var q = +(new URLSearchParams(location.search).get("tappa") || 0);
+    if (q >= 1 && q <= N) { seen = q - 1; go(q - 1); }
+  }).catch(function (e) { R.fail("#grafico", e); });
+})();
+</script>
+</body>
+</html>
