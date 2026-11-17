@@ -27,13 +27,3 @@ Le pagine si creano con `strumenti/pubblica.py` della cartella `data-journalism`
 
 Se `testi.json` manca o è scritto male, la pagina mostra i testi scritti al momento della pubblicazione: il grafico non si rompe.
 
-## Incorporare nel CMS
-- **Versione A** (consigliata se il CMS accetta gli script): iframe + `incorpora.js`, l'altezza si adatta da sola su computer e telefono.
-- **Versione B** (CMS che toglie gli script): solo iframe ad altezza fissa: la maggiore tra le altezze misurate a 360 px (telefono) e a 640 px, più 30 px di margine. Dove il grafico è più basso resta un po’ di spazio bianco sotto.
-
-I codici pronti sono nell'indice, sotto ogni grafico.
-
-## Regole
-- Non rinominare e non cancellare le cartelle dei grafici già incorporati: gli iframe nel giornale resterebbero vuoti.
-- Il repository è pubblico: un grafico caricato qui è visibile a chiunque abbia l'indirizzo, anche prima dell'uscita del pezzo.
-- `2026-11-esempio/01-prova` è un grafico di prova con dati inventati: si può cancellare quando il primo grafico vero è online (poi rigenera l'indice).
