@@ -1,5 +1,5 @@
 {
- "generato": "2026-11-17T19:07:58",
+ "generato": "2026-11-18T18:01:26",
  "indirizzo_base": "https://liberostracquadanio-del.github.io/liberostracquadanio/",
  "grafici": [
   {
@@ -112,22 +112,6 @@
    "fonte": "Transport Canada, Eurocontrol, Enac, FAA, adsb.lol; cronache per i dettagli",
    "codice_script": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-blocco-voli-usa/04-storia/\" title=\"Cinque volte che il cielo si è fermato\" style=\"width:100%;border:0;height:888px\" loading=\"lazy\"></iframe><script src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/incorpora.js\" async></script>",
    "codice_fisso": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-blocco-voli-usa/04-storia/\" title=\"Cinque volte che il cielo si è fermato\" style=\"width:100%;border:0;height:918px\" loading=\"lazy\"></iframe>",
-   "problemi": []
-  },
-  {
-   "articolo": "2026-11-esempio",
-   "grafico": "01-prova",
-   "percorso": "2026-11-esempio/01-prova",
-   "indirizzo": "https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-esempio/01-prova/",
-   "titolo": "Grafico di prova",
-   "pubblicato": "2026-11-11",
-   "modificato": "2026-11-11",
-   "altezza_360": 649,
-   "altezza_640": 476,
-   "altezza_fissa": 679,
-   "fonte": "Dati inventati per provare la pubblicazione",
-   "codice_script": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-esempio/01-prova/\" title=\"Grafico di prova\" style=\"width:100%;border:0;height:649px\" loading=\"lazy\"></iframe><script src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/incorpora.js\" async></script>",
-   "codice_fisso": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-esempio/01-prova/\" title=\"Grafico di prova\" style=\"width:100%;border:0;height:679px\" loading=\"lazy\"></iframe>",
    "problemi": []
   },
   {
@@ -368,22 +352,6 @@
    "fonte": "Fonte: Eurostat, EU-SILC (ilc_li02)",
    "codice_script": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-redditi-famiglie/06-giovani-poverta/\" width=\"100%\" height=\"725\" frameborder=\"0\" scrolling=\"no\" title=\"I giovani a rischio povertà\"></iframe>\n<script>\n(function(){if(window.__radarQNv2)return;window.__radarQNv2=1;var O=\"https://liberostracquadanio-del.github.io\";var MQ=window.matchMedia(\"(prefers-color-scheme:dark)\");function frames(){return Array.prototype.filter.call(document.getElementsByTagName(\"iframe\"),function(f){return(f.getAttribute(\"src\")||\"\").indexOf(O+\"/\")===0;});}function theme(){var t=document.documentElement.getAttribute(\"data-theme\");return t===\"dark\"||t===\"light\"?t:(MQ.matches?\"dark\":\"light\");}function bgOf(el){for(;el&&el.nodeType===1;el=el.parentElement){var c=getComputedStyle(el).backgroundColor;if(c&&c !==\"transparent\"&&!/rgba\\([^)]*,\\s*0\\)$/.test(c))return c;}return null;}function send(f){try{f.contentWindow.postMessage({sentinel:\"radar-qn\",type:\"theme\",theme:theme(),bg:bgOf(f.parentElement)},O);}catch(e){}}function sendAll(){frames().forEach(send);}window.addEventListener(\"message\",function(e){if(e.origin !==O)return;var d=e.data;if(!d||d.sentinel !==\"radar-qn\"||d.type !==\"height\")return;frames().forEach(function(f){if(f.contentWindow !==e.source)return;var h=Math.ceil(+d.height);if(h > 0&&20000 > h)f.style.height=h+\"px\";send(f);});});new MutationObserver(function(){sendAll();setTimeout(sendAll,400);}).observe(document.documentElement,{attributes:true,attributeFilter:[\"data-theme\"]});if(MQ.addEventListener)MQ.addEventListener(\"change\",sendAll);})();\n</script>",
    "codice_fisso": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-redditi-famiglie/06-giovani-poverta/\" title=\"I giovani a rischio povertà\" style=\"width:100%;border:0;height:755px\" loading=\"lazy\"></iframe>",
-   "problemi": []
-  },
-  {
-   "articolo": "2026-11-revolut-utili",
-   "grafico": "01-utili",
-   "percorso": "2026-11-revolut-utili/01-utili",
-   "indirizzo": "https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-revolut-utili/01-utili/",
-   "titolo": "Revolut, gli utili degli ultimi cinque anni",
-   "pubblicato": "2026-11-16",
-   "modificato": "2026-11-16",
-   "altezza_360": 700,
-   "altezza_640": 688,
-   "altezza_fissa": 730,
-   "fonte": "Fonte: Revolut Group Holdings Ltd, bilanci consolidati 2022-2025",
-   "codice_script": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-revolut-utili/01-utili/\" width=\"100%\" height=\"688\" frameborder=\"0\" scrolling=\"no\" title=\"Revolut, gli utili degli ultimi cinque anni\"></iframe>\n<script>\n(function(){if(window.__radarQNv2)return;window.__radarQNv2=1;var O=\"https://liberostracquadanio-del.github.io\";var MQ=window.matchMedia(\"(prefers-color-scheme:dark)\");function frames(){return Array.prototype.filter.call(document.getElementsByTagName(\"iframe\"),function(f){return(f.getAttribute(\"src\")||\"\").indexOf(O+\"/\")===0;});}function theme(){var t=document.documentElement.getAttribute(\"data-theme\");return t===\"dark\"||t===\"light\"?t:(MQ.matches?\"dark\":\"light\");}function bgOf(el){for(;el&&el.nodeType===1;el=el.parentElement){var c=getComputedStyle(el).backgroundColor;if(c&&c !==\"transparent\"&&!/rgba\\([^)]*,\\s*0\\)$/.test(c))return c;}return null;}function send(f){try{f.contentWindow.postMessage({sentinel:\"radar-qn\",type:\"theme\",theme:theme(),bg:bgOf(f.parentElement)},O);}catch(e){}}function sendAll(){frames().forEach(send);}window.addEventListener(\"message\",function(e){if(e.origin !==O)return;var d=e.data;if(!d||d.sentinel !==\"radar-qn\"||d.type !==\"height\")return;frames().forEach(function(f){if(f.contentWindow !==e.source)return;var h=Math.ceil(+d.height);if(h > 0&&20000 > h)f.style.height=h+\"px\";send(f);});});new MutationObserver(function(){sendAll();setTimeout(sendAll,400);}).observe(document.documentElement,{attributes:true,attributeFilter:[\"data-theme\"]});if(MQ.addEventListener)MQ.addEventListener(\"change\",sendAll);})();\n</script>",
-   "codice_fisso": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-revolut-utili/01-utili/\" title=\"Revolut, gli utili degli ultimi cinque anni\" style=\"width:100%;border:0;height:730px\" loading=\"lazy\"></iframe>",
    "problemi": []
   }
  ]
