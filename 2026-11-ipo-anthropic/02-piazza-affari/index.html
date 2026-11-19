@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
 <meta name="radar:altezza-640" content="1214">
-<meta name="radar:altezza-360" content="1389">
+<meta name="radar:altezza-360" content="1410">
 <meta name="radar:titolo" content="Per pareggiare Anthropic servono le prime 33 società italiane">
 <meta name="radar:pubblicato" content="2026-11-17">
 <meta name="radar:modificato" content="2026-11-19">
@@ -75,7 +75,7 @@
   <p class="extra" id="extra"></p>
 
   <footer class="r-foot">
-    <span>Fonte: valutazioni di companiesmarketcap al 17 novembre 2026; Sec (prospetto definitivo di Anthropic, 19 novembre 2026)</span>
+    <span>Fonte: valutazioni di companiesmarketcap al 17 novembre 2026; Sec (prospetto definitivo di Anthropic, 19 novembre 2026); Ansa per il prezzo d'apertura</span>
     <span>Elaborazione Radar – QN</span>
     <span style="flex-basis:100%">Anthropic: tutte le azioni dopo l'offerta al prezzo dell'offerta (83 dollari). Società assegnate al Paese della sede</span>
   </footer>
@@ -239,7 +239,7 @@
       c.merge(en).order();
       var ex = d3.select("#extra");
       if (group === "Italia") ex.html("Tutte le 163 società italiane della classifica valgono insieme <b>" + fmt(allItVal) +
-        " miliardi</b>. Anthropic le supererebbe tutte con un'azione sopra i <b>" + fmt(allItVal * 1e9 / 13219642276, 0) + " dollari</b>");
+        " miliardi</b>. All'apertura in Borsa, a 111,50 dollari, Anthropic le ha superate tutte: basta un'azione sopra i <b>" + fmt(allItVal * 1e9 / 13219642276, 0) + " dollari</b>");
       else if (group === "Europa") ex.html("Le 30 società europee più grandi, Italia esclusa");
       else ex.html("Alcuni marchi conosciuti in tutto il mondo, Italia esclusa. Apple da sola vale " + fmt(apple / A, 1) + " volte Anthropic");
     }
