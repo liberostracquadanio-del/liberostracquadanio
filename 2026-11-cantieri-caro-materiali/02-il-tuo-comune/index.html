@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="radar:altezza-640" content="2239">
+<meta name="radar:altezza-360" content="2140">
+<meta name="radar:titolo" content="Rincari nei cantieri, cerca il tuo Comune">
+<meta name="radar:pubblicato" content="2026-11-19">
+<meta name="radar:modificato" content="2026-11-19">
+<meta name="radar:modello" content="radar-dataviz">
+<title>Rincari nei cantieri, cerca il tuo Comune</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,700&display=swap">
+<link rel="stylesheet" href="../assets/radar.css">
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0"></script>
+<script src="../assets/radar.js"></script>
+<style>
+  .cerca-box { position: relative; margin: 24px 0 0; }
+  .cerca { width: 100%; box-sizing: border-box; padding: 10px 12px; font: 15px var(--sans); color: var(--ink); background: var(--tip-bg);
+           border: 1px solid var(--grey-light); border-radius: 2px; }
+  .cerca:focus { outline: 2px solid var(--blue); outline-offset: -1px; border-color: var(--blue); }
+  .sugg { position: absolute; z-index: 20; left: 0; right: 0; margin: 2px 0 0; padding: 0; list-style: none;
+          background: var(--tip-bg); border: 1px solid var(--rule); max-height: 260px; overflow: auto; font-size: 14px; }
+  .sugg li { padding: 8px 12px; cursor: pointer; border-bottom: 1px solid var(--rule); }
+  .sugg li[aria-selected="true"], .sugg li:hover { background: var(--rule); }
+  .sugg small { color: var(--ink-2); }
+  .zona { display: flex; flex-wrap: wrap; gap: 20px; margin-top: 18px; align-items: flex-start; }
+  .mappa { flex: 1 1 360px; min-width: 0; position: relative; margin: 0; }
+  .mappa svg { display: block; width: 100%; height: auto; }
+  path.c { fill: var(--grey-5); stroke: none; }
+  path.reg { fill: none; stroke: var(--bg); stroke-width: 1.2; vector-effect: non-scaling-stroke; pointer-events: none; }
+  circle.b { fill: var(--blue); fill-opacity: .5; stroke: var(--bg); stroke-width: .6; vector-effect: non-scaling-stroke; cursor: pointer; }
+  circle.b:hover { fill-opacity: .9; }
+  circle.b.sel { fill: var(--red); fill-opacity: 1; stroke: var(--ink); stroke-width: 1.5; }
+  .lato { flex: 1 1 250px; min-width: 0; }
+  /* cartello di cantiere: banda gialla a toni fissi */
+  .cartello { border: 2px solid var(--ink); background: var(--tip-bg); font-size: 14px; line-height: 1.35; }
+  .cartello .testa { background: #f2c230; color: #121212; font: 700 15px var(--sans); letter-spacing: .14em; text-align: center; padding: 6px 0;
+                     border-bottom: 2px solid var(--ink); }
+  .cartello .corpo { padding: 10px 14px 12px; }
+  .cartello .et { font-size: 11px; font-weight: 600; color: var(--ink-2); text-transform: uppercase; letter-spacing: .06em; margin-top: 8px; }
+  .cartello .et:first-child { margin-top: 0; }
+  .cartello .nome { font: 700 21px/1.1 var(--serif); color: var(--title); }
+  .cartello .sotto { color: var(--ink-2); font-size: 13px; }
+  .cartello .num { font-size: 30px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; color: var(--red); font-variant-numeric: tabular-nums; }
+  .cartello .stato { font-weight: 600; }
+  .palo { width: 6px; height: 18px; margin: 0 0 0 24px; background: var(--ink); }
+  .nazionali { margin-top: 16px; font-size: 13px; line-height: 1.45; color: var(--ink-2); border-top: 1px solid var(--rule); padding-top: 8px; }
+  .nazionali b { color: var(--ink); }
+  .tipi { margin-top: 26px; }
+  .tipi h2, .classifica h2 { font: 600 14px var(--sans); color: var(--ink); margin: 0 0 4px; }
+  .tipi p { font-size: 13px; color: var(--ink-2); margin: 0 0 10px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chips button { font: 500 13px var(--sans); padding: 6px 11px; border-radius: 999px; cursor: pointer;
+                  border: 1px solid var(--grey-light); background: transparent; color: var(--ink); }
+  .chips button small { color: var(--ink-2); font-weight: 400; }
+  .chips button[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+  .chips button[aria-pressed="true"] small { color: var(--bg); }
+  .elenco { list-style: none; margin: 12px 0 0; padding: 0; font-size: 14px; max-height: 330px; overflow: auto; border-bottom: 1px solid var(--rule); }
+  .elenco li { display: grid; grid-template-columns: 1fr auto; gap: 10px; padding: 6px 0; border-top: 1px solid var(--rule); cursor: pointer; }
+  .elenco li:hover { background: var(--rule); }
+  .elenco .eu { font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .elenco .tot { cursor: default; color: var(--ink-2); font-size: 13px; }
+  .elenco .tot:hover { background: none; }
+  .classifica { margin-top: 22px; }
+  .classifica ol { list-style: none; margin: 0; padding: 0; font-size: 14px; }
+  .classifica li { display: grid; grid-template-columns: 22px 1fr auto; gap: 6px; padding: 6px 0; border-top: 1px solid var(--rule); cursor: pointer; }
+  .classifica li:hover { background: var(--rule); }
+  .classifica .pos { color: var(--ink-2); font-variant-numeric: tabular-nums; }
+  .classifica .eu { font-weight: 600; font-variant-numeric: tabular-nums; }
+  .classifica small { color: var(--ink-2); }
+</style>
+</head>
+<body>
+<main class="radar">
+  <header>
+    <h1 class="r-title">860 enti aspettano 695,9 milioni per i rincari del 2025. Cerca il tuo Comune</h1>
+    <p class="r-sub">Rimborsi ammessi dal ministero delle Infrastrutture per i lavori pubblici di gennaio-maggio 2025</p>
+  </header>
+
+  <div class="cerca-box">
+    <input class="cerca" id="cerca" type="search" placeholder="Scrivi il nome di un Comune o di un ente" aria-label="Cerca un Comune o un ente"
+           autocomplete="off" role="combobox" aria-expanded="false" aria-controls="sugg">
+    <ul class="sugg" id="sugg" role="listbox" hidden></ul>
+  </div>
+
+  <div class="zona">
+    <figure class="mappa r-chart" id="mappa"></figure>
+    <div class="lato">
+      <div class="cartello" id="cartello" aria-live="polite"></div>
+      <div class="palo" aria-hidden="true"></div>
+      <div class="nazionali" id="nazionali"></div>
+    </div>
+  </div>
+  <div class="r-key" id="chiave"></div>
+
+  <div class="tipi">
+    <h2>Non solo Comuni: chi altro aspetta</h2>
+    <p id="tipi-sotto"></p>
+    <div class="chips" id="chips" role="group" aria-label="Tipo di ente"></div>
+    <ul class="elenco" id="elenco" aria-live="polite"></ul>
+  </div>
+
+  <div class="classifica">
+    <h2>I Comuni che aspettano di più</h2>
+    <ol id="classifica"></ol>
+  </div>
+
+  <footer class="r-foot">
+    <span>Fonte: Mit, decreto direttoriale 54 del 30 aprile 2026, tabella 1 (Fondo per la prosecuzione delle opere pubbliche, finestra di luglio 2025). L’ammissione non garantisce il pagamento, che dipende dai fondi disponibili</span>
+    <span>Elaborazione Radar – QN</span>
+  </footer>
+</main>
+
+<script>
+(function () {
+  var R = Radar, fmt = R.fmt;
+  var INIZIO = "Padova";
+  function norm(s) { return String(s).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, " ").trim(); }
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  function eur(x) {
+    if (x >= 1e6) return fmt(x / 1e6, 1) + " milioni di euro";
+    if (x >= 1e4) return fmt(Math.round(x / 1e3)) + "mila euro";
+    return fmt(Math.round(x)) + " euro";
+  }
+
+  Promise.all([R.loadCSV("../data/enti.csv"), fetch("../data/comuni-geo.json", { cache: "no-cache" }).then(function (r) { return r.json(); })])
+  .then(function (res) {
+    var G = res[1];
+    var rec = res[0].map(function (r) {
+      var o = { n: r["N"], nome: r["Nome"], gruppo: r["Gruppo"], cat: r["Categoria"], prov: r["Provincia"], reg: r["Regione"],
+                x: R.num(r["X"]), y: R.num(r["Y"]), euro: R.num(r["Euro"]) };
+      o.sotto = o.gruppo === "Comuni" ? "Comune, " + o.prov + ", " + o.reg : o.cat;
+      o._n = norm(o.nome);
+      return o;
+    });
+    var tot = d3.sum(rec, function (d) { return d.euro; });
+    var com = rec.filter(function (d) { return d.gruppo === "Comuni"; }).sort(function (a, b) { return b.euro - a.euro; });
+
+    // ---- mappa ----
+    var NS = "http://www.w3.org/2000/svg";
+    var box = document.getElementById("mappa");
+    var svg = d3.select(box).insert("svg", ":first-child").attr("viewBox", "0 0 " + G.vb[0] + " " + G.vb[1])
+      .attr("role", "img").attr("aria-label", "Mappa dei " + fmt(com.length) + " Comuni che aspettano rimborsi per i rincari: ogni cerchio è grande quanto il rimborso ammesso. Il più alto è " + com[0].nome + " con " + eur(com[0].euro) + ".");
+    var gC = svg.append("g");
+    var frag = document.createDocumentFragment();
+    Object.keys(G.d).forEach(function (id) { var p = document.createElementNS(NS, "path"); p.setAttribute("d", G.d[id]); p.setAttribute("class", "c"); frag.appendChild(p); });
+    gC.node().appendChild(frag);
+    svg.append("path").attr("class", "reg").attr("d", G.regioni);
+    var r = d3.scaleSqrt().domain([0, com[0].euro]).range([0, 150]);
+    var circ = svg.append("g").selectAll("circle").data(com.slice().reverse().sort(function (a, b) { return b.euro - a.euro; }))
+      .join("circle").attr("class", "b").attr("cx", function (d) { return d.x; }).attr("cy", function (d) { return d.y; })
+      .attr("r", function (d) { return Math.max(r(d.euro), 4); });
+    if (!R.reduced) {
+      circ.attr("r", 0);
+      R.onFirstView(box, function () {
+        circ.transition().duration(750).delay(function (d, i) { return Math.min(i, 300) * 1.5; }).ease(d3.easeCubicOut)
+          .attr("r", function (d) { return Math.max(r(d.euro), 4); });
+      });
+    }
+
+    var chiave = '<span><svg width="44" height="22" aria-hidden="true"><circle cx="11" cy="11" r="4" style="fill:var(--blue);fill-opacity:.5"></circle><circle cx="32" cy="11" r="10" style="fill:var(--blue);fill-opacity:.5"></circle></svg>Ogni cerchio è un Comune, grande quanto il rimborso ammesso</span>';
+    document.getElementById("chiave").innerHTML = chiave;
+
+    var naz = rec.filter(function (d) { return d.gruppo === "Rfi e Anas"; }).sort(function (a, b) { return b.euro - a.euro; });
+    var altri = rec.length - com.length;
+    document.getElementById("nazionali").innerHTML = "Sulla mappa ci sono solo i Comuni. Gli altri <b>" + fmt(altri) + " enti</b>, da Rfi e Anas alle aziende sanitarie, ai porti e agli acquedotti, sono elencati per tipo sotto la mappa";
+
+    // ---- altri enti per tipo ----
+    var perCat = d3.rollups(rec.filter(function (d) { return d.cat !== "Comuni"; }), function (v) { return { n: v.length, euro: d3.sum(v, function (d) { return d.euro; }), enti: v.sort(function (a, b) { return b.euro - a.euro; }) }; }, function (d) { return d.cat; })
+      .sort(function (a, b) { return b[1].euro - a[1].euro; });
+    document.getElementById("tipi-sotto").textContent = fmt(altri) + " enti per " + eur(d3.sum(perCat, function (c) { return c[1].euro; })) + ", divisi per tipo";
+    var catSel = perCat[0][0];
+    function mostraCat() {
+      d3.select("#chips").selectAll("button").attr("aria-pressed", function (c) { return c[0] === catSel ? "true" : "false"; });
+      var c = perCat.filter(function (x) { return x[0] === catSel; })[0][1];
+      var el = d3.select("#elenco"); el.selectAll("li").remove();
+      el.append("li").attr("class", "tot").html("<span>" + fmt(c.n) + (c.n === 1 ? " ente" : " enti") + "</span><span>" + eur(c.euro) + " in tutto</span>");
+      el.selectAll("li.e").data(c.enti).join("li").attr("class", "e")
+        .html(function (d) { return "<span>" + esc(d.nome) + '</span><span class="eu">' + eur(d.euro) + "</span>"; })
+        .on("click", function (ev, d) { scegli(d); document.querySelector(".zona").scrollIntoView({ block: "nearest", behavior: R.reduced ? "auto" : "smooth" }); });
+      R.scheduleHeight();
+    }
+    d3.select("#chips").selectAll("button").data(perCat).join("button").attr("type", "button")
+      .html(function (c) { return esc(c[0]) + " <small>" + fmt(c[1].n) + "</small>"; })
+      .on("click", function (ev, c) { catSel = c[0]; mostraCat(); });
+    mostraCat();
+
+    // ---- cartello ----
+    var cart = document.getElementById("cartello");
+    function cartello(d) {
+      cart.innerHTML = '<div class="testa">CANTIERE</div><div class="corpo">' +
+        '<div class="et">Committente</div><div class="nome">' + esc(d.nome) + '</div><div class="sotto">' + esc(d.gruppo === "Comuni" ? d.prov + ", " + d.reg : d.cat) + "</div>" +
+        '<div class="et">Rimborso ammesso</div><div class="num">' + eur(d.euro) + "</div>" +
+        '<div class="et">Lavori</div><div>Eseguiti tra gennaio e maggio 2025</div>' +
+        '<div class="et">Stato</div><div class="stato">Ammesso, pagamento non garantito</div></div>';
+    }
+    var sel = null;
+    function scegli(d) {
+      cartello(d);
+      circ.classed("sel", function (o) { return o === d; });
+      if (d.gruppo === "Comuni") circ.filter(function (o) { return o === d; }).raise();
+      document.getElementById("cerca").value = d.nome;
+      sel = d; chiudi(); R.scheduleHeight();
+    }
+
+    // ---- tooltip ----
+    var tip = R.tooltip(box);
+    circ.on("pointermove", function (ev, d) { if (ev.pointerType !== "mouse") return; var p = d3.pointer(ev, box); tip.show(R.tipHTML({ title: esc(d.nome), value: eur(d.euro), rows: [["Provincia", d.prov]] }), p[0], p[1]); })
+        .on("pointerleave", function () { tip.hide(); })
+        .on("click", function (ev, d) { tip.hide(); scegli(d); });
+    R.dismissOutside(box, function () { tip.hide(); });
+
+    // ---- classifica ----
+    var ol = d3.select("#classifica").selectAll("li").data(com.slice(0, 10)).join("li")
+      .html(function (d, i) { return '<span class="pos">' + (i + 1) + '</span><span>' + esc(d.nome) + ' <small>' + esc(d.prov) + '</small></span><span class="eu">' + eur(d.euro) + "</span>"; })
+      .on("click", function (ev, d) { scegli(d); document.querySelector(".zona").scrollIntoView({ block: "nearest", behavior: R.reduced ? "auto" : "smooth" }); });
+
+    // ---- ricerca ----
+    var inp = document.getElementById("cerca"), sug = document.getElementById("sugg"), cand = [], att = -1;
+    function chiudi() { sug.hidden = true; inp.setAttribute("aria-expanded", "false"); }
+    function suggerisci() {
+      var q = norm(inp.value); sug.innerHTML = ""; att = -1;
+      if (q.length < 2) { chiudi(); return; }
+      var ini = [], dentro = [];
+      rec.forEach(function (d) { var i = d._n.indexOf(q); if (i === 0) ini.push(d); else if (i > 0) dentro.push(d); });
+      cand = ini.sort(function (a, b) { return a._n.length - b._n.length; }).concat(dentro).slice(0, 12);
+      if (!cand.length) sug.innerHTML = '<li aria-disabled="true">Nessun ente con questo nome tra gli 860 ammessi</li>';
+      cand.forEach(function (d) {
+        var li = document.createElement("li"); li.setAttribute("role", "option");
+        li.innerHTML = esc(d.nome) + " <small>" + esc(d.sotto) + "</small>";
+        li.addEventListener("mousedown", function (ev) { ev.preventDefault(); scegli(d); });
+        sug.appendChild(li);
+      });
+      sug.hidden = false; inp.setAttribute("aria-expanded", "true");
+    }
+    function evid() { Array.prototype.forEach.call(sug.querySelectorAll("li"), function (li, k) { li.setAttribute("aria-selected", k === att ? "true" : "false"); }); }
+    inp.addEventListener("input", suggerisci);
+    inp.addEventListener("keydown", function (e) {
+      if (sug.hidden) return;
+      if (e.key === "ArrowDown") { att = Math.min(att + 1, cand.length - 1); evid(); e.preventDefault(); }
+      else if (e.key === "ArrowUp") { att = Math.max(att - 1, 0); evid(); e.preventDefault(); }
+      else if (e.key === "Enter") { var d = cand[att < 0 ? 0 : att]; if (d) scegli(d); e.preventDefault(); }
+      else if (e.key === "Escape") chiudi();
+    });
+    inp.addEventListener("blur", function () { setTimeout(chiudi, 150); });
+
+    var inizio = com.filter(function (d) { return d.nome === INIZIO; })[0] || com[0];
+    var prova = new URLSearchParams(location.search).get("ente");   // solo per le anteprime
+    var dp = prova && rec.filter(function (d) { return norm(d.nome) === norm(prova); })[0];
+    scegli(dp || inizio);
+    inp.value = dp ? dp.nome : "";
+    R.scheduleHeight();
+  }).catch(function (e) { R.fail("#mappa", e); });
+})();
+</script>
+</body>
+</html>

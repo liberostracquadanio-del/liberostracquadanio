@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="radar:altezza-640" content="754">
+<meta name="radar:altezza-360" content="906">
+<meta name="radar:titolo" content="Quanto sono rincarati i materiali da costruzione">
+<meta name="radar:pubblicato" content="2026-11-19">
+<meta name="radar:modificato" content="2026-11-19">
+<meta name="radar:modello" content="radar-dataviz">
+<title>Quanto sono rincarati i materiali da costruzione</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,700&display=swap">
+<link rel="stylesheet" href="../assets/radar.css">
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0"></script>
+<script src="../assets/radar.js"></script>
+<style>
+  .cat { font-size: 13px; fill: var(--ink); }
+  .cat--sub { font-size: 12px; fill: var(--ink-2); }
+</style>
+</head>
+<body>
+<main class="radar">
+  <header>
+    <h1 class="r-title" id="titolo">Il bitume costa quasi due terzi in più da febbraio</h1>
+    <p class="r-sub">Variazione dei prezzi da febbraio a ottobre 2026</p>
+  </header>
+
+  <figure class="r-chart" id="barre"></figure>
+
+  <figure class="r-chart" id="linea">
+    <div class="r-chart__head" id="linea-tit"></div>
+    <div class="r-chart__sub">Indice Istat del costo delle pavimentazioni in conglomerato bituminoso, variazione rispetto a febbraio 2026</div>
+  </figure>
+
+  <footer class="r-foot">
+    <span>Fonte: elaborazione Ance su dati Argus, Siderweb e Prometeia (scheda stampa del 13 novembre 2026); Istat, indici di costo per tipologie omogenee di lavorazioni, TOL.5 (IT1,145_362_DCSC_INDICITOL_1). L’indice Istat misura l’intera lavorazione (lavoro, materiali, macchine, energia), non il solo bitume</span>
+    <span>Elaborazione Radar – QN</span>
+  </footer>
+</main>
+
+<script>
+(function () {
+  var R = Radar, fmt = R.fmt;
+  var MESI = ["gen", "feb", "mar", "apr", "mag", "giu", "lug", "ago", "set", "ott", "nov", "dic"];
+  Promise.all([R.loadCSV("../data/materiali.csv"), R.loadCSV("../data/tol5.csv")]).then(function (res) {
+    var mat = res[0].map(function (r) { return { nome: r["Materiale"], v: R.num(r["Variazione"]), fonte: r["Fonte del prezzo"], tipo: r["Tipo"] }; });
+    var tol = res[1].map(function (r) { return { m: r["Mese"], v: R.num(r["Indice"]) }; });
+    var base = tol.filter(function (d) { return d.m === "2026-02"; })[0].v;
+    var serie = tol.filter(function (d) { return d.m >= "2026-02"; }).map(function (d) { return { m: d.m, v: 100 * (d.v / base - 1) }; });
+    var ultimo = serie[serie.length - 1];
+    var mesiNome = ["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno", "luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre"];
+    document.getElementById("linea-tit").textContent = "Il costo delle asfaltature per l’Istat: " + (ultimo.v >= 0 ? "+" : "") + fmt(ultimo.v, 1) + "% da febbraio ad " + mesiNome[+ultimo.m.slice(5) - 1];
+
+    // ---- barre ----
+    var hb = document.getElementById("barre"), tipB = R.tooltip(hb);
+    R.dismissOutside(hb, function () { tipB.hide(); });
+    var ord = mat.filter(function (d) { return d.tipo === "materiale"; }).sort(function (a, b) { return b.v - a.v; })
+      .concat(mat.filter(function (d) { return d.tipo !== "materiale"; }));
+    R.responsive(hb, function (W, phase) {
+      d3.select(hb).select("svg").remove();
+      var narrow = R.isNarrow(W), lab = narrow ? 0 : 210, bh = 22, rowH = narrow ? 52 : 36, valW = 64;
+      var H = ord.length * rowH + 14;
+      var x = d3.scaleLinear().domain([0, d3.max(ord, function (d) { return d.v; })]).range([0, W - lab - valW]);
+      var svg = d3.select(hb).append("svg").attr("width", W).attr("height", H).attr("role", "img")
+        .attr("aria-label", "Da febbraio a ottobre 2026 il bitume è aumentato del " + fmt(ord[0].v, 1) + "%; " + ord.slice(1).map(function (d) { return d.nome.toLowerCase() + " " + fmt(d.v, 1) + "%"; }).join(", "));
+      ord.forEach(function (d, i) {
+        var y = i * rowH + (d.tipo !== "materiale" ? 12 : 0);
+        var g = svg.append("g").attr("class", "mark bar").datum(d);
+        var ty = narrow ? y + 13 : y + bh / 2 + 4, by = narrow ? y + 20 : y;
+        g.append("text").attr("class", "cat").attr("x", 0).attr("y", ty).style("font-weight", i === 0 ? 700 : 400)
+          .text(d.nome + (d.tipo !== "materiale" ? " (riferimento)" : ""));
+        var b = g.append("path").style("fill", i === 0 ? "var(--red)" : d.tipo === "materiale" ? "var(--blue)" : "var(--grey)");
+        R.enter(b, phase, function (s) { s.attr("d", R.barPathH(lab, by, 0, bh, 2)); }, function (t) { t.attr("d", R.barPathH(lab, by, x(d.v), bh, 2)); }, i * 90);
+        var t = g.append("text").attr("class", "val-label").attr("y", by + bh / 2 + 4).attr("x", lab + x(d.v) + 6)
+          .style("fill", i === 0 ? "var(--red)" : null);
+        R.countUp(t, d.v, function (v) { return "+" + fmt(v, 1) + "%"; }, phase, i * 90);
+        g.append("rect").attr("class", "hit").attr("x", 0).attr("y", y).attr("width", W).attr("height", rowH);
+      });
+      if (ord.length > 1) svg.append("line").attr("x1", 0).attr("x2", W).attr("y1", (ord.length - 1) * rowH + 3).attr("y2", (ord.length - 1) * rowH + 3).style("stroke", "var(--rule)");
+      svg.selectAll("g.bar").on("pointermove pointerdown", function (ev, d) {
+        svg.selectAll("g.bar").classed("is-dimmed", function (o) { return o !== d; });
+        var p = d3.pointer(ev, hb);
+        tipB.show(R.tipHTML({ title: d.nome, value: "+" + fmt(d.v, 1) + "%", unit: "da febbraio a ottobre 2026", rows: [["Fonte del prezzo", d.fonte]] }), p[0], p[1]);
+      }).on("pointerleave", function () { svg.selectAll("g.bar").classed("is-dimmed", false); tipB.hide(); });
+    });
+
+    // ---- linea ----
+    var hl = document.getElementById("linea"), tipL = R.tooltip(hl);
+    R.dismissOutside(hl, function () { tipL.hide(); });
+    R.responsive(hl, function (W, phase) {
+      d3.select(hl).select("svg").remove();
+      var m = { t: 14, r: 56, b: 26, l: 34 }, H = 190, iw = W - m.l - m.r, ih = H - m.t - m.b;
+      var x = d3.scalePoint().domain(serie.map(function (d) { return d.m; })).range([0, iw]);
+      var y = d3.scaleLinear().domain([0, Math.max(15, d3.max(serie, function (d) { return d.v; }))]).nice().range([ih, 0]);
+      var svg = d3.select(hl).append("svg").attr("width", W).attr("height", H).attr("role", "img")
+        .attr("aria-label", "L'indice Istat del costo delle asfaltature è salito del " + fmt(ultimo.v, 1) + "% tra febbraio e " + mesiNome[+ultimo.m.slice(5) - 1] + " 2026, con il salto a marzo");
+      var g = svg.append("g").attr("transform", "translate(" + m.l + "," + m.t + ")");
+      g.append("g").attr("class", "grid").selectAll("line").data(y.ticks(3)).join("line").attr("x1", 0).attr("x2", iw).attr("y1", y).attr("y2", y);
+      g.append("g").selectAll("text").data(y.ticks(3)).join("text").attr("class", "tick-label").attr("x", -8).attr("y", function (d) { return y(d) + 4; })
+        .attr("text-anchor", "end").text(function (d) { return (d > 0 ? "+" : "") + fmt(d) + "%"; });
+      g.append("g").selectAll("text").data(serie).join("text").attr("class", "tick-label").attr("x", function (d) { return x(d.m); }).attr("y", ih + 18)
+        .attr("text-anchor", "middle").text(function (d) { return MESI[+d.m.slice(5) - 1]; });
+      var line = d3.line().x(function (d) { return x(d.m); }).y(function (d) { return y(d.v); }).curve(d3.curveMonotoneX);
+      var p = g.append("path").datum(serie).attr("d", line).style("fill", "none").style("stroke", "var(--blue)").style("stroke-width", 2.5);
+      var L = p.node().getTotalLength();
+      R.enter(p, phase, function (s) { s.attr("stroke-dasharray", L + " " + L).attr("stroke-dashoffset", L); }, function (t) { t.attr("stroke-dashoffset", 0); });
+      g.append("circle").attr("cx", x(ultimo.m)).attr("cy", y(ultimo.v)).attr("r", 4).style("fill", "var(--blue)");
+      var tl = g.append("text").attr("class", "val-label").attr("x", x(ultimo.m) + 8).attr("y", y(ultimo.v) + 4).style("fill", "var(--blue)");
+      R.countUp(tl, ultimo.v, function (v) { return "+" + fmt(v, 1) + "%"; }, phase);
+      var cross = g.append("line").attr("class", "crosshair").attr("y1", 0).attr("y2", ih).style("opacity", 0);
+      g.append("rect").attr("class", "hit").attr("width", iw).attr("height", ih).on("pointermove pointerdown", function (ev) {
+        var px = d3.pointer(ev)[0], best = serie[0];
+        serie.forEach(function (d) { if (Math.abs(x(d.m) - px) < Math.abs(x(best.m) - px)) best = d; });
+        cross.attr("x1", x(best.m)).attr("x2", x(best.m)).style("opacity", 1);
+        var pp = d3.pointer(ev, hl);
+        tipL.show(R.tipHTML({ title: mesiNome[+best.m.slice(5) - 1] + " 2026", value: (best.v > 0 ? "+" : "") + fmt(best.v, 1) + "%", unit: "rispetto a febbraio" }), pp[0], pp[1]);
+      }).on("pointerleave", function () { cross.style("opacity", 0); tipL.hide(); });
+    });
+  }).catch(function (e) { R.fail("#barre", e); });
+})();
+</script>
+</body>
+</html>

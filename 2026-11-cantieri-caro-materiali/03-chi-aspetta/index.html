@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="radar:altezza-640" content="696">
+<meta name="radar:altezza-360" content="1277">
+<meta name="radar:titolo" content="Chi aspetta i rimborsi per i rincari">
+<meta name="radar:pubblicato" content="2026-11-19">
+<meta name="radar:modificato" content="2026-11-19">
+<meta name="radar:modello" content="radar-dataviz">
+<title>Chi aspetta i rimborsi per i rincari</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,700&display=swap">
+<link rel="stylesheet" href="../assets/radar.css">
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0"></script>
+<script src="../assets/radar.js"></script>
+<style>
+  .pannelli { display: flex; gap: 32px; margin-top: 26px; }
+  .pannello { flex: 1 1 0; min-width: 0; position: relative; }
+  .pannello h2 { font: 700 15px var(--sans); color: var(--ink); margin: 0 0 2px; }
+  .pannello p { font-size: 13px; color: var(--ink-2); margin: 0 0 10px; }
+  .pannello svg { display: block; overflow: visible; }
+  .leg { margin-top: 12px; font-size: 13px; line-height: 1.5; }
+  .leg div { display: flex; justify-content: space-between; gap: 8px; border-top: 1px solid var(--rule); padding: 4px 0; }
+  .leg b { font-variant-numeric: tabular-nums; }
+  .leg .sw { margin-right: 6px; vertical-align: -1px; }
+  @media (max-width: 519px) { .pannelli { flex-direction: column; gap: 26px; } }
+</style>
+</head>
+<body>
+<main class="radar">
+  <header>
+    <h1 class="r-title" id="titolo">Sette enti su dieci sono Comuni, ma prendono 18 euro su 100</h1>
+    <p class="r-sub">Gli 860 enti che aspettano i rimborsi per i rincari dei lavori di gennaio-maggio 2025. Ogni quadrato è l’1%</p>
+  </header>
+
+  <div class="pannelli" id="pannelli"></div>
+
+  <footer class="r-foot">
+    <span>Fonte: Mit, decreto direttoriale 54 del 30 aprile 2026, tabella 1. Quadrati arrotondati all’unità: Rfi e Anas sono 2 enti su 860</span>
+    <span>Elaborazione Radar – QN</span>
+  </footer>
+</main>
+
+<script>
+(function () {
+  var R = Radar, fmt = R.fmt;
+  var COL = { "Comuni": "var(--red)", "Rfi e Anas": "var(--blue)", "Altri enti": "var(--grey-4)" };
+  R.loadCSV("../data/gruppi.csv").then(function (rows) {
+    var g = rows.map(function (r) { return { nome: r["Gruppo"], enti: R.num(r["Enti"]), mln: R.num(r["Milioni"]), qe: R.num(r["Quota enti"]), qs: R.num(r["Quota euro"]) }; });
+    var totE = d3.sum(g, function (d) { return d.enti; }), totM = d3.sum(g, function (d) { return d.mln; });
+    // arrotondamento a 100 quadrati con il metodo dei resti maggiori
+    function cento(campo) {
+      var base = g.map(function (d) { return Math.floor(d[campo]); }), resto = 100 - d3.sum(base);
+      g.map(function (d, i) { return [d[campo] - base[i], i]; }).sort(function (a, b) { return b[0] - a[0]; })
+        .slice(0, resto).forEach(function (p) { base[p[1]]++; });
+      var out = [];
+      g.forEach(function (d, i) { for (var k = 0; k < base[i]; k++) out.push(d); });
+      return { celle: out, n: base };
+    }
+    var P = [
+      { titolo: "Conta gli enti", sotto: fmt(totE) + " enti", w: cento("qe"), riga: function (d) { return fmt(d.enti) + (d.enti === 1 ? " ente" : " enti"); }, q: function (d) { return d.qe; } },
+      { titolo: "Conta i soldi", sotto: fmt(totM, 1) + " milioni di euro", w: cento("qs"), riga: function (d) { return fmt(d.mln, 1) + " milioni"; }, q: function (d) { return d.qs; } }
+    ];
+    var com = g.filter(function (d) { return d.nome === "Comuni"; })[0];
+    var host = document.getElementById("pannelli");
+    var tip = R.tooltip(host);
+    R.dismissOutside(host, function () { tip.hide(); });
+
+    R.responsive(host, function (W, phase) {
+      d3.select(host).selectAll(".pannello").remove();
+      var narrow = R.isNarrow(W), pw = narrow ? W : (W - 32) / 2;
+      var cell = Math.min(Math.floor(pw / 10), 34), gap = Math.max(2, Math.round(cell * 0.1)), side = cell * 10;
+      P.forEach(function (p, k) {
+        var div = d3.select(host).append("div").attr("class", "pannello");
+        div.append("h2").text(p.titolo);
+        div.append("p").text(p.sotto);
+        var svg = div.append("svg").attr("width", side).attr("height", side).attr("role", "img")
+          .attr("aria-label", p.titolo + ": " + g.map(function (d) { return d.nome + " " + fmt(p.q(d), 1) + "%"; }).join(", "));
+        var sq = svg.selectAll("rect").data(p.w.celle).join("rect").attr("class", "mark")
+          .attr("x", function (d, i) { return (i % 10) * cell + gap / 2; }).attr("y", function (d, i) { return Math.floor(i / 10) * cell + gap / 2; })
+          .attr("width", cell - gap).attr("height", cell - gap).attr("rx", 2)
+          .style("fill", function (d) { return COL[d.nome]; });
+        R.enter(sq, phase, function (s) { s.style("opacity", 0); }, function (t) { t.style("opacity", 1); }, 0);
+        if (phase === "play") sq.transition().delay(function (d, i) { return k * 300 + i * 7; }).duration(250).style("opacity", 1);
+        sq.on("pointermove pointerdown", function (ev, d) {
+          svg.selectAll("rect").classed("is-dimmed", function (o) { return o !== d; });
+          var pt = d3.pointer(ev, host);
+          tip.show(R.tipHTML({ title: d.nome, value: fmt(p.q(d), 1) + "%", unit: p.titolo === "Conta gli enti" ? "degli enti" : "dei soldi",
+            rows: [["Enti", fmt(d.enti)], ["Rimborsi ammessi", fmt(d.mln, 1) + " milioni"]] }), pt[0], pt[1]);
+        }).on("pointerleave", function () { svg.selectAll("rect").classed("is-dimmed", false); tip.hide(); });
+        var leg = div.append("div").attr("class", "leg");
+        g.forEach(function (d) {
+          leg.append("div").html('<span><i class="sw" style="background:' + COL[d.nome] + '"></i>' + d.nome + '</span><span>' + p.riga(d) + ' · <b>' + fmt(p.q(d), 1) + "%</b></span>");
+        });
+      });
+    });
+  }).catch(function (e) { R.fail("#pannelli", e); });
+})();
+</script>
+</body>
+</html>

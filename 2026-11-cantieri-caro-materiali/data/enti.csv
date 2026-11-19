@@ -1,0 +1,861 @@
+N;Nome;Nome nel decreto;Gruppo;Categoria;Provincia;Regione;Codice;X;Y;Euro
+1;Arcole;COMUNE DI ARCOLE;Comuni;Comuni;VR;Veneto;A374;1177,0;586,1;295802,93
+2;Novi di Modena;COMUNE DI NOVI DI MODENA;Comuni;Comuni;MO;Emilia-Romagna;F966;1088,5;756,2;547272,29
+3;Isnello;COMUNE DI ISNELLO;Comuni;Comuni;PA;Sicilia;E337;1861,1;3116,3;76575,23
+4;Amt Spa;AMT SPA;Altri enti;Ferrovie, trasporti e strade;;;;;;3223481,09
+5;Istituto Autonomo Case Popolari della Provincia di Siracusa;ISTITUTO AUTONOMO CASE POPOLARI DELLA PROVINCIA DI SIRACUSA;Altri enti;Case popolari;;;;;;193965,15
+6;Fasano;COMUNE DI FASANO;Comuni;Comuni;BR;Puglia;D508;2716,5;2126,7;239101,33
+7;Azienda Ospedale–Università Padova;AZIENDA OSPEDALE–UNIVERSITÀ PADOVA;Altri enti;Sanità e assistenza;;;;;;1688071,37
+8;Conegliano;COMUNE DI CONEGLIANO;Comuni;Comuni;TV;Veneto;C957;1422,7;403,2;41884,45
+9;Cornuda;COMUNE DI CORNUDA;Comuni;Comuni;TV;Veneto;D030;1354,5;428,8;476424,07
+10;Trentinara;COMUNE DI TRENTINARA;Comuni;Comuni;SA;Campania;L377;2145,6;2270,7;85961,90
+11;Melfi;COMUNE DI MELFI;Comuni;Comuni;PZ;Basilicata;F104;2275,4;2059,6;261705,79
+12;Minerbe;COMUNE DI MINERBE;Comuni;Comuni;VR;Veneto;F218;1190,8;626,3;192529,90
+13;A.T.E.R. del Comune di Roma;A.T.E.R. DEL COMUNE DI ROMA;Altri enti;Case popolari;;;;;;428141,96
+14;Rutigliano;COMUNE DI RUTIGLIANO;Comuni;Comuni;BA;Puglia;H643;2617,9;2068,6;199382,25
+15;Monte Compatri;COMUNE DI MONTE COMPATRI;Comuni;Comuni;RM;Lazio;F477;1538,1;1773,6;186249,36
+16;Fiuminata;COMUNE DI FIUMINATA;Comuni;Comuni;MC;Marche;D628;1581,3;1333,9;634229,68
+17;Santa Maria del Molise;COMUNE DI SANTA MARIA DEL MOLISE;Comuni;Comuni;IS;Molise;I238;1954,9;1878,2;36755,75
+18;Bovino;COMUNE DI BOVINO;Comuni;Comuni;FG;Puglia;B104;2206,8;1978,8;9071,23
+19;Forlì;COMUNE DI FORLÌ;Comuni;Comuni;FC;Emilia-Romagna;D704;1371,0;972,0;368742,67
+20;Altidona;COMUNE DI ALTIDONA;Comuni;Comuni;FM;Marche;A233;1812,3;1352,7;54892,49
+21;Politecnico di Milano;POLITECNICO DI MILANO;Altri enti;Università e ricerca;;;;;;1152895,99
+22;Darfo Boario Terme;COMUNE DI DARFO BOARIO TERME;Comuni;Comuni;BS;Lombardia;D251;899,4;407,5;189628,48
+23;Strutture Trasporto Alto Adige Spa;STRUTTURE TRASPORTO ALTO ADIGE SPA;Altri enti;Ferrovie, trasporti e strade;;;;;;410745,81
+24;Panni;COMUNE DI PANNI;Comuni;Comuni;FG;Puglia;G312;2185,1;1997,7;627965,39
+25;San Martino Sannita;COMUNE DI SAN MARTINO SANNITA;Comuni;Comuni;BN;Campania;I002;2070,9;2049,3;42528,38
+26;Soprintendenza Archeologia Belle Arti E Paesaggio Per Il Comune di Napoli;SOPRINTENDENZA ARCHEOLOGIA BELLE ARTI E PAESAGGIO PER IL COMUNE DI NAPOLI;Altri enti;Commissari, agenzie, Difesa e beni culturali;;;;;;24060,25
+27;Riofreddo;COMUNE DI RIOFREDDO;Comuni;Comuni;RM;Lazio;H300;1607,5;1707,1;127011,25
+28;Provincia Autonoma di Bolzano;PROVINCIA AUTONOMA DI BOLZANO;Altri enti;Regioni e Province autonome;;;;;;37234603,89
+29;Autorità di Sistema Portuale del Mare di Sardegna;AUTORITÀ DI SISTEMA PORTUALE DEL MARE DI SARDEGNA;Altri enti;Porti;;;;;;3071676,70
+30;Mozzecane;COMUNE DI MOZZECANE;Comuni;Comuni;VR;Veneto;F789;1062,8;606,8;32091,12
+31;Basiglio;COMUNE DI BASIGLIO;Comuni;Comuni;MI;Lombardia;A699;640,2;591,6;15747,81
+32;A.Di.S.U. Puglia;A.DI.S.U. PUGLIA;Altri enti;Università e ricerca;;;;;;313534,20
+33;Siracusa;COMUNE DI SIRACUSA;Comuni;Comuni;SR;Sicilia;I754;2165,8;3414,6;167610,65
+34;Castel San Giorgio;COMUNE DI CASTEL SAN GIORGIO;Comuni;Comuni;SA;Campania;C259;2032,8;2141,8;277489,45
+35;Alghero;COMUNE DI ALGHERO;Comuni;Comuni;SS;Sardegna;A192;436,6;2208,7;323243,01
+36;Sesto Campano;COMUNE DI SESTO CAMPANO;Comuni;Comuni;IS;Molise;I682;1876,0;1923,8;16790,34
+37;Tortora;COMUNE DI TORTORA;Comuni;Comuni;CS;Calabria;L305;2321,7;2421,6;59424,75
+38;Strongoli;COMUNE DI STRONGOLI;Comuni;Comuni;KR;Calabria;I982;2633,0;2665,3;70258,64
+39;Subiaco;COMUNE DI SUBIACO;Comuni;Comuni;RM;Lazio;I992;1634,7;1751,9;393878,25
+40;Consorzio di Bonifica di Ii Grado Lessinio Euganeo Berico;CONSORZIO DI BONIFICA DI II GRADO LESSINIO EUGANEO BERICO;Altri enti;Consorzi di bonifica;;;;;;187744,80
+41;Città Metropolitana di Torino;CITTÀ METROPOLITANA DI TORINO;Altri enti;Province e città metropolitane;;;;;;180725,35
+42;Tocco Caudio;COMUNE DI TOCCO CAUDIO;Comuni;Comuni;BN;Campania;L185;2013,6;2026,5;28317,49
+43;Spoleto;COMUNE DI SPOLETO;Comuni;Comuni;PG;Umbria;I921;1536,1;1484,7;89671,30
+44;Cori;COMUNE DI CORI;Comuni;Comuni;LT;Lazio;D003;1586,1;1845,7;146914,28
+45;Farra di Soligo;COMUNE DI FARRA DI SOLIGO;Comuni;Comuni;TV;Veneto;D505;1385,4;403,2;105373,89
+46;Asst Valle Olona;ASST VALLE OLONA;Altri enti;Sanità e assistenza;;;;;;69751,16
+47;Consorzio di Bonifica Acque Risorgive;CONSORZIO DI BONIFICA ACQUE RISORGIVE;Altri enti;Consorzi di bonifica;;;;;;116737,46
+48;Francolise;COMUNE DI FRANCOLISE;Comuni;Comuni;CE;Campania;D769;1875,2;2012,6;5176,65
+49;Pentone;COMUNE DI PENTONE;Comuni;Comuni;CZ;Calabria;G439;2511,0;2753,8;55769,23
+50;Mercato San Severino;COMUNE DI MERCATO SAN SEVERINO;Comuni;Comuni;SA;Campania;F138;2046,0;2141,1;578616,65
+51;Asl Taranto;ASL TARANTO;Altri enti;Sanità e assistenza;;;;;;2065457,36
+52;Ceprano;COMUNE DI CEPRANO;Comuni;Comuni;FR;Lazio;C479;1732,7;1881,6;81409,64
+53;Villorba;COMUNE DI VILLORBA;Comuni;Comuni;TV;Veneto;M048;1420,5;463,3;206821,78
+54;Laives/Leifers;COMUNE DI LAIVES;Comuni;Comuni;BZ;Trentino-Alto Adige/Südtirol;E421;1190,2;221,6;87895,31
+55;Chiesa in Valmalenco;COMUNE DI CHIESA IN VALMALENCO;Comuni;Comuni;SO;Lombardia;C628;800,2;270,4;8811,81
+56;"Consorzio di Bonifica Interno ""Bacino Aterno E Sagittario""";"CONSORZIO DI BONIFICA INTERNO ""BACINO ATERNO E SAGITTARIO""";Altri enti;Consorzi di bonifica;;;;;;308466,50
+57;Castel Campagnano;COMUNE DI CASTEL CAMPAGNANO;Comuni;Comuni;CE;Campania;B494;1969,8;2011,8;410149,36
+58;Concesio;COMUNE DI CONCESIO;Comuni;Comuni;BS;Lombardia;C948;903,5;502,8;118286,57
+59;Campi Bisenzio;COMUNE DI CAMPI BISENZIO;Comuni;Comuni;FI;Toscana;B507;1136,5;1109,8;65531,69
+60;Mercato Saraceno;COMUNE DI MERCATO SARACENO;Comuni;Comuni;FC;Emilia-Romagna;F139;1392,7;1055,1;87543,27
+61;Regione Calabria;REGIONE CALABRIA;Altri enti;Regioni e Province autonome;;;;;;9465661,31
+62;Nova Levante/Welschnofen;COMUNE DI NOVA LEVANTE;Comuni;Comuni;BZ;Trentino-Alto Adige/Südtirol;F949;1247,2;227,0;90740,05
+63;Sersale;COMUNE DI SERSALE;Comuni;Comuni;CZ;Calabria;I671;2546,8;2744,8;334163,99
+64;Pisogne;COMUNE DI PISOGNE;Comuni;Comuni;BS;Lombardia;G710;885,6;439,1;12189,52
+65;Valverde;COMUNE DI VALVERDE;Comuni;Comuni;CT;Sicilia;L658;2143,3;3228,5;110226,26
+66;Riardo;COMUNE DI RIARDO;Comuni;Comuni;CE;Campania;H268;1895,8;1975,6;25030,05
+67;Montepaone;COMUNE MONTEPAONE;Comuni;Comuni;CZ;Calabria;F586;2486,6;2840,3;150137,01
+68;Cosio Valtellino;COMUNE DI COSIO VALTELLINO;Comuni;Comuni;SO;Lombardia;D088;733,0;329,6;27429,02
+69;Noto;COMUNE DI NOTO;Comuni;Comuni;SR;Sicilia;F943;2114,8;3462,7;429800,26
+70;Donnapaola Società Agricola Srl;DONNAPAOLA SOCIETÀ AGRICOLA SRL;Altri enti;Altri enti pubblici e società;;;;;;83846,53
+71;Rottofreno;COMUNE DI ROTTOFRENO;Comuni;Comuni;PC;Emilia-Romagna;H593;737,6;683,9;41155,80
+72;Alma Mater Studiorum Universita' di Bologna;ALMA MATER STUDIORUM UNIVERSITA' DI BOLOGNA;Altri enti;Università e ricerca;;;;;;556928,57
+73;Alto Calore Servizi Spa;ALTO CALORE SERVIZI S.P.A.;Altri enti;Acqua, energia e rifiuti;;;;;;1027229,58
+74;Taglio di Po;COMUNE DI TAGLIO DI PO;Comuni;Comuni;RO;Veneto;L026;1433,3;736,2;49406,39
+75;Sant'Agata di Militello;COMUNE DI SANT'AGATA DI MILITELLO;Comuni;Comuni;ME;Sicilia;I199;2020,4;3075,5;1573232,63
+76;Aquapur Multiservizi Spa;AQUAPUR MULTISERVIZI S.P.A.;Altri enti;Acqua, energia e rifiuti;;;;;;129490,51
+77;Buseto Palizzolo;COMUNE DI BUSETO PALIZZOLO;Comuni;Comuni;TP;Sicilia;B288;1540,3;3088,2;20415,59
+78;San Lucido;COMUNE DI SAN LUCIDO;Comuni;Comuni;CS;Calabria;H971;2385,3;2642,2;115787,10
+79;Santi Cosma e Damiano;COMUNE DI SANTI COSMA E DAMIANO;Comuni;Comuni;LT;Lazio;I339;1810,6;1972,0;174515,82
+80;San Cipriano d'Aversa;COMUNE DI SAN CIPRIANO D'AVERSA;Comuni;Comuni;CE;Campania;H798;1887,7;2069,8;155833,10
+81;Università Degli Studi di Brescia;UNIVERSITÀ DEGLI STUDI DI BRESCIA;Altri enti;Università e ricerca;;;;;;154183,82
+82;Alberona;COMUNE DI ALBERONA;Comuni;Comuni;FG;Puglia;A150;2146,7;1918,2;34997,06
+83;Monteverde;COMUNE DI MONTEVERDE;Comuni;Comuni;AV;Campania;F660;2247,0;2065,3;30386,89
+84;Samarate;COMUNE DI SAMARATE;Comuni;Comuni;VA;Lombardia;H736;544,8;498,7;241926,28
+85;Provincia di Perugia;PROVINCIA DI PERUGIA;Altri enti;Province e città metropolitane;;;;;;96433,18
+86;Petrizzi;COMUNE DI PETRIZZI;Comuni;Comuni;CZ;Calabria;G517;2486,3;2848,2;17742,38
+87;Vallerano;COMUNE DI VALLERANO;Comuni;Comuni;VT;Lazio;L612;1421,0;1600,6;11139,91
+88;Castel di Iudica;COMUNE DI CASTEL DI IUDICA;Comuni;Comuni;CT;Sicilia;C091;2032,6;3253,8;404944,11
+89;Campolattaro;COMUNE DI CAMPOLATTARO;Comuni;Comuni;BN;Campania;B541;2045,9;1969,0;37731,44
+90;Amministrazione Provinciale di Isernia;AMMINISTRAZIONE PROVINCIALE DI ISERNIA;Altri enti;Province e città metropolitane;;;;;;185586,71
+91;Chiuro;COMUNE DI CHIURO;Comuni;Comuni;SO;Lombardia;C651;857,6;296,1;31604,20
+92;Morcone;COMUNE DI MORCONE;Comuni;Comuni;BN;Campania;F717;2034,5;1947,1;285486,89
+93;Santa Severina;COMUNE DI SANTA SEVERINA;Comuni;Comuni;KR;Calabria;I308;2599,7;2694,6;34890,99
+94;Azienda Ospedaliero Universitaria Pisana;AZIENDA OSPEDALIERO UNIVERSITARIA PISANA;Altri enti;Sanità e assistenza;;;;;;23427270,79
+95;Portici;COMUNE DI PORTICI;Comuni;Comuni;NA;Campania;G902;1946,3;2129,7;176216,70
+96;Servizi Energia Ambiente Bolzano Spa;SERVIZI ENERGIA AMBIENTE BOLZANO S.P.A.;Altri enti;Acqua, energia e rifiuti;;;;;;311864,47
+97;Provincia di Barletta - Andria - Trani;PROVINCIA DI BARLETTA - ANDRIA - TRANI;Altri enti;Province e città metropolitane;;;;;;860368,05
+98;Amministrazione Provinciale di Pistoia;AMMINISTRAZIONE PROVINCIALE DI PISTOIA;Altri enti;Province e città metropolitane;;;;;;420788,68
+99;Fondazione Irccs Ca' Granda Ospedale Maggiore Policlinico Milano;FONDAZIONE IRCCS CA' GRANDA OSPEDALE MAGGIORE POLICLINICO MILANO;Altri enti;Sanità e assistenza;;;;;;6789606,24
+100;Costarainera;COMUNE DI COSTARAINERA;Comuni;Comuni;IM;Liguria;D114;332,6;1098,4;39815,53
+101;San Marcellino;COMUNE DI SAN MARCELLINO;Comuni;Comuni;CE;Campania;H978;1901,7;2071,8;290207,94
+102;Università Degli Studi di Trieste;UNIVERSITÀ DEGLI STUDI DI TRIESTE;Altri enti;Università e ricerca;;;;;;317141,98
+103;Premeno;COMUNE DI PREMENO;Comuni;Comuni;VB;Piemonte;H030;497,4;376,6;7242,26
+104;Maratea;COMUNE DI MARATEA;Comuni;Comuni;PZ;Basilicata;E919;2300,6;2410,6;124914,55
+105;Lugagnano Val d'Arda;COMUNE DI LUGAGNANO VAL D'ARDA;Comuni;Comuni;PC;Emilia-Romagna;E726;799,4;771,4;37348,11
+106;Carini;COMUNE DI CARINI;Comuni;Comuni;PA;Sicilia;B780;1653,2;3041,1;6817,52
+107;Padova;COMUNE DI PADOVA;Comuni;Comuni;PD;Veneto;G224;1329,4;574,1;2166542,37
+108;Petilia Policastro;COMUNE DI PETILIA POLICASTRO;Comuni;Comuni;KR;Calabria;G508;2564,5;2710,9;24055,82
+109;3° Reparto Infrastrutture;3° REPARTO INFRASTRUTTURE;Altri enti;Commissari, agenzie, Difesa e beni culturali;;;;;;108603,57
+110;Chiavari;COMUNE DI CHIAVARI;Comuni;Comuni;GE;Liguria;C621;679,3;938,6;219638,77
+111;Mantova;COMUNE DI MANTOVA;Comuni;Comuni;MN;Lombardia;E897;1052,9;660,7;109491,37
+112;Asl Medio Campidano-Sanluri;ASL MEDIO CAMPIDANO-SANLURI;Altri enti;Sanità e assistenza;;;;;;3868752,01
+113;Giffoni Valle Piana;COMUNE DI GIFFONI VALLE PIANA;Comuni;Comuni;SA;Campania;E027;2098,8;2159,6;208208,03
+114;Aorn A. Cardarelli;AORN A. CARDARELLI;Altri enti;Sanità e assistenza;;;;;;48159,47
+115;Veritas Spa;VERITAS SPA;Altri enti;Acqua, energia e rifiuti;;;;;;185222,33
+116;Dobbiaco/Toblach;COMUNE DI DOBBIACO;Comuni;Comuni;BZ;Trentino-Alto Adige/Südtirol;D311;1412,8;135,3;57203,86
+117;Aliseo – Agenzia Ligure Per Gli Studenti E L'Orientamento;ALISEO – AGENZIA LIGURE PER GLI STUDENTI E L'ORIENTAMENTO;Altri enti;Università e ricerca;;;;;;687425,24
+118;Provincia di Pesaro E Urbino;PROVINCIA DI PESARO E URBINO;Altri enti;Province e città metropolitane;;;;;;695112,40
+119;San Cassiano;COMUNE DI SAN CASSIANO;Comuni;Comuni;LE;Puglia;M264;2950,4;2390,8;38913,01
+120;Valmontone;COMUNE DI VALMONTONE;Comuni;Comuni;RM;Lazio;L639;1585,2;1804,5;211213,52
+121;Procida;COMUNE DI PROCIDA;Comuni;Comuni;NA;Campania;H072;1863,2;2150,8;276932,99
+122;Autorità di Sistema Portuale di Venezia E Chioggia;AUTORITÀ DI SISTEMA PORTUALE DI VENEZIA E CHIOGGIA;Altri enti;Porti;;;;;;1266909,66
+123;Azienda Ospedaliero-Universitaria Sant'Andrea;AZIENDA OSPEDALIERO-UNIVERSITARIA SANT'ANDREA;Altri enti;Sanità e assistenza;;;;;;1154337,75
+124;Università Degli Studi di Camerino;UNIVERSITÀ DEGLI STUDI DI CAMERINO;Altri enti;Università e ricerca;;;;;;293478,09
+125;San Paolo Albanese;COMUNE DI SAN PAOLO ALBANESE;Comuni;Comuni;PZ;Basilicata;B906;2448,6;2400,2;18441,61
+126;Unione Dei Comuni Valdichiana Senese;UNIONE DEI COMUNI VALDICHIANA SENESE;Altri enti;Unioni di Comuni e comunità montane;;;;;;2561,84
+127;San Lorenzo al Mare;COMUNE DI SAN LORENZO AL MARE;Comuni;Comuni;IM;Liguria;H957;337,1;1097,2;165318,13
+128;Bologna;COMUNE DI BOLOGNA;Comuni;Comuni;BO;Emilia-Romagna;A944;1194,0;883,6;23596742,26
+129;Presidente Regione Abruzzo – Commissario Dissesto Idrogeologico Art. 10 D.L. 91/2014;PRESIDENTE REGIONE ABRUZZO – COMMISSARIO DISSESTO IDROGEOLOGICO ART. 10 D.L. 91/2014;Altri enti;Commissari, agenzie, Difesa e beni culturali;;;;;;323159,72
+130;Malfa;COMUNE DI MALFA;Comuni;Comuni;ME;Sicilia;E855;2069,2;2890,9;584286,74
+131;Azienda Trasporti Milanesi Spa;AZIENDA TRASPORTI MILANESI S.P.A.;Altri enti;Ferrovie, trasporti e strade;;;;;;11639,19
+132;Napoli;COMUNE DI NAPOLI;Comuni;Comuni;NA;Campania;F839;1921,0;2117,1;2926985,71
+133;Caserta;COMUNE DI CASERTA;Comuni;Comuni;CE;Campania;B963;1952,0;2038,2;354769,42
+134;Centro Anziani Sovracomunale Bressanone–Varna–Luson Soc.Cons.A.R.L.;CENTRO ANZIANI SOVRACOMUNALE BRESSANONE–VARNA–LUSON SOC.CONS.A.R.L.;Altri enti;Sanità e assistenza;;;;;;700519,79
+135;Capralba;COMUNE DI CAPRALBA;Comuni;Comuni;CR;Lombardia;B686;762,0;564,3;28249,19
+136;Consorzio di Bonifica Delta del Po;CONSORZIO DI BONIFICA DELTA DEL PO;Altri enti;Consorzi di bonifica;;;;;;1653158,13
+137;Contrada;COMUNE DI CONTRADA;Comuni;Comuni;AV;Campania;C971;2056,5;2112,0;67240,35
+138;Montesano sulla Marcellana;COMUNE DI MONTESANO SULLA MARCELLANA;Comuni;Comuni;SA;Campania;F625;2294,5;2318,2;59481,71
+139;Lumezzane;COMUNE DI LUMEZZANE;Comuni;Comuni;BS;Lombardia;E738;919,8;489,3;78692,00
+140;Castelvenere;COMUNE DI CASTELVENERE;Comuni;Comuni;BN;Campania;C280;1998,5;1988,0;16732,27
+141;Cogliate;COMUNE DI COGLIATE;Comuni;Comuni;MB;Lombardia;C820;619,1;490,5;53314,35
+142;Residenza Per Anziani di Oderzo;RESIDENZA PER ANZIANI DI ODERZO;Altri enti;Sanità e assistenza;;;;;;107545,17
+143;Monteforte Cilento;COMUNE DI MONTEFORTE CILENTO;Comuni;Comuni;SA;Campania;F507;2158,6;2282,9;47377,11
+144;Cerignola;COMUNE DI CERIGNOLA;Comuni;Comuni;FG;Puglia;C514;2340,4;1967,2;544640,25
+145;Vipiteno/Sterzing;COMUNE DI VIPITENO;Comuni;Comuni;BZ;Trentino-Alto Adige/Südtirol;M067;1207,1;62,0;43712,30
+146;"A.O.R.N. ""Sant'Anna E San Sebastiano"" di Caserta";"A.O.R.N. ""SANT'ANNA E SAN SEBASTIANO"" DI CASERTA";Altri enti;Sanità e assistenza;;;;;;1543502,72
+147;Città Metropolitana di Bologna;CITTÀ METROPOLITANA DI BOLOGNA;Altri enti;Province e città metropolitane;;;;;;3143497,53
+148;Anzano di Puglia;COMUNE DI ANZANO DI PUGLIA;Comuni;Comuni;FG;Puglia;A320;2184,1;2029,4;178668,59
+149;San Vincenzo La Costa;COMUNE DI SAN VINCENZO LA COSTA;Comuni;Comuni;CS;Calabria;I388;2402,5;2621,0;39140,23
+150;Matera;COMUNE DI MATERA;Comuni;Comuni;MT;Basilicata;F052;2508,2;2181,5;268379,11
+151;Consorzio Per L'Area di Sviluppo Industriale di Foggia;CONSORZIO PER L'AREA DI SVILUPPO INDUSTRIALE DI FOGGIA;Altri enti;Altri enti pubblici e società;;;;;;3222355,64
+152;Gildone;COMUNE DI GILDONE;Comuni;Comuni;CB;Molise;E030;2046,1;1896,5;13817,34
+153;Savoia di Lucania;COMUNE DI SAVOIA DI LUCANIA;Comuni;Comuni;PZ;Basilicata;H730;2257,4;2207,3;108618,36
+154;Manocalzati;COMUNE DI MANOCALZATI;Comuni;Comuni;AV;Campania;E891;2073,3;2087,3;143291,72
+155;Ferrotramviaria Spa;FERROTRAMVIARIA S.P.A.;Altri enti;Ferrovie, trasporti e strade;;;;;;754104,65
+156;Giavera del Montello;COMUNE DI GIAVERA DEL MONTELLO;Comuni;Comuni;TV;Veneto;E021;1395,7;436,9;149816,53
+157;Meta;COMUNE DI META;Comuni;Comuni;NA;Campania;F162;1965,3;2189,8;38306,83
+158;Castelraimondo;COMUNE DI CASTELRAIMONDO;Comuni;Comuni;MC;Marche;C251;1620,3;1319,9;219734,54
+159;Stella Cilento;COMUNE DI STELLA CILENTO;Comuni;Comuni;SA;Campania;G887;2135,5;2331,2;101005,76
+160;Asp 2 Teramo - Azienda Pubblica di Servizi Alla Persona N. 2 della Provincia di Teramo;ASP 2 TERAMO - AZIENDA PUBBLICA DI SERVIZI ALLA PERSONA N. 2 DELLA PROVINCIA DI TERAMO;Altri enti;Sanità e assistenza;;;;;;42033,46
+161;Alessandria;COMUNE DI ALESSANDRIA;Comuni;Comuni;AL;Piemonte;A182;512,0;738,3;190064,12
+162;Accadia;COMUNE DI ACCADIA;Comuni;Comuni;FG;Puglia;A015;2195,3;2005,3;54943,22
+163;Paola;COMUNE DI PAOLA;Comuni;Comuni;CS;Calabria;G317;2379,7;2624,0;106033,73
+164;Commissario di Governo Contro Il Dissesto Idrogeologico Per La Regione Toscana;COMMISSARIO DI GOVERNO CONTRO IL DISSESTO IDROGEOLOGICO PER LA REGIONE TOSCANA;Altri enti;Commissari, agenzie, Difesa e beni culturali;;;;;;980355,55
+165;Bagnoli del Trigno;COMUNE DI BAGNOLI DEL TRIGNO;Comuni;Comuni;IS;Molise;A567;1980,8;1830,2;17938,79
+166;Castelluccio dei Sauri;COMUNE DI CASTELLUCCIO DEI SAURI;Comuni;Comuni;FG;Puglia;C198;2232,8;1964,8;100676,91
+167;Ottaviano;COMUNE DI OTTAVIANO;Comuni;Comuni;NA;Campania;G190;1976,7;2122,5;30873,31
+168;Castelnovo ne' Monti;COMUNE DI CASTELNOVO NE' MONTI;Comuni;Comuni;RE;Emilia-Romagna;C219;960,1;894,9;35885,69
+169;Fondazione Cnao - Centro Nazionale di Adroterapia Oncologica;FONDAZIONE CNAO - CENTRO NAZIONALE DI ADROTERAPIA ONCOLOGICA;Altri enti;Altri enti pubblici e società;;;;;;479131,61
+170;Isola del Piano;COMUNE DI ISOLA DEL PIANO;Comuni;Comuni;PU;Marche;E351;1551,4;1141,5;77397,45
+171;Pistoia;COMUNE DI PISTOIA;Comuni;Comuni;PT;Toscana;G713;1080,7;1053,8;139071,94
+172;Consorzio Generale di Bonifica del Bacino Inferiore del Volturno;CONSORZIO GENERALE DI BONIFICA DEL BACINO INFERIORE DEL VOLTURNO;Altri enti;Consorzi di bonifica;;;;;;223714,71
+173;Provincia di Brescia;PROVINCIA DI BRESCIA;Altri enti;Province e città metropolitane;;;;;;652091,92
+174;Cantalupo nel Sannio;COMUNE DI CANTALUPO NEL SANNIO;Comuni;Comuni;IS;Molise;B630;1959,1;1889,6;44479,80
+175;Consorzio di Bonifica Adige Euganeo;CONSORZIO DI BONIFICA ADIGE EUGANEO;Altri enti;Consorzi di bonifica;;;;;;523889,17
+176;Salerno;COMUNE DI SALERNO;Comuni;Comuni;SA;Campania;H703;2063,8;2177,5;275437,63
+177;Cogesan Appalti E Servizi S.R.L.;COGESAN APPALTI E SERVIZI S.R.L.;Altri enti;Acqua, energia e rifiuti;;;;;;75280,84
+178;Commissario di Governo Per Il Contrasto del Dissesto Idrogeologico Nella Regione Puglia;COMMISSARIO DI GOVERNO PER IL CONTRASTO DEL DISSESTO IDROGEOLOGICO NELLA REGIONE PUGLIA;Altri enti;Commissari, agenzie, Difesa e beni culturali;;;;;;1132532,83
+179;Costigliole Saluzzo;COMUNE DI COSTIGLIOLE SALUZZO;Comuni;Comuni;CN;Piemonte;D120;218,0;858,8;82782,14
+180;Università Degli Studi di Bergamo;UNIVERSITÀ DEGLI STUDI DI BERGAMO;Altri enti;Università e ricerca;;;;;;137934,59
+181;Agenzia Regionale Per La Sicurezza Territoriale E La Protezione Civile;AGENZIA REGIONALE PER LA SICUREZZA TERRITORIALE E LA PROTEZIONE CIVILE;Altri enti;Commissari, agenzie, Difesa e beni culturali;;;;;;2557619,58
+182;Ire Spa;IRE SPA;Altri enti;Altri enti pubblici e società;;;;;;1000082,58
+183;Isernia;COMUNE DI ISERNIA;Comuni;Comuni;IS;Molise;E335;1915,4;1860,1;103125,59
+184;Monopoli;COMUNE DI MONOPOLI;Comuni;Comuni;BA;Puglia;F376;2688,4;2101,3;49207,75
+185;Azienda Socio Sanitaria Territoriale di Cremona;AZIENDA SOCIO SANITARIA TERRITORIALE DI CREMONA;Altri enti;Sanità e assistenza;;;;;;34907,25
+186;Cogesa Spa;COGESA SPA;Altri enti;Acqua, energia e rifiuti;;;;;;20295,79
+187;Ufficio Autonomo Lavori Genio Militare Per M.D.;UFFICIO AUTONOMO LAVORI GENIO MILITARE PER M.D.;Altri enti;Commissari, agenzie, Difesa e beni culturali;;;;;;786845,54
+188;Buonalbergo;COMUNE DI BUONALBERGO;Comuni;Comuni;BN;Campania;B267;2105,9;1991,6;216891,27
+189;Ragusa;COMUNE DI RAGUSA;Comuni;Comuni;RG;Sicilia;H163;2027,0;3456,7;120193,94
+190;Acque Veronesi Scarl;ACQUE VERONESI SCARL;Altri enti;Acqua, energia e rifiuti;;;;;;3105,60
+191;Consiglio Regionale Dell'Abruzzo;CONSIGLIO REGIONALE DELL'ABRUZZO;Altri enti;Regioni e Province autonome;;;;;;147676,15
+192;11° Reparto Infrastrutture;11° REPARTO INFRASTRUTTURE;Altri enti;Commissari, agenzie, Difesa e beni culturali;;;;;;959650,16
+193;Aviano;COMUNE DI AVIANO;Comuni;Comuni;PN;Friuli-Venezia Giulia;A516;1505,3;342,3;681395,06
+194;Castel San Giovanni;COMUNE DI CASTEL SAN GIOVANNI;Comuni;Comuni;PC;Emilia-Romagna;C261;706,4;689,9;59910,50
+195;Carlopoli;COMUNE DI CARLOPOLI;Comuni;Comuni;CZ;Calabria;B790;2476,9;2730,2;80732,66
+196;Giunta Regionale della Campania Dg Risorse Strumentali;GIUNTA REGIONALE DELLA CAMPANIA DG RISORSE STRUMENTALI;Altri enti;Regioni e Province autonome;;;;;;103764,29
+197;Barletta;COMUNE DI BARLETTA;Comuni;Comuni;BT;Puglia;A669;2424,3;1967,6;91734,77
+198;Mirabello Sannitico;COMUNE DI MIRABELLO SANNITICO;Comuni;Comuni;CB;Molise;F233;2027,8;1895,1;104864,08
+199;Società Intercomunale Servizi Idrici Srl;SOCIETÀ INTERCOMUNALE SERVIZI IDRICI SRL;Altri enti;Acqua, energia e rifiuti;;;;;;66490,87
+200;Limena;COMUNE DI LIMENA;Comuni;Comuni;PD;Veneto;E592;1312,4;548,3;28007,45
+201;Casalbordino;COMUNE DI CASALBORDINO;Comuni;Comuni;CH;Abruzzo;B865;2013,8;1672,1;56941,19
+202;Provincia della Spezia;PROVINCIA DELLA SPEZIA;Altri enti;Province e città metropolitane;;;;;;2141972,03
+203;Desenzano del Garda;COMUNE DI DESENZANO DEL GARDA;Comuni;Comuni;BS;Lombardia;D284;992,9;557,6;50216,36
+204;Carpi;COMUNE DI CARPI;Comuni;Comuni;MO;Emilia-Romagna;B819;1074,2;777,4;21910,31
+205;Cave;COMUNE DI CAVE;Comuni;Comuni;RM;Lazio;C390;1589,7;1791,4;84060,02
+206;Luogosano;COMUNE DI LUOGOSANO;Comuni;Comuni;AV;Campania;E746;2108,4;2072,2;15160,17
+207;Cardeto;COMUNE DI CARDETO;Comuni;Comuni;RC;Calabria;B756;2315,4;3053,1;48484,13
+208;Torretta;COMUNE DI TORRETTA;Comuni;Comuni;PA;Sicilia;L282;1664,9;3034,9;15350,41
+209;Gestione Governativa Ferrovia Circumetnea;GESTIONE GOVERNATIVA FERROVIA CIRCUMETNEA;Altri enti;Ferrovie, trasporti e strade;;;;;;178490,53
+210;Saonara;COMUNE DI SAONARA;Comuni;Comuni;PD;Veneto;I418;1350,6;582,4;54524,72
+211;Fiano Romano;COMUNE DI FIANO ROMANO;Comuni;Comuni;RM;Lazio;D561;1504,6;1674,2;90848,18
+212;Piove di Sacco;COMUNE DI PIOVE DI SACCO;Comuni;Comuni;PD;Veneto;G693;1365,9;610,3;520280,77
+213;Mogliano Veneto;COMUNE DI MOGLIANO VENETO;Comuni;Comuni;TV;Veneto;F269;1417,8;517,1;12956,99
+214;Vercelli;COMUNE DI VERCELLI;Comuni;Comuni;VC;Piemonte;L750;445,9;599,5;10191,45
+215;Stornara;COMUNE DI STORNARA;Comuni;Comuni;FG;Puglia;I962;2308,3;1967,7;24376,10
+216;Montebelluna;COMUNE DI MONTEBELLUNA;Comuni;Comuni;TV;Veneto;F443;1366,8;448,7;323796,88
+217;Aou San Luigi Gonzaga;AOU SAN LUIGI GONZAGA;Altri enti;Sanità e assistenza;;;;;;116298,32
+218;Monticelli Brusati;COMUNE DI MONTICELLI BRUSATI;Comuni;Comuni;BS;Lombardia;F672;875,6;494,5;6385,53
+219;Chiari;COMUNE DI CHIARI;Comuni;Comuni;BS;Lombardia;C618;831,6;531,1;323505,25
+220;Consorzio di Bonifica Est Ticino Villoresi;CONSORZIO DI BONIFICA EST TICINO VILLORESI;Altri enti;Consorzi di bonifica;;;;;;521355,47
+221;Deliceto;COMUNE DI DELICETO;Comuni;Comuni;FG;Puglia;D269;2219,5;1988,1;211914,79
+222;Ronciglione;COMUNE DI RONCIGLIONE;Comuni;Comuni;VT;Lazio;H534;1410,9;1630,4;95108,44
+223;S.C.R. Piemonte Spa;S.C.R. PIEMONTE S.P.A.;Altri enti;Regioni e Province autonome;;;;;;199639,13
+224;1° Reparto Infrastrutture;1° REPARTO INFRASTRUTTURE;Altri enti;Commissari, agenzie, Difesa e beni culturali;;;;;;61377,83
+225;Paduli;COMUNE DI PADULI;Comuni;Comuni;BN;Campania;G227;2085,2;2006,6;35517,56
+226;Castelsilano;COMUNE DI CASTELSILANO;Comuni;Comuni;KR;Calabria;B968;2585,5;2663,7;62283,25
+227;Provincia di Reggio Emilia;PROVINCIA DI REGGIO EMILIA;Altri enti;Province e città metropolitane;;;;;;820262,68
+228;Museo E Real Bosco di Capodimonte;MUSEO E REAL BOSCO DI CAPODIMONTE;Altri enti;Commissari, agenzie, Difesa e beni culturali;;;;;;118813,34
+229;Penne;COMUNE DI PENNE;Comuni;Comuni;PE;Abruzzo;G438;1839,2;1572,2;40930,56
+230;Provincia di Frosinone;PROVINCIA DI FROSINONE;Altri enti;Province e città metropolitane;;;;;;594151,43
+231;Gioiosa Marea;COMUNE DI GIOIOSA MAREA;Comuni;Comuni;ME;Sicilia;E043;2091,8;3034,9;47596,24
+232;Venezia;COMUNE DI VENEZIA;Comuni;Comuni;VE;Veneto;L736;1433,6;573,0;1354997,69
+233;Azienda Sociosanitaria Ligure 3 - Asl 3;AZIENDA SOCIOSANITARIA LIGURE 3 - ASL 3;Altri enti;Sanità e assistenza;;;;;;552198,87
+234;Ente D'Ambito A.T.O. Napoli 3;ENTE D'AMBITO A.T.O. NAPOLI 3;Altri enti;Acqua, energia e rifiuti;;;;;;14814,92
+235;Pergine Valsugana;COMUNE DI PERGINE VALSUGANA;Comuni;Comuni;TN;Trentino-Alto Adige/Südtirol;G452;1160,7;350,1;29474,12
+236;Fiuggi;COMUNE DI FIUGGI;Comuni;Comuni;FR;Lazio;A310;1662,6;1795,0;4927,49
+237;Comacchio;COMUNE DI COMACCHIO;Comuni;Comuni;FE;Emilia-Romagna;C912;1398,9;816,9;26719,76
+238;Umbertide;COMUNE DI UMBERTIDE;Comuni;Comuni;PG;Umbria;D786;1432,7;1293,5;23097,17
+239;Borgo Valbelluna;COMUNE DI BORGO VALBELLUNA;Comuni;Comuni;BL;Veneto;M421;1382,1;360,6;112089,38
+240;Cimadolmo;COMUNE DI CIMADOLMO;Comuni;Comuni;TV;Veneto;C689;1443,9;445,0;45865,78
+241;Alberobello;COMUNE DI ALBEROBELLO;Comuni;Comuni;BA;Puglia;A149;2671,6;2138,4;61169,98
+242;Provincia di Grosseto;PROVINCIA DI GROSSETO;Altri enti;Province e città metropolitane;;;;;;4332,38
+243;Mistretta;COMUNE DI MISTRETTA;Comuni;Comuni;ME;Sicilia;F251;1956,9;3118,8;14106,73
+244;San Giovanni a Piro;COMUNE DI SAN GIOVANNI A PIRO;Comuni;Comuni;SA;Campania;H907;2227,4;2387,7;398178,10
+245;Macchia Valfortore;COMUNE DI MACCHIA VALFORTORE;Comuni;Comuni;CB;Molise;E780;2092,9;1867,7;259537,98
+246;Palù;COMUNE DI PALÙ;Comuni;Comuni;VR;Veneto;G297;1133,3;598,2;63663,82
+247;Asl2- Azienda Sociosanitaria Ligure;ASL2- AZIENDA SOCIOSANITARIA LIGURE;Altri enti;Sanità e assistenza;;;;;;8983,55
+248;Spezzano Albanese;COMUNE DI SPEZZANO ALBANESE;Comuni;Comuni;CS;Calabria;I895;2442,3;2513,6;50141,81
+249;Tortona;COMUNE DI TORTONA;Comuni;Comuni;AL;Piemonte;L304;560,0;749,0;92884,35
+250;Montevago;COMUNE DI MONTEVAGO;Comuni;Comuni;AG;Sicilia;F655;1597,0;3189,3;6692,28
+251;Oppeano;COMUNE DI OPPEANO;Comuni;Comuni;VR;Veneto;G080;1139,2;604,0;200928,59
+252;Colledara;COMUNE DI COLLEDARA;Comuni;Comuni;TE;Abruzzo;C311;1782,1;1540,7;112146,65
+253;Marigliano;COMUNE DI MARIGLIANO;Comuni;Comuni;NA;Campania;E955;1976,0;2089,0;55271,95
+254;Cerchiara di Calabria;COMUNE DI CERCHIARA DI CALABRIA;Comuni;Comuni;CS;Calabria;C489;2460,2;2457,5;58829,80
+255;Inveruno;COMUNE DI INVERUNO;Comuni;Comuni;MI;Lombardia;E313;562,5;534,5;47069,66
+256;Pietramelara;COMUNE DI PIETRAMELARA;Comuni;Comuni;CE;Campania;G620;1906,6;1976,5;159889,24
+257;Castelbuono;COMUNE DI CASTELBUONO;Comuni;Comuni;PA;Sicilia;C067;1885,0;3109,1;17777,33
+258;Calciano;COMUNE DI CALCIANO;Comuni;Comuni;MT;Basilicata;B391;2409,0;2209,1;5010,76
+259;San Ferdinando di Puglia;COMUNE DI SAN FERDINANDO DI PUGLIA;Comuni;Comuni;BT;Puglia;H839;2373,7;1973,9;99758,40
+260;Novara di Sicilia;COMUNE DI NOVARA DI SICILIA;Comuni;Comuni;ME;Sicilia;F951;2145,2;3077,2;215547,71
+261;San Lorenzello;COMUNE DI SAN LORENZELLO;Comuni;Comuni;BN;Campania;H955;1996,4;1977,2;71476,87
+262;Balvano;COMUNE DI BALVANO;Comuni;Comuni;PZ;Basilicata;A604;2246,2;2181,8;30216,58
+263;Sant'Olcese;COMUNE DI SANT'OLCESE;Comuni;Comuni;GE;Liguria;I346;587,7;886,3;100199,79
+264;San Pier Niceto;COMUNE DI SAN PIER NICETO;Comuni;Comuni;ME;Sicilia;I084;2202,9;3035,8;47022,45
+265;Parco Archeologico di Pompei;PARCO ARCHEOLOGICO DI POMPEI;Altri enti;Commissari, agenzie, Difesa e beni culturali;;;;;;645716,06
+266;Altomonte;COMUNE DI ALTOMONTE;Comuni;Comuni;CS;Calabria;A240;2406,6;2513,7;48211,78
+267;Francavilla Fontana;COMUNE DI FRANCAVILLA FONTANA;Comuni;Comuni;BR;Puglia;D761;2753,4;2229,7;229891,25
+268;San Giovanni in Marignano;COMUNE DI SAN GIOVANNI IN MARIGNANO;Comuni;Comuni;RN;Emilia-Romagna;H921;1534,4;1070,9;4628,62
+269;Asl Roma 4;ASL ROMA 4;Altri enti;Sanità e assistenza;;;;;;398592,23
+270;Provincia di Benevento;PROVINCIA DI BENEVENTO;Altri enti;Province e città metropolitane;;;;;;562709,15
+271;Cercemaggiore;COMUNE DI CERCEMAGGIORE;Comuni;Comuni;CB;Molise;C486;2045,3;1915,9;70996,93
+272;Dragoni;COMUNE DI DRAGONI;Comuni;Comuni;CE;Campania;D361;1936,3;1978,6;160390,30
+273;Provincia di Modena;PROVINCIA DI MODENA;Altri enti;Province e città metropolitane;;;;;;781703,89
+274;Regione Marche;REGIONE MARCHE;Altri enti;Regioni e Province autonome;;;;;;6819577,79
+275;Rimini;COMUNE DI RIMINI;Comuni;Comuni;RN;Emilia-Romagna;H294;1493,9;1035,5;45117,30
+276;Milano;COMUNE DI MILANO;Comuni;Comuni;MI;Lombardia;F205;642,2;553,4;565797,22
+277;Triggiano;COMUNE DI TRIGGIANO;Comuni;Comuni;BA;Puglia;L425;2601,1;2044,8;37470,29
+278;Roccaromana;COMUNE DI ROCCAROMANA;Comuni;Comuni;CE;Campania;H436;1921,1;1974,3;55714,87
+279;Macerata;COMUNE DI MACERATA;Comuni;Comuni;MC;Marche;E783;1724,0;1285,2;237191,16
+280;Gori Spa;GORI SPA;Altri enti;Acqua, energia e rifiuti;;;;;;3660136,97
+281;A.T.E.R. di L'Aquila;A.T.E.R. DI L'AQUILA;Altri enti;Case popolari;;;;;;303332,08
+282;Maida;COMUNE DI MAIDA;Comuni;Comuni;CZ;Calabria;E834;2459,4;2789,5;40296,55
+283;Areti Spa;ARETI SPA;Altri enti;Acqua, energia e rifiuti;;;;;;1718425,47
+284;Moiano;COMUNE DI MOIANO;Comuni;Comuni;BN;Campania;F274;1995,1;2040,0;122494,75
+285;Baunei;COMUNE DI BAUNEI;Comuni;Comuni;OG;Sardegna;A722;756,6;2371,2;9408,59
+286;Politecnico di Torino;POLITECNICO DI TORINO;Altri enti;Università e ricerca;;;;;;613211,25
+287;Asl Città di Torino;ASL CITTÀ DI TORINO;Altri enti;Sanità e assistenza;;;;;;236182,86
+288;Regione Liguria;REGIONE LIGURIA;Altri enti;Regioni e Province autonome;;;;;;166669,70
+289;San Martino in Pensilis;COMUNE DI SAN MARTINO IN PENSILIS;Comuni;Comuni;CB;Molise;H990;2121,6;1779,6;23885,02
+290;Caselle in Pittari;COMUNE DI CASELLE IN PITTARI;Comuni;Comuni;SA;Campania;B959;2249,0;2343,6;24509,06
+291;Cavernago;COMUNE DI CAVERNAGO;Comuni;Comuni;BG;Lombardia;C396;790,4;499,8;92249,63
+292;Provincia di Forlì-Cesena;PROVINCIA DI FORLÌ-CESENA;Altri enti;Province e città metropolitane;;;;;;15407,39
+293;Consorzio Per L'Area di Sviluppo Industriale della Provincia di Benevento (Asi);CONSORZIO PER L'AREA DI SVILUPPO INDUSTRIALE DELLA PROVINCIA DI BENEVENTO (ASI);Altri enti;Altri enti pubblici e società;;;;;;106633,04
+294;Regione Toscana;REGIONE TOSCANA;Altri enti;Regioni e Province autonome;;;;;;424907,89
+295;Grumo Appula;COMUNE DI GRUMO APPULA;Comuni;Comuni;BA;Puglia;E223;2540,7;2082,0;201522,87
+296;Castiglione Messer Raimondo;COMUNE DI CASTIGLIONE MESSER RAIMONDO;Comuni;Comuni;TE;Abruzzo;C316;1828,8;1551,1;4219,50
+297;Eco.Lan. Spa;ECO.LAN. S.P.A.;Altri enti;Acqua, energia e rifiuti;;;;;;117160,37
+298;Foiano di Val Fortore;COMUNE DI FOIANO DI VAL FORTORE;Comuni;Comuni;BN;Campania;D650;2102,3;1948,7;183016,22
+299;Carate Brianza;COMUNE DI CARATE BRIANZA;Comuni;Comuni;MB;Lombardia;B729;659,2;480,7;336083,71
+300;Campus Reggio Srl;CAMPUS REGGIO SRL;Altri enti;Altri enti pubblici e società;;;;;;244753,20
+301;Città Metropolitana di Catania;CITTÀ METROPOLITANA DI CATANIA;Altri enti;Province e città metropolitane;;;;;;466552,86
+302;Cremona;COMUNE DI CREMONA;Comuni;Comuni;CR;Lombardia;D150;859,2;663,4;80472,51
+303;Consorzio Acquedottistico Marsicano Spa;CONSORZIO ACQUEDOTTISTICO MARSICANO SPA;Altri enti;Acqua, energia e rifiuti;;;;;;140269,86
+304;Consorzio di Bonifica della Baraggia Biellese E Vercellese;CONSORZIO DI BONIFICA DELLA BARAGGIA BIELLESE E VERCELLESE;Altri enti;Consorzi di bonifica;;;;;;104065,91
+305;Comunità Montana Alento Montestella;COMUNITÀ MONTANA ALENTO MONTESTELLA;Altri enti;Unioni di Comuni e comunità montane;;;;;;352323,76
+306;Sirmione;COMUNE DI SIRMIONE;Comuni;Comuni;BS;Lombardia;I633;1006,0;548,5;2786490,44
+307;Presenzano;COMUNE DI PRESENZANO;Comuni;Comuni;CE;Campania;H045;1879,8;1941,7;42179,22
+308;Bagno di Romagna;COMUNE DI BAGNO DI ROMAGNA;Comuni;Comuni;FC;Emilia-Romagna;A565;1342,7;1094,0;10656,21
+309;Ferruzzano;COMUNE DI FERRUZZANO;Comuni;Comuni;RC;Calabria;D557;2389,1;3076,4;31769,33
+310;Gubbio;COMUNE DI GUBBIO;Comuni;Comuni;PG;Umbria;E256;1489,3;1270,6;53471,90
+311;Acerno;COMUNE DI ACERNO;Comuni;Comuni;SA;Campania;A023;2130,8;2155,9;69194,77
+312;Pescopagano;COMUNE DI PESCOPAGANO;Comuni;Comuni;PZ;Basilicata;G496;2219,8;2121,9;18123,74
+313;Battipaglia;COMUNE DI BATTIPAGLIA;Comuni;Comuni;SA;Campania;A717;2102,8;2204,7;10142,53
+314;Assemblea Territoriale Idrica - Ato Caltanissetta - Servizio Idrico Integrato;ASSEMBLEA TERRITORIALE IDRICA - ATO CALTANISSETTA - SERVIZIO IDRICO INTEGRATO;Altri enti;Acqua, energia e rifiuti;;;;;;2378634,10
+315;Falciano del Massico;COMUNE DI FALCIANO DEL MASSICO;Comuni;Comuni;CE;Campania;D471;1848,3;2016,8;119530,42
+316;Bovalino;COMUNE DI BOVALINO;Comuni;Comuni;RC;Calabria;B098;2406,6;3033,2;15244,91
+317;Palma Campania;COMUNE DI PALMA CAMPANIA;Comuni;Comuni;NA;Campania;G283;2001,6;2115,0;105745,99
+318;Pizzighettone;COMUNE DI PIZZIGHETTONE;Comuni;Comuni;CR;Lombardia;G721;800,5;645,2;134450,36
+319;Pisticci;COMUNE DI PISTICCI;Comuni;Comuni;MT;Basilicata;G712;2528,2;2283,4;185253,10
+320;Matrice;COMUNE DI MATRICE;Comuni;Comuni;CB;Molise;F055;2040,2;1854,6;163931,26
+321;Sambuca di Sicilia;COMUNE DI SAMBUCA DI SICILIA;Comuni;Comuni;AG;Sicilia;H743;1643,6;3202,1;85112,12
+322;Casamassima;COMUNE DI CASAMASSIMA (CITTÀ METROPOLITANA DI BARI);Comuni;Comuni;BA;Puglia;B923;2597,8;2087,7;529831,36
+323;Terre del Reno;COMUNE DI TERRE DEL RENO;Comuni;Comuni;FE;Emilia-Romagna;M381;1204,3;777,0;177356,39
+324;Ferrovie del Sud Est E Servizi Automobilistici S.R.L. Ora: Ferrovie del Sud Est E Servizi Automobilistici S.R.L. In Liquidazione;FERROVIE DEL SUD EST E SERVIZI AUTOMOBILISTICI S.R.L. ora: FERROVIE DEL SUD EST E SERVIZI AUTOMOBILISTICI S.R.L. IN LIQUIDAZIONE;Altri enti;Ferrovie, trasporti e strade;;;;;;1883973,70
+325;Orta Nova;COMUNE DI ORTA NOVA;Comuni;Comuni;FG;Puglia;G131;2290,9;1961,6;30184,19
+326;Reggio nell'Emilia;COMUNE DI REGGIO EMILIA;Comuni;Comuni;RE;Emilia-Romagna;H223;1013,3;812,1;110714,81
+327;Sant'Agnello;COMUNE DI SANT'AGNELLO;Comuni;Comuni;NA;Campania;I208;1962,1;2197,1;723174,56
+328;Jacurso;COMUNE DI JACURSO;Comuni;Comuni;CZ;Calabria;E274;2457,3;2809,8;25079,69
+329;Crocetta del Montello;COMUNE DI CROCETTA DEL MONTELLO;Comuni;Comuni;TV;Veneto;C670;1370,4;428,8;17760,33
+330;Alfianello;COMUNE DI ALFIANELLO;Comuni;Comuni;BS;Lombardia;A188;889,6;619,7;41405,28
+331;Piraino;COMUNE DI PIRAINO;Comuni;Comuni;ME;Sicilia;G699;2079,9;3034,2;50378,27
+332;"Centro Servizi Per Anziani ""Pietro E Santa Scarmignan""";"CENTRO SERVIZI PER ANZIANI ""PIETRO E SANTA SCARMIGNAN""";Altri enti;Sanità e assistenza;;;;;;46638,45
+333;"A.R.N.A.S. ""Civico - di Cristina - Benfratelli"" Palermo";"A.R.N.A.S. ""CIVICO - DI CRISTINA - BENFRATELLI"" PALERMO";Altri enti;Sanità e assistenza;;;;;;16973,50
+334;Roma Metropolitane S.R.L. In Liquidazione;ROMA METROPOLITANE S.R.L. IN LIQUIDAZIONE;Altri enti;Ferrovie, trasporti e strade;;;;;;3920730,71
+335;Bibbiano;COMUNE DI BIBBIANO;Comuni;Comuni;RE;Emilia-Romagna;A850;971,6;818,3;12271,82
+336;Università Degli Studi di Verona;UNIVERSITÀ DEGLI STUDI DI VERONA;Altri enti;Università e ricerca;;;;;;488743,20
+337;Università Degli Studi di Sassari;UNIVERSITÀ DEGLI STUDI DI SASSARI;Altri enti;Università e ricerca;;;;;;166657,07
+338;Rovato;COMUNE DI ROVATO;Comuni;Comuni;BS;Lombardia;H598;854,7;523,9;194479,33
+339;Milazzo;COMUNE DI MILAZZO;Comuni;Comuni;ME;Sicilia;F206;2172,2;3010,2;53275,13
+340;Pizzo;COMUNE DI PIZZO;Comuni;Comuni;VV;Calabria;G722;2417,1;2827,9;145077,24
+341;Abbasanta;COMUNE DI ABBASANTA;Comuni;Comuni;OR;Sardegna;A007;540,6;2358,8;285095,50
+342;Roverchiara;COMUNE DI ROVERCHIARA;Comuni;Comuni;VR;Veneto;H606;1162,9;621,1;128863,04
+343;Azienda Socio Sanitaria Territoriale (Asst) di Pavia;AZIENDA SOCIO SANITARIA TERRITORIALE (ASST) DI PAVIA;Altri enti;Sanità e assistenza;;;;;;124301,20
+344;Scuola Superiore Meridionale;SCUOLA SUPERIORE MERIDIONALE;Altri enti;Università e ricerca;;;;;;24515,23
+345;Acquedotto del Fiora Spa;ACQUEDOTTO DEL FIORA SPA;Altri enti;Acqua, energia e rifiuti;;;;;;421986,43
+346;Bovisio-Masciago;COMUNE DI BOVISIO MASCIAGO;Comuni;Comuni;MB;Lombardia;B105;637,9;501,4;149021,94
+347;Acquaformosa;COMUNE DI ACQUAFORMOSA;Comuni;Comuni;CS;Calabria;A033;2387,2;2499,9;117160,00
+348;Provincia di Latina;PROVINCIA DI LATINA;Altri enti;Province e città metropolitane;;;;;;160074,65
+349;Pietracatella;COMUNE DI PIETRACATELLA;Comuni;Comuni;CB;Molise;G609;2078,9;1874,9;36214,67
+350;Consorzio di Bonifica In Destra del Fiume Sele;CONSORZIO DI BONIFICA IN DESTRA DEL FIUME SELE;Altri enti;Consorzi di bonifica;;;;;;255224,02
+351;Carpineto Romano;COMUNE DI CARPINETO ROMANO;Comuni;Comuni;RM;Lazio;B828;1631,0;1863,8;151960,05
+352;Sannicandro di Bari;COMUNE DI SANNICANDRO DI BARI;Comuni;Comuni;BA;Puglia;I053;2566,9;2076,5;39984,39
+353;Pievepelago;COMUNE DI PIEVEPELAGO;Comuni;Comuni;MO;Emilia-Romagna;G649;994,6;989,1;32321,72
+354;Isola di Capo Rizzuto;COMUNE DI ISOLA DI CAPO RIZZUTO;Comuni;Comuni;KR;Calabria;E339;2639,1;2760,0;40505,63
+355;Azienda Sanitaria Dell'Alto Adige - Ripartizione Tecnico-Patrimoniale - Comprensorio di Bressanone;AZIENDA SANITARIA DELL'ALTO ADIGE - RIPARTIZIONE TECNICO-PATRIMONIALE - COMPRENSORIO DI BRESSANONE;Altri enti;Sanità e assistenza;;;;;;836801,66
+356;San Mango sul Calore;COMUNE DI SAN MANGO SUL CALORE;Comuni;Comuni;AV;Campania;H975;2103,5;2080,8;32485,19
+357;Scigliano;COMUNE DI SCIGLIANO;Comuni;Comuni;CS;Calabria;D290;2444,0;2704,1;130338,70
+358;Capolona;COMUNE DI CAPOLONA;Comuni;Comuni;AR;Toscana;B670;1311,6;1197,3;254720,29
+359;La Spezia;COMUNE DELLA SPEZIA;Comuni;Comuni;SP;Liguria;E463;800,4;1012,8;12995,33
+360;Iacp di Catania;IACP DI CATANIA;Altri enti;Case popolari;;;;;;68567,42
+361;Consorzio Per La Bonifica della Capitanata;CONSORZIO PER LA BONIFICA DELLA CAPITANATA;Altri enti;Consorzi di bonifica;;;;;;121925,46
+362;Corridonia;COMUNE DI CORRIDONIA;Comuni;Comuni;MC;Marche;D042;1731,7;1303,0;6072,22
+363;Placanica;COMUNE DI PLACANICA;Comuni;Comuni;RC;Calabria;G729;2474,4;2940,7;92453,00
+364;Falconara Marittima;COMUNE DI FALCONARA;Comuni;Comuni;AN;Marche;D472;1704,6;1178,0;9899,28
+365;Petrella Tifernina;COMUNE DI PETRELLA TIFERNINA;Comuni;Comuni;CB;Molise;G512;2034,6;1833,7;24933,81
+366;Asm - Azienda Sanitaria Locale di Matera;ASM - AZIENDA SANITARIA LOCALE DI MATERA;Altri enti;Sanità e assistenza;;;;;;60808,16
+367;Mirandola;COMUNE DI MIRANDOLA;Comuni;Comuni;MO;Emilia-Romagna;F240;1137,1;742,8;339925,64
+368;Fondazione Università Magna Graecia di Catanzaro;FONDAZIONE UNIVERSITÀ MAGNA GRAECIA DI CATANZARO;Altri enti;Università e ricerca;;;;;;557040,78
+369;Gaia Spa;GAIA SPA;Altri enti;Acqua, energia e rifiuti;;;;;;790481,53
+370;Aliano;COMUNE DI ALIANO;Comuni;Comuni;MT;Basilicata;A196;2428,2;2303,5;138922,98
+371;Pomarance;COMUNE DI POMARANCE;Comuni;Comuni;PI;Toscana;G804;1061,7;1303,4;14167,01
+372;Frosolone;COMUNE DI FROSOLONE;Comuni;Comuni;IS;Molise;D811;1971,9;1860,3;18247,43
+373;Pomigliano d'Arco;COMUNE DI POMIGLIANO D'ARCO;Comuni;Comuni;NA;Campania;G812;1957,1;2097,6;2063033,39
+374;Mariano Comense;COMUNE DI MARIANO COMENSE;Comuni;Comuni;CO;Lombardia;E951;642,2;473,8;13637,68
+375;Empoli;COMUNE DI EMPOLI;Comuni;Comuni;FI;Toscana;D403;1089,3;1151,7;38527,14
+376;Autorità di Sistema Portuale del Mare di Sicilia Orientale;AUTORITÀ DI SISTEMA PORTUALE DEL MARE DI SICILIA ORIENTALE;Altri enti;Porti;;;;;;826765,53
+377;Mondragone;COMUNE DI MONDRAGONE;Comuni;Comuni;CE;Campania;F352;1840,7;2032,1;12869,22
+378;Canepina;COMUNE DI CANEPINA;Comuni;Comuni;VT;Lazio;B597;1410,2;1600,2;19472,17
+379;Autorità di Sistema Portuale del Mar Tirreno Centrale;AUTORITÀ DI SISTEMA PORTUALE DEL MAR TIRRENO CENTRALE;Altri enti;Porti;;;;;;974100,35
+380;Sammichele di Bari;COMUNE DI SAMMICHELE DI BARI;Comuni;Comuni;BA;Puglia;H749;2606,2;2108,9;31692,75
+381;Fondi;COMUNE DI FONDI;Comuni;Comuni;LT;Lazio;D662;1717,2;1952,4;19529,75
+382;Tripi - Abakainon;COMUNE DI TRIPI;Comuni;Comuni;ME;Sicilia;L431;2132,2;3073,2;12710,17
+383;Pietramontecorvino;COMUNE DI PIETRAMONTECORVINO;Comuni;Comuni;FG;Puglia;G604;2145,6;1880,8;72426,74
+384;Foglianise;COMUNE DI FOGLIANISE;Comuni;Comuni;BN;Campania;D644;2033,4;2013,9;28213,75
+385;Pisciotta;COMUNE DI PISCIOTTA;Comuni;Comuni;SA;Campania;G707;2174,5;2370,4;18246,48
+386;Jesi;COMUNE DI JESI;Comuni;Comuni;AN;Marche;E388;1672,1;1211,1;454259,27
+387;Molinara;COMUNE DI MOLINARA;Comuni;Comuni;BN;Campania;F287;2091,2;1962,9;104910,47
+388;Oliveto Citra;COMUNE DI OLIVETO CITRA;Comuni;Comuni;SA;Campania;G039;2164,9;2173,7;60242,99
+389;Aquara;COMUNE DI AQUARA;Comuni;Comuni;SA;Campania;A343;2174,9;2255,8;222810,16
+390;Modena;COMUNE DI MODENA;Comuni;Comuni;MO;Emilia-Romagna;F257;1075,3;830,4;38880,50
+391;Sesta Godano;COMUNE DI SESTA GODANO;Comuni;Comuni;SP;Liguria;E070;770,2;946,0;78344,80
+392;Arnara;COMUNE DI ARNARA;Comuni;Comuni;FR;Lazio;A421;1704,0;1870,8;125579,62
+393;Campomarino;COMUNE DI CAMPOMARINO;Comuni;Comuni;CB;Molise;B550;2134,0;1755,9;331307,78
+394;Senise;COMUNE DI SENISE;Comuni;Comuni;PZ;Basilicata;I610;2442,3;2355,5;42491,83
+395;Moio della Civitella;COMUNE DI MOIO DELLA CIVITELLA;Comuni;Comuni;SA;Campania;F278;2180,9;2319,5;8095,95
+396;Provincia di Ferrara;PROVINCIA DI FERRARA;Altri enti;Province e città metropolitane;;;;;;45352,23
+397;Maddaloni;COMUNE DI MADDALONI;Comuni;Comuni;CE;Campania;E791;1959,1;2058,2;132289,53
+398;Regione Siciliana;REGIONE SICILIANA;Altri enti;Regioni e Province autonome;;;;;;1443204,34
+399;Raddusa;COMUNE DI RADDUSA;Comuni;Comuni;CT;Sicilia;H154;1995,1;3259,4;10483,33
+400;Sant'Egidio del Monte Albino;COMUNE DI SANT'EGIDIO DEL MONTE ALBINO;Comuni;Comuni;SA;Campania;I317;2009,8;2156,2;228356,93
+401;"Casa di Riposo Per Anziani ""Villa Belvedere""";"CASA DI RIPOSO PER ANZIANI ""VILLA BELVEDERE""";Altri enti;Sanità e assistenza;;;;;;369443,82
+402;Urbania;COMUNE DI URBANIA;Comuni;Comuni;PU;Marche;L498;1489,0;1168,7;104096,00
+403;Azienda Ospedaliera Universitaria Integrata Verona;AZIENDA OSPEDALIERA UNIVERSITARIA INTEGRATA VERONA;Altri enti;Sanità e assistenza;;;;;;3229371,05
+404;Portogruaro;COMUNE DI PORTOGRUARO;Comuni;Comuni;VE;Veneto;G914;1548,6;452,9;22526,70
+405;Gizzeria;COMUNE DI GIZZERIA;Comuni;Comuni;CZ;Calabria;E068;2410,8;2757,5;104975,30
+406;Pantigliate;COMUNE DI PANTIGLIATE;Comuni;Comuni;MI;Lombardia;G316;688,9;559,8;9237,90
+407;Letojanni;COMUNE DI LETOJANNI;Comuni;Comuni;ME;Sicilia;E555;2191,1;3122,1;63801,82
+408;Morra De Sanctis;COMUNE DI MORRA DE SANCTIS;Comuni;Comuni;AV;Campania;F744;2178,2;2094,8;34724,65
+409;Treviso;COMUNE DI TREVISO;Comuni;Comuni;TV;Veneto;L407;1415,1;486,0;7066,20
+410;Roveredo in Piano;COMUNE DI ROVEREDO IN PIANO;Comuni;Comuni;PN;Friuli-Venezia Giulia;H609;1507,6;367,4;22519,16
+411;Bibbiena;COMUNE DI BIBBIENA;Comuni;Comuni;AR;Toscana;A851;1317,1;1138,8;122912,46
+412;Parco Nazionale del Cilento, Vallo di Diano Ed Alburni;PARCO NAZIONALE DEL CILENTO, VALLO DI DIANO ED ALBURNI;Altri enti;Commissari, agenzie, Difesa e beni culturali;;;;;;87330,19
+413;Camerota;COMUNE DI CAMEROTA;Comuni;Comuni;SA;Campania;B476;2203,2;2394,6;759983,98
+414;Castel Frentano;COMUNE DI CASTEL FRENTANO;Comuni;Comuni;CH;Abruzzo;C114;1947,3;1661,1;48624,07
+415;Siderno;COMUNE DI SIDERNO;Comuni;Comuni;RC;Calabria;I725;2434,3;2989,0;27816,74
+416;Autorità di Sistema Portuale del Mare Adriatico Orientale;AUTORITÀ DI SISTEMA PORTUALE DEL MARE ADRIATICO ORIENTALE;Altri enti;Porti;;;;;;154708,87
+417;Vietri sul Mare;COMUNE DI VIETRI SUL MARE;Comuni;Comuni;SA;Campania;L860;2037,8;2179,1;51717,19
+418;Sant'Eusanio del Sangro;COMUNE DI SANT'EUSANIO DEL SANGRO;Comuni;Comuni;CH;Abruzzo;I335;1948,1;1674,3;16022,77
+419;Ortelle;COMUNE DI ORTELLE;Comuni;Comuni;LE;Puglia;G136;2970,8;2398,6;70132,00
+420;Chiusaforte;COMUNE DI CHIUSAFORTE;Comuni;Comuni;UD;Friuli-Venezia Giulia;C656;1703,8;232,5;30200,94
+421;Regione Abruzzo;REGIONE ABRUZZO;Altri enti;Regioni e Province autonome;;;;;;117256,98
+422;Fonte Nuova;COMUNE DI FONTE NUOVA;Comuni;Comuni;RM;Lazio;M309;1515,2;1727,5;39230,70
+423;Corsano;COMUNE DI CORSANO;Comuni;Comuni;LE;Puglia;D044;2964,3;2446,4;64198,05
+424;Oristano;COMUNE DI ORISTANO;Comuni;Comuni;OR;Sardegna;G113;499,5;2436,1;67398,08
+425;Apricena;COMUNE DI APRICENA;Comuni;Comuni;FG;Puglia;A339;2228,2;1805,1;182177,74
+426;Montignoso;COMUNE DI MONTIGNOSO;Comuni;Comuni;MS;Toscana;F679;892,6;1047,1;221481,54
+427;Impresa Elettrica D'Anna E Bonaccorsi S.R.L.;IMPRESA ELETTRICA D'ANNA E BONACCORSI S.R.L.;Altri enti;Acqua, energia e rifiuti;;;;;;29111,50
+428;Ancona;COMUNE DI ANCONA;Comuni;Comuni;AN;Marche;A271;1729,7;1195,2;95122,54
+429;Giugliano in Campania;COMUNE DI GIUGLIANO IN CAMPANIA;Comuni;Comuni;NA;Campania;E054;1877,4;2093,0;58001,30
+430;L'Aquila;COMUNE DELL'AQUILA;Comuni;Comuni;AQ;Abruzzo;A345;1712,3;1596,6;680126,12
+431;Paterno Calabro;COMUNE DI PATERNO CALABRO;Comuni;Comuni;CS;Calabria;G372;2430,0;2674,7;2605,99
+432;Buccino;COMUNE DI BUCCINO;Comuni;Comuni;SA;Campania;B242;2202,2;2188,2;96018,33
+433;Bitritto;COMUNE DI BITRITTO;Comuni;Comuni;BA;Puglia;A894;2571,1;2054,3;29748,21
+434;Azienda Sanitaria Locale Napoli 2 Nord;AZIENDA SANITARIA LOCALE NAPOLI 2 NORD;Altri enti;Sanità e assistenza;;;;;;151811,94
+435;Torrioni;COMUNE DI TORRIONI;Comuni;Comuni;AV;Campania;L301;2066,3;2057,6;13783,19
+436;Acea Ato 2 Spa;ACEA ATO 2 S.P.A.;Altri enti;Acqua, energia e rifiuti;;;;;;4928409,74
+437;Cucciago;COMUNE DI CUCCIAGO;Comuni;Comuni;CO;Lombardia;D196;623,0;459,4;22744,47
+438;Atri;COMUNE DI ATRI;Comuni;Comuni;TE;Abruzzo;A488;1849,4;1529,2;91948,74
+439;Santa Cesarea Terme;COMUNE DI SANTA CESAREA TERME;Comuni;Comuni;LE;Puglia;I172;2983,2;2387,7;96471,87
+440;Formigine;COMUNE DI FORMIGINE;Comuni;Comuni;MO;Emilia-Romagna;D711;1062,9;851,7;48530,46
+441;Capri Leone;COMUNE DI CAPRI LEONE;Comuni;Comuni;ME;Sicilia;B695;2041,6;3053,5;11639,93
+442;Ferrovienord Spa;FERROVIENORD S.P.A.;Altri enti;Ferrovie, trasporti e strade;;;;;;6145464,23
+443;Sant'Elia Fiumerapido;COMUNE DI SANT'ELIA FIUMERAPIDO;Comuni;Comuni;FR;Lazio;I321;1823,9;1878,2;82600,26
+444;Acque Spa;ACQUE SPA;Altri enti;Acqua, energia e rifiuti;;;;;;1220801,05
+445;3° Reparto Genio A.M.;3° REPARTO GENIO A.M.;Altri enti;Commissari, agenzie, Difesa e beni culturali;;;;;;279622,41
+446;Arena;COMUNE DI ARENA;Comuni;Comuni;VV;Calabria;A386;2428,7;2901,6;27505,36
+447;Consorzio Per L’Area di Sviluppo Industriale della Provincia di Napoli;CONSORZIO PER L’AREA DI SVILUPPO INDUSTRIALE DELLA PROVINCIA DI NAPOLI;Altri enti;Altri enti pubblici e società;;;;;;323803,93
+448;Azienda Usl Umbria 1;AZIENDA USL UMBRIA 1;Altri enti;Sanità e assistenza;;;;;;125817,46
+449;Val Brembilla;COMUNE DI VAL BREMBILLA;Comuni;Comuni;BG;Lombardia;M334;750,5;430,3;31052,15
+450;Socchieve;COMUNE DI SOCCHIEVE;Comuni;Comuni;UD;Friuli-Venezia Giulia;I777;1564,7;232,9;15992,12
+451;Sogin Spa;SOGIN S.P.A.;Altri enti;Altri enti pubblici e società;;;;;;875820,95
+452;Collegiove;COMUNE DI COLLEGIOVE;Comuni;Comuni;RI;Lazio;C859;1616,7;1670,3;101495,57
+453;Conselve;COMUNE DI CONSELVE;Comuni;Comuni;PD;Veneto;C964;1325,2;632,2;18049,40
+454;Montemiletto;COMUNE DI MONTEMILETTO;Comuni;Comuni;AV;Campania;F566;2088,3;2066,2;347982,09
+455;Azienda Ospedaliera Per L'Emergenza Cannizzaro;AZIENDA OSPEDALIERA PER L'EMERGENZA CANNIZZARO;Altri enti;Sanità e assistenza;;;;;;8778,35
+456;Comunità Montana del Titerno E Alto Tammaro;COMUNITÀ MONTANA DEL TITERNO E ALTO TAMMARO;Altri enti;Unioni di Comuni e comunità montane;;;;;;897042,71
+457;Belmonte Castello;COMUNE DI BELMONTE CASTELLO;Comuni;Comuni;FR;Lazio;A763;1812,5;1871,3;117476,76
+458;Colli sul Velino;COMUNE DI COLLI SUL VELINO;Comuni;Comuni;RI;Lazio;C880;1552,7;1559,9;117391,30
+459;Reggia di Caserta;REGGIA DI CASERTA;Altri enti;Commissari, agenzie, Difesa e beni culturali;;;;;;131722,43
+460;Spinoso;COMUNE DI SPINOSO;Comuni;Comuni;PZ;Basilicata;I917;2353,3;2325,9;8750,80
+461;Crevalcore;COMUNE DI CREVALCORE;Comuni;Comuni;BO;Emilia-Romagna;D166;1145,6;795,9;236912,52
+462;Vinchiaturo;COMUNE DI VINCHIATURO;Comuni;Comuni;CB;Molise;M057;2011,4;1898,7;9312,03
+463;Casalbuttano ed Uniti;COMUNE DI CASALBUTTANO ED UNITI;Comuni;Comuni;CR;Lombardia;B869;844,1;626,5;71431,26
+464;Calabritto;COMUNE DI CALABRITTO;Comuni;Comuni;AV;Campania;B374;2159,0;2145,1;332394,11
+465;Consorzio di Bonifica 10 Siracusa;CONSORZIO DI BONIFICA 10 SIRACUSA;Altri enti;Consorzi di bonifica;;;;;;553215,63
+466;Arca Capitanata;ARCA CAPITANATA;Altri enti;Case popolari;;;;;;391943,11
+467;Poggio Moiano;COMUNE DI POGGIO MOIANO;Comuni;Comuni;RI;Lazio;G764;1578,0;1660,7;19226,35
+468;Consorzio di Miglioramento Fondiario Cumiod-Montovert;CONSORZIO DI MIGLIORAMENTO FONDIARIO CUMIOD-MONTOVERT;Altri enti;Consorzi di bonifica;;;;;;1233971,50
+469;Regione Lazio;REGIONE LAZIO;Altri enti;Regioni e Province autonome;;;;;;1460204,34
+470;Bari;COMUNE DI BARI;Comuni;Comuni;BA;Puglia;A662;2586,1;2036,2;988751,48
+471;Calitri;COMUNE DI CALITRI;Comuni;Comuni;AV;Campania;B415;2225,2;2093,6;51873,38
+472;Melendugno;COMUNE DI MELENDUGNO;Comuni;Comuni;LE;Puglia;F101;2962,0;2316,7;46781,06
+473;Tivoli;COMUNE DI TIVOLI;Comuni;Comuni;RM;Lazio;L182;1555,6;1741,4;348301,92
+474;Cervinara;COMUNE DI CERVINARA;Comuni;Comuni;AV;Campania;C557;2016,3;2061,3;33275,86
+475;Prata Sannita;COMUNE DI PRATA SANNITA;Comuni;Comuni;CE;Campania;G991;1909,5;1923,1;16530,23
+476;Città Metropolitana di Messina;CITTÀ METROPOLITANA DI MESSINA;Altri enti;Province e città metropolitane;;;;;;125730,25
+477;Berceto;COMUNE DI BERCETO;Comuni;Comuni;PR;Emilia-Romagna;A788;846,1;868,0;6000,53
+478;Casal Velino;COMUNE DI CASAL VELINO;Comuni;Comuni;SA;Campania;B895;2145,7;2338,1;68598,57
+479;Paternò;COMUNE DI PATERNÒ;Comuni;Comuni;CT;Sicilia;G371;2073,2;3249,3;59386,35
+480;Carpineto Sinello;COMUNE DI CARPINETO SINELLO;Comuni;Comuni;CH;Abruzzo;B826;1989,9;1729,5;5895,30
+481;Girifalco;COMUNE DI GIRIFALCO;Comuni;Comuni;CZ;Calabria;E050;2469,3;2814,0;392200,68
+482;Cinisello Balsamo;COMUNE DI CINISELLO BALSAMO;Comuni;Comuni;MI;Lombardia;C707;655,3;520,2;58766,30
+483;Benevento;COMUNE DI BENEVENTO;Comuni;Comuni;BN;Campania;A783;2057,3;2013,7;56756,16
+484;Panettieri;COMUNE DI PANETTIERI;Comuni;Comuni;CS;Calabria;G307;2479,7;2720,5;5282,80
+485;Azienda Ospedaliero Universitaria Consorziale Policlinico di Bari E Ospedale Giovanni Xxiii;AZIENDA OSPEDALIERO UNIVERSITARIA CONSORZIALE POLICLINICO DI BARI E OSPEDALE GIOVANNI XXIII;Altri enti;Sanità e assistenza;;;;;;128855,74
+486;Università Degli Studi di Milano;UNIVERSITÀ DEGLI STUDI DI MILANO;Altri enti;Università e ricerca;;;;;;704744,80
+487;Atripalda;COMUNE DI ATRIPALDA;Comuni;Comuni;AV;Campania;A489;2071,6;2095,5;125636,35
+488;Carovilli;COMUNE DI CAROVILLI;Comuni;Comuni;IS;Molise;B810;1935,8;1829,7;68353,44
+489;Postiglione;COMUNE DI POSTIGLIONE;Comuni;Comuni;SA;Campania;G939;2167,2;2211,4;136402,82
+490;Cuorgnè;COMUNE DI CUORGNÈ;Comuni;Comuni;TO;Piemonte;D208;252,5;573,3;704961,91
+491;Saviano;COMUNE DI SAVIANO;Comuni;Comuni;NA;Campania;I469;1986,6;2101,2;62280,83
+492;Provincia di Sassari;PROVINCIA DI SASSARI;Altri enti;Province e città metropolitane;;;;;;173155,00
+493;Ficarra;COMUNE DI FICARRA;Comuni;Comuni;ME;Sicilia;D569;2070,1;3045,0;11395,02
+494;Santa Lucia del Mela;COMUNE DI SANTA LUCIA DEL MELA;Comuni;Comuni;ME;Sicilia;I220;2188,0;3052,5;7089,47
+495;Consac Gestioni Idriche Spa;CONSAC GESTIONI IDRICHE SPA;Altri enti;Acqua, energia e rifiuti;;;;;;12064,51
+496;Provincia di Taranto;PROVINCIA DI TARANTO;Altri enti;Province e città metropolitane;;;;;;822677,87
+497;Raffadali;COMUNE DI RAFFADALI;Comuni;Comuni;AG;Sicilia;H159;1740,1;3288,6;23809,40
+498;Teggiano;COMUNE DI TEGGIANO;Comuni;Comuni;SA;Campania;D292;2243,3;2273,0;127051,79
+499;Vidigulfo;COMUNE DI VIDIGULFO;Comuni;Comuni;PV;Lombardia;L854;659,5;612,7;16837,92
+500;Sessa Aurunca;COMUNE DI SESSA AURUNCA;Comuni;Comuni;CE;Campania;I676;1837,5;1989,2;8049,05
+501;Motta San Giovanni;COMUNE DI MOTTA SAN GIOVANNI;Comuni;Comuni;RC;Calabria;F779;2288,5;3086,3;11305,82
+502;Siniscola;COMUNE DI SINISCOLA;Comuni;Comuni;NU;Sardegna;I751;776,5;2222,4;55744,24
+503;Irccs Azienda Ospedaliero Universitaria di Bologna;IRCCS AZIENDA OSPEDALIERO UNIVERSITARIA DI BOLOGNA;Altri enti;Sanità e assistenza;;;;;;194710,78
+504;Asti;COMUNE DI ASTI;Comuni;Comuni;AT;Piemonte;A479;398,0;737,8;78267,85
+505;San Giorgio Albanese;COMUNE DI SAN GIORGIO ALBANESE;Comuni;Comuni;CS;Calabria;H881;2481,0;2542,2;242292,59
+506;Azienda Usl Toscana Centro;AZIENDA USL TOSCANA CENTRO;Altri enti;Sanità e assistenza;;;;;;629429,88
+507;Azienda Sanitaria Friuli Occidentale;AZIENDA SANITARIA FRIULI OCCIDENTALE;Altri enti;Sanità e assistenza;;;;;;60099,12
+508;Area Blu Spa;AREA BLU SPA;Altri enti;Altri enti pubblici e società;;;;;;247606,57
+509;Montecchio Maggiore;COMUNE DI MONTECCHIO MAGGIORE;Comuni;Comuni;VI;Veneto;F464;1204,3;533,0;9442,48
+510;Genova;COMUNE DI GENOVA;Comuni;Comuni;GE;Liguria;D969;571,9;896,6;1249256,60
+511;Terranova Sappo Minulio;COMUNE DI TERRANOVA SAPPO MINULIO;Comuni;Comuni;RC;Calabria;L127;2365,5;2976,1;11848,21
+512;Terni;COMUNE DI TERNI;Comuni;Comuni;TR;Umbria;L117;1520,1;1528,7;165051,12
+513;Etra Spa;ETRA S.P.A.;Altri enti;Acqua, energia e rifiuti;;;;;;43774,00
+514;Umbra Acque Spa;UMBRA ACQUE S.P.A.;Altri enti;Acqua, energia e rifiuti;;;;;;372235,81
+515;Pietradefusi;COMUNE DI PIETRADEFUSI;Comuni;Comuni;AV;Campania;G611;2081,9;2051,4;17810,15
+516;Monte di Procida;COMUNE DI MONTE DI PROCIDA;Comuni;Comuni;NA;Campania;F488;1872,8;2135,5;138881,83
+517;Fossato Serralta;COMUNE DI FOSSATO SERRALTA;Comuni;Comuni;CZ;Calabria;D744;2509,3;2746,0;10449,82
+518;Castiglione del Lago;COMUNE DI CASTIGLIONE DEL LAGO;Comuni;Comuni;PG;Umbria;C309;1361,8;1355,2;155850,66
+519;Provincia di Vicenza;PROVINCIA DI VICENZA;Altri enti;Province e città metropolitane;;;;;;45273,50
+520;Cerreto Sannita;COMUNE DI CERRETO SANNITA;Comuni;Comuni;BN;Campania;C525;2007,1;1966,1;7288,48
+521;Città Metropolitana di Bari;CITTÀ METROPOLITANA DI BARI;Altri enti;Province e città metropolitane;;;;;;806239,14
+522;Corigliano-Rossano;COMUNE DI CORIGLIANO ROSSANO;Comuni;Comuni;CS;Calabria;M403;2520,6;2541,1;39153,80
+523;Bucine;COMUNE DI BUCINE;Comuni;Comuni;AR;Toscana;B243;1255,5;1243,9;3178,43
+524;Azienda Territoriale Per L'Edilizia Residenziale della Provincia di Latina;AZIENDA TERRITORIALE PER L'EDILIZIA RESIDENZIALE DELLA PROVINCIA DI LATINA;Altri enti;Case popolari;;;;;;790633,11
+525;Eav Srl;EAV SRL;Altri enti;Ferrovie, trasporti e strade;;;;;;6201833,30
+526;Sogemi Spa;SOGEMI S.P.A.;Altri enti;Altri enti pubblici e società;;;;;;5404963,36
+527;Pomezia;COMUNE DI POMEZIA;Comuni;Comuni;RM;Lazio;G811;1477,1;1845,5;430035,46
+528;Università Ca' Foscari Venezia;UNIVERSITÀ CA' FOSCARI VENEZIA;Altri enti;Università e ricerca;;;;;;543372,05
+529;Chiusdino;COMUNE DI CHIUSDINO;Comuni;Comuni;SI;Toscana;C661;1132,1;1332,6;28945,46
+530;Anas Spa;ANAS S.P.A.;Rfi e Anas;Rfi e Anas;;;;;;54055798,06
+531;Torralba;COMUNE DI TORRALBA;Comuni;Comuni;SS;Sardegna;L235;549,1;2238,4;108948,70
+532;Cherasco;COMUNE DI CHERASCO;Comuni;Comuni;CN;Piemonte;C599;310,8;832,3;143794,01
+533;San Benedetto Po;COMUNE DI SAN BENEDETTO PO;Comuni;Comuni;MN;Lombardia;H771;1087,4;702,7;137060,86
+534;Rittana;COMUNE DI RITTANA;Comuni;Comuni;CN;Piemonte;H326;188,9;927,2;35704,25
+535;Publiacqua S.P.A;PUBLIACQUA S.P.A;Altri enti;Acqua, energia e rifiuti;;;;;;703692,43
+536;Villa Literno;COMUNE DI VILLA LITERNO;Comuni;Comuni;CE;Campania;L844;1871,5;2071,6;680511,21
+537;Santa Maria a Vico;COMUNE DI SANTA MARIA A VICO;Comuni;Comuni;CE;Campania;I233;1978,3;2057,3;93004,26
+538;Provincia di Potenza;PROVINCIA DI POTENZA;Altri enti;Province e città metropolitane;;;;;;335071,98
+539;Provincia di Savona;PROVINCIA DI SAVONA;Altri enti;Province e città metropolitane;;;;;;102591,70
+540;Castelnuovo di Porto;COMUNE DI CASTELNUOVO DI PORTO;Comuni;Comuni;RM;Lazio;C237;1478,2;1691,9;32328,41
+541;Canistro;COMUNE DI CANISTRO;Comuni;Comuni;AQ;Abruzzo;B606;1706,2;1750,7;29930,03
+542;Ascoli Piceno;COMUNE DI ASCOLI PICENO;Comuni;Comuni;AP;Marche;A462;1760,2;1439,4;83335,86
+543;Consorzio Irriguo di Miglioramento Fondiario di Vallo della Lucania;CONSORZIO IRRIGUO DI MIGLIORAMENTO FONDIARIO DI VALLO DELLA LUCANIA;Altri enti;Consorzi di bonifica;;;;;;165929,81
+544;Imperia;COMUNE DI IMPERIA;Comuni;Comuni;IM;Liguria;E290;349,0;1081,5;255904,21
+545;Castrocielo;COMUNE DI CASTROCIELO;Comuni;Comuni;FR;Lazio;C340;1783,3;1894,5;42640,44
+546;Pollica;COMUNE DI POLLICA;Comuni;Comuni;SA;Campania;G796;2128,6;2338,7;57868,36
+547;Mareno di Piave;COMUNE DI MARENO DI PIAVE;Comuni;Comuni;TV;Veneto;E940;1437,9;428,5;54797,04
+548;Celle di San Vito;COMUNE DI CELLE DI SAN VITO;Comuni;Comuni;FG;Puglia;C442;2159,8;1956,5;35840,11
+549;Santo Stefano di Camastra;COMUNE DI S. STEFANO DI CAMASTRA;Comuni;Comuni;ME;Sicilia;I370;1952,7;3089,8;290349,80
+550;San Tomaso Agordino;COMUNE DI SAN TOMASO AGORDINO;Comuni;Comuni;BL;Veneto;I347;1348,2;239,0;152311,94
+551;Cattolica;COMUNE DI CATTOLICA;Comuni;Comuni;RN;Emilia-Romagna;C357;1541,2;1064,2;11745,96
+552;Todi;COMUNE DI TODI;Comuni;Comuni;PG;Umbria;L188;1454,0;1463,7;18893,79
+553;Consorzio della Bonifica Burana;CONSORZIO DELLA BONIFICA BURANA;Altri enti;Consorzi di bonifica;;;;;;431759,26
+554;Strada Dei Parchi Spa;STRADA DEI PARCHI S.P.A.;Altri enti;Ferrovie, trasporti e strade;;;;;;950563,91
+555;1° Reparto Genio A.M.;1° REPARTO GENIO A.M.;Altri enti;Commissari, agenzie, Difesa e beni culturali;;;;;;778833,90
+556;Friuli Venezia Giulia Strade Spa;FRIULI VENEZIA GIULIA STRADE S.P.A.;Altri enti;Ferrovie, trasporti e strade;;;;;;207542,96
+557;Flumeri;COMUNE DI FLUMERI;Comuni;Comuni;AV;Campania;D638;2146,6;2042,8;94527,70
+558;Provincia di Arezzo;PROVINCIA DI AREZZO;Altri enti;Province e città metropolitane;;;;;;267011,63
+559;Camaiore;COMUNE DI CAMAIORE;Comuni;Comuni;LU;Toscana;B455;932,7;1074,1;7782,71
+560;Livorno;COMUNE DI LIVORNO;Comuni;Comuni;LI;Toscana;E625;942,7;1211,3;341223,82
+561;Boscoreale;COMUNE DI BOSCOREALE;Comuni;Comuni;NA;Campania;B076;1988,6;2143,0;84566,89
+562;Greccio;COMUNE DI GRECCIO;Comuni;Comuni;RI;Lazio;E160;1545,9;1575,4;43635,37
+563;Campogalliano;COMUNE DI CAMPOGALLIANO;Comuni;Comuni;MO;Emilia-Romagna;B539;1063,6;811,0;162486,13
+564;Rionero Sannitico;COMUNE DI RIONERO SANNITICO;Comuni;Comuni;IS;Molise;H308;1897,4;1821,0;57863,06
+565;Azienda Regionale Per L'Innovazione E Gli Acquisti Spa;AZIENDA REGIONALE PER L'INNOVAZIONE E GLI ACQUISTI S.P.A.;Altri enti;Altri enti pubblici e società;;;;;;2911883,75
+566;San Felice Circeo;COMUNE DI SAN FELICE CIRCEO;Comuni;Comuni;LT;Lazio;H836;1632,1;1981,8;53477,59
+567;Azienda Usl Toscana Sud Est;AZIENDA USL TOSCANA SUD EST;Altri enti;Sanità e assistenza;;;;;;328522,92
+568;Lovere;COMUNE DI LOVERE;Comuni;Comuni;BG;Lombardia;E704;868,2;430,4;8670,34
+569;Sacrofano;COMUNE DI SACROFANO;Comuni;Comuni;RM;Lazio;H658;1468,2;1697,6;86040,99
+570;Sant'Angelo dei Lombardi;COMUNE DI SANT'ANGELO DEI LOMBARDI;Comuni;Comuni;AV;Campania;I281;2157,9;2090,1;25987,44
+571;Agropoli;COMUNE DI AGROPOLI;Comuni;Comuni;SA;Campania;A091;2115,5;2286,7;28566,79
+572;Piazza Armerina;COMUNE DI PIAZZA ARMERINA;Comuni;Comuni;EN;Sicilia;G580;1944,8;3299,7;101847,91
+573;Foggia;COMUNE DI FOGGIA;Comuni;Comuni;FG;Puglia;D643;2259,9;1907,8;245379,26
+574;Sant'Angelo all'Esca;COMUNE DI SANT'ANGELO ALL'ESCA;Comuni;Comuni;AV;Campania;I279;2110,5;2064,1;25262,90
+575;Alvignano;COMUNE DI ALVIGNANO;Comuni;Comuni;CE;Campania;A243;1949,4;1984,6;221092,31
+576;Taurano;COMUNE DI TAURANO;Comuni;Comuni;AV;Campania;L061;2024,5;2103,3;54660,22
+577;Acquaviva delle Fonti;COMUNE DI ACQUAVIVA DELLE FONTI;Comuni;Comuni;BA;Puglia;A048;2579,8;2105,8;88599,84
+578;Azienda Sanitaria Toscana Nordovest;AZIENDA SANITARIA TOSCANA NORDOVEST;Altri enti;Sanità e assistenza;;;;;;123765,75
+579;Piana degli Albanesi;COMUNE DI PIANA DEGLI ALBANESI;Comuni;Comuni;PA;Sicilia;G543;1681,6;3096,1;56280,41
+580;Conflenti;COMUNE DI CONFLENTI;Comuni;Comuni;CZ;Calabria;C960;2436,9;2732,1;9655,33
+581;Torino;CITTÀ DI TORINO;Comuni;Comuni;TO;Piemonte;L219;267,4;685,3;112446,21
+582;Stilo;COMUNE DI STILO;Comuni;Comuni;RC;Calabria;I956;2490,7;2930,7;68779,77
+583;Asl Provincia di Foggia;ASL PROVINCIA DI FOGGIA;Altri enti;Sanità e assistenza;;;;;;17217,14
+584;Consorzio di Bonifica della Romagna Occidentale;CONSORZIO DI BONIFICA DELLA ROMAGNA OCCIDENTALE;Altri enti;Consorzi di bonifica;;;;;;651845,39
+585;Terelle;COMUNE DI TERELLE;Comuni;Comuni;FR;Lazio;L105;1806,0;1878,6;45787,32
+586;Azienda Ospedaliero Universitaria Città della Salute E della Scienza di Torino;AZIENDA OSPEDALIERO UNIVERSITARIA CITTÀ DELLA SALUTE E DELLA SCIENZA DI TORINO;Altri enti;Sanità e assistenza;;;;;;975622,23
+587;Oriolo;COMUNE DI ORIOLO;Comuni;Comuni;CS;Calabria;G110;2481,1;2387,2;15393,07
+588;Cerisano;COMUNE DI CERISANO;Comuni;Comuni;CS;Calabria;C515;2405,0;2652,3;15218,14
+589;Bitetto;COMUNE DI BITETTO;Comuni;Comuni;BA;Puglia;A892;2557,0;2055,4;88177,87
+590;Regione Emilia-Romagna;REGIONE EMILIA-ROMAGNA;Altri enti;Regioni e Province autonome;;;;;;1260889,90
+591;Mondovì;COMUNE DI MONDOVÌ;Comuni;Comuni;CN;Piemonte;F351;298,0;910,6;199852,37
+592;Pizzone;COMUNE DI PIZZONE;Comuni;Comuni;IS;Molise;G727;1862,3;1837,4;104331,39
+593;Messina;COMUNE DI MESSINA;Comuni;Comuni;ME;Sicilia;F158;2242,2;3025,4;125722,68
+594;Ischia;COMUNE DI ISCHIA;Comuni;Comuni;NA;Campania;E329;1846,6;2160,2;13742,34
+595;Università Politecnica Delle Marche;UNIVERSITÀ POLITECNICA DELLE MARCHE;Altri enti;Università e ricerca;;;;;;481415,75
+596;Cesarò;COMUNE DI CESARÒ;Comuni;Comuni;ME;Sicilia;C568;2025,3;3128,0;17622,66
+597;Erdis Marche - Ente Regionale Per Il Diritto Allo Studio;ERDIS MARCHE - ENTE REGIONALE PER IL DIRITTO ALLO STUDIO;Altri enti;Università e ricerca;;;;;;218181,82
+598;Casalnuovo Monterotaro;COMUNE DI CASALNUOVO MONTEROTARO;Comuni;Comuni;FG;Puglia;B904;2129,7;1855,2;38942,49
+599;Albanella;COMUNE DI ALBANELLA;Comuni;Comuni;SA;Campania;A128;2138,7;2240,1;64625,27
+600;Provveditorato Opere Pubbliche Toscana Marche Umbria;PROVVEDITORATO OPERE PUBBLICHE TOSCANA MARCHE UMBRIA;Altri enti;Commissari, agenzie, Difesa e beni culturali;;;;;;9176,48
+601;Azienda Pisana Edilizia Sociale S.C.P.A.;AZIENDA PISANA EDILIZIA SOCIALE S.C.P.A.;Altri enti;Case popolari;;;;;;194696,06
+602;Piedimonte San Germano;COMUNE DI PIEDIMONTE SAN GERMANO;Comuni;Comuni;FR;Lazio;G598;1797,7;1903,8;299134,62
+603;Noepoli;COMUNE DI NOEPOLI;Comuni;Comuni;PZ;Basilicata;F917;2446,1;2377,6;35942,14
+604;Bono;COMUNE DI BONO;Comuni;Comuni;SS;Sardegna;A977;606,8;2264,6;18370,01
+605;Matino;COMUNE DI MATINO;Comuni;Comuni;LE;Puglia;F054;2898,1;2397,4;235095,77
+606;Montesarchio;COMUNE DI MONTESARCHIO;Comuni;Comuni;BN;Campania;F636;2024,5;2043,3;80431,54
+607;Bisceglie;COMUNE DI BISCEGLIE;Comuni;Comuni;BT;Puglia;A883;2485,2;1999,4;709217,72
+608;Azienda Ulss N. 1 Dolomiti;AZIENDA ULSS N. 1 DOLOMITI;Altri enti;Sanità e assistenza;;;;;;452879,90
+609;San Cipriano Picentino;COMUNE DI SAN CIPRIANO PICENTINO;Comuni;Comuni;SA;Campania;H800;2079,7;2169,9;61731,51
+610;Lascari;COMUNE DI LASCARI;Comuni;Comuni;PA;Sicilia;E459;1843,2;3085,6;27807,08
+611;San Vittore Olona;COMUNE DI SAN VITTORE OLONA;Comuni;Comuni;MI;Lombardia;I409;584,5;512,0;11140,58
+612;Università Degli Studi del Sannio di Benevento;UNIVERSITÀ DEGLI STUDI DEL SANNIO DI BENEVENTO;Altri enti;Università e ricerca;;;;;;80120,43
+613;Lampedusa e Linosa;COMUNE DI LAMPEDUSA E LINOSA;Comuni;Comuni;AG;Sicilia;E431;1506,2;3931,4;662175,72
+614;Ceneselli;COMUNE DI CENESELLI;Comuni;Comuni;RO;Veneto;C461;1196,3;702,1;28429,08
+615;Cardinale;COMUNE DI CARDINALE;Comuni;Comuni;CZ;Calabria;B758;2464,7;2871,2;8272,74
+616;Provincia di Asti;PROVINCIA DI ASTI;Altri enti;Province e città metropolitane;;;;;;8032,73
+617;Bivona;COMUNE DI BIVONA;Comuni;Comuni;AG;Sicilia;A896;1709,2;3231,0;198566,39
+618;Sarzana;COMUNE DI SARZANA;Comuni;Comuni;SP;Liguria;I449;842,4;1013,0;51802,62
+619;Manduria;COMUNE DI MANDURIA;Comuni;Comuni;TA;Puglia;E882;2774,8;2278,5;132111,44
+620;Casaletto Spartano;COMUNE DI CASALETTO SPARTANO;Comuni;Comuni;SA;Campania;B888;2275,3;2350,2;36688,93
+621;Lagonegro;COMUNE DI LAGONEGRO;Comuni;Comuni;PZ;Basilicata;E409;2308,8;2352,6;10018,10
+622;Mattinata;COMUNE DI MATTINATA;Comuni;Comuni;FG;Puglia;F059;2379,3;1819,6;76239,59
+623;Castellalto;COMUNE DI CASTELLALTO;Comuni;Comuni;TE;Abruzzo;C128;1816,6;1503,8;42514,71
+624;Camini;COMUNE DI CAMINI;Comuni;Comuni;RC;Calabria;B481;2494,6;2941,9;2384,50
+625;Polignano a Mare;COMUNE DI POLIGNANO A MARE;Comuni;Comuni;BA;Puglia;G787;2669,0;2078,9;63101,30
+626;Forio;COMUNE DI FORIO;Comuni;Comuni;NA;Campania;D702;1828,3;2159,3;12667,59
+627;Vallerotonda;COMUNE DI VALLEROTONDA;Comuni;Comuni;FR;Lazio;L614;1844,0;1873,1;153022,88
+628;San Marco dei Cavoti;COMUNE DI SAN MARCO DEI CAVOTI;Comuni;Comuni;BN;Campania;H984;2080,3;1961,1;561914,42
+629;Giuliano di Roma;COMUNE DI GIULIANO DI ROMA;Comuni;Comuni;FR;Lazio;E057;1671,3;1882,4;41646,78
+630;Lainate;COMUNE DI LAINATE;Comuni;Comuni;MI;Lombardia;E415;606,3;518,7;180229,85
+631;Terranova di Pollino;COMUNE DI TERRANOVA DI POLLINO;Comuni;Comuni;PZ;Basilicata;L126;2436,4;2420,8;16642,28
+632;Università Degli Studi di Torino;UNIVERSITÀ DEGLI STUDI DI TORINO;Altri enti;Università e ricerca;;;;;;72128,54
+633;Società Metropolitana Acque Torino Spa;SOCIETÀ METROPOLITANA ACQUE TORINO SPA;Altri enti;Acqua, energia e rifiuti;;;;;;1214945,08
+634;Provveditorato Interregionale Opere Pubbliche Per Il Lazio, Abruzzo E Sardegna;PROVVEDITORATO INTERREGIONALE OPERE PUBBLICHE PER IL LAZIO, ABRUZZO E SARDEGNA;Altri enti;Commissari, agenzie, Difesa e beni culturali;;;;;;5262367,06
+635;Roma;ROMA CAPITALE;Comuni;Comuni;RM;Lazio;H501;1474,5;1769,0;580024,53
+636;Tarsia;COMUNE DI TARSIA;Comuni;Comuni;CS;Calabria;L055;2434,4;2535,4;7252,08
+637;Volturara Irpina;COMUNE DI VOLTURARA IRPINA;Comuni;Comuni;AV;Campania;M130;2096,1;2116,1;6351,81
+638;Università Degli Studi di Napoli Federico Ii;UNIVERSITÀ DEGLI STUDI DI NAPOLI FEDERICO II;Altri enti;Università e ricerca;;;;;;768569,56
+639;Paolisi;COMUNE DI PAOLISI;Comuni;Comuni;BN;Campania;G318;2003,2;2057,2;65308,54
+640;E-Distribuzione Spa;E-DISTRIBUZIONE SPA;Altri enti;Acqua, energia e rifiuti;;;;;;224765,26
+641;Tesimo/Tisens;COMUNE DI TESIMO;Comuni;Comuni;BZ;Trentino-Alto Adige/Südtirol;L149;1142,1;182,7;6832,94
+642;Marano Principato;COMUNE DI MARANO PRINCIPATO;Comuni;Comuni;CS;Calabria;E915;2410,6;2647,3;65996,00
+643;Azienda Usl della Romagna;AZIENDA USL DELLA ROMAGNA;Altri enti;Sanità e assistenza;;;;;;282667,67
+644;Torrecuso;COMUNE DI TORRECUSO;Comuni;Comuni;BN;Campania;L254;2035,7;2001,2;2398,87
+645;Faenza;COMUNE DI FAENZA;Comuni;Comuni;RA;Emilia-Romagna;D458;1327,6;949,7;71685,64
+646;Uta;COMUNE DI UTA;Comuni;Comuni;CA;Sardegna;L521;578,7;2669,1;341750,16
+647;Acea Ato 5 Spa;ACEA ATO 5 SPA;Altri enti;Acqua, energia e rifiuti;;;;;;927223,22
+648;Commissario di Governo Per Il Contrasto del Dissesto Idrogeologico Nella Regione Siciliana;COMMISSARIO DI GOVERNO PER IL CONTRASTO DEL DISSESTO IDROGEOLOGICO NELLA REGIONE SICILIANA;Altri enti;Commissari, agenzie, Difesa e beni culturali;;;;;;2554837,26
+649;Città Metropolitana di Reggio Calabria;CITTÀ METROPOLITANA DI REGGIO CALABRIA;Altri enti;Province e città metropolitane;;;;;;213358,79
+650;Bracigliano;COMUNE DI BRACIGLIANO;Comuni;Comuni;SA;Campania;B115;2037,5;2127,6;77558,05
+651;Provincia di Salerno;PROVINCIA DI SALERNO;Altri enti;Province e città metropolitane;;;;;;1080575,11
+652;Azienda Lombarda Per L'Edilizia Residenziale (Aler) di Varese-Como Monza Brianza-Busto Arsizio;AZIENDA LOMBARDA PER L'EDILIZIA RESIDENZIALE (ALER) DI VARESE-COMO MONZA BRIANZA-BUSTO ARSIZIO;Altri enti;Case popolari;;;;;;1012885,36
+653;Erap Marche;ERAP MARCHE;Altri enti;Case popolari;;;;;;71120,81
+654;Borgia;COMUNE DI BORGIA;Comuni;Comuni;CZ;Calabria;B002;2500,9;2807,7;110615,99
+655;Cerda;COMUNE DI CERDA;Comuni;Comuni;PA;Sicilia;C496;1815,5;3119,4;33117,43
+656;Monte San Giovanni Campano;COMUNE DI MONTE SAN GIOVANNI CAMPANO;Comuni;Comuni;FR;Lazio;F620;1736,4;1838,2;90496,89
+657;San Giovanni Lupatoto;COMUNE DI SAN GIOVANNI LUPATOTO;Comuni;Comuni;VR;Veneto;H924;1110,9;585,5;76783,00
+658;Paupisi;COMUNE DI PAUPISI;Comuni;Comuni;BN;Campania;G386;2023,8;1998,4;51981,65
+659;Casarsa della Delizia;COMUNE DI CASARSA DELLA DELIZIA;Comuni;Comuni;PN;Friuli-Venezia Giulia;B940;1565,9;386,8;202034,09
+660;Sassuolo Gestioni Patrimoniali Srl;SASSUOLO GESTIONI PATRIMONIALI SRL;Altri enti;Altri enti pubblici e società;;;;;;151417,25
+661;Consorzio di Bonifica di Piacenza;CONSORZIO DI BONIFICA DI PIACENZA;Altri enti;Consorzi di bonifica;;;;;;130293,21
+662;Castelvetere in Val Fortore;COMUNE DI CASTELVETERE IN VAL FORTORE;Comuni;Comuni;BN;Campania;C284;2093,7;1918,6;2319,23
+663;Chiusano di San Domenico;COMUNE DI CHIUSANO DI SAN DOMENICO;Comuni;Comuni;AV;Campania;C659;2092,9;2091,5;74425,34
+664;Lamezia Terme;COMUNE DI LAMEZIA TERME;Comuni;Comuni;CZ;Calabria;M208;2436,3;2768,0;684160,48
+665;Caraffa di Catanzaro;COMUNE DI CARAFFA DI CATANZARO;Comuni;Comuni;CZ;Calabria;B717;2489,6;2787,4;115123,25
+666;Colli a Volturno;COMUNE DI COLLI A VOLTURNO;Comuni;Comuni;IS;Molise;C878;1884,8;1868,0;174740,32
+667;Carpignano Salentino;COMUNE DI CARPIGNANO SALENTINO;Comuni;Comuni;LE;Puglia;B822;2956,7;2335,2;29091,94
+668;Figline Vegliaturo;COMUNE DI FIGLINE VEGLIATURO;Comuni;Comuni;CS;Calabria;D582;2445,7;2670,2;47506,52
+669;Podenzana;COMUNE DI PODENZANA;Comuni;Comuni;MS;Toscana;G746;835,2;977,7;88257,04
+670;Caluso;COMUNE DI CALUSO;Comuni;Comuni;TO;Piemonte;B435;316,2;614,6;4336,86
+671;Motta Camastra;COMUNE DI MOTTA CAMASTRA;Comuni;Comuni;ME;Sicilia;F772;2159,3;3118,4;32065,11
+672;Monte Sant'Angelo;COMUNE DI MONTE SANT'ANGELO;Comuni;Comuni;FG;Puglia;F631;2342,3;1818,3;322655,39
+673;Guilmi;COMUNE DI GUILMI;Comuni;Comuni;CH;Abruzzo;E266;1980,7;1730,7;65825,42
+674;Vaccarizzo Albanese;COMUNE DI VACCARIZZO ALBANESE;Comuni;Comuni;CS;Calabria;L524;2474,1;2545,7;381361,04
+675;Palazzo San Gervasio;COMUNE DI PALAZZO SAN GERVASIO;Comuni;Comuni;PZ;Basilicata;G261;2350,2;2099,9;6920,86
+676;Bonnanaro;COMUNE DI BONNANARO;Comuni;Comuni;SS;Sardegna;A976;541,5;2220,8;86376,28
+677;Castelpagano;COMUNE DI CASTELPAGANO;Comuni;Comuni;BN;Campania;C245;2064,9;1925,3;127635,77
+678;Provincia di Fermo;PROVINCIA DI FERMO;Altri enti;Province e città metropolitane;;;;;;409991,33
+679;10° Reparto Infrastrutture;10° REPARTO INFRASTRUTTURE;Altri enti;Commissari, agenzie, Difesa e beni culturali;;;;;;181617,08
+680;2° Reparto Genio A.M.;2° REPARTO GENIO A.M.;Altri enti;Commissari, agenzie, Difesa e beni culturali;;;;;;507300,40
+681;San Sosti;COMUNE DI SAN SOSTI;Comuni;Comuni;CS;Calabria;I165;2371,1;2519,4;57040,20
+682;Castelfranco Emilia;COMUNE DI CASTELFRANCO EMILIA;Comuni;Comuni;MO;Emilia-Romagna;C107;1125,8;847,1;21498,35
+683;Trivento;COMUNE DI TRIVENTO;Comuni;Comuni;CB;Molise;L435;2003,9;1803,7;29107,96
+684;Frosinone;COMUNE DI FROSINONE;Comuni;Comuni;FR;Lazio;D810;1689,6;1851,7;208706,23
+685;Veneto Acque Spa;VENETO ACQUE S.P.A.;Altri enti;Acqua, energia e rifiuti;;;;;;34340,08
+686;Veneto Strade Spa;VENETO STRADE SPA;Altri enti;Ferrovie, trasporti e strade;;;;;;1294830,28
+687;Fidenza;COMUNE DI FIDENZA;Comuni;Comuni;PR;Emilia-Romagna;B034;862,2;759,1;54304,04
+688;Acquedotto Pugliese Spa;ACQUEDOTTO PUGLIESE S.P.A.;Altri enti;Acqua, energia e rifiuti;;;;;;2511751,32
+689;Barzago;COMUNE DI BARZAGO;Comuni;Comuni;LC;Lombardia;A683;679,0;454,0;86776,90
+690;Campi Salentina;COMUNE DI CAMPI SALENTINA;Comuni;Comuni;LE;Puglia;B506;2874,2;2267,8;287234,04
+691;Goito;COMUNE DI GOITO;Comuni;Comuni;MN;Lombardia;E078;1018,3;625,0;114376,62
+692;Ceraso;COMUNE DI CERASO;Comuni;Comuni;SA;Campania;C485;2171,7;2345,6;115060,46
+693;Acer Bo - Azienda Casa Emilia-Romagna della Provincia Bologna;ACER BO - AZIENDA CASA EMILIA-ROMAGNA DELLA PROVINCIA BOLOGNA;Altri enti;Case popolari;;;;;;472390,26
+694;San Nicola dell'Alto;COMUNE DI SAN NICOLA DELL'ALTO;Comuni;Comuni;KR;Calabria;I057;2610,9;2651,1;26271,07
+695;Agenzia Interregionale Per Il Fiume Po;AGENZIA INTERREGIONALE PER IL FIUME PO;Altri enti;Commissari, agenzie, Difesa e beni culturali;;;;;;1935927,80
+696;Conversano;COMUNE DI CONVERSANO;Comuni;Comuni;BA;Puglia;C975;2641,6;2084,8;15143,42
+697;Cotronei;COMUNE DI COTRONEI;Comuni;Comuni;KR;Calabria;D123;2545,0;2688,6;702898,95
+698;5° Reparto Infrastrutture;5° REPARTO INFRASTRUTTURE;Altri enti;Commissari, agenzie, Difesa e beni culturali;;;;;;233231,92
+699;Ater Matera;ATER MATERA;Altri enti;Case popolari;;;;;;84588,36
+700;Provincia di Parma;PROVINCIA DI PARMA;Altri enti;Province e città metropolitane;;;;;;607344,52
+701;Nocera Inferiore;COMUNE DI NOCERA INFERIORE;Comuni;Comuni;SA;Campania;F912;2021,2;2150,5;132091,49
+702;Tiriolo;COMUNE DI TIRIOLO;Comuni;Comuni;CZ;Calabria;L177;2496,8;2769,0;41394,68
+703;Montecchio Emilia;COMUNE DI MONTECCHIO EMILIA;Comuni;Comuni;RE;Emilia-Romagna;F463;968,6;808,5;692949,36
+704;Nardò;COMUNE DI NARDÒ;Comuni;Comuni;LE;Puglia;F842;2862,2;2324,9;158988,00
+705;Ginosa;COMUNE DI GINOSA;Comuni;Comuni;TA;Puglia;E036;2563,5;2237,2;91064,71
+706;Luzzi;COMUNE DI LUZZI;Comuni;Comuni;CS;Calabria;E773;2442,5;2593,8;95962,70
+707;Riccione;COMUNE DI RICCIONE;Comuni;Comuni;RN;Emilia-Romagna;H274;1517,9;1050,0;245156,17
+708;Monselice;COMUNE DI MONSELICE;Comuni;Comuni;PD;Veneto;F382;1294,3;629,5;20890,67
+709;Irccs Ospedale Policlinico San Martino;IRCCS OSPEDALE POLICLINICO SAN MARTINO;Altri enti;Sanità e assistenza;;;;;;6547,68
+710;Santa Fiora;COMUNE DI SANTA FIORA;Comuni;Comuni;GR;Toscana;I187;1250,5;1448,1;15929,05
+711;Montalbano Jonico;COMUNE DI MONTALBANO JONICO;Comuni;Comuni;MT;Basilicata;F399;2510,5;2304,9;99841,04
+712;Belmonte in Sabina;COMUNE DI BELMONTE IN SABINA;Comuni;Comuni;RI;Lazio;A765;1576,2;1615,5;24537,13
+713;Macchia d'Isernia;COMUNE DI MACCHIA D'ISERNIA;Comuni;Comuni;IS;Molise;E778;1900,9;1870,1;34969,07
+714;Monteroduni;COMUNE DI MONTERODUNI;Comuni;Comuni;IS;Molise;F601;1904,0;1892,4;80522,73
+715;Pellegrino Parmense;COMUNE DI PELLEGRINO PARMENSE;Comuni;Comuni;PR;Emilia-Romagna;G424;827,5;793,6;16140,92
+716;Terre Roveresche;COMUNE DI TERRE ROVERESCHE;Comuni;Comuni;PU;Marche;M379;1605,1;1147,9;86347,80
+717;Capannori;COMUNE DI CAPANNORI;Comuni;Comuni;LU;Toscana;B648;997,2;1101,9;269983,24
+718;Termoli;COMUNE DI TERMOLI;Comuni;Comuni;CB;Molise;L113;2111,6;1737,1;12969,81
+719;Portico di Caserta;COMUNE DI PORTICO DI CASERTA;Comuni;Comuni;CE;Campania;G903;1930,7;2049,6;433857,39
+720;Borgo Velino;COMUNE DI BORGO VELINO;Comuni;Comuni;RI;Lazio;A996;1623,7;1591,1;159769,25
+721;Mottola;COMUNE DI MOTTOLA;Comuni;Comuni;TA;Puglia;F784;2627,4;2175,6;50116,53
+722;Roccasecca;COMUNE DI ROCCASECCA;Comuni;Comuni;FR;Lazio;H443;1771,0;1884,4;73933,61
+723;Ruvo di Puglia;COMUNE DI RUVO DI PUGLIA;Comuni;Comuni;BA;Puglia;H645;2479,6;2048,7;22892,82
+724;Pavia;COMUNE DI PAVIA;Comuni;Comuni;PV;Lombardia;G388;641,4;643,7;93881,98
+725;Monte San Giacomo;COMUNE DI MONTE SAN GIACOMO;Comuni;Comuni;SA;Campania;F618;2241,4;2296,7;2337,71
+726;Reino;COMUNE DI REINO;Comuni;Comuni;BN;Campania;H227;2068,6;1966,9;19790,30
+727;Regalbuto;COMUNE DI REGALBUTO;Comuni;Comuni;EN;Sicilia;H221;2027,8;3204,3;12771,60
+728;Pontecorvo;COMUNE DI PONTECORVO;Comuni;Comuni;FR;Lazio;G838;1772,8;1914,5;227107,76
+729;A.S.P. Firenze Montedomini;A.S.P. FIRENZE MONTEDOMINI;Altri enti;Sanità e assistenza;;;;;;46246,51
+730;Azienda Ospedaliero Universitaria di Parma;AZIENDA OSPEDALIERO UNIVERSITARIA DI PARMA;Altri enti;Sanità e assistenza;;;;;;423632,05
+731;Sant'Angelo di Brolo;COMUNE DI SANT'ANGELO DI BROLO;Comuni;Comuni;ME;Sicilia;I283;2084,8;3050,8;136029,12
+732;Afragola;COMUNE DI AFRAGOLA;Comuni;Comuni;NA;Campania;A064;1941,5;2093,9;151487,36
+733;Brolo;COMUNE DI BROLO;Comuni;Comuni;ME;Sicilia;B198;2070,8;3036,9;193114,50
+734;Soveria Simeri;COMUNE DI SOVERIA SIMERI;Comuni;Comuni;CZ;Calabria;I875;2537,2;2768,7;282986,72
+735;Monteforte Irpino;COMUNE DI MONTEFORTE IRPINO;Comuni;Comuni;AV;Campania;F506;2036,4;2100,7;56528,59
+736;Provveditorato Interregionale Oo.Pp. Piemonte, Valle D'Aosta, Liguria Sede Coordinata Genova;PROVVEDITORATO INTERREGIONALE OO.PP. PIEMONTE, VALLE D'AOSTA, LIGURIA SEDE COORDINATA GENOVA;Altri enti;Commissari, agenzie, Difesa e beni culturali;;;;;;15674,33
+737;Sanza;COMUNE DI SANZA;Comuni;Comuni;SA;Campania;I410;2250,8;2322,9;13551,45
+738;Nocara;COMUNE DI NOCARA;Comuni;Comuni;CS;Calabria;F907;2482,1;2370,7;3829,86
+739;Regione Campania - Ufficio Speciale Grandi Opere Ora: Ufficio Speciale Opere Pubbliche E Interventi Strategici;REGIONE CAMPANIA - UFFICIO SPECIALE GRANDI OPERE ora: UFFICIO SPECIALE OPERE PUBBLICHE E INTERVENTI STRATEGICI;Altri enti;Regioni e Province autonome;;;;;;863761,59
+740;Asl Frosinone;ASL FROSINONE;Altri enti;Sanità e assistenza;;;;;;224366,38
+741;Palma di Montechiaro;COMUNE DI PALMA DI MONTECHIARO;Comuni;Comuni;AG;Sicilia;G282;1800,9;3363,8;61686,25
+742;Mazara del Vallo;COMUNE DI MAZARA DEL VALLO;Comuni;Comuni;TP;Sicilia;F061;1513,6;3191,3;313143,89
+743;Marzi;COMUNE DI MARZI;Comuni;Comuni;CS;Calabria;F001;2446,1;2691,0;54311,87
+744;Leverano;COMUNE DI LEVERANO;Comuni;Comuni;LE;Puglia;E563;2863,0;2308,9;110478,69
+745;Amandola;CITTÀ DI AMANDOLA;Comuni;Comuni;FM;Marche;A252;1696,8;1390,1;8631,55
+746;Provincia di Piacenza;PROVINCIA DI PIACENZA;Altri enti;Province e città metropolitane;;;;;;116839,52
+747;Galluccio;COMUNE DI GALLUCCIO;Comuni;Comuni;CE;Campania;D886;1842,8;1951,1;11375,20
+748;Lungro;COMUNE DI LUNGRO;Comuni;Comuni;CS;Calabria;E745;2396,6;2495,0;41165,91
+749;Piane Crati;COMUNE DI PIANE CRATI;Comuni;Comuni;CS;Calabria;G553;2443,5;2666,6;36110,01
+750;San Marco in Lamis;COMUNE DI SAN MARCO IN LAMIS;Comuni;Comuni;FG;Puglia;H985;2274,5;1830,5;6572,89
+751;Consorzio Per Le Autostrade Siciliane;CONSORZIO PER LE AUTOSTRADE SICILIANE;Altri enti;Ferrovie, trasporti e strade;;;;;;3430170,56
+752;Bagheria;COMUNE DI BAGHERIA;Comuni;Comuni;PA;Sicilia;A546;1732,9;3059,3;91410,10
+753;Gulliver Cooperativa Sociale;GULLIVER COOPERATIVA SOCIALE;Altri enti;Altri enti pubblici e società;;;;;;35205,07
+754;Corleto Monforte;COMUNE DI CORLETO MONFORTE;Comuni;Comuni;SA;Campania;D011;2212,4;2254,3;49702,47
+755;Pietrabbondante;COMUNE DI PIETRABBONDANTE;Comuni;Comuni;IS;Molise;G606;1959,8;1817,9;65052,58
+756;Trenitalia Spa;TRENITALIA S.P.A.;Altri enti;Ferrovie, trasporti e strade;;;;;;5408047,86
+757;Asl Roma 1;ASL ROMA 1;Altri enti;Sanità e assistenza;;;;;;729669,92
+758;Posta Fibreno;COMUNE DI POSTA FIBRENO;Comuni;Comuni;FR;Lazio;G935;1782,5;1830,5;107409,58
+759;Provincia di Caserta;PROVINCIA DI CASERTA;Altri enti;Province e città metropolitane;;;;;;188693,41
+760;Longobardi;COMUNE DI LONGOBARDI;Comuni;Comuni;CS;Calabria;E677;2387,4;2677,0;77664,34
+761;Pesaro;COMUNE DI PESARO;Comuni;Comuni;PU;Marche;G479;1575,4;1094,5;15252,45
+762;Soverato;COMUNE DI SOVERATO;Comuni;Comuni;CZ;Calabria;I872;2498,0;2850,7;89229,59
+763;"Azienda Ospedaliera Regionale ""San Carlo"" – Potenza";"AZIENDA OSPEDALIERA REGIONALE ""SAN CARLO"" – POTENZA";Altri enti;Sanità e assistenza;;;;;;336915,75
+764;Acri;COMUNE DI ACRI;Comuni;Comuni;CS;Calabria;A053;2465,2;2577,5;107642,48
+765;Gimigliano;COMUNE DI GIMIGLIANO;Comuni;Comuni;CZ;Calabria;E031;2496,7;2750,1;15216,34
+766;Consorzio di Bonifica 9 Catania;CONSORZIO DI BONIFICA 9 CATANIA;Altri enti;Consorzi di bonifica;;;;;;2008775,18
+767;Monfalcone;COMUNE DI MONFALCONE;Comuni;Comuni;GO;Friuli-Venezia Giulia;F356;1749,6;439,7;84840,18
+768;Amministrazione Provinciale di Catanzaro;AMMINISTRAZIONE PROVINCIALE DI CATANZARO;Altri enti;Province e città metropolitane;;;;;;150298,79
+769;Pietravairano;COMUNE DI PIETRAVAIRANO;Comuni;Comuni;CE;Campania;G630;1908,2;1956,4;6719,34
+770;Fontegreca;COMUNE DI FONTEGRECA;Comuni;Comuni;CE;Campania;D683;1907,4;1912,7;140837,75
+771;Roscigno;COMUNE DI ROSCIGNO;Comuni;Comuni;SA;Campania;H564;2201,2;2269,5;6250,97
+772;Lucera;COMUNE DI LUCERA;Comuni;Comuni;FG;Puglia;E716;2202,2;1898,5;420743,46
+773;Calolziocorte;COMUNE DI CALOLZIOCORTE;Comuni;Comuni;LC;Lombardia;B423;710,5;440,4;71074,85
+774;Cap Holding Spa;CAP HOLDING S.P.A.;Altri enti;Acqua, energia e rifiuti;;;;;;1112631,47
+775;Provveditorato Interregionale Per Le Oo.Pp. Per Il Veneto – Trentino-Alto Adige – Friuli Venezia Giulia;PROVVEDITORATO INTERREGIONALE PER LE OO.PP. PER IL VENETO – TRENTINO-ALTO ADIGE – FRIULI VENEZIA GIULIA;Altri enti;Commissari, agenzie, Difesa e beni culturali;;;;;;1655943,20
+776;Arca Sud Salento;ARCA SUD SALENTO;Altri enti;Case popolari;;;;;;116340,65
+777;Comunità Montana Valsassina Valvarrone Val D'Esino E Riviera;COMUNITÀ MONTANA VALSASSINA VALVARRONE VAL D'ESINO E RIVIERA;Altri enti;Unioni di Comuni e comunità montane;;;;;;24178,60
+778;Pusiano;COMUNE DI PUSIANO;Comuni;Comuni;CO;Lombardia;H094;670,0;431,5;30288,94
+779;Capriati a Volturno;COMUNE DI CAPRIATI A VOLTURNO;Comuni;Comuni;CE;Campania;B704;1891,9;1903,6;74095,38
+780;San Marco Argentano;COMUNE DI SAN MARCO ARGENTANO;Comuni;Comuni;CS;Calabria;H981;2408,3;2545,6;85659,14
+781;Autorità di Sistema Portuale del Mare di Sicilia Occidentare;AUTORITÀ DI SISTEMA PORTUALE DEL MARE DI SICILIA OCCIDENTARE;Altri enti;Porti;;;;;;77510,07
+782;Castelvetro di Modena;COMUNE DI CASTELVETRO DI MODENA;Comuni;Comuni;MO;Emilia-Romagna;C287;1086,4;879,9;27665,27
+783;Città Metropolitana di Firenze;CITTÀ METROPOLITANA DI FIRENZE;Altri enti;Province e città metropolitane;;;;;;1278144,42
+784;Azienda Ospedaliera San Giovanni Addolorata;AZIENDA OSPEDALIERA SAN GIOVANNI ADDOLORATA;Altri enti;Sanità e assistenza;;;;;;159807,70
+785;Villafranca Sicula;COMUNE DI VILLAFRANCA SICULA;Comuni;Comuni;AG;Sicilia;L944;1678,9;3233,8;16502,94
+786;Firenze;COMUNE DI FIRENZE;Comuni;Comuni;FI;Toscana;D612;1164,7;1124,2;17909971,85
+787;Università Degli Studi di Palermo;UNIVERSITÀ DEGLI STUDI DI PALERMO;Altri enti;Università e ricerca;;;;;;372187,70
+788;Campobasso;COMUNE DI CAMPOBASSO;Comuni;Comuni;CB;Molise;B519;2026,1;1875,7;12357,06
+789;Bodio Lomnago;COMUNE DI BODIO LOMNAGO;Comuni;Comuni;VA;Lombardia;A918;535,8;441,6;110420,43
+790;Azienda Usl di Modena;AZIENDA USL DI MODENA;Altri enti;Sanità e assistenza;;;;;;248319,98
+791;Molfetta;COMUNE DI MOLFETTA;Comuni;Comuni;BA;Puglia;F284;2508,6;2004,8;102024,84
+792;Cassano all'Ionio;COMUNE DI CASSANO ALLO IONIO;Comuni;Comuni;CS;Calabria;C002;2462,6;2488,6;31546,87
+793;Provincia di Pavia;PROVINCIA DI PAVIA;Altri enti;Province e città metropolitane;;;;;;13055,18
+794;Rocchetta a Volturno;COMUNE DI ROCCHETTA A VOLTURNO;Comuni;Comuni;IS;Molise;H458;1865,7;1853,0;90649,62
+795;Centro Italiano Ricerche Aerospaziali Scpa;CENTRO ITALIANO RICERCHE AEROSPAZIALI SCPA;Altri enti;Altri enti pubblici e società;;;;;;517861,17
+796;Civitella del Tronto;COMUNE DI CIVITELLA DEL TRONTO;Comuni;Comuni;TE;Abruzzo;C781;1773,0;1465,6;300289,04
+797;Direzione del Genio Per La Marina Militare di Taranto;DIREZIONE DEL GENIO PER LA MARINA MILITARE DI TARANTO;Altri enti;Commissari, agenzie, Difesa e beni culturali;;;;;;182752,14
+798;Direzione del Genio Militare Per La Marina di Roma;DIREZIONE DEL GENIO MILITARE PER LA MARINA DI ROMA;Altri enti;Commissari, agenzie, Difesa e beni culturali;;;;;;259380,56
+799;Morbegno;COMUNE DI MORBEGNO;Comuni;Comuni;SO;Lombardia;F712;745,2;327,0;64028,18
+800;Provincia di Matera;PROVINCIA DI MATERA;Altri enti;Province e città metropolitane;;;;;;182649,29
+801;Centola;COMUNE DI CENTOLA;Comuni;Comuni;SA;Campania;C470;2190,8;2381,6;227518,45
+802;Nardodipace;COMUNE DI NARDODIPACE;Comuni;Comuni;VV;Calabria;F843;2454,3;2928,6;33552,38
+803;8° Reparto Infrastrutture;8° REPARTO INFRASTRUTTURE;Altri enti;Commissari, agenzie, Difesa e beni culturali;;;;;;1434076,60
+804;Autorità di Sistema Portuale del Mar Ligure Occidentale;AUTORITÀ DI SISTEMA PORTUALE DEL MAR LIGURE OCCIDENTALE;Altri enti;Porti;;;;;;17317390,85
+805;Cursi;COMUNE DI CURSI;Comuni;Comuni;LE;Puglia;D223;2949,6;2355,4;84289,16
+806;San Pietro in Lama;COMUNE DI SAN PIETRO IN LAMA;Comuni;Comuni;LE;Puglia;I115;2894,8;2307,0;224222,90
+807;Siculiana;COMUNE DI SICULIANA;Comuni;Comuni;AG;Sicilia;I723;1706,9;3304,0;102157,56
+808;Commissario Straordinario Unico Ex D.P.C.M. 7 Agosto 2023;COMMISSARIO STRAORDINARIO UNICO EX D.P.C.M. 7 AGOSTO 2023;Altri enti;Commissari, agenzie, Difesa e beni culturali;;;;;;1297541,09
+809;Provincia di Como;PROVINCIA DI COMO;Altri enti;Province e città metropolitane;;;;;;192679,46
+810;Cesiomaggiore;COMUNE DI CESIOMAGGIORE;Comuni;Comuni;BL;Veneto;C577;1341,9;333,7;28229,67
+811;Provveditorato Interregionale Oopp Campania, Molise, Puglia E Basilicata;PROVVEDITORATO INTERREGIONALE OOPP CAMPANIA, MOLISE, PUGLIA E BASILICATA;Altri enti;Commissari, agenzie, Difesa e beni culturali;;;;;;3630317,30
+812;Ozzano dell'Emilia;COMUNE DI OZZANO DELL'EMILIA;Comuni;Comuni;BO;Emilia-Romagna;G205;1223,1;905,2;2945838,76
+813;Capena;COMUNE DI CAPENA;Comuni;Comuni;RM;Lazio;B649;1494,6;1683,2;57133,91
+814;Valva;COMUNE DI VALVA;Comuni;Comuni;SA;Campania;L656;2180,6;2151,4;10118,35
+815;Fisciano;COMUNE DI FISCIANO;Comuni;Comuni;SA;Campania;D615;2060,5;2146,5;195785,63
+816;Azienda Socio Sanitaria Territoriale di Crema;AZIENDA SOCIO SANITARIA TERRITORIALE DI CREMA;Altri enti;Sanità e assistenza;;;;;;98018,42
+817;Gavignano;COMUNE DI GAVIGNANO;Comuni;Comuni;RM;Lazio;D945;1624,2;1827,8;15400,00
+818;Patti;COMUNE DI PATTI;Comuni;Comuni;ME;Sicilia;G377;2110,7;3046,8;10412,11
+819;Botricello;COMUNE DI BOTRICELLO;Comuni;Comuni;CZ;Calabria;B085;2579,3;2765,6;3682,58
+820;Provincia di Ravenna;PROVINCIA DI RAVENNA;Altri enti;Province e città metropolitane;;;;;;674242,93
+821;Ruffano;COMUNE DI RUFFANO;Comuni;Comuni;LE;Puglia;H632;2933,0;2415,5;64445,55
+822;Sant'Elena Sannita;COMUNE DI SANT'ELENA SANNITA;Comuni;Comuni;IS;Molise;B466;1977,6;1875,4;23785,23
+823;Zagarise;COMUNE DI ZAGARISE;Comuni;Comuni;CZ;Calabria;M140;2535,0;2752,5;40114,81
+824;Pollutri;COMUNE DI POLLUTRI;Comuni;Comuni;CH;Abruzzo;G799;2010,8;1681,5;5884,63
+825;Provincia di Lucca;PROVINCIA DI LUCCA;Altri enti;Province e città metropolitane;;;;;;1970786,65
+826;Genzano di Roma;COMUNE DI GENZANO DI ROMA;Comuni;Comuni;RM;Lazio;D972;1538,1;1839,2;255567,73
+827;Carpinone;COMUNE DI CARPINONE;Comuni;Comuni;IS;Molise;B830;1940,3;1865,0;81912,94
+828;Crotone;COMUNE DI CROTONE - SETTORE 6 TUTELA DELL'AMBIENTE;Comuni;Comuni;KR;Calabria;D122;2636,5;2710,6;94747,16
+829;Palermo;COMUNE DI PALERMO;Comuni;Comuni;PA;Sicilia;G273;1686,3;3039,0;14646,50
+830;Autorità di Sistema Portuale del Mare Adriatico Centro-Settentrionale;AUTORITÀ DI SISTEMA PORTUALE DEL MARE ADRIATICO CENTRO-SETTENTRIONALE;Altri enti;Porti;;;;;;3312045,69
+831;Limina;COMUNE DI LIMINA;Comuni;Comuni;ME;Sicilia;E594;2180,4;3105,7;19708,61
+832;Cesenatico;COMUNE DI CESENATICO;Comuni;Comuni;FC;Emilia-Romagna;C574;1451,8;989,1;167231,75
+833;Villa Castelli;COMUNE DI VILLA CASTELLI;Comuni;Comuni;BR;Puglia;L920;2737,5;2214,7;52444,91
+834;Castel San Lorenzo;COMUNE DI CASTEL SAN LORENZO;Comuni;Comuni;SA;Campania;C262;2169,0;2263,8;25587,60
+835;Maierato;COMUNE DI MAIERATO;Comuni;Comuni;VV;Calabria;E836;2419,9;2838,4;47072,58
+836;San Giorgio La Molara;COMUNE DI SAN GIORGIO LA MOLARA;Comuni;Comuni;BN;Campania;H898;2095,3;1976,8;567297,19
+837;Gioiosa Ionica;COMUNE DI GIOIOSA IONICA;Comuni;Comuni;RC;Calabria;E044;2444,7;2965,1;56836,73
+838;Monterosso Calabro;COMUNE DI MONTEROSSO CALABRO;Comuni;Comuni;VV;Calabria;F607;2437,6;2839,0;81754,85
+839;Pescopennataro;COMUNE DI PESCOPENNATARO;Comuni;Comuni;IS;Molise;G497;1937,4;1770,7;4102,23
+840;Casarano;COMUNE DI CASARANO;Comuni;Comuni;LE;Puglia;B936;2914,5;2399,4;116089,58
+841;Mormanno;COMUNE DI MORMANNO;Comuni;Comuni;CS;Calabria;F735;2364,0;2447,8;37517,82
+842;Bagnolo Piemonte;COMUNE DI BAGNOLO PIEMONTE;Comuni;Comuni;CN;Piemonte;A571;155,9;794,7;181197,96
+843;Floresta;COMUNE DI FLORESTA;Comuni;Comuni;ME;Sicilia;D635;2090,4;3098,1;14445,27
+844;Provincia di Foggia;PROVINCIA DI FOGGIA;Altri enti;Province e città metropolitane;;;;;;627677,40
+845;Gambatesa;COMUNE DI GAMBATESA;Comuni;Comuni;CB;Molise;D896;2091,4;1894,0;90188,80
+846;Asl Lecce;ASL LECCE;Altri enti;Sanità e assistenza;;;;;;125758,00
+847;Nettuno;COMUNE DI NETTUNO;Comuni;Comuni;RM;Lazio;F880;1530,8;1906,2;397253,08
+848;Rete Ferroviaria Italiana;RETE FERROVIARIA ITALIANA;Rfi e Anas;Rfi e Anas;;;;;;222052398,05
+849;Città Metropolitana di Roma Capitale;CITTÀ METROPOLITANA DI ROMA CAPITALE;Altri enti;Province e città metropolitane;;;;;;606350,57
+850;Andretta;COMUNE DI ANDRETTA;Comuni;Comuni;AV;Campania;A284;2195,4;2086,3;31292,35
+851;Unione Terre di Mezzo;UNIONE TERRE DI MEZZO;Altri enti;Unioni di Comuni e comunità montane;;;;;;30292,36
+852;Botrugno;COMUNE DI BOTRUGNO;Comuni;Comuni;LE;Puglia;B086;2947,8;2387,0;164296,52
+853;Bella;COMUNE DI BELLA;Comuni;Comuni;PZ;Basilicata;A743;2262,9;2154,1;27044,22
+854;Furci;COMUNE DI FURCI;Comuni;Comuni;CH;Abruzzo;D823;2020,3;1717,3;27732,74
+855;Valle di Maddaloni;COMUNE DI VALLE DI MADDALONI;Comuni;Comuni;CE;Campania;L591;1964,7;2041,1;213481,38
+856;Abbanoa Spa;ABBANOA S.P.A.;Altri enti;Acqua, energia e rifiuti;;;;;;4103054,81
+857;Ucria;COMUNE DI UCRIA;Comuni;Comuni;ME;Sicilia;L482;2083,2;3077,7;11599,74
+858;Istituto Autonomo Case Popolari della Provincia di Palermo (Iacp);ISTITUTO AUTONOMO CASE POPOLARI DELLA PROVINCIA DI PALERMO (IACP);Altri enti;Case popolari;;;;;;50092,72
+859;Montella;COMUNE DI MONTELLA;Comuni;Comuni;AV;Campania;F546;2113,6;2125,4;179222,75
+860;Benestare;COMUNE DI BENESTARE;Comuni;Comuni;RC;Calabria;A780;2396,8;3029,5;76240,59

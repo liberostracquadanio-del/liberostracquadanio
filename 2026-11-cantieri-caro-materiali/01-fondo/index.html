@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="radar:altezza-640" content="789">
+<meta name="radar:altezza-360" content="836">
+<meta name="radar:titolo" content="Il fondo per i rincari dei cantieri, anno per anno">
+<meta name="radar:pubblicato" content="2026-11-19">
+<meta name="radar:modificato" content="2026-11-19">
+<meta name="radar:modello" content="radar-dataviz">
+<title>Il fondo per i rincari dei cantieri, anno per anno</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,700&display=swap">
+<link rel="stylesheet" href="../assets/radar.css">
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0"></script>
+<script src="../assets/radar.js"></script>
+<style>
+  /* strada: toni fissi (illustrazione), uguali nei due temi */
+  .asfalto { fill: #2f3133; }
+  .ghiaia { fill: var(--grey-5); }
+  .sasso { fill: var(--grey-3); opacity: .55; }
+  .mezzeria { stroke: #f4f4f2; stroke-width: 2; stroke-dasharray: 14 10; }
+  .bordo { stroke: #f4f4f2; stroke-width: 1.2; opacity: .8; }
+  .anno-lab { font-size: 13px; font-weight: 700; fill: var(--ink); }
+  .val-lab { font-size: 13px; font-weight: 600; fill: var(--ink); }
+  .val-lab--sub { font-weight: 400; fill: var(--ink-2); }
+  .rosso-lab { font-size: 13px; font-weight: 700; fill: var(--red); }
+  .conf-tit { font-size: 14px; font-weight: 700; fill: var(--ink); }
+  .conf-lab { font-size: 13px; fill: var(--ink); }
+  .conf-sep { stroke: var(--rule); }
+</style>
+</head>
+<body>
+<main class="radar">
+  <header>
+    <h1 class="r-title">Il fondo per i rincari si è ridotto di undici volte in tre anni</h1>
+    <p class="r-sub">Milioni di euro stanziati dallo Stato per compensare i rincari nei lavori pubblici</p>
+  </header>
+
+  <figure class="r-chart" id="grafico"></figure>
+
+  <footer class="r-foot">
+    <span>Fonte: Mit, decreto direttoriale 54 del 30 aprile 2026 (Fondo per la prosecuzione delle opere pubbliche, art. 26, comma 6-quater, Dl 50/2022). Il decreto imputa i rimborsi ammessi ai bilanci 2025 e 2026; il fondo può usare anche somme non spese negli anni precedenti</span>
+    <span>Elaborazione Radar – QN</span>
+  </footer>
+</main>
+
+<script>
+(function () {
+  var R = Radar, fmt = R.fmt;
+  Promise.all([R.loadCSV("../data/fondo.csv"), R.loadCSV("../data/ammessi.csv")]).then(function (res) {
+    var rows = res[0].map(function (r) { return { anno: r["Anno"], v: R.num(r["Milioni"]) }; });
+    var amm = R.num(res[1][0]["Milioni"]);
+    var max = rows[0].v, ultimo = rows[rows.length - 1];
+    var volte = Math.round(max / ultimo.v);
+    var host = document.getElementById("grafico");
+    var tip = R.tooltip(host);
+    R.dismissOutside(host, function () { tip.hide(); });
+
+    R.responsive(host, function (W, phase) {
+      d3.select(host).select("svg").remove();
+      var narrow = R.isNarrow(W);
+      var labW = 0, roadH = narrow ? 30 : 38, gap = narrow ? 44 : 50, top = 22;
+      var x = d3.scaleLinear().domain([0, max]).range([0, W - labW]);
+      var H = top + rows.length * (roadH + gap) + 64;
+      var svg = d3.select(host).append("svg").attr("width", W).attr("height", H)
+        .attr("role", "img")
+        .attr("aria-label", "Il fondo per i rincari nei lavori pubblici è passato da " + fmt(max) + " milioni di euro nel " + rows[0].anno +
+          " a " + fmt(ultimo.v) + " milioni nel " + ultimo.anno + ". Per i soli lavori di gennaio-maggio 2025 sono stati ammessi rimborsi per " + fmt(amm, 1) + " milioni.");
+
+      rows.forEach(function (r, i) {
+        var y = top + i * (roadH + gap);
+        var g = svg.append("g").attr("class", "mark riga").datum(r);
+        g.append("text").attr("class", "anno-lab").attr("x", 0).attr("y", y - 8).text(r.anno);
+        var vt = g.append("text").attr("class", "val-lab").attr("x", narrow ? 44 : 50).attr("y", y - 8);
+        R.countUp(vt, r.v, function (v) { return fmt(v) + " milioni"; }, phase, i * 120);
+        if (i > 0) g.append("text").attr("class", "val-lab val-lab--sub").attr("x", W).attr("y", y - 8).attr("text-anchor", "end")
+          .text(fmt(100 * (r.v / max - 1)) + "% sul " + rows[0].anno);
+        // ghiaia: tutta la larghezza = 1.100 milioni
+        g.append("rect").attr("class", "ghiaia").attr("x", 0).attr("y", y).attr("width", W - labW).attr("height", roadH).attr("rx", 2);
+        var rnd = d3.randomLcg(i + 1), n = Math.round((W - labW) / 9);
+        for (var k = 0; k < n; k++) g.append("circle").attr("class", "sasso").attr("cx", rnd() * (W - labW)).attr("cy", y + 3 + rnd() * (roadH - 6)).attr("r", 0.8 + rnd() * 1.2);
+        // asfalto
+        var a = g.append("g");
+        var clip = "clip" + i;
+        svg.append("clipPath").attr("id", clip).append("rect").attr("x", 0).attr("y", y).attr("height", roadH)
+          .call(function (s) { R.enter(s, phase, function (t) { t.attr("width", 0); }, function (t) { t.attr("width", x(r.v)); }, i * 120); });
+        a.attr("clip-path", "url(#" + clip + ")");
+        a.append("rect").attr("class", "asfalto").attr("x", 0).attr("y", y).attr("width", x(r.v)).attr("height", roadH).attr("rx", 2);
+        a.append("line").attr("class", "bordo").attr("x1", 4).attr("x2", x(r.v) - 4).attr("y1", y + 4).attr("y2", y + 4);
+        a.append("line").attr("class", "bordo").attr("x1", 4).attr("x2", x(r.v) - 4).attr("y1", y + roadH - 4).attr("y2", y + roadH - 4);
+        a.append("line").attr("class", "mezzeria").attr("x1", 8).attr("x2", x(r.v) - 8).attr("y1", y + roadH / 2).attr("y2", y + roadH / 2);
+        g.append("rect").attr("class", "hit").attr("x", 0).attr("y", y - 26).attr("width", W).attr("height", roadH + 30);
+      });
+
+      // confronto: i rimborsi ammessi si pagano con i fondi del 2025 e del 2026
+      var f2526 = rows.filter(function (r) { return r.anno === "2025" || r.anno === "2026"; });
+      var somma = d3.sum(f2526, function (r) { return r.v; });
+      var ya = top + rows.length * (roadH + gap) + 2;
+      svg.append("line").attr("class", "conf-sep").attr("x1", 0).attr("x2", W).attr("y1", ya - 18).attr("y2", ya - 18);
+      var tt = svg.append("text").attr("class", "conf-tit").attr("x", 0).attr("y", ya + 4)
+        .text("I rimborsi ammessi non si aggiungono al fondo: vanno pagati con i soldi stanziati per il 2025 e il 2026, e li superano");
+      R.wrap(tt, W, 1.3);
+      var y1 = ya + 4 + (+tt.attr("data-lines") || 1) * 18 + 10, bh2 = 16;
+      var voci = [
+        { lab: "Fondi stanziati per il 2025 e il 2026: " + fmt(somma) + " milioni", v: somma, cls: "asfalto", col: null },
+        { lab: "Rimborsi già ammessi per i soli lavori di gennaio-maggio 2025: " + fmt(amm, 1) + " milioni", v: amm, cls: null, col: "var(--red)" }
+      ];
+      var yy = y1;
+      voci.forEach(function (d, i) {
+        var t = svg.append("text").attr("class", i ? "rosso-lab" : "conf-lab").attr("x", 0).attr("y", yy).text(d.lab).style("font-weight", i ? 700 : 600);
+        R.wrap(t, W, 1.25);
+        var nl = +t.attr("data-lines") || 1, yb = yy + 8 + (nl - 1) * 16;
+        var b = svg.append("rect").attr("x", 0).attr("y", yb).attr("height", bh2).attr("rx", 2);
+        if (d.cls) b.attr("class", d.cls); else b.style("fill", d.col);
+        R.enter(b, phase, function (t2) { t2.attr("width", 0); }, function (t2) { t2.attr("width", x(d.v)); }, (rows.length + i) * 120);
+        yy = yb + bh2 + 26;
+      });
+      svg.attr("height", yy - 10);
+
+      svg.selectAll("g.riga").on("pointermove pointerdown", function (ev, d) {
+        svg.selectAll("g.riga").classed("is-dimmed", function (o) { return o !== d; });
+        var p = d3.pointer(ev, host);
+        tip.show(R.tipHTML({ title: d.anno, value: fmt(d.v), unit: "milioni di euro",
+          rows: d === rows[0] ? [] : [["Rispetto al " + rows[0].anno, fmt(100 * (d.v / max - 1)) + "%"]] }), p[0], p[1]);
+      }).on("pointerleave", function () { svg.selectAll("g.riga").classed("is-dimmed", false); tip.hide(); });
+    });
+  }).catch(function (e) { R.fail("#grafico", e); });
+})();
+</script>
+</body>
+</html>
