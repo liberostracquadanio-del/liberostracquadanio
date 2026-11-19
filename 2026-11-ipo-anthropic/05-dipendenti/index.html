@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<meta name="radar:altezza-640" content="796">
-<meta name="radar:altezza-360" content="962">
+<meta name="radar:altezza-640" content="738">
+<meta name="radar:altezza-360" content="924">
 <meta name="radar:titolo" content="A 83 dollari le azioni dei dipendenti valgono 235 miliardi">
 <meta name="radar:pubblicato" content="2026-11-17">
 <meta name="radar:modificato" content="2026-11-19">
@@ -24,14 +24,13 @@
   .ctrl__price { font-size: 40px; font-weight: 700; letter-spacing: -0.03em; line-height: 1; font-variant-numeric: tabular-nums; }
   .ctrl__price small { font-size: 20px; font-weight: 600; }
   input[type=range] { width: 100%; margin: 14px 0 0; accent-color: var(--red); height: 28px; cursor: pointer; }
-  .marks { position: relative; height: 64px; font-size: 11px; color: var(--ink-2); }
+  .marks { position: relative; height: 44px; font-size: 11px; color: var(--ink-2); }
   .marks button {
     position: absolute; top: 0; transform: translateX(-50%); font: 500 11px/1.2 var(--sans); color: var(--ink-2);
     background: none; border: 0; border-top: 2px solid var(--grey-light); padding: 4px 2px 0; cursor: pointer; white-space: nowrap;
   }
-  .marks button.is-it { white-space: normal; width: 92px; line-height: 1.15; transform: translateX(-10%); text-align: left; }
   .marks button.is-ipo { color: var(--red); border-top-color: var(--red); font-weight: 700; }
-  .marks button.is-open { color: var(--ink); border-top-color: var(--ink); font-weight: 700; padding-top: 34px; }
+  .marks button.is-open { color: var(--ink); border-top-color: var(--ink); font-weight: 700; }
   .kpi { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 18px 0 0; }
   @media (max-width: 519px) { .kpi { grid-template-columns: 1fr; gap: 10px; } }
   .kpi div { border-top: 1px solid var(--rule); padding-top: 8px; }
@@ -66,7 +65,7 @@
   <figure class="r-chart" id="grafico" style="margin-top:18px"></figure>
 
   <footer class="r-foot">
-    <span>Fonte: Sec, prospetto definitivo di Anthropic (dati al 30 settembre 2026); companiesmarketcap; Ansa per il prezzo d'apertura</span>
+    <span>Fonte: Sec, prospetto definitivo di Anthropic (dati al 30 settembre 2026)</span>
     <span>Elaborazione Radar – QN</span>
     <span style="flex-basis:100%">Media su circa 5.300 dipendenti; il prospetto non distingue le azioni di dirigenti, ex dipendenti e consulenti</span>
   </footer>
@@ -79,7 +78,6 @@
     var P = {};
     rows.forEach(function (r) { P[r.Parametro] = R.num(r.Valore); });
     var OPEN = P.prezzo_apertura, IPO = P.prezzo_ipo, TENDER = P.prezzo_offerta_dipendenti_apr2026;
-    var ITA = P.valore_societa_italiane, ITA_PRICE = ITA * 1e9 / P.azioni_totali;
     function emp(p) { return (P.opzioni * Math.max(p - P.prezzo_esercizio, 0) + P.rsu * p) / 1e9; }
     function co(p) { return P.azioni_totali * p / 1e9; }
     var price = IPO, phaseNow = "pre", geo = null;
@@ -88,12 +86,11 @@
     var MARKS = [
       { p: TENDER, t: nar ? "apr. 2026" : "aprile 2026" },
       { p: IPO, t: "IPO", ipo: true },
-      { p: ITA_PRICE, t: "tutte le società italiane", it: true },
       { p: OPEN, t: nar ? "apertura" : "apertura in Borsa", open: true }
     ];
     var slider = d3.select("#slider");
     var marks = d3.select("#marks").selectAll("button").data(MARKS).join("button").attr("type", "button")
-      .classed("is-ipo", function (d) { return d.ipo; }).classed("is-it", function (d) { return d.it; }).classed("is-open", function (d) { return d.open; })
+      .classed("is-ipo", function (d) { return d.ipo; }).classed("is-open", function (d) { return d.open; })
       .style("left", function (d) { return (d.p / 200 * 100) + "%"; })
       .text(function (d) { return d.t; })
       .on("click", function (e, d) { set(d.p, true); });
@@ -104,7 +101,6 @@
       if (Math.abs(p - OPEN) < 0.6) return "Il primo giorno di Borsa, il 19 novembre, il titolo ha aperto a " + fmt(OPEN, 2) + " dollari, il " + fmt((OPEN / IPO - 1) * 100, 0) + "% sopra il prezzo dell'offerta";
       if (Math.abs(p - IPO) < 0.6) return "È il prezzo dell'offerta: " + fmt(IPO, 0) + " dollari per azione, sopra la forchetta iniziale da 70 a 78 dollari";
       if (p >= 70 && p <= 78) return "È la forchetta di prezzo iniziale dell'offerta: da 70 a 78 dollari per azione";
-      if (p >= ITA_PRICE) return "Sopra i " + fmt(ITA_PRICE, 0) + " dollari Anthropic vale più di tutte le " + "società italiane quotate insieme (" + fmt(ITA) + " miliardi)";
       return "";
     }
 
@@ -153,11 +149,6 @@
       g.append("rect").attr("class", "bar-bg").attr("x", x(0)).attr("width", x(co(200)) - x(0)).attr("height", bh).style("fill", "var(--rule)").style("opacity", .5);
       g.append("path").attr("class", "bar").style("fill", function (d) { return d.col; });
       g.append("text").attr("class", "val-label bar-val").attr("y", bh / 2 + 5);
-      // tutte le società italiane quotate: riferimento sulla barra di Anthropic
-      var ref = svg.append("g").attr("class", "anno");
-      var yA = m.t + 16;
-      ref.append("line").attr("class", "dash").attr("x1", x(ITA)).attr("x2", x(ITA)).attr("y1", yA - 4).attr("y2", yA + bh + 4);
-      ref.append("text").attr("x", x(ITA) + 4).attr("y", yA + bh + 16).style("font-size", "12px").text("tutte le società italiane");
       geo = { x: x, bh: bh, g: g };
       moveCursor(phase === "play" ? R.DUR : 0, phase === "pre");
     }
