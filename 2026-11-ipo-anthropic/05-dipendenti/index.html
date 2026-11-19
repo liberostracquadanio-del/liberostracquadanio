@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<meta name="radar:altezza-640" content="758">
-<meta name="radar:altezza-360" content="924">
-<meta name="radar:titolo" content="A 74 dollari le azioni dei dipendenti valgono 209 miliardi">
+<meta name="radar:altezza-640" content="776">
+<meta name="radar:altezza-360" content="942">
+<meta name="radar:titolo" content="A 83 dollari le azioni dei dipendenti valgono 235 miliardi">
 <meta name="radar:pubblicato" content="2026-11-17">
-<meta name="radar:modificato" content="2026-11-17">
+<meta name="radar:modificato" content="2026-11-19">
 <meta name="radar:modello" content="radar-dataviz">
-<title>A 74 dollari le azioni dei dipendenti valgono 209 miliardi</title>
+<title>A 83 dollari le azioni dei dipendenti valgono 235 miliardi</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,700&display=swap">
@@ -45,13 +45,13 @@
 <body>
 <main class="radar">
   <header>
-    <h1 class="r-title">A 74 dollari le azioni dei dipendenti valgono 209 miliardi</h1>
+    <h1 class="r-title">A 83 dollari le azioni dei dipendenti valgono 235 miliardi</h1>
     <p class="r-sub">Valore delle azioni e delle opzioni di dipendenti, dirigenti ed ex dipendenti, e valore di Anthropic, secondo il prezzo dell'azione</p>
   </header>
 
   <div class="ctrl">
     <div class="ctrl__row"><span class="ctrl__price" id="price"></span><span class="ctrl__lab">prezzo di un'azione</span></div>
-    <input type="range" id="slider" min="0" max="200" step="1" value="74" aria-label="Prezzo di un'azione di Anthropic in dollari">
+    <input type="range" id="slider" min="0" max="200" step="1" value="83" aria-label="Prezzo di un'azione di Anthropic in dollari">
     <div class="marks" id="marks"></div>
   </div>
 
@@ -65,7 +65,7 @@
   <figure class="r-chart" id="grafico" style="margin-top:18px"></figure>
 
   <footer class="r-foot">
-    <span>Fonte: Sec, prospetto S-1/A di Anthropic (dati al 30 settembre 2026); companiesmarketcap</span>
+    <span>Fonte: Sec, prospetto S-1/A di Anthropic (dati al 30 settembre 2026) e comunicato del 18 novembre 2026; companiesmarketcap</span>
     <span>Elaborazione Radar – QN</span>
     <span style="flex-basis:100%">Media su circa 5.300 dipendenti; il prospetto non distingue le azioni di dirigenti, ex dipendenti e consulenti</span>
   </footer>
@@ -99,7 +99,8 @@
     function msg(p) {
       if (p <= 0) return "A zero dollari le azioni non valgono nulla";
       if (Math.abs(p - TENDER) < 0.6) return "Ad aprile 2026 alcuni investitori hanno comprato azioni da dipendenti ed ex dipendenti a " + fmt(TENDER, 2) + " dollari";
-      if (p >= 70 && p <= 78) return "È la forchetta di prezzo dell'offerta: da 70 a 78 dollari per azione";
+      if (Math.abs(p - IPO) < 0.6) return "È il prezzo dell'offerta: " + fmt(IPO, 0) + " dollari per azione, sopra la forchetta iniziale da 70 a 78 dollari";
+      if (p >= 70 && p <= 78) return "È la forchetta di prezzo iniziale dell'offerta: da 70 a 78 dollari per azione";
       if (p >= ITA_PRICE) return "Sopra i " + fmt(ITA_PRICE, 0) + " dollari Anthropic vale più di tutte le " + "società italiane quotate insieme (" + fmt(ITA) + " miliardi)";
       return "";
     }

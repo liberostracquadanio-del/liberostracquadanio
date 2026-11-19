@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<meta name="radar:altezza-640" content="1177">
-<meta name="radar:altezza-360" content="1310">
-<meta name="radar:titolo" content="Per pareggiare Anthropic servono le prime 20 società italiane">
+<meta name="radar:altezza-640" content="1214">
+<meta name="radar:altezza-360" content="1389">
+<meta name="radar:titolo" content="Per pareggiare Anthropic servono le prime 33 società italiane">
 <meta name="radar:pubblicato" content="2026-11-17">
-<meta name="radar:modificato" content="2026-11-17">
+<meta name="radar:modificato" content="2026-11-19">
 <meta name="radar:modello" content="radar-dataviz">
-<title>Per pareggiare Anthropic servono le prime 20 società italiane</title>
+<title>Per pareggiare Anthropic servono le prime 33 società italiane</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,700&display=swap">
@@ -60,7 +60,7 @@
 <body>
 <main class="radar">
   <header>
-    <h1 class="r-title">Per pareggiare Anthropic servono le prime 20 società italiane</h1>
+    <h1 class="r-title">Per pareggiare Anthropic servono le prime 33 società italiane</h1>
     <p class="r-sub">Valore di Borsa in miliardi di dollari: Anthropic al prezzo dell'offerta contro le società quotate</p>
   </header>
 
@@ -75,9 +75,9 @@
   <p class="extra" id="extra"></p>
 
   <footer class="r-foot">
-    <span>Fonte: valutazioni di companiesmarketcap al 17 novembre 2026; Sec (Anthropic S-1/A)</span>
+    <span>Fonte: valutazioni di companiesmarketcap al 17 novembre 2026; Sec (Anthropic S-1/A); comunicato di Anthropic del 18 novembre 2026</span>
     <span>Elaborazione Radar – QN</span>
-    <span style="flex-basis:100%">Anthropic: tutte le azioni dopo l'offerta al prezzo di metà forchetta (74 dollari). Società assegnate al Paese della sede</span>
+    <span style="flex-basis:100%">Anthropic: tutte le azioni dopo l'offerta al prezzo dell'offerta (83 dollari). Società assegnate al Paese della sede</span>
   </footer>
 </main>
 
@@ -239,7 +239,7 @@
       c.merge(en).order();
       var ex = d3.select("#extra");
       if (group === "Italia") ex.html("Tutte le 163 società italiane della classifica valgono insieme <b>" + fmt(allItVal) +
-        " miliardi</b>. Anthropic le supererebbe tutte con un'azione sopra i <b>" + fmt(allItVal * 1e9 / 13086672593, 0) + " dollari</b>");
+        " miliardi</b>. Anthropic le supererebbe tutte con un'azione sopra i <b>" + fmt(allItVal * 1e9 / 13203574252, 0) + " dollari</b>");
       else if (group === "Europa") ex.html("Le 30 società europee più grandi, Italia esclusa");
       else ex.html("Alcuni marchi conosciuti in tutto il mondo, Italia esclusa. Apple da sola vale " + fmt(apple / A, 1) + " volte Anthropic");
     }

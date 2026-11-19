@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<meta name="radar:altezza-640" content="1079">
-<meta name="radar:altezza-360" content="980">
+<meta name="radar:altezza-640" content="1099">
+<meta name="radar:altezza-360" content="998">
 <meta name="radar:titolo" content="La struttura di Anthropic">
 <meta name="radar:pubblicato" content="2026-11-17">
-<meta name="radar:modificato" content="2026-11-17">
+<meta name="radar:modificato" content="2026-11-19">
 <meta name="radar:modello" content="radar-dataviz">
 <title>La struttura di Anthropic</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,8 +34,6 @@
   .node-label { font-size: 14px; font-weight: 600; fill: var(--ink); text-anchor: middle; paint-order: stroke; stroke: var(--bg); stroke-width: 4px; stroke-linejoin: round; }
   .node-sub { font-size: 12px; fill: var(--ink-2); text-anchor: middle; paint-order: stroke; stroke: var(--bg); stroke-width: 3px; }
   .ring-name { font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; fill: var(--ink-2); text-anchor: middle; }
-  .die { fill: none; stroke: var(--grey-light); stroke-width: 1.5; }
-  .pin { fill: var(--grey-light); }
   .dots { display: flex; justify-content: center; gap: 6px; margin-top: 10px; }
   .dots i { width: 7px; height: 7px; border-radius: 50%; background: var(--grey-light); display: block; }
   .dots i.is-on { background: var(--ink); }
@@ -75,9 +73,9 @@
   </div>
 
   <footer class="r-foot">
-    <span>Fonte: Sec, prospetto S-1/A di Anthropic (10 novembre 2026)</span>
+    <span>Fonte: Sec, prospetto S-1/A di Anthropic (10 novembre 2026) e comunicato del 18 novembre 2026</span>
     <span>Elaborazione Radar – QN</span>
-    <span style="flex-basis:100%">Capitale: azioni di tutte le classi dopo l'offerta</span>
+    <span style="flex-basis:100%">Capitale: azioni di tutte le classi dopo l'offerta a 83 dollari. Voti dei fondatori: stima sull'offerta definitiva</span>
   </footer>
 </main>
 
@@ -99,8 +97,8 @@
     { n: "Reed Hastings", by: "T" }, { n: "Vas Narasimhan", by: "T" }, { n: "Chris Liddell", by: "T" }, { n: "posto vacante", by: "T" }
   ];
   var OUTER = [
-    { n: "Amazon", s: "14,7% del capitale" }, { n: "Google", s: "13,7%" }, { n: "Fondo di beneficenza", s: "6,5%" },
-    { n: "Produttori di chip", s: "1,7%" }, { n: "Dipendenti", s: "classe E" }
+    { n: "Amazon", s: "14,5% del capitale" }, { n: "Google", s: "13,4%" }, { n: "Fondo di beneficenza", s: "6,4%" },
+    { n: "Produttori di chip", s: "1,5%" }, { n: "Dipendenti", s: "classe E" }
   ];
 
   R.loadCSV("../data/chi-comanda.csv").then(function (rows) {
@@ -121,9 +119,9 @@
       { k: 3, label: "Il consiglio", title: "Il consiglio di amministrazione", big: "7", bigl: "posti, uno vacante",
         txt: "Quattro consiglieri li sceglie il Trust: Reed Hastings, cofondatore di Netflix, Vas Narasimhan, amministratore delegato di Novartis, Chris Liddell, già direttore finanziario di Microsoft e General Motors, e un posto ancora libero. Gli altri tre li eleggono gli azionisti con voto, cioè in pratica i fondatori: Dario e Daniela Amodei e Yasmin Razavi, del fondo Spark Capital" },
       { k: 4, label: "Chi vota", title: "Gli azionisti con voto", big: "49,9%", bigl: "il massimo dei voti delle azioni di classe A",
-        txt: "Un voto per azione, ma tutte insieme non possono superare il 49,9%. Qui entra chi compra in Borsa: le 825 milioni di azioni dell'offerta sono il " + fmt(capIPO, 1) + "% del capitale" },
+        txt: "Un voto per azione, ma tutte insieme non possono superare il 49,9%. Qui entra chi compra in Borsa: le 980 milioni di azioni dell'offerta sono il " + fmt(capIPO, 1) + "% del capitale" },
       { k: 5, label: "Senza voto", title: "Il cerchio esterno: chi paga ma non vota", big: fmt(capAG, 1) + "%", bigl: "del capitale ad Amazon e Google, senza voto",
-        txt: "Amazon e Google hanno azioni di classe N, che danno diritto agli utili ma non al voto, come i produttori di chip del collocamento privato. Il fondo di beneficenza di Anthropic ha il 6,5%. I dipendenti avranno azioni di classe E, che votano solo su poche materie" },
+        txt: "Amazon e Google hanno azioni di classe N, che danno diritto agli utili ma non al voto, come i produttori di chip del collocamento privato. Il fondo di beneficenza di Anthropic ha il 6,4%. I dipendenti avranno azioni di classe E, che votano solo su poche materie" },
       { k: 0, label: "Da fuori", title: "Chi possiede e chi decide", big: fmt(capF, 1) + "% → " + fmt(votF, 1) + "%", bigl: "i fondatori: dal capitale ai voti",
         txt: "Visto da fuori, il chip ha due misure molto diverse: le azioni dicono chi possiede l'azienda, i voti chi la comanda" }
     ];
@@ -150,22 +148,6 @@
       var L = LEVELS[cur], z = zoomFor(L.k), narrow = S < 420;
       var t = gRoot.transition().duration(dur).ease(d3.easeCubicInOut);
       function R_(i) { return RING[i] * S * z; }
-
-      // contorno del die e pin (visibili solo da fuori)
-      var die = gRoot.selectAll("g.die-g").data([0]).join(function (e) {
-        var g = e.append("g").attr("class", "die-g");
-        g.append("rect").attr("class", "die");
-        return g;
-      });
-      var dieS = S * 0.96 * z;
-      die.select("rect").transition(t).attr("x", S / 2 - dieS / 2).attr("y", S / 2 - dieS / 2).attr("width", dieS).attr("height", dieS).attr("rx", 10 * z);
-      var pins = [];
-      for (var i = 0; i < 14; i++) ["t", "b", "l", "r"].forEach(function (s) { pins.push({ s: s, i: i }); });
-      die.selectAll("rect.pin").data(pins).join("rect").attr("class", "pin").transition(t)
-        .attr("x", function (p) { var o = -dieS / 2 + dieS * (p.i + 1.5) / 16; return p.s === "l" ? S / 2 - dieS / 2 - 6 : p.s === "r" ? S / 2 + dieS / 2 + 1 : S / 2 + o - 2; })
-        .attr("y", function (p) { var o = -dieS / 2 + dieS * (p.i + 1.5) / 16; return p.s === "t" ? S / 2 - dieS / 2 - 6 : p.s === "b" ? S / 2 + dieS / 2 + 1 : S / 2 + o - 2; })
-        .attr("width", function (p) { return p.s === "l" || p.s === "r" ? 5 : 4; })
-        .attr("height", function (p) { return p.s === "l" || p.s === "r" ? 4 : 5; });
 
       // anelli
       gRoot.selectAll("circle.ring").data([1, 2, 3, 4, 5]).join("circle")
@@ -234,7 +216,7 @@
       ringNodes("tr", TRUST, 2, function (d) { return d === "posto vacante" ? "var(--grey-light)" : "var(--blue)"; }, function (d) { return d; }, function (d, i) { return i === 0 ? "presidente" : ""; }, 0.5);
       ringNodes("bd", BOARD, 3, function (d) { return d.n === "posto vacante" ? "var(--grey-light)" : (d.by === "T" ? "var(--blue)" : "var(--red)"); },
         function (d) { return d.n; }, function (d) { return d.by === "T" ? "scelto dal Trust" : "scelto dai soci"; }, 0);
-      ringNodes("ca", [{ n: "Investitori dell'IPO", s: "6,3% del capitale" }, { n: "Fondi e altri soci", s: "" }, { n: "Dipendenti con azioni A", s: "" }, { n: "Fondatori", s: "11,2% dei voti" }], 4,
+      ringNodes("ca", [{ n: "Investitori dell'IPO", s: "7,4% del capitale" }, { n: "Fondi e altri soci", s: "" }, { n: "Dipendenti con azioni A", s: "" }, { n: "Fondatori", s: "11,0% dei voti" }], 4,
         function (d) { return d.n === "Fondatori" ? "var(--red)" : "var(--blue)"; }, function (d) { return d.n; }, function (d) { return d.s; }, 0.5);
       ringNodes("ou", OUTER, 5, function () { return "var(--grey)"; }, function (d) { return d.n; }, function (d) { return d.s; }, 0.5);
 
