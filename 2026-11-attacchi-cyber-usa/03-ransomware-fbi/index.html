@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="radar:altezza-640" content="517">
+<meta name="radar:altezza-360" content="528">
+<meta name="radar:titolo" content="Ransomware denunciati">
+<meta name="radar:pubblicato" content="2026-11-20">
+<meta name="radar:modificato" content="2026-11-20">
+<meta name="radar:modello" content="radar-dataviz">
+<title>Ransomware denunciati</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,700&display=swap">
+<link rel="stylesheet" href="../assets/radar.css">
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0"></script>
+<script src="../assets/radar.js"></script>
+<style>
+  .val { font: 600 12.5px/1 var(--sans); fill: var(--ink); paint-order: stroke; stroke: var(--bg); stroke-width: 3px; }
+  .val.is-last { font-size: 15px; font-weight: 700; fill: var(--red); }
+</style>
+</head>
+<body>
+<main class="radar">
+  <header>
+    <h1 class="r-title" id="titolo">Ransomware, all'Fbi 3.611 denunce in un anno</h1>
+    <p class="r-sub">Denunce di attacchi ransomware ricevute dall'Fbi, per anno</p>
+  </header>
+
+  <figure class="r-chart" id="grafico"></figure>
+
+  <footer class="r-foot">
+    <span>Fonte: Fbi, Internet Crime Complaint Center (IC3), Internet Crime Report 2020-2025. Solo i casi denunciati</span>
+    <span>Elaborazione Radar – QN</span>
+  </footer>
+</main>
+
+<script>
+(function () {
+  var R = Radar, fmt = R.fmt;
+  R.loadCSV("../data/ransomware_fbi.csv").then(function (rows) {
+    var data = rows.map(function (r) { return { a: +r.anno, v: R.num(r.denunce) }; });
+    var first = data[0], last = data[data.length - 1];
+    var var_ = Math.round((last.v / first.v - 1) * 100);
+    d3.select("#titolo").text("Ransomware, all'Fbi " + fmt(last.v) + " denunce in un anno: +" + var_ + "% dal " + first.a);
+
+    var host = document.getElementById("grafico");
+    var tip = R.tooltip(host);
+    R.dismissOutside(host, tip.hide);
+
+    R.responsive(host, function (W, phase) {
+      var narrow = R.isNarrow(W);
+      var m = { top: 28, right: narrow ? 22 : 30, bottom: 30, left: narrow ? 22 : 30 };
+      var H = narrow ? 240 : 280, w = W - m.left - m.right, h = H - m.top - m.bottom;
+      var x = d3.scaleLinear().domain([first.a, last.a]).range([0, w]);
+      var y = d3.scaleLinear().domain([0, 4000]).range([h, 0]);
+      var yt = narrow ? [0, 2000, 4000] : [0, 1000, 2000, 3000, 4000];
+
+      d3.select(host).select("svg").remove();
+      var svg = d3.select(host).insert("svg", ".r-tip").attr("width", W).attr("height", H).attr("role", "img")
+        .attr("aria-label", "Denunce di ransomware all'Fbi: " + data.map(function (d) { return d.a + " " + fmt(d.v); }).join(", "));
+      svg.append("title").text("Denunce di ransomware all'Fbi per anno");
+      var g = svg.append("g").attr("transform", "translate(" + m.left + "," + m.top + ")");
+
+      g.append("g").attr("class", "grid").selectAll("line").data(yt).join("line")
+        .attr("x1", 0).attr("x2", w).attr("y1", function (d) { return Math.round(y(d)) + 0.5; }).attr("y2", function (d) { return Math.round(y(d)) + 0.5; })
+        .attr("class", function (d) { return d === 0 ? "baseline" : null; });
+      g.append("g").selectAll("text").data(yt.filter(function (d) { return d && d < 4000; })).join("text").attr("class", "tick-label")
+        .attr("x", 0).attr("y", function (d) { return y(d) - 5; }).text(function (d) { return fmt(d); });
+      g.append("g").selectAll("text").data(data).join("text").attr("class", "tick-label")
+        .attr("x", function (d) { return x(d.a); }).attr("y", h + 20).attr("text-anchor", "middle")
+        .text(function (d) { return narrow ? "’" + String(d.a).slice(2) : d.a; });
+
+      var area = d3.area().curve(d3.curveMonotoneX).x(function (d) { return x(d.a); }).y0(h).y1(function (d) { return y(d.v); });
+      var line = d3.line().curve(d3.curveMonotoneX).x(function (d) { return x(d.a); }).y(function (d) { return y(d.v); });
+      var ar = g.append("path").datum(data).attr("d", area).style("fill", "var(--blue)").style("opacity", 0.08);
+      var path = g.append("path").datum(data).attr("d", line).style("fill", "none").style("stroke", "var(--blue)")
+        .attr("stroke-width", 2.25).attr("stroke-linejoin", "round").attr("stroke-linecap", "round");
+      var L = path.node().getTotalLength();
+      R.enter(path, phase, function (s) { s.attr("stroke-dasharray", L + " " + L).attr("stroke-dashoffset", L); }, function (s) { s.attr("stroke-dashoffset", 0); });
+      R.enter(ar, phase, function (s) { s.style("opacity", 0); }, function (s) { s.style("opacity", 0.08); });
+
+      var pts = g.append("g").selectAll("circle").data(data).join("circle")
+        .attr("cx", function (d) { return x(d.a); }).attr("cy", function (d) { return y(d.v); })
+        .attr("r", function (d) { return d === last ? 5 : 4; })
+        .style("fill", function (d) { return d === last ? "var(--red)" : "var(--blue)"; }).style("stroke", "var(--bg)").attr("stroke-width", 1.5);
+      var vals = g.append("g").selectAll("text").data(data).join("text")
+        .attr("class", function (d) { return "val" + (d === last ? " is-last" : ""); })
+        .attr("x", function (d) { return x(d.a); }).attr("y", function (d) { return y(d.v) - 11; })
+        .attr("text-anchor", function (d) { return d === first ? "start" : d === last ? "end" : "middle"; })
+        .text(function (d) { return fmt(d.v); });
+      [pts, vals].forEach(function (sel) {
+        sel.each(function (d) {
+          R.enter(d3.select(this), phase, function (s) { s.style("opacity", 0); }, function (s) { s.style("opacity", 1); }, (x(d.a) / w) * 750);
+        });
+      });
+
+      // tooltip: anno più vicino
+      svg.append("rect").attr("x", m.left - 10).attr("y", 0).attr("width", w + 20).attr("height", H).style("fill", "transparent")
+        .on("pointermove pointerdown", function (e) {
+          var px = d3.pointer(e, g.node())[0];
+          var d = data.reduce(function (b, c) { return Math.abs(x(c.a) - px) < Math.abs(x(b.a) - px) ? c : b; });
+          pts.attr("r", function (p) { return p === d ? 6 : (p === last ? 5 : 4); });
+          tip.show(R.tipHTML({ title: String(d.a), value: fmt(d.v), unit: "denunce" }), x(d.a) + m.left, y(d.v) + m.top);
+        })
+        .on("pointerleave", function () { tip.hide(); pts.attr("r", function (p) { return p === last ? 5 : 4; }); });
+    });
+  }).catch(function (e) { R.fail("#grafico", e); });
+})();
+</script>
+</body>
+</html>

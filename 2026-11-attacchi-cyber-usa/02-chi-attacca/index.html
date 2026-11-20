@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="radar:altezza-640" content="694">
+<meta name="radar:altezza-360" content="1056">
+<meta name="radar:titolo" content="Chi attacca gli Usa">
+<meta name="radar:pubblicato" content="2026-11-20">
+<meta name="radar:modificato" content="2026-11-20">
+<meta name="radar:modello" content="radar-dataviz">
+<title>Chi attacca gli Usa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,700&display=swap">
+<link rel="stylesheet" href="../assets/radar.css">
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0"></script>
+<script src="../assets/radar.js"></script>
+<style>
+  .steps { display: flex; gap: 6px; flex-wrap: wrap; margin: 20px 0 0; }
+  .steps button {
+    font: 500 13px/1 var(--sans); color: var(--ink); background: transparent;
+    border: 1px solid var(--rule); border-radius: 999px; padding: 7px 12px; cursor: pointer;
+  }
+  .steps button:hover { border-color: var(--ink-2); }
+  .steps button[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .r-key { margin-top: 14px; }
+  .r-key i { display: inline-block; width: 10px; height: 10px; border-radius: 1px; }
+  .lab-big { font: 700 26px/1 var(--sans); fill: var(--ink); letter-spacing: -0.02em; }
+  .lab-t { font: 600 14px/1.2 var(--sans); fill: var(--ink); }
+  .lab-s { font: 400 12px/1.3 var(--sans); fill: var(--ink-2); }
+  .lab-n { font: 700 14px/1 var(--sans); fill: var(--ink); }
+  .blk-hit { fill: transparent; }
+</style>
+</head>
+<body>
+<main class="radar">
+  <header>
+    <h1 class="r-title">8 attacchi su 10 senza un mandante</h1>
+    <p class="r-sub">Attacchi informatici con vittime negli Stati Uniti dal 2020 al 20 novembre 2026, per provenienza e tipo. Ogni quadratino è un attacco</p>
+  </header>
+
+  <div class="steps" id="steps" role="group" aria-label="Passaggi del grafico"></div>
+  <div class="r-key" id="key"></div>
+  <figure class="r-chart" id="grafico"></figure>
+
+  <footer class="r-foot">
+    <span>Fonte: EuRepoC (European Repository of Cyber Incidents), dati al 20/11/2026. Provenienza: attribuzioni di governi, aziende di sicurezza o rivendicazioni</span>
+    <span>Elaborazione Radar – QN</span>
+  </footer>
+</main>
+
+<script>
+(function () {
+  var R = Radar, fmt = R.fmt;
+  var TIPI = [
+    { k: "ransomware", l: "Ransomware", c: "var(--red)" },
+    { k: "sabotaggio", l: "Sabotaggio e interruzioni", c: "var(--blue-2)" },
+    { k: "furto", l: "Furto di dati", c: "var(--blue-4)" },
+    { k: "intrusione", l: "Intrusione e spionaggio", c: "var(--grey-3)" }
+  ];
+  var COL = {}; TIPI.forEach(function (t) { COL[t.k] = t.c; });
+
+  R.loadCSV("../data/chi_attacca.csv").then(function (raw) {
+    var by = {};
+    raw.forEach(function (r) {
+      by[r.provenienza] = { ransomware: +r.ransomware, sabotaggio: +r.sabotaggio, furto: +r.furto, intrusione: +r.intrusione, totale: +r.totale };
+    });
+    // «Altri» = Altri Paesi + Stati Uniti + Più Paesi
+    var altri = { ransomware: 0, sabotaggio: 0, furto: 0, intrusione: 0, totale: 0 };
+    ["Altri Paesi", "Stati Uniti", "Più Paesi"].forEach(function (k) { TIPI.concat([{ k: "totale" }]).forEach(function (t) { altri[t.k] += by[k][t.k]; }); });
+    function pc(a, b) { return Math.round(a / b * 100); }
+    var NA = by["Non attribuito"];
+    var tot = d3.sum(raw, function (r) { return +r.totale; });
+    var quota = NA.totale / tot;
+    var cina = by["Cina"], rus = by["Russia"], iran = by["Iran"], cdn = by["Corea del Nord"];
+    var paesi = [
+      { k: "Russia", d: rus, s: "Fa di tutto, anche ransomware (" + pc(rus.ransomware, rus.totale) + "%)" },
+      { k: "Cina", d: cina, s: "Spia e ruba dati: " + pc(cina.furto + cina.intrusione, cina.totale) + "% dei casi" },
+      { k: "Iran", d: iran, s: "Un attacco su " + Math.round(iran.totale / iran.sabotaggio) + " è un sabotaggio" },
+      { k: "Corea del Nord", d: cdn, s: Math.round(cdn.intrusione / cdn.totale * 10) + " attacchi su 10 sono intrusioni" },
+      { k: "Altri", d: altri, s: "Altri Paesi e hacker americani" }
+    ];
+    if (Math.round(quota * 10) !== 8) console.warn("Titolo da ricontrollare: quota", quota);
+
+    // un elemento per attacco
+    var units = [];
+    function push(gruppo, d) {
+      TIPI.forEach(function (t) { for (var i = 0; i < d[t.k]; i++) units.push({ g: gruppo, t: t.k }); });
+    }
+    push("NA", NA);
+    paesi.forEach(function (p) { push(p.k, p.d); });
+
+    d3.select("#key").selectAll("span").data(TIPI.concat([{ k: "na", l: "Senza mandante", c: "var(--grey-5)" }])).join("span")
+      .html(function (t) { return '<i style="background:' + t.c + '"></i>' + t.l; });
+
+    var STEPS = [fmt(tot) + " attacchi", "Senza mandante", "Chi attacca e come"];
+    var step = 2, played = false;
+    var sb = d3.select("#steps").selectAll("button").data(STEPS).join("button")
+      .attr("type", "button").text(function (s) { return s; })
+      .on("click", function (e, s) { go(STEPS.indexOf(s), true); });
+
+    var host = document.getElementById("grafico");
+    var tip = R.tooltip(host);
+    R.dismissOutside(host, tip.hide);
+    var layout, svg, rects, labs;
+
+    function compute(W) {
+      var narrow = R.isNarrow(W);
+      var s = narrow ? 5 : 7, gap = 1, u = s + gap;
+      var cols = Math.floor(W / u);
+      // passo 1-2: muro unico
+      var wallRows = Math.ceil(tot / cols);
+      var naRows = Math.ceil(NA.totale / cols);
+      var wallTop = 34;
+      // passo 3: blocchi dei Paesi
+      var per = narrow ? 2 : 5, bw = Math.floor((W - (per - 1) * 16) / per);
+      var bs = narrow ? 7 : 8, bu = bs + 1.5, bcols = Math.max(6, Math.floor(bw / bu));
+      var blkTop = wallTop + naRows * u + 64;
+      var labH = narrow ? 88 : 92;
+      var maxRows = d3.max(paesi, function (p) { return Math.ceil(p.d.totale / bcols); });
+      var rowH = labH + maxRows * bu + 18;
+      var blocks = paesi.map(function (p, i) {
+        var c = i % per, r = Math.floor(i / per);
+        return { p: p, x: c * (bw + 16), y: blkTop + r * rowH, w: bw };
+      });
+      var H = blkTop + Math.ceil(paesi.length / per) * rowH;
+      return { maxRows: maxRows, narrow: narrow, s: s, u: u, cols: cols, wallTop: wallTop, wallRows: wallRows, naRows: naRows, blocks: blocks, bs: bs, bu: bu, bcols: bcols, labH: labH, H: H, W: W };
+    }
+
+    function pos(L, st) {
+      // posizioni per ogni unità al passo st
+      var idxNA = 0, idx = {};
+      units.forEach(function (d, i) {
+        if (st < 2 || d.g === "NA") {
+          // passo 1-2: tutti nel muro, prima i senza mandante poi gli altri
+          var k = d.g === "NA" ? idxNA++ : NA.totale + i - NA.totale; // ordine naturale
+          var j = d.g === "NA" ? k : i;
+          d.x = (j % L.cols) * L.u; d.y = L.wallTop + Math.floor(j / L.cols) * L.u; d.sz = L.s;
+        } else {
+          var b = L.blocks.find(function (bb) { return bb.p.k === d.g; });
+          idx[d.g] = (idx[d.g] || 0); var j2 = idx[d.g]++;
+          d.x = b.x + (j2 % L.bcols) * L.bu; d.y = b.y + L.labH + Math.floor(j2 / L.bcols) * L.bu; d.sz = L.bs;
+        }
+        d.fill = st === 0 ? "var(--grey-3)" : (d.g === "NA" ? "var(--grey-5)" : (st === 1 ? "var(--ink)" : COL[d.t]));
+      });
+    }
+
+    function draw(W, phase) {
+      layout = compute(W);
+      svg = d3.select(host).selectAll("svg").data([0]).join("svg").attr("width", W).attr("height", layout.H)
+        .attr("role", "img")
+        .attr("aria-label", fmt(tot) + " attacchi; " + fmt(NA.totale) + " senza mandante (" + R.pct(quota) + "). Russia " + rus.totale + ", Cina " + cina.totale + ", Iran " + iran.totale + ", Corea del Nord " + cdn.totale + ", altri " + altri.totale);
+      svg.selectAll("*").remove();
+      svg.append("title").text("Provenienza e tipo degli attacchi informatici agli Stati Uniti");
+      labs = svg.append("g");
+      rects = svg.append("g").selectAll("rect").data(units).join("rect").attr("rx", 1);
+      // area di hover dei blocchi
+      svg.append("g").selectAll("rect").data(layout.blocks).join("rect").attr("class", "blk-hit")
+        .attr("x", function (b) { return b.x; }).attr("y", function (b) { return b.y; })
+        .attr("width", function (b) { return b.w; }).attr("height", layout.labH + layout.maxRows * layout.bu)
+        .on("pointermove pointerdown", function (e, b) {
+          if (step !== 2) return;
+          var pt = d3.pointer(e, host);
+          tip.show(R.tipHTML({ title: b.p.k, value: fmt(b.p.d.totale), unit: "attacchi",
+            rows: TIPI.map(function (t) { return [t.l, fmt(b.p.d[t.k])]; }) }), pt[0], pt[1]);
+        }).on("pointerleave", tip.hide);
+      // area di hover del muro
+      svg.append("rect").attr("class", "blk-hit").attr("x", 0).attr("y", layout.wallTop).attr("width", W).attr("height", layout.naRows * layout.u)
+        .on("pointermove pointerdown", function (e) {
+          if (step !== 2) return;
+          var pt = d3.pointer(e, host);
+          tip.show(R.tipHTML({ title: "Senza mandante", value: fmt(NA.totale), unit: "attacchi",
+            rows: TIPI.map(function (t) { return [t.l, fmt(NA[t.k])]; }) }), pt[0], pt[1]);
+        }).on("pointerleave", tip.hide);
+
+      if (phase === "play") { played = true; go(0, false); setTimeout(function () { go(1, true); }, 900); setTimeout(function () { go(2, true); }, 2300); }
+      else if (phase === "pre") { go(0, false); }
+      else { go(played ? step : 2, false); }
+    }
+
+    function go(st, anim) {
+      step = st;
+      sb.attr("aria-pressed", function (s, i) { return i === st ? "true" : "false"; });
+      tip.hide();
+      pos(layout, st);
+      var sel = anim ? rects.transition().duration(850).ease(d3.easeCubicInOut).delay(function (d, i) { return st === 2 && d.g !== "NA" ? (i % 40) * 6 : 0; }) : rects;
+      sel.attr("x", function (d) { return d.x; }).attr("y", function (d) { return d.y; })
+        .attr("width", function (d) { return d.sz; }).attr("height", function (d) { return d.sz; })
+        .style("fill", function (d) { return d.fill; });
+      labels(st, anim);
+    }
+
+    function labels(st, anim) {
+      var L = layout;
+      labs.selectAll("*").remove();
+      var g = labs.append("g");
+      if (st === 0) {
+        g.append("text").attr("class", "lab-t").attr("x", 0).attr("y", 18).text(fmt(tot) + " attacchi dal 2020");
+      } else {
+        var t = g.append("text").attr("class", "lab-t").attr("x", 0).attr("y", 18);
+        t.append("tspan").text(fmt(NA.totale) + " senza mandante (" + R.pct(quota, 1) + ")");
+        t.append("tspan").attr("class", "lab-s").attr("dx", 8).text(L.narrow ? "" : "Quasi la metà è ransomware di gruppi criminali");
+        if (L.narrow) g.append("text").attr("class", "lab-s").attr("x", 0).attr("y", L.wallTop + L.naRows * L.u + 16).text("Quasi la metà è ransomware di gruppi criminali");
+      }
+      if (st === 1) {
+        g.append("text").attr("class", "lab-t").attr("x", 0).attr("y", L.wallTop + L.naRows * L.u + (L.narrow ? 38 : 24))
+          .text(fmt(tot - NA.totale) + " con un Paese indicato come responsabile");
+      }
+      if (st === 2) {
+        var bg = g.selectAll("g").data(L.blocks).join("g").attr("transform", function (b) { return "translate(" + b.x + "," + b.y + ")"; });
+        bg.append("text").attr("class", "lab-t").attr("y", 14).text(function (b) { return b.p.k; });
+        bg.append("text").attr("class", "lab-big").attr("y", 42).text(function (b) { return fmt(b.p.d.totale); });
+        bg.append("text").attr("class", "lab-s").attr("y", 58).text(function (b) { return b.p.s; })
+          .each(function () { R.wrap(d3.select(this), L.blocks[0].w - 4, 1.25); });
+      }
+      if (anim) g.style("opacity", 0).transition().delay(st === 2 ? 600 : 200).duration(400).style("opacity", 1);
+    }
+
+    R.responsive(host, draw);
+  }).catch(function (e) { R.fail("#grafico", e); });
+})();
+</script>
+</body>
+</html>

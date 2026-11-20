@@ -1,0 +1,947 @@
+id;anno;pos;tipo;gravita;provenienza;big;radar
+4806;2020;0,0587;ransomware;4,0;Non attribuito;0;0
+1504;2020;0,0714;intrusione;1,0;Non attribuito;0;0
+1398;2020;0,1243;furto;3,0;Cina;0;0
+1967;2020;0,2063;intrusione;1,0;Non attribuito;0;0
+1846;2020;0,2143;furto;6,0;Russia;0;0
+2885;2020;0,2896;furto;3,0;Russia;0;0
+1314;2020;0,3571;intrusione;1,0;Russia;0;0
+1312;2020;0,373;intrusione;1,0;Non attribuito;0;0
+2554;2020;0,4249;furto;3,0;Cina;0;0
+1306;2020;0,4358;intrusione;3,0;Non attribuito;0;0
+1736;2020;0,4768;intrusione;2,0;Cina;0;0
+2259;2020;0,4822;ransomware;4,0;Russia;0;0
+1308;2020;0,5;furto;3,0;Non attribuito;0;0
+5120;2020;0,5961;furto;5,0;Non attribuito;0;0
+1300;2020;0,6243;furto;3,0;Cina;0;0
+1307;2020;0,6429;furto;3,0;Russia;0;0
+1340;2020;0,6526;furto;3,0;Cina;0;0
+1301;2020;0,7698;furto;3,0;Non attribuito;0;0
+1305;2020;0,7857;furto;4,0;Iran;0;0
+1493;2020;0,8122;ransomware;3,0;Iran;0;0
+2172;2020;0,9286;intrusione;1,0;Iran;0;0
+1332;2021;0,0068;furto;6,0;Cina;0;0
+2276;2021;0,0417;furto;3,0;Cina;0;0
+1325;2021;0,1041;sabotaggio;2,0;Altri Paesi;0;0
+2257;2021;0,1219;ransomware;4,0;Non attribuito;0;0
+1558;2021;0,125;furto;2,0;Non attribuito;0;0
+2428;2021;0,1425;ransomware;8,0;Russia;0;0
+1368;2021;0,1603;furto;2,0;Non attribuito;0;0
+1374;2021;0,2041;furto;3,0;Non attribuito;0;0
+4288;2021;0,2083;furto;5,0;Russia;0;0
+2077;2021;0,2863;furto;2,0;Non attribuito;0;0
+1491;2021;0,2863;ransomware;4,0;Corea del Nord;0;0
+1341;2021;0,2877;intrusione;1,0;Cina;0;0
+3270;2021;0,2917;furto;3,0;Non attribuito;0;0
+2333;2021;0,2973;ransomware;6,0;Russia;0;0
+5025;2021;0,2973;ransomware;3,0;Russia;0;0
+1417;2021;0,3438;ransomware;6,0;Russia;1;0
+1401;2021;0,3712;furto;3,0;Cina;0;0
+2161;2021;0,375;intrusione;1,0;Russia;0;0
+4232;2021;0,4274;intrusione;2,0;Stati Uniti;0;0
+5328;2021;0,4534;furto;3,0;Altri Paesi;0;0
+1538;2021;0,4548;ransomware;5,0;Cina;0;0
+2484;2021;0,4583;intrusione;1,0;Cina;0;0
+1344;2021;0,4822;sabotaggio;1,0;Non attribuito;0;0
+1347;2021;0,489;intrusione;1,0;Russia;0;0
+1375;2021;0,5171;furto;2,0;Iran;0;0
+2160;2021;0,5417;furto;5,0;Iran;0;0
+1367;2021;0,5596;furto;1,0;Non attribuito;0;0
+3588;2021;0,5932;intrusione;1,0;Russia;0;0
+2071;2021;0,6021;furto;2,0;Altri Paesi;0;0
+1330;2021;0,625;furto;2,0;Non attribuito;0;0
+1370;2021;0,6445;sabotaggio;3,0;Non attribuito;0;0
+1722;2021;0,676;intrusione;1,0;Cina;0;0
+1369;2021;0,6945;sabotaggio;1,0;Non attribuito;0;0
+2082;2021;0,6966;furto;4,0;Altri Paesi;0;0
+1922;2021;0,7083;intrusione;1,0;Non attribuito;0;0
+1937;2021;0,7171;furto;3,0;Altri Paesi;0;0
+4428;2021;0,7377;furto;3,0;Non attribuito;0;0
+1379;2021;0,7712;sabotaggio;1,0;Altri Paesi;0;0
+5117;2021;0,7917;furto;3,0;Russia;0;0
+1968;2021;0,8534;furto;3,0;Non attribuito;0;0
+1388;2021;0,8671;intrusione;2,0;Non attribuito;0;0
+1364;2021;0,875;furto;3,0;Cina;0;0
+1391;2021;0,8945;intrusione;2,0;Corea del Nord;0;0
+5022;2021;0,9493;ransomware;5,0;Russia;0;0
+1385;2021;0,9583;furto;1,0;Non attribuito;0;0
+2629;2022;0,0417;furto;3,0;Cina;0;0
+3647;2022;0,0977;furto;3,0;Corea del Nord;0;0
+1494;2022;0,1233;furto;3,0;Corea del Nord;0;0
+1805;2022;0,125;intrusione;1,0;Russia;0;0
+1674;2022;0,1489;intrusione;1,0;Iran;0;0
+1795;2022;0,2083;intrusione;1,0;Iran;0;0
+1630;2022;0,2233;intrusione;2,0;Corea del Nord;0;0
+3648;2022;0,2671;furto;3,0;Corea del Nord;0;0
+2070;2022;0,2836;furto;4,0;Non attribuito;0;0
+1591;2022;0,289;sabotaggio;1,0;Russia;0;0
+2900;2022;0,2917;intrusione;1,0;Cina;0;0
+1589;2022;0,3082;intrusione;1,0;Cina;0;0
+1906;2022;0,3219;sabotaggio;4,0;Non attribuito;0;0
+2886;2022;0,3712;furto;3,0;Russia;0;0
+1566;2022;0,374;furto;0,0;Non attribuito;0;0
+1676;2022;0,375;intrusione;1,0;Corea del Nord;0;0
+2261;2022;0,4014;ransomware;4,0;Russia;0;0
+4881;2022;0,4219;furto;3,0;Iran;0;0
+2513;2022;0,4384;ransomware;5,0;Non attribuito;0;0
+3187;2022;0,4548;ransomware;4,0;Russia;0;0
+1626;2022;0,4583;sabotaggio;4,0;Iran;0;0
+2048;2022;0,4712;intrusione;1,0;Corea del Nord;0;0
+1720;2022;0,4781;intrusione;2,0;Corea del Nord;0;0
+1860;2022;0,4877;intrusione;2,0;Non attribuito;0;0
+2086;2022;0,4945;furto;4,0;Non attribuito;0;0
+2555;2022;0,5137;furto;3,0;Cina;0;0
+2134;2022;0,5384;sabotaggio;4,0;Iran;0;0
+4080;2022;0,5417;furto;3,0;Russia;0;0
+1618;2022;0,5932;sabotaggio;1,0;Russia;0;0
+2110;2022;0,6151;ransomware;5,0;Non attribuito;0;0
+1696;2022;0,6205;furto;4,0;Russia;0;0
+2069;2022;0,6233;furto;3,0;Non attribuito;0;0
+1606;2022;0,625;intrusione;1,0;Cina;0;0
+2109;2022;0,6589;ransomware;3,0;Più Paesi;0;0
+2011;2022;0,6863;ransomware;5,0;Non attribuito;0;0
+3432;2022;0,7083;sabotaggio;8,0;Russia;0;0
+3747;2022;0,7274;ransomware;5,0;Iran;0;0
+1567;2022;0,7603;sabotaggio;1,0;Russia;0;0
+2579;2022;0,7621;furto;3,0;Non attribuito;0;0
+2111;2022;0,7685;furto;2,0;Non attribuito;0;0
+1573;2022;0,774;sabotaggio;1,0;Russia;0;0
+2353;2022;0,774;furto;3,0;Cina;0;0
+1917;2022;0,7904;furto;3,0;Non attribuito;0;0
+3899;2022;0,7917;intrusione;1,0;Cina;2;0
+2626;2022;0,8187;furto;4,0;Altri Paesi;0;0
+1654;2022;0,8534;sabotaggio;1,0;Non attribuito;0;0
+1930;2022;0,8699;furto;4,0;Non attribuito;0;0
+2191;2022;0,874;intrusione;2,0;Non attribuito;0;0
+3551;2022;0,875;furto;1,0;Cina;0;0
+1716;2022;0,8808;sabotaggio;1,0;Russia;0;0
+2084;2022;0,8863;intrusione;1,0;Non attribuito;0;0
+1916;2022;0,889;furto;4,0;Non attribuito;0;0
+1887;2022;0,8945;furto;4,0;Non attribuito;0;0
+1885;2022;0,9082;furto;4,0;Non attribuito;0;0
+1911;2022;0,9198;furto;3,0;Non attribuito;0;0
+2208;2022;0,9292;ransomware;4,0;Non attribuito;0;0
+3290;2022;0,9301;ransomware;5,0;Non attribuito;0;0
+2210;2022;0,9387;intrusione;1,0;Corea del Nord;0;0
+1886;2022;0,9481;furto;4,0;Non attribuito;0;0
+2023;2022;0,9493;furto;4,0;Non attribuito;0;0
+2967;2022;0,9521;furto;3,0;Non attribuito;0;0
+1931;2022;0,9548;furto;4,0;Non attribuito;0;0
+1914;2022;0,9575;furto;4,0;Non attribuito;0;0
+3976;2022;0,9583;intrusione;1,0;Non attribuito;0;0
+2217;2022;0,9658;furto;3,0;Non attribuito;0;0
+2787;2022;0,967;intrusione;2,0;Non attribuito;0;0
+1969;2022;0,9764;intrusione;2,0;Non attribuito;0;0
+1913;2022;0,9767;furto;3,0;Non attribuito;0;0
+2114;2022;0,9858;furto;3,0;Non attribuito;0;0
+1821;2022;0,9877;intrusione;2,0;Russia;0;0
+1959;2022;0,9932;ransomware;6,0;Non attribuito;0;0
+2076;2022;0,9953;ransomware;5,0;Non attribuito;0;0
+2042;2023;0,0205;furto;4,0;Non attribuito;0;0
+2103;2023;0,0208;furto;3,0;Non attribuito;0;0
+1859;2023;0,0233;furto;4,0;Altri Paesi;0;0
+1888;2023;0,0315;furto;3,0;Non attribuito;0;0
+2224;2023;0,037;furto;3,0;Non attribuito;0;0
+2060;2023;0,0425;sabotaggio;4,0;Non attribuito;0;0
+2543;2023;0,0425;ransomware;6,0;Non attribuito;0;0
+2608;2023;0,0479;intrusione;1,0;Iran;0;0
+2383;2023;0,0534;ransomware;6,0;Non attribuito;0;0
+2064;2023;0,0534;furto;4,0;Non attribuito;0;0
+2102;2023;0,0625;ransomware;4,0;Non attribuito;0;0
+3465;2023;0,0671;furto;4,0;Non attribuito;0;0
+2061;2023;0,0753;furto;4,0;Non attribuito;0;0
+2007;2023;0,0753;ransomware;4,0;Non attribuito;0;0
+2021;2023;0,0836;ransomware;6,0;Non attribuito;0;0
+2194;2023;0,0879;furto;4,0;Non attribuito;0;0
+1881;2023;0,089;ransomware;4,0;Non attribuito;0;0
+2350;2023;0,089;intrusione;1,0;Non attribuito;0;0
+2056;2023;0,0918;ransomware;6,0;Non attribuito;0;0
+2045;2023;0,0938;ransomware;5,0;Non attribuito;0;0
+1949;2023;0,0997;ransomware;5,0;Non attribuito;0;0
+2420;2023;0,1027;ransomware;5,0;Non attribuito;0;0
+2289;2023;0,1042;furto;3,0;Non attribuito;0;0
+1935;2023;0,1055;ransomware;5,0;Non attribuito;0;0
+2382;2023;0,1056;ransomware;4,0;Non attribuito;0;0
+1947;2023;0,1115;ransomware;4,0;Non attribuito;0;0
+2378;2023;0,1137;sabotaggio;4,0;Non attribuito;0;0
+1951;2023;0,1174;ransomware;4,0;Più Paesi;0;0
+2001;2023;0,1219;ransomware;6,0;Non attribuito;0;0
+2688;2023;0,1233;intrusione;1,0;Non attribuito;0;0
+2774;2023;0,1274;ransomware;5,0;Russia;0;0
+2009;2023;0,1292;sabotaggio;4,0;Non attribuito;0;0
+1975;2023;0,1301;ransomware;6,0;Non attribuito;0;0
+2008;2023;0,1351;ransomware;4,0;Non attribuito;0;0
+2171;2023;0,1384;furto;4,0;Non attribuito;0;0
+2269;2023;0,141;sabotaggio;4,0;Non attribuito;0;0
+2101;2023;0,1411;ransomware;6,0;Russia;0;0
+2296;2023;0,1458;furto;4,0;Non attribuito;0;0
+2786;2023;0,1466;furto;4,0;Non attribuito;0;0
+2010;2023;0,1466;sabotaggio;5,0;Non attribuito;0;0
+1961;2023;0,1469;furto;3,0;Non attribuito;0;0
+2214;2023;0,1528;furto;4,0;Non attribuito;0;0
+1973;2023;0,1575;intrusione;2,0;Altri Paesi;0;0
+2154;2023;0,1587;ransomware;4,0;Non attribuito;0;0
+2118;2023;0,1685;ransomware;5,0;Non attribuito;0;0
+2044;2023;0,1758;sabotaggio;4,0;Non attribuito;0;0
+2108;2023;0,1822;intrusione;2,0;Corea del Nord;0;0
+3918;2023;0,1849;ransomware;2,0;Non attribuito;0;0
+2358;2023;0,1875;ransomware;3,0;Non attribuito;0;0
+2242;2023;0,1932;ransomware;6,0;Non attribuito;0;0
+2132;2023;0,1959;ransomware;4,0;Non attribuito;0;0
+2047;2023;0,2041;furto;4,0;Non attribuito;0;0
+2124;2023;0,2068;intrusione;2,0;Non attribuito;0;0
+2299;2023;0,2151;sabotaggio;6,0;Non attribuito;0;0
+2093;2023;0,2151;ransomware;4,0;Non attribuito;0;0
+2292;2023;0,2233;ransomware;5,0;Non attribuito;0;0
+4785;2023;0,2233;furto;3,0;Russia;0;0
+2385;2023;0,2292;furto;3,0;Non attribuito;0;0
+2196;2023;0,2315;ransomware;4,0;Non attribuito;0;0
+2113;2023;0,2324;ransomware;4,0;Non attribuito;0;0
+2320;2023;0,237;ransomware;6,0;Non attribuito;0;0
+2105;2023;0,237;intrusione;1,0;Non attribuito;0;0
+2226;2023;0,2397;furto;3,0;Non attribuito;0;0
+2129;2023;0,2425;sabotaggio;4,0;Non attribuito;0;0
+2435;2023;0,2452;sabotaggio;5,0;Non attribuito;0;0
+2327;2023;0,2534;sabotaggio;4,0;Non attribuito;0;0
+2518;2023;0,2562;ransomware;4,0;Non attribuito;0;0
+2193;2023;0,2562;ransomware;4,0;Non attribuito;0;0
+2169;2023;0,2603;intrusione;2,0;Non attribuito;0;0
+2311;2023;0,2616;ransomware;4,0;Non attribuito;0;0
+2212;2023;0,2616;ransomware;5,0;Non attribuito;0;0
+2211;2023;0,2644;ransomware;6,0;Altri Paesi;0;0
+2197;2023;0,2644;ransomware;6,0;Non attribuito;0;0
+2417;2023;0,2708;intrusione;2,0;Non attribuito;0;0
+2168;2023;0,2781;ransomware;4,0;Non attribuito;0;0
+2153;2023;0,2808;ransomware;3,0;Non attribuito;0;0
+2438;2023;0,2808;furto;4,0;Non attribuito;0;0
+2137;2023;0,2877;sabotaggio;4,0;Russia;0;0
+2380;2023;0,2945;furto;4,0;Non attribuito;0;0
+2205;2023;0,2945;ransomware;6,0;Non attribuito;0;0
+2379;2023;0,2945;furto;4,0;Non attribuito;0;0
+2263;2023;0,3;ransomware;4,0;Non attribuito;0;0
+2207;2023;0,3;ransomware;3,0;Non attribuito;0;0
+2181;2023;0,3027;ransomware;4,0;Non attribuito;0;0
+2213;2023;0,3055;ransomware;5,0;Non attribuito;0;0
+2183;2023;0,311;sabotaggio;4,0;Non attribuito;0;0
+2450;2023;0,3125;intrusione;1,0;Corea del Nord;0;0
+2372;2023;0,3151;ransomware;3,0;Non attribuito;0;0
+2222;2023;0,3164;ransomware;4,0;Non attribuito;0;0
+2245;2023;0,3192;ransomware;5,0;Non attribuito;0;0
+2425;2023;0,3219;ransomware;4,0;Non attribuito;0;0
+2190;2023;0,3247;ransomware;4,0;Non attribuito;0;0
+2323;2023;0,3247;ransomware;3,0;Non attribuito;0;0
+2381;2023;0,3274;furto;3,0;Non attribuito;0;0
+2204;2023;0,3274;ransomware;5,0;Non attribuito;0;0
+3055;2023;0,3358;furto;3,0;Russia;0;0
+2244;2023;0,3411;ransomware;4,0;Non attribuito;0;0
+2237;2023;0,3438;sabotaggio;4,0;Non attribuito;0;0
+2416;2023;0,35;intrusione;1,0;Iran;0;0
+2288;2023;0,3521;ransomware;4,0;Non attribuito;0;0
+2473;2023;0,3542;sabotaggio;4,0;Non attribuito;0;0
+3260;2023;0,3603;ransomware;4,0;Non attribuito;0;0
+2448;2023;0,3603;furto;4,0;Non attribuito;0;0
+2235;2023;0,3642;ransomware;5,0;Non attribuito;0;0
+2268;2023;0,3658;ransomware;4,0;Non attribuito;0;0
+2427;2023;0,3685;furto;4,0;Cina;0;0
+2341;2023;0,3767;ransomware;5,0;Non attribuito;0;0
+2328;2023;0,3783;intrusione;1,0;Non attribuito;0;0
+2279;2023;0,3849;intrusione;2,0;Non attribuito;0;0
+2520;2023;0,3904;ransomware;4,0;Non attribuito;0;0
+2240;2023;0,3925;ransomware;5,0;Non attribuito;0;0
+1868;2023;0,3958;sabotaggio;1,0;Russia;0;0
+2724;2023;0,3986;furto;4,0;Non attribuito;0;0
+2318;2023;0,4014;ransomware;3,0;Non attribuito;0;0
+2495;2023;0,4066;intrusione;2,0;Non attribuito;0;0
+2302;2023;0,4068;intrusione;1,0;Non attribuito;0;0
+3344;2023;0,4096;furto;4,0;Non attribuito;0;0
+2746;2023;0,4096;ransomware;5,0;Non attribuito;0;0
+4457;2023;0,4196;furto;4,0;Non attribuito;0;0
+2355;2023;0,426;sabotaggio;1,0;Altri Paesi;0;0
+2361;2023;0,4313;ransomware;4,0;Non attribuito;0;0
+4698;2023;0,4315;furto;4,0;Non attribuito;0;0
+2055;2023;0,4375;ransomware;6,0;Non attribuito;0;0
+2389;2023;0,4397;ransomware;3,0;Non attribuito;0;0
+2476;2023;0,4425;ransomware;3,0;Non attribuito;0;0
+2511;2023;0,4431;ransomware;3,0;Russia;0;0
+2397;2023;0,4479;ransomware;4,0;Non attribuito;0;0
+2461;2023;0,4479;ransomware;6,0;Non attribuito;0;0
+2430;2023;0,4507;sabotaggio;4,0;Non attribuito;0;0
+3375;2023;0,4534;furto;3,0;Non attribuito;0;0
+2330;2023;0,4548;sabotaggio;4,0;Non attribuito;0;0
+2405;2023;0,4665;sabotaggio;2,0;Non attribuito;0;0
+2434;2023;0,4726;intrusione;1,0;Corea del Nord;0;0
+2449;2023;0,4783;furto;3,0;Non attribuito;0;0
+2539;2023;0,4792;intrusione;1,0;Corea del Nord;0;0
+2509;2023;0,49;furto;4,0;Non attribuito;0;0
+2582;2023;0,5;furto;4,0;Non attribuito;0;0
+3336;2023;0,5137;furto;4,0;Non attribuito;0;0
+2051;2023;0,5208;furto;3,0;Non attribuito;0;0
+2998;2023;0,5329;furto;4,0;Non attribuito;0;0
+2436;2023;0,5356;ransomware;4,0;Non attribuito;0;0
+2050;2023;0,5625;furto;4,0;Non attribuito;0;0
+2456;2023;0,563;intrusione;2,0;Non attribuito;0;0
+2475;2023;0,563;ransomware;3,0;Non attribuito;0;0
+2780;2023;0,5712;ransomware;4,0;Non attribuito;0;0
+2477;2023;0,5877;ransomware;4,0;Non attribuito;0;0
+2498;2023;0,5893;ransomware;3,0;Non attribuito;0;0
+2556;2023;0,6042;intrusione;1,0;Cina;0;0
+2508;2023;0,6063;sabotaggio;4,0;Non attribuito;0;0
+2499;2023;0,6068;sabotaggio;4,0;Non attribuito;0;0
+2503;2023;0,6151;furto;3,0;Non attribuito;0;0
+2510;2023;0,6205;ransomware;4,0;Non attribuito;0;0
+3045;2023;0,6233;furto;3,0;Non attribuito;0;0
+3769;2023;0,626;furto;4,0;Non attribuito;0;0
+2527;2023;0,6315;ransomware;4,0;Non attribuito;0;0
+2532;2023;0,6315;intrusione;2,0;Non attribuito;0;0
+4575;2023;0,6403;ransomware;4,0;Non attribuito;0;0
+2723;2023;0,6425;furto;4,0;Non attribuito;0;0
+2588;2023;0,6458;furto;3,0;Non attribuito;0;0
+2625;2023;0,6534;intrusione;2,0;Non attribuito;0;0
+2570;2023;0,6534;sabotaggio;4,0;Non attribuito;0;0
+3007;2023;0,6573;furto;4,0;Non attribuito;0;0
+2576;2023;0,6589;sabotaggio;1,0;Altri Paesi;0;0
+2562;2023;0,6589;ransomware;4,0;Non attribuito;0;0
+4666;2023;0,6589;ransomware;6,0;Non attribuito;0;0
+5196;2023;0,6589;intrusione;;Stati Uniti;0;0
+2700;2023;0,6644;sabotaggio;1,0;Non attribuito;0;0
+2869;2023;0,6726;intrusione;1,0;Non attribuito;0;0
+4642;2023;0,674;intrusione;1,0;Cina;0;0
+3484;2023;0,6753;ransomware;5,0;Non attribuito;0;0
+2595;2023;0,6875;sabotaggio;4,0;Non attribuito;0;0
+5628;2023;0,6904;furto;2,0;Cina;0;0
+2620;2023;0,6973;ransomware;5,0;Non attribuito;0;0
+2662;2023;0,6973;ransomware;3,0;Russia;0;0
+2805;2023;0,7068;intrusione;1,0;Russia;0;0
+2628;2023;0,7082;sabotaggio;4,0;Non attribuito;0;0
+2651;2023;0,7233;sabotaggio;2,0;Non attribuito;0;0
+2657;2023;0,7274;ransomware;5,0;Non attribuito;0;0
+2756;2023;0,7274;furto;3,0;Non attribuito;0;0
+3378;2023;0,7292;intrusione;1,0;Russia;0;0
+3251;2023;0,7397;intrusione;1,0;Cina;0;0
+2667;2023;0,7411;ransomware;4,0;Non attribuito;0;0
+2720;2023;0,7411;furto;3,0;Non attribuito;0;0
+2957;2023;0,7411;ransomware;0,0;Non attribuito;0;0
+2665;2023;0,7438;ransomware;4,0;Non attribuito;0;0
+4888;2023;0,7466;ransomware;4,0;Non attribuito;0;0
+3215;2023;0,7521;furto;2,0;Non attribuito;0;0
+3499;2023;0,7548;furto;4,0;Non attribuito;0;0
+2742;2023;0,7564;ransomware;3,0;Non attribuito;0;0
+2676;2023;0,7603;furto;4,0;Non attribuito;0;0
+2946;2023;0,7708;furto;3,0;Non attribuito;0;0
+2719;2023;0,7734;intrusione;1,0;Non attribuito;0;0
+2707;2023;0,7767;furto;3,0;Non attribuito;0;0
+2701;2023;0,7795;ransomware;6,0;Non attribuito;0;0
+4135;2023;0,7849;intrusione;1,0;Iran;0;0
+3283;2023;0,7904;intrusione;1,0;Cina;0;0
+2940;2023;0,7904;furto;3,0;Non attribuito;0;0
+2819;2023;0,8014;intrusione;2,0;Corea del Nord;0;0
+3559;2023;0,8074;furto;3,0;Non attribuito;0;0
+2762;2023;0,8125;sabotaggio;4,0;Non attribuito;0;0
+3516;2023;0,8151;sabotaggio;4,0;Non attribuito;0;0
+2759;2023;0,8244;ransomware;5,0;Russia;0;0
+2881;2023;0,8363;ransomware;4,0;Non attribuito;0;0
+2768;2023;0,8397;intrusione;1,0;Non attribuito;0;0
+2873;2023;0,8432;furto;3,0;Non attribuito;0;0
+2778;2023;0,85;ransomware;5,0;Non attribuito;0;0
+2782;2023;0,8507;sabotaggio;2,0;Non attribuito;0;0
+3476;2023;0,8507;ransomware;5,0;Non attribuito;0;0
+2789;2023;0,8534;sabotaggio;2,0;Russia;0;0
+2423;2023;0,8542;ransomware;3,0;Non attribuito;0;0
+2775;2023;0,8562;sabotaggio;1,0;Altri Paesi;0;0
+3033;2023;0,8568;furto;3,0;Iran;0;0
+2871;2023;0,8637;ransomware;4,0;Non attribuito;0;0
+2843;2023;0,8644;sabotaggio;5,0;Non attribuito;0;0
+2804;2023;0,8644;sabotaggio;4,0;Non attribuito;0;0
+4807;2023;0,8671;ransomware;5,0;Non attribuito;0;0
+3094;2023;0,8699;intrusione;1,0;Non attribuito;0;0
+3036;2023;0,8705;furto;3,0;Russia;0;0
+2809;2023;0,8726;sabotaggio;4,0;Non attribuito;0;0
+2813;2023;0,8774;furto;3,0;Non attribuito;0;0
+2868;2023;0,8842;ransomware;4,0;Non attribuito;0;0
+2857;2023;0,8911;furto;3,0;Non attribuito;0;0
+2830;2023;0,8945;ransomware;4,0;Non attribuito;0;0
+2827;2023;0,8945;ransomware;3,0;Non attribuito;0;0
+4626;2023;0,8958;ransomware;4,0;Non attribuito;0;0
+2792;2023;0,8979;sabotaggio;5,0;Non attribuito;0;0
+2836;2023;0,9;intrusione;1,0;Iran;0;0
+2858;2023;0,9027;ransomware;4,0;Non attribuito;0;0
+3291;2023;0,9048;intrusione;1,0;Non attribuito;0;0
+2990;2023;0,9055;ransomware;4,0;Non attribuito;0;0
+2844;2023;0,9055;sabotaggio;4,0;Russia;0;0
+2944;2023;0,9082;ransomware;3,0;Non attribuito;0;0
+3579;2023;0,9116;furto;3,0;Cina;0;0
+3228;2023;0,9247;furto;3,0;Non attribuito;0;0
+2962;2023;0,9292;furto;3,0;Non attribuito;0;0
+3137;2023;0,9301;sabotaggio;6,0;Stati Uniti;0;0
+5459;2023;0,9375;ransomware;3,0;Cina;0;0
+2992;2023;0,9438;ransomware;4,0;Non attribuito;0;0
+2933;2023;0,9575;ransomware;5,0;Non attribuito;0;0
+3093;2023;0,963;ransomware;3,0;Non attribuito;0;0
+3225;2023;0,9712;furto;4,0;Non attribuito;0;0
+3382;2023;0,9712;ransomware;3,0;Non attribuito;0;0
+2981;2023;0,9767;ransomware;4,0;Non attribuito;0;0
+3718;2023;0,9792;intrusione;2,0;Stati Uniti;0;0
+4195;2023;0,9849;sabotaggio;3,0;Non attribuito;0;0
+3001;2023;0,9858;ransomware;3,0;Non attribuito;0;0
+2997;2023;0,9877;furto;4,0;Non attribuito;0;0
+2972;2023;0,9904;ransomware;4,0;Non attribuito;0;0
+4194;2023;0,9932;furto;4,0;Non attribuito;0;0
+3278;2023;0,9959;furto;3,0;Non attribuito;0;0
+2983;2024;0,0041;intrusione;1,0;Non attribuito;0;0
+2993;2024;0,015;ransomware;6,0;Non attribuito;0;0
+3050;2024;0,0227;ransomware;5,0;Non attribuito;0;0
+3694;2024;0,0232;ransomware;5,0;Non attribuito;0;0
+3018;2024;0,0232;furto;3,0;Non attribuito;0;0
+3013;2024;0,0287;ransomware;3,0;Non attribuito;0;0
+4255;2024;0,0287;ransomware;5,0;Non attribuito;0;0
+3151;2024;0,0478;ransomware;6,0;Non attribuito;0;0
+3054;2024;0,056;sabotaggio;4,0;Non attribuito;0;0
+3056;2024;0,0587;ransomware;4,0;Non attribuito;0;0
+3285;2024;0,0587;ransomware;6,0;Non attribuito;0;0
+3074;2024;0,0615;ransomware;5,0;Non attribuito;0;0
+3253;2024;0,0615;intrusione;3,0;Non attribuito;0;0
+3176;2024;0,0642;ransomware;6,0;Russia;0;0
+3349;2024;0,0669;ransomware;3,0;Non attribuito;0;0
+3271;2024;0,0682;furto;3,0;Non attribuito;0;0
+3085;2024;0,0724;ransomware;4,0;Non attribuito;0;0
+3157;2024;0,0943;furto;3,0;Non attribuito;0;0
+3107;2024;0,0943;sabotaggio;2,0;Non attribuito;0;0
+3208;2024;0,0946;sabotaggio;4,0;Non attribuito;0;0
+3145;2024;0,1025;intrusione;1,0;Non attribuito;0;0
+3156;2024;0,1079;ransomware;4,0;Non attribuito;0;0
+5466;2024;0,1136;furto;4,0;Russia;0;0
+3113;2024;0,1144;sabotaggio;4,0;Non attribuito;0;0
+4154;2024;0,127;sabotaggio;5,0;Non attribuito;0;0
+3229;2024;0,1298;sabotaggio;0,0;Non attribuito;0;0
+3195;2024;0,1342;sabotaggio;4,0;Non attribuito;0;0
+3426;2024;0,1352;furto;4,0;Non attribuito;0;0
+3218;2024;0,1407;furto;3,0;Non attribuito;0;0
+3196;2024;0,1407;ransomware;6,0;Non attribuito;3;0
+3203;2024;0,1434;intrusione;1,0;Non attribuito;0;0
+3202;2024;0,1434;ransomware;4,0;Non attribuito;0;0
+3701;2024;0,1434;ransomware;6,0;Non attribuito;0;0
+3240;2024;0,1489;sabotaggio;4,0;Non attribuito;0;0
+3098;2024;0,154;ransomware;5,0;Non attribuito;0;0
+3596;2024;0,1591;furto;4,0;Non attribuito;0;0
+3252;2024;0,1735;intrusione;1,0;Non attribuito;0;0
+4683;2024;0,1745;furto;4,0;Cina;0;0
+3255;2024;0,179;furto;3,0;Non attribuito;0;0
+3439;2024;0,1817;furto;3,0;Non attribuito;0;0
+3655;2024;0,1872;furto;3,0;Non attribuito;0;0
+3292;2024;0,1957;ransomware;1,0;Non attribuito;0;0
+3266;2024;0,1981;sabotaggio;1,0;Altri Paesi;0;0
+3272;2024;0,2008;ransomware;4,0;Non attribuito;0;0
+4952;2024;0,2045;furto;3,0;Cina;0;0
+3289;2024;0,2117;ransomware;4,0;Non attribuito;0;0
+3372;2024;0,2169;ransomware;4,0;Non attribuito;0;0
+3361;2024;0,2336;furto;3,0;Non attribuito;0;0
+3390;2024;0,238;ransomware;5,0;Non attribuito;0;0
+3320;2024;0,2418;ransomware;3,0;Non attribuito;0;0
+4098;2024;0,25;sabotaggio;0,0;Non attribuito;0;0
+4697;2024;0,2527;furto;4,0;Non attribuito;0;0
+3309;2024;0,2527;ransomware;4,0;Non attribuito;0;0
+3310;2024;0,2527;sabotaggio;3,0;Non attribuito;0;0
+3354;2024;0,2555;ransomware;4,0;Non attribuito;0;0
+3376;2024;0,2609;ransomware;5,0;Non attribuito;0;0
+3352;2024;0,2609;intrusione;1,0;Non attribuito;0;0
+2984;2024;0,2623;sabotaggio;4,0;Non attribuito;0;0
+3757;2024;0,2746;ransomware;4,0;Non attribuito;0;0
+4629;2024;0,2746;ransomware;3,0;Non attribuito;0;0
+3384;2024;0,2855;furto;3,0;Non attribuito;0;0
+3429;2024;0,2883;intrusione;1,0;Non attribuito;0;0
+3427;2024;0,2883;ransomware;6,0;Non attribuito;0;0
+3414;2024;0,2883;ransomware;4,0;Non attribuito;0;0
+3746;2024;0,2896;intrusione;1,0;Iran;0;0
+3500;2024;0,291;sabotaggio;2,0;Stati Uniti;0;0
+3032;2024;0,2955;sabotaggio;4,0;Non attribuito;0;0
+3393;2024;0,2992;intrusione;2,0;Non attribuito;0;0
+3415;2024;0,2992;sabotaggio;3,0;Russia;0;0
+4395;2024;0,3019;furto;4,0;Non attribuito;0;0
+3431;2024;0,3128;furto;3,0;Non attribuito;0;0
+3773;2024;0,3169;furto;4,0;Russia;0;0
+3451;2024;0,3265;ransomware;5,0;Non attribuito;0;0
+4148;2024;0,3265;furto;3,0;Cina;0;0
+3603;2024;0,3377;ransomware;5,0;Non attribuito;0;0
+3443;2024;0,3402;ransomware;5,0;Non attribuito;0;0
+3577;2024;0,3402;ransomware;4,0;Non attribuito;0;0
+3695;2024;0,3409;ransomware;5,0;Non attribuito;0;0
+3477;2024;0,3484;sabotaggio;1,0;Non attribuito;0;0
+3455;2024;0,3511;ransomware;5,0;Russia;0;0
+3461;2024;0,3518;sabotaggio;4,0;Non attribuito;0;0
+3992;2024;0,3648;ransomware;2,0;Non attribuito;0;0
+3488;2024;0,3659;ransomware;3,0;Non attribuito;0;0
+4846;2024;0,38;ransomware;6,0;Non attribuito;0;0
+3771;2024;0,3864;intrusione;1,0;Non attribuito;0;0
+3585;2024;0,3941;ransomware;5,0;Non attribuito;0;0
+3508;2024;0,3975;ransomware;4,0;Non attribuito;0;0
+3525;2024;0,403;intrusione;1,0;Non attribuito;0;0
+3510;2024;0,403;ransomware;4,0;Non attribuito;0;0
+3592;2024;0,4082;ransomware;5,0;Non attribuito;0;0
+4251;2024;0,4194;ransomware;5,0;Non attribuito;0;0
+3706;2024;0,4303;furto;4,0;Non attribuito;0;0
+3450;2024;0,4318;intrusione;1,0;Non attribuito;0;0
+3597;2024;0,4358;sabotaggio;6,0;Non attribuito;0;0
+3570;2024;0,4358;ransomware;4,0;Non attribuito;0;0
+3542;2024;0,4413;ransomware;4,0;Non attribuito;0;0
+3557;2024;0,4467;ransomware;4,0;Non attribuito;0;0
+3737;2024;0,4467;furto;4,0;Cina;0;0
+3565;2024;0,4549;ransomware;5,0;Non attribuito;0;0
+3625;2024;0,4577;ransomware;4,0;Non attribuito;0;0
+3574;2024;0,4631;ransomware;5,0;Non attribuito;0;0
+4580;2024;0,4658;ransomware;4,0;Non attribuito;0;0
+3622;2024;0,4768;ransomware;3,0;Non attribuito;0;0
+3687;2024;0,4773;furto;6,0;Iran;0;0
+4420;2024;0,4877;furto;4,0;Non attribuito;0;0
+3978;2024;0,4877;furto;3,0;Non attribuito;0;0
+3610;2024;0,5014;furto;3,0;Non attribuito;0;0
+4130;2024;0,5079;furto;3,0;Non attribuito;0;0
+4541;2024;0,5096;sabotaggio;6,0;Non attribuito;0;0
+3628;2024;0,5205;intrusione;1,0;Non attribuito;0;0
+3612;2024;0,5205;ransomware;4,0;Non attribuito;0;0
+3454;2024;0,5227;furto;4,0;Non attribuito;0;0
+3619;2024;0,5232;ransomware;4,0;Non attribuito;0;0
+3623;2024;0,526;intrusione;2,0;Non attribuito;0;0
+4424;2024;0,529;furto;3,0;Cina;0;0
+3663;2024;0,5451;furto;3,0;Russia;0;0
+3632;2024;0,5478;ransomware;4,0;Non attribuito;0;0
+3611;2024;0,5502;ransomware;4,0;Non attribuito;0;0
+3649;2024;0,556;ransomware;4,0;Non attribuito;0;0
+3162;2024;0,5682;sabotaggio;9,0;Stati Uniti;0;0
+3657;2024;0,5714;ransomware;4,0;Russia;0;0
+3653;2024;0,5779;sabotaggio;1,0;Non attribuito;0;0
+3659;2024;0,5779;ransomware;4,0;Non attribuito;0;0
+3678;2024;0,5915;sabotaggio;1,0;Non attribuito;0;0
+4563;2024;0,5961;furto;3,0;Non attribuito;0;0
+3984;2024;0,597;ransomware;4,0;Non attribuito;0;0
+3679;2024;0,597;ransomware;5,0;Non attribuito;0;0
+3947;2024;0,5997;ransomware;4,0;Non attribuito;0;0
+3692;2024;0,5997;sabotaggio;4,0;Non attribuito;0;0
+3741;2024;0,5997;furto;3,0;Non attribuito;0;0
+3690;2024;0,6025;intrusione;2,0;Non attribuito;0;0
+3711;2024;0,6052;sabotaggio;4,0;Non attribuito;0;0
+4373;2024;0,6136;intrusione;1,0;Cina;0;0
+3707;2024;0,6189;sabotaggio;4,0;Non attribuito;0;0
+3895;2024;0,6243;intrusione;1,0;Corea del Nord;0;0
+3716;2024;0,627;sabotaggio;4,0;Non attribuito;0;0
+3913;2024;0,627;furto;3,0;Non attribuito;0;0
+3751;2024;0,6325;intrusione;2,0;Corea del Nord;0;0
+3723;2024;0,6352;intrusione;2,0;Non attribuito;0;0
+4049;2024;0,638;intrusione;1,0;Non attribuito;0;0
+3724;2024;0,638;intrusione;1,0;Non attribuito;0;0
+3720;2024;0,638;intrusione;2,0;Non attribuito;0;0
+3731;2024;0,6462;ransomware;5,0;Non attribuito;0;0
+3743;2024;0,6489;furto;3,0;Non attribuito;0;0
+3778;2024;0,6526;furto;4,0;Non attribuito;0;0
+3761;2024;0,6571;ransomware;3,0;Non attribuito;0;0
+3387;2024;0,6591;furto;3,0;Cina;0;0
+3961;2024;0,6626;intrusione;2,0;Russia;0;0
+4950;2024;0,679;furto;4,0;Non attribuito;0;0
+4147;2024;0,679;furto;4,0;Non attribuito;0;0
+4053;2024;0,679;ransomware;3,0;Non attribuito;0;0
+3953;2024;0,6926;furto;2,0;Russia;0;0
+3949;2024;0,6954;ransomware;4,0;Russia;0;0
+3075;2024;0,7045;intrusione;1,0;Non attribuito;0;0
+4238;2024;0,7117;ransomware;6,0;Non attribuito;0;0
+4150;2024;0,7117;ransomware;5,0;Non attribuito;0;0
+3830;2024;0,7199;sabotaggio;6,0;Non attribuito;0;0
+4022;2024;0,7227;ransomware;3,0;Non attribuito;0;0
+3841;2024;0,7254;ransomware;2,0;Non attribuito;0;0
+4166;2024;0,7281;ransomware;3,0;Non attribuito;0;0
+4191;2024;0,7309;ransomware;5,0;Non attribuito;0;0
+3876;2024;0,7363;ransomware;4,0;Non attribuito;0;0
+4804;2024;0,7391;furto;3,0;Non attribuito;0;0
+3474;2024;0,75;intrusione;2,0;Non attribuito;0;0
+3903;2024;0,7527;ransomware;4,0;Non attribuito;0;0
+3904;2024;0,7555;intrusione;1,0;Non attribuito;0;0
+4496;2024;0,7582;furto;4,0;Non attribuito;0;0
+4081;2024;0,7582;furto;3,0;Non attribuito;0;0
+3951;2024;0,7592;sabotaggio;4,0;Non attribuito;0;0
+3954;2024;0,7637;furto;1,0;Non attribuito;0;0
+3909;2024;0,7719;sabotaggio;1,0;Russia;0;0
+4257;2024;0,7804;furto;4,0;Non attribuito;0;0
+3598;2024;0,7955;ransomware;3,0;Non attribuito;0;0
+4095;2024;0,8016;intrusione;2,0;Non attribuito;0;0
+3975;2024;0,8046;intrusione;1,0;Non attribuito;0;0
+4086;2024;0,8101;ransomware;5,0;Non attribuito;0;0
+4468;2024;0,821;furto;4,0;Non attribuito;0;0
+3979;2024;0,8227;furto;3,0;Non attribuito;0;0
+4052;2024;0,832;furto;1,0;Non attribuito;0;0
+4265;2024;0,832;furto;4,0;Non attribuito;0;0
+4012;2024;0,8374;ransomware;4,0;Non attribuito;0;0
+4050;2024;0,8409;furto;1,0;Non attribuito;0;0
+4020;2024;0,8429;furto;3,0;Non attribuito;0;0
+4842;2024;0,8456;ransomware;5,0;Non attribuito;0;0
+4029;2024;0,8538;ransomware;2,0;Non attribuito;0;0
+5069;2024;0,8593;furto;3,0;Non attribuito;0;0
+4134;2024;0,8811;furto;4,0;Non attribuito;0;0
+5380;2024;0,8839;furto;4,0;Non attribuito;0;0
+4069;2024;0,8839;intrusione;2,0;Non attribuito;0;0
+4054;2024;0,8864;ransomware;3,0;Non attribuito;0;0
+4072;2024;0,8893;sabotaggio;4,0;Non attribuito;0;0
+4121;2024;0,8893;ransomware;3,0;Non attribuito;0;0
+4114;2024;0,8893;sabotaggio;2,0;Non attribuito;0;0
+4082;2024;0,8893;ransomware;3,0;Non attribuito;0;0
+4900;2024;0,8948;intrusione;1,0;Cina;0;0
+4101;2024;0,9003;ransomware;4,0;Non attribuito;0;0
+4174;2024;0,9003;sabotaggio;5,0;Altri Paesi;0;0
+4090;2024;0,9057;ransomware;4,0;Non attribuito;0;0
+4132;2024;0,9112;sabotaggio;4,0;Non attribuito;0;0
+4120;2024;0,9112;ransomware;2,0;Non attribuito;0;0
+4173;2024;0,9194;furto;3,0;Cina;0;0
+4124;2024;0,9194;ransomware;3,0;Non attribuito;0;0
+4127;2024;0,9221;furto;3,0;Non attribuito;0;0
+4986;2024;0,9238;furto;3,0;Non attribuito;0;0
+4113;2024;0,9249;ransomware;3,0;Non attribuito;0;0
+4504;2024;0,9276;furto;4,0;Non attribuito;0;0
+4142;2024;0,9276;ransomware;4,0;Non attribuito;0;0
+3096;2024;0,9318;sabotaggio;4,0;Non attribuito;0;0
+4821;2024;0,9407;intrusione;2,0;Non attribuito;0;0
+4219;2024;0,944;ransomware;4,0;Non attribuito;0;0
+4791;2024;0,9495;furto;4,0;Non attribuito;0;0
+4365;2024;0,9549;ransomware;4,0;Non attribuito;0;0
+4198;2024;0,9577;furto;5,0;Cina;0;0
+4197;2024;0,9658;furto;4,0;Stati Uniti;0;0
+4111;2024;0,9746;sabotaggio;4,0;Non attribuito;0;0
+4212;2024;0,9773;intrusione;2,0;Non attribuito;0;0
+4218;2024;0,985;sabotaggio;5,0;Russia;0;0
+4290;2024;0,9915;furto;3,0;Cina;0;0
+4879;2025;0,0178;ransomware;4,0;Non attribuito;0;0
+4222;2025;0,0233;furto;4,0;Corea del Nord;0;0
+5099;2025;0,05;furto;4,0;Cina;0;0
+4737;2025;0,0534;sabotaggio;6,0;Non attribuito;0;0
+4739;2025;0,0562;ransomware;3,0;Non attribuito;0;0
+4239;2025;0,0644;sabotaggio;3,0;Non attribuito;0;0
+4253;2025;0,0699;ransomware;2,0;Non attribuito;0;0
+4297;2025;0,0726;sabotaggio;4,0;Non attribuito;0;0
+4610;2025;0,0726;furto;4,0;Non attribuito;0;0
+4489;2025;0,0726;ransomware;4,0;Non attribuito;0;0
+4442;2025;0,0753;ransomware;4,0;Non attribuito;0;0
+4300;2025;0,1055;ransomware;4,0;Non attribuito;0;0
+4296;2025;0,111;ransomware;4,0;Non attribuito;0;0
+4292;2025;0,1164;sabotaggio;3,0;Non attribuito;0;0
+4478;2025;0,1192;ransomware;3,0;Non attribuito;0;0
+4696;2025;0,1219;furto;4,0;Non attribuito;0;0
+4519;2025;0,1233;furto;3,0;Non attribuito;0;0
+4323;2025;0,1329;sabotaggio;4,0;Non attribuito;0;0
+4321;2025;0,1384;ransomware;4,0;Non attribuito;0;0
+4353;2025;0,1466;sabotaggio;4,0;Non attribuito;0;0
+4328;2025;0,1493;intrusione;2,0;Non attribuito;0;0
+5147;2025;0,15;ransomware;3,0;Non attribuito;0;0
+4363;2025;0,1603;ransomware;4,0;Non attribuito;0;0
+4354;2025;0,1603;intrusione;1,0;Non attribuito;0;0
+4434;2025;0,167;ransomware;4,0;Non attribuito;0;0
+4437;2025;0,1776;furto;3,0;Cina;0;0
+4488;2025;0,1822;furto;4,0;Non attribuito;0;0
+4361;2025;0,1877;sabotaggio;1,0;Non attribuito;0;0
+4686;2025;0,1882;furto;3,0;Cina;0;0
+4408;2025;0,1959;ransomware;3,0;Non attribuito;0;0
+4983;2025;0,1986;ransomware;5,0;Altri Paesi;0;0
+4902;2025;0,1988;furto;3,0;Cina;0;0
+4407;2025;0,2014;sabotaggio;4,0;Non attribuito;0;0
+4741;2025;0,2094;furto;4,0;Non attribuito;0;0
+4388;2025;0,2096;sabotaggio;4,0;Non attribuito;0;0
+5067;2025;0,2178;furto;4,0;Non attribuito;0;0
+4430;2025;0,2178;ransomware;3,0;Non attribuito;0;0
+4942;2025;0,22;intrusione;2,0;Non attribuito;0;0
+4417;2025;0,2205;furto;4,0;Stati Uniti;0;0
+4381;2025;0,2307;sabotaggio;4,0;Non attribuito;0;0
+4464;2025;0,237;ransomware;6,0;Non attribuito;0;0
+4578;2025;0,2413;furto;3,0;Non attribuito;0;0
+4231;2025;0,25;furto;3,0;Non attribuito;0;0
+4532;2025;0,2568;furto;3,0;Cina;0;0
+4456;2025;0,2671;ransomware;4,0;Non attribuito;0;0
+5018;2025;0,2774;intrusione;1,0;Cina;0;0
+4469;2025;0,2781;ransomware;6,0;Non attribuito;0;0
+4513;2025;0,2808;ransomware;5,0;Russia;0;0
+4717;2025;0,2863;furto;3,0;Non attribuito;0;0
+4476;2025;0,2945;ransomware;4,0;Russia;0;0
+4520;2025;0,2979;ransomware;4,0;Non attribuito;0;0
+4659;2025;0,3055;ransomware;6,0;Non attribuito;0;0
+4492;2025;0,3185;ransomware;3,0;Non attribuito;0;0
+4521;2025;0,3192;sabotaggio;5,0;Non attribuito;0;0
+4755;2025;0,3274;ransomware;3,0;Non attribuito;0;0
+4514;2025;0,3356;ransomware;4,0;Non attribuito;0;0
+4528;2025;0,3394;furto;3,0;Non attribuito;0;0
+4518;2025;0,3411;furto;2,0;Non attribuito;0;0
+4710;2025;0,3411;ransomware;3,0;Non attribuito;0;0
+4553;2025;0,35;intrusione;1,0;Cina;0;0
+4536;2025;0,3575;furto;3,0;Non attribuito;0;0
+4585;2025;0,3603;furto;3,0;Non attribuito;0;0
+4507;2025;0,3606;ransomware;3,0;Russia;0;0
+4549;2025;0,3658;sabotaggio;6,0;Non attribuito;0;0
+4999;2025;0,3685;furto;4,0;Non attribuito;0;0
+4554;2025;0,3685;furto;4,0;Cina;0;0
+4919;2025;0,3767;ransomware;5,0;Non attribuito;0;0
+4651;2025;0,3818;intrusione;1,0;Non attribuito;0;0
+4546;2025;0,3822;ransomware;5,0;Non attribuito;0;0
+4555;2025;0,3877;intrusione;2,0;Non attribuito;0;0
+4904;2025;0,3877;ransomware;4,0;Non attribuito;0;0
+4569;2025;0,3986;sabotaggio;4,0;Non attribuito;0;0
+4822;2025;0,4031;furto;4,0;Non attribuito;0;0
+4801;2025;0,4068;furto;3,0;Non attribuito;0;0
+4763;2025;0,4178;furto;3,0;Non attribuito;0;0
+4834;2025;0,4205;ransomware;3,0;Non attribuito;0;0
+4586;2025;0,426;ransomware;4,0;Non attribuito;0;0
+4802;2025;0,4274;furto;3,0;Non attribuito;0;0
+4602;2025;0,437;ransomware;4,0;Non attribuito;0;0
+4841;2025;0,437;sabotaggio;3,0;Non attribuito;0;0
+4677;2025;0,4397;ransomware;5,0;Non attribuito;0;0
+5172;2025;0,45;ransomware;5,0;Non attribuito;0;0
+4757;2025;0,4548;ransomware;5,0;Non attribuito;0;0
+4613;2025;0,4616;ransomware;4,0;Non attribuito;0;0
+4699;2025;0,4753;intrusione;2,0;Iran;0;0
+4665;2025;0,4781;furto;4,0;Non attribuito;0;0
+4620;2025;0,4822;furto;4,0;Non attribuito;0;0
+4636;2025;0,4836;sabotaggio;4,0;Non attribuito;0;0
+4869;2025;0,51;intrusione;1,0;Cina;0;0
+4700;2025;0,5137;furto;4,0;Cina;0;0
+4720;2025;0,5137;ransomware;4,0;Cina;0;0
+4920;2025;0,5164;furto;4,0;Non attribuito;0;0
+4940;2025;0,5219;ransomware;3,0;Non attribuito;0;0
+4688;2025;0,5301;ransomware;6,0;Russia;0;0
+4678;2025;0,5384;furto;3,0;Cina;0;0
+4712;2025;0,5384;furto;3,0;Non attribuito;0;0
+4876;2025;0,5411;ransomware;4,0;Non attribuito;0;0
+4281;2025;0,55;intrusione;2,0;Stati Uniti;0;0
+4713;2025;0,5521;sabotaggio;4,0;Non attribuito;0;0
+4751;2025;0,5603;furto;3,0;Non attribuito;0;0
+4729;2025;0,563;ransomware;4,0;Non attribuito;0;0
+4756;2025;0,5667;intrusione;3,0;Russia;0;0
+4750;2025;0,5849;sabotaggio;3,0;Russia;0;0
+4830;2025;0,5932;ransomware;4,0;Non attribuito;0;0
+4820;2025;0,6014;ransomware;3,0;Non attribuito;0;0
+4781;2025;0,6014;ransomware;5,0;Russia;0;0
+4955;2025;0,6041;furto;4,0;Cina;0;0
+4808;2025;0,6123;ransomware;5,0;Non attribuito;0;0
+4769;2025;0,6151;ransomware;6,0;Non attribuito;0;0
+5090;2025;0,6178;ransomware;4,0;Non attribuito;0;0
+4793;2025;0,6233;ransomware;5,0;Non attribuito;0;0
+4786;2025;0,6233;ransomware;4,0;Non attribuito;0;0
+4805;2025;0,6288;sabotaggio;4,0;Non attribuito;0;0
+4833;2025;0,6342;ransomware;4,0;Non attribuito;0;0
+4797;2025;0,6452;ransomware;5,0;Non attribuito;0;0
+5311;2025;0,65;furto;5,0;Cina;0;0
+4971;2025;0,6507;intrusione;2,0;Non attribuito;0;0
+4803;2025;0,6507;furto;2,0;Non attribuito;0;0
+4800;2025;0,6507;ransomware;3,0;Non attribuito;0;0
+4868;2025;0,6589;furto;3,0;Non attribuito;0;0
+5192;2025;0,6644;ransomware;4,0;Non attribuito;0;0
+4831;2025;0,6644;sabotaggio;4,0;Non attribuito;0;0
+4960;2025;0,6699;furto;3,0;Non attribuito;0;0
+5036;2025;0,6703;furto;3,0;Cina;0;0
+4838;2025;0,6753;ransomware;5,0;Non attribuito;0;0
+5333;2025;0,6795;furto;3,0;Russia;0;0
+5427;2025;0,6886;furto;4,0;Non attribuito;0;0
+4884;2025;0,6918;ransomware;5,0;Non attribuito;0;0
+4886;2025;0,6973;ransomware;3,0;Russia;0;0
+5074;2025;0,6977;furto;3,0;Russia;0;0
+4858;2025;0,7;ransomware;4,0;Non attribuito;0;0
+4870;2025;0,7055;ransomware;4,0;Non attribuito;0;0
+4934;2025;0,7068;ransomware;3,0;Non attribuito;0;0
+4863;2025;0,716;ransomware;4,0;Non attribuito;0;0
+5100;2025;0,7219;furto;4,0;Non attribuito;0;0
+4941;2025;0,7251;furto;3,0;Non attribuito;0;0
+4951;2025;0,7274;ransomware;5,0;Non attribuito;0;0
+4862;2025;0,7342;intrusione;1,0;Non attribuito;0;0
+4949;2025;0,7356;ransomware;3,0;Non attribuito;0;0
+4832;2025;0,7434;ransomware;4,0;Non attribuito;0;0
+5456;2025;0,75;intrusione;2,0;Corea del Nord;0;0
+4930;2025;0,7548;ransomware;4,0;Non attribuito;0;0
+4936;2025;0,7621;furto;3,0;Cina;0;0
+4948;2025;0,774;sabotaggio;4,0;Non attribuito;0;0
+4968;2025;0,7822;sabotaggio;4,0;Non attribuito;0;0
+4956;2025;0,7849;intrusione;2,0;Non attribuito;0;0
+4964;2025;0,7877;sabotaggio;4,0;Non attribuito;0;0
+4929;2025;0,7904;ransomware;3,0;Non attribuito;0;0
+5149;2025;0,7904;ransomware;6,0;Non attribuito;0;0
+4980;2025;0,8014;sabotaggio;4,0;Non attribuito;0;0
+5118;2025;0,8151;furto;3,0;Non attribuito;0;0
+5969;2025;0,8187;furto;;Non attribuito;0;0
+4993;2025;0,8288;furto;3,0;Non attribuito;0;0
+5007;2025;0,8425;ransomware;3,0;Non attribuito;0;0
+5010;2025;0,8479;furto;3,0;Cina;0;0
+4654;2025;0,85;sabotaggio;5,0;Non attribuito;0;0
+5070;2025;0,8534;ransomware;9,0;Non attribuito;0;0
+5313;2025;0,8562;ransomware;3,0;Non attribuito;0;0
+5066;2025;0,8808;furto;3,0;Non attribuito;0;0
+5057;2025;0,8863;ransomware;4,0;Non attribuito;0;0
+5053;2025;0,8863;sabotaggio;4,0;Non attribuito;0;0
+5047;2025;0,8945;sabotaggio;4,0;Non attribuito;0;0
+5094;2025;0,8973;ransomware;4,0;Non attribuito;0;0
+5447;2025;0,9;furto;4,0;Non attribuito;0;0
+5144;2025;0,9027;ransomware;5,0;Non attribuito;0;0
+5479;2025;0,9082;ransomware;4,0;Non attribuito;0;0
+5108;2025;0,9274;sabotaggio;4,0;Non attribuito;0;0
+5308;2025;0,9356;ransomware;2,0;Non attribuito;0;0
+4426;2025;0,95;furto;3,0;Non attribuito;0;0
+5145;2025;0,9575;sabotaggio;5,0;Non attribuito;0;0
+5161;2025;0,9712;furto;4,0;Non attribuito;0;0
+5187;2025;0,9904;ransomware;6,0;Non attribuito;0;0
+5670;2026;0,0341;ransomware;4,0;Non attribuito;0;0
+6130;2026;0,0479;furto;;Non attribuito;0;0
+5652;2026;0,0534;furto;4,0;Non attribuito;0;0
+5254;2026;0,0753;furto;0,0;Non attribuito;0;0
+5267;2026;0,0781;ransomware;4,0;Non attribuito;0;0
+5276;2026;0,0781;furto;3,0;Non attribuito;0;0
+5297;2026;0,0945;ransomware;3,0;Non attribuito;0;0
+5273;2026;0,1;ransomware;2,0;Non attribuito;0;0
+6061;2026;0,1024;ransomware;;Non attribuito;0;0
+5290;2026;0,1137;sabotaggio;2,0;Non attribuito;0;0
+5286;2026;0,1164;ransomware;4,0;Non attribuito;0;0
+5302;2026;0,1192;sabotaggio;2,0;Non attribuito;0;0
+5293;2026;0,1192;furto;1,0;Non attribuito;0;0
+5340;2026;0,1219;ransomware;3,0;Non attribuito;0;0
+5377;2026;0,1233;furto;5,0;Iran;0;0
+5330;2026;0,1274;ransomware;5,0;Non attribuito;0;0
+5382;2026;0,1301;furto;6,0;Cina;4;0
+5323;2026;0,1356;sabotaggio;4,0;Non attribuito;0;0
+6070;2026;0,1707;furto;;Non attribuito;0;0
+5373;2026;0,1712;sabotaggio;3,0;Non attribuito;0;0
+5419;2026;0,1723;furto;3,0;Russia;0;0
+5384;2026;0,1849;ransomware;4,0;Non attribuito;0;0
+5461;2026;0,1877;sabotaggio;1,0;Non attribuito;0;0
+5431;2026;0,1904;ransomware;5,0;Non attribuito;0;0
+5386;2026;0,1904;sabotaggio;8,0;Iran;5;0
+5881;2026;0,1935;intrusione;1,0;Non attribuito;0;0
+5460;2026;0,1959;sabotaggio;6,0;Non attribuito;0;0
+5418;2026;0,1986;ransomware;2,0;Non attribuito;0;0
+5451;2026;0,1986;ransomware;3,0;Non attribuito;0;0
+5409;2026;0,2014;sabotaggio;4,0;Non attribuito;0;0
+5701;2026;0,2041;furto;4,0;Non attribuito;0;0
+5441;2026;0,2123;sabotaggio;3,0;Non attribuito;0;0
+5412;2026;0,2123;ransomware;3,0;Non attribuito;0;0
+5415;2026;0,2123;sabotaggio;4,0;Iran;0;0
+5437;2026;0,2147;ransomware;4,0;Non attribuito;0;0
+5467;2026;0,2151;ransomware;4,0;Non attribuito;0;0
+5476;2026;0,2233;furto;4,0;Non attribuito;0;0
+5436;2026;0,226;furto;6,0;Non attribuito;0;0
+5890;2026;0,236;furto;4,0;Non attribuito;0;0
+5886;2026;0,239;ransomware;4,0;Non attribuito;0;0
+5746;2026;0,2425;ransomware;4,0;Non attribuito;0;0
+5452;2026;0,2452;sabotaggio;3,0;Non attribuito;0;0
+5522;2026;0,2534;ransomware;4,0;Non attribuito;0;0
+5492;2026;0,2589;ransomware;5,0;Non attribuito;0;0
+5457;2026;0,2616;sabotaggio;3,0;Non attribuito;0;0
+5918;2026;0,2644;furto;4,0;Non attribuito;0;0
+5528;2026;0,2644;ransomware;4,0;Non attribuito;0;0
+5589;2026;0,2671;ransomware;3,0;Non attribuito;0;0
+5491;2026;0,2753;ransomware;3,0;Non attribuito;0;0
+5478;2026;0,2781;ransomware;4,0;Non attribuito;0;0
+5470;2026;0,2808;sabotaggio;2,0;Iran;0;0
+5600;2026;0,2836;furto;4,0;Non attribuito;0;0
+5518;2026;0,2918;ransomware;4,0;Non attribuito;0;0
+5488;2026;0,2918;sabotaggio;2,0;Non attribuito;0;0
+5455;2026;0,2945;sabotaggio;2,0;Non attribuito;0;0
+5557;2026;0,3073;intrusione;2,0;Iran;0;0
+5507;2026;0,3082;intrusione;1,0;Non attribuito;0;0
+5508;2026;0,3219;ransomware;3,0;Non attribuito;0;0
+5568;2026;0,3341;sabotaggio;2,0;Non attribuito;0;0
+5527;2026;0,3384;sabotaggio;3,0;Non attribuito;0;0
+5549;2026;0,3384;sabotaggio;4,0;Non attribuito;0;0
+5696;2026;0,3438;furto;4,0;Non attribuito;0;0
+5526;2026;0,3447;furto;6,0;Non attribuito;0;0
+5832;2026;0,3466;furto;4,0;Non attribuito;0;0
+5560;2026;0,3466;furto;3,0;Non attribuito;0;0
+5536;2026;0,3553;ransomware;3,0;Non attribuito;0;0
+5553;2026;0,3575;ransomware;9,0;Non attribuito;0;0
+5636;2026;0,363;ransomware;4,0;Non attribuito;0;0
+5688;2026;0,3659;furto;4,0;Cina;0;0
+5891;2026;0,3756;ransomware;4,0;Non attribuito;0;0
+5588;2026;0,3765;intrusione;2,0;Non attribuito;0;0
+5597;2026;0,3872;ransomware;3,0;Non attribuito;0;0
+5575;2026;0,3932;sabotaggio;4,0;Non attribuito;0;0
+5778;2026;0,3978;furto;3,0;Russia;0;0
+5604;2026;0,4084;sabotaggio;4,0;Non attribuito;0;0
+5665;2026;0,4219;ransomware;4,0;Non attribuito;0;0
+5605;2026;0,4315;ransomware;4,0;Non attribuito;0;0
+5651;2026;0,4342;ransomware;;Non attribuito;0;0
+5631;2026;0,4342;ransomware;4,0;Non attribuito;0;0
+5619;2026;0,437;sabotaggio;6,0;Non attribuito;0;0
+5974;2026;0,4384;ransomware;;Non attribuito;0;0
+5896;2026;0,4425;furto;4,0;Non attribuito;0;0
+5624;2026;0,4425;furto;3,0;Iran;0;0
+5640;2026;0,4425;ransomware;4,0;Non attribuito;0;0
+5404;2026;0,4438;furto;3,0;Non attribuito;0;0
+5647;2026;0,4548;furto;4,0;Non attribuito;0;0
+5676;2026;0,4562;ransomware;4,0;Non attribuito;0;0
+5840;2026;0,4616;ransomware;4,0;Non attribuito;0;0
+5931;2026;0,4644;ransomware;4,0;Non attribuito;0;0
+5656;2026;0,4644;ransomware;4,0;Non attribuito;0;0
+5671;2026;0,4712;intrusione;1,0;Non attribuito;0;0
+5796;2026;0,4726;intrusione;1,0;Non attribuito;0;0
+5759;2026;0,4753;ransomware;3,0;Non attribuito;0;0
+5668;2026;0,4808;intrusione;2,0;Non attribuito;0;0
+5699;2026;0,4836;sabotaggio;5,0;Non attribuito;0;0
+5862;2026;0,4877;ransomware;3,0;Non attribuito;0;0
+5812;2026;0,5;furto;3,0;Non attribuito;0;0
+5682;2026;0,511;intrusione;2,0;Non attribuito;0;0
+5684;2026;0,511;sabotaggio;3,0;Non attribuito;0;0
+6038;2026;0,5121;intrusione;;Non attribuito;0;0
+5769;2026;0,5171;furto;4,0;Non attribuito;0;0
+5726;2026;0,5384;furto;4,0;Non attribuito;0;0
+5722;2026;0,5384;ransomware;5,0;Non attribuito;0;0
+5762;2026;0,5548;furto;2,0;Russia;0;0
+5950;2026;0,5596;ransomware;6,0;Non attribuito;0;0
+5754;2026;0,5658;sabotaggio;4,0;Iran;0;0
+5750;2026;0,5658;sabotaggio;4,0;Non attribuito;0;0
+5792;2026;0,5685;sabotaggio;3,0;Iran;0;0
+5826;2026;0,5712;ransomware;4,0;Non attribuito;0;0
+5860;2026;0,5795;ransomware;2,0;Non attribuito;0;0
+6047;2026;0,5804;furto;;Non attribuito;0;0
+5790;2026;0,5904;sabotaggio;4,0;Non attribuito;0;0
+5797;2026;0,5904;furto;2,0;Non attribuito;0;0
+5869;2026;0,5914;ransomware;2,0;Non attribuito;0;0
+5793;2026;0,5932;ransomware;4,0;Non attribuito;0;0
+5823;2026;0,5959;sabotaggio;3,0;Non attribuito;0;0
+5795;2026;0,5986;sabotaggio;4,0;Non attribuito;0;0
+5810;2026;0,6127;ransomware;3,0;Non attribuito;0;0
+5920;2026;0,6205;ransomware;2,0;Non attribuito;0;0
+5883;2026;0,6339;sabotaggio;2,0;Non attribuito;0;0
+5875;2026;0,637;ransomware;4,0;Non attribuito;0;0
+6114;2026;0,6397;furto;;Altri Paesi;0;0
+5846;2026;0,6425;intrusione;2,0;Non attribuito;0;0
+5873;2026;0,6452;ransomware;2,0;Non attribuito;0;0
+5859;2026;0,6479;sabotaggio;4,0;Non attribuito;0;0
+5520;2026;0,6487;furto;4,0;Corea del Nord;0;0
+6083;2026;0,6507;sabotaggio;;Non attribuito;0;0
+5933;2026;0,6551;sabotaggio;5,0;Non attribuito;0;0
+5902;2026;0,6562;furto;3,0;Cina;0;0
+5872;2026;0,6562;ransomware;4,0;Non attribuito;0;0
+6034;2026;0,6562;furto;;Non attribuito;0;0
+5868;2026;0,6589;sabotaggio;2,0;Non attribuito;0;0
+5901;2026;0,674;sabotaggio;4,0;Non attribuito;0;0
+5895;2026;0,6808;intrusione;2,0;Non attribuito;0;0
+5930;2026;0,6904;intrusione;1,0;Non attribuito;0;0
+5914;2026;0,7068;ransomware;2,0;Non attribuito;0;0
+5932;2026;0,711;ransomware;4,0;Non attribuito;0;0
+5529;2026;0,717;furto;4,0;Non attribuito;0;0
+5949;2026;0,7219;sabotaggio;4,0;Non attribuito;0;0
+5941;2026;0,7233;furto;4,0;Non attribuito;0;0
+5966;2026;0,7301;furto;4,0;Non attribuito;0;0
+5917;2026;0,7397;furto;4,0;Non attribuito;0;0
+5997;2026;0,7438;furto;;Non attribuito;0;0
+6086;2026;0,754;sabotaggio;;Non attribuito;0;0
+5987;2026;0,7603;sabotaggio;5,0;Non attribuito;0;0
+6056;2026;0,7661;furto;;Non attribuito;0;0
+6089;2026;0,7685;sabotaggio;;Non attribuito;0;0
+6014;2026;0,7712;sabotaggio;;Non attribuito;0;0
+6059;2026;0,7783;ransomware;;Non attribuito;0;0
+5184;2026;0,7852;ransomware;4,0;Non attribuito;0;0
+5985;2026;0,7904;ransomware;;Non attribuito;0;0
+6090;2026;0,7932;furto;;Cina;0;0
+6044;2026;0,7932;ransomware;;Non attribuito;0;0
+5975;2026;0,8025;ransomware;;Non attribuito;0;0
+6052;2026;0,8041;sabotaggio;;Non attribuito;0;0
+6051;2026;0,8041;ransomware;;Non attribuito;0;0
+6050;2026;0,8041;sabotaggio;;Non attribuito;0;0
+6118;2026;0,8068;sabotaggio;;Non attribuito;0;0
+6077;2026;0,8096;intrusione;;Non attribuito;0;0
+5993;2026;0,8147;sabotaggio;;Non attribuito;0;0
+6068;2026;0,8178;sabotaggio;;Non attribuito;0;0
+6067;2026;0,8178;sabotaggio;;Non attribuito;0;0
+6101;2026;0,8268;furto;;Non attribuito;0;0
+6109;2026;0,8534;ransomware;;Non attribuito;0;0
+5222;2026;0,8535;ransomware;4,0;Non attribuito;0;0
+6123;2026;0,8562;ransomware;;Non attribuito;0;0
+n0n;2026;0,8836;furto;;Non attribuito;0;1
+6156;2026;0,8945;furto;;Non attribuito;0;0

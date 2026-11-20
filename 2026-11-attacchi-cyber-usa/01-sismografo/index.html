@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="radar:altezza-640" content="973">
+<meta name="radar:altezza-360" content="1078">
+<meta name="radar:titolo" content="Il sismografo degli attacchi">
+<meta name="radar:pubblicato" content="2026-11-20">
+<meta name="radar:modificato" content="2026-11-20">
+<meta name="radar:modello" content="radar-dataviz">
+<title>Il sismografo degli attacchi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,700&display=swap">
+<link rel="stylesheet" href="../assets/radar.css">
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0"></script>
+<script src="../assets/radar.js"></script>
+<style>
+  .big5 { margin: 22px 0 0; }
+  .big5__lab { font-size: 13px; font-weight: 600; color: var(--ink); margin: 0 0 8px; display: flex; align-items: center; gap: 8px; }
+  .big5__btns { display: flex; flex-wrap: wrap; gap: 6px; }
+  .big5__btn {
+    font: 500 13px/1 var(--sans); color: var(--ink); background: transparent;
+    border: 1px solid var(--rule); border-radius: 999px; padding: 6px 11px 6px 6px;
+    display: inline-flex; align-items: center; gap: 7px; cursor: pointer;
+    transition: border-color .15s, background .15s;
+  }
+  .big5__btn:hover { border-color: var(--ink-2); }
+  .big5__btn[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .num { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; border-radius: 50%;
+    background: var(--ink); color: var(--bg); font: 700 11px/1 var(--sans); flex: none; }
+  .big5__btn[aria-pressed="true"] .num { background: var(--bg); color: var(--ink); }
+
+  .card { display: none; margin: 14px 0 0; border-top: 2px solid var(--ink); padding-top: 14px; position: relative; }
+  .card.is-on { display: grid; grid-template-columns: 42% 1fr; gap: 18px; animation: cardIn .35s ease-out; }
+  @keyframes cardIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .card.is-on { animation: none; } }
+  .card__img { margin: 0; }
+  .card__img img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 2px; filter: saturate(.85); }
+  .card__cred { font-size: 10.5px; color: var(--ink-2); margin-top: 4px; line-height: 1.3; }
+  .card__meta { font-size: 12px; color: var(--ink-2); margin: 0 0 4px; display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: center; }
+  .card__meta i { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 4px; vertical-align: -1px; }
+  .card__t { font: 700 22px/1.1 var(--serif); color: var(--title); margin: 0 0 10px; padding-right: 28px; }
+  .card__n { font: 700 28px/1 var(--sans); letter-spacing: -0.02em; color: var(--ink); }
+  .card__nl { font-size: 12.5px; color: var(--ink-2); margin: 3px 0 10px; }
+  .card__p { font-size: 14px; line-height: 1.5; color: var(--ink); margin: 0; }
+  .card__x { position: absolute; top: 10px; right: 0; width: 28px; height: 28px; border: 0; background: transparent;
+    color: var(--ink-2); font: 400 22px/1 var(--sans); cursor: pointer; }
+  .card__x:hover { color: var(--ink); }
+  @media (max-width: 519px) {
+    .card.is-on { grid-template-columns: 1fr; gap: 10px; }
+    .card__img img { aspect-ratio: 16 / 9; }
+  }
+
+  .r-key { margin-top: 18px; }
+  .r-key i { display: inline-block; width: 10px; height: 10px; border-radius: 50%; }
+  .row-hit { fill: transparent; cursor: default; }
+  .yr { font: 700 15px/1 var(--sans); fill: var(--ink); }
+  .yr-n { font: 400 11.5px/1 var(--sans); fill: var(--ink-2); }
+  .mth { font: 400 11px/1 var(--sans); fill: var(--ink-2); }
+  .base { stroke: var(--grey-4); stroke-width: .75; }
+  .spike { fill: none; stroke-width: 1.1; stroke-linejoin: round; }
+  .spike.is-dim { opacity: .15; }
+  .mark { cursor: pointer; }
+  .mark circle { fill: var(--ink); stroke: var(--bg); stroke-width: 1.5; }
+  .mark text { font: 700 11px/1 var(--sans); fill: var(--bg); pointer-events: none; }
+  .mark.is-sel circle { fill: var(--red); }
+  .mark.is-sel text { fill: #fff; }
+  .mark line { stroke: var(--ink); stroke-width: .75; }
+  .band { fill: var(--grey-5); opacity: .6; }
+  .ann { font: 400 11.5px/1.3 var(--sans); fill: var(--ink); paint-order: stroke; stroke: var(--bg); stroke-width: 3px; }
+  .ann-line { stroke: var(--ink); stroke-width: .75; fill: none; }
+</style>
+</head>
+<body>
+<main class="radar">
+  <header>
+    <h1 class="r-title">Gli Usa sotto attacco: 945 colpi informatici in sette anni</h1>
+    <p class="r-sub">Attacchi informatici resi pubblici con vittime negli Stati Uniti, dal 2020 al 20 novembre 2026. L'altezza di ogni tratto indica la gravità</p>
+  </header>
+
+  <section class="big5" aria-label="I cinque attacchi più gravi">
+    <p class="big5__lab"><span class="num" aria-hidden="true"></span>I cinque attacchi più importanti</p>
+    <div class="big5__btns" id="btns"></div>
+    <article class="card" id="card" aria-live="polite"></article>
+  </section>
+
+  <div class="r-key" id="key"></div>
+  <figure class="r-chart" id="grafico"></figure>
+
+  <footer class="r-foot">
+    <span>Fonte: EuRepoC (European Repository of Cyber Incidents), dati al 20/11/2026; per novembre 2026 cronache di Cnbc e SecurityWeek. Gravità: indice EuRepoC da 0 a 9. Con la data nota solo per mese o anno, la posizione è indicativa; dal 2023 la raccolta è più ampia</span>
+    <span>Elaborazione Radar – QN</span>
+  </footer>
+</main>
+
+<script>
+(function () {
+  var R = Radar, fmt = R.fmt;
+  var TIPI = [
+    { k: "ransomware", l: "Ransomware", c: "var(--red)" },
+    { k: "sabotaggio", l: "Sabotaggio e interruzioni", c: "var(--blue-2)" },
+    { k: "furto", l: "Furto di dati", c: "var(--blue-4)" },
+    { k: "intrusione", l: "Intrusione e spionaggio", c: "var(--grey-3)" }
+  ];
+  var COL = {}; TIPI.forEach(function (t) { COL[t.k] = t; });
+  var MESI = ["gen", "feb", "mar", "apr", "mag", "giu", "lug", "ago", "set", "ott", "nov", "dic"];
+  var CRED = {
+    "colonial.jpg": "Foto: Elliott R. Plack, CC0, Wikimedia Commons",
+    "salt.jpg": "Foto: Wikimedia Commons (vedi crediti)",
+    "change.jpg": "Foto: Damien Salas, U.S. Army, pubblico dominio, Wikimedia Commons",
+    "fbi.jpg": "Foto: Ajay Suresh, CC BY 2.0, Wikimedia Commons",
+    "stryker.jpg": "Foto: Wikimedia Commons (vedi crediti)"
+  };
+
+  Promise.all([R.loadCSV("../data/sismografo.csv"), R.loadCSV("../data/schede.csv"), fetch("../assets/foto/crediti.json").then(function (r) { return r.ok ? r.json() : {}; }).catch(function () { return {}; })])
+  .then(function (res) {
+    var rows = res[0].map(function (d) {
+      return { id: d.id, anno: +d.anno, pos: R.num(d.pos), tipo: d.tipo, g: R.num(d.gravita), prov: d.provenienza, big: +d.big, radar: +d.radar };
+    });
+    var schede = res[1].map(function (s) { s.n = +s.n; return s; });
+    var cred = res[2] || {};
+    Object.keys(cred).forEach(function (k) {
+      var c = cred[k]; if (!c || !c.autore) return;
+      CRED[k + ".jpg"] = "Foto di repertorio: " + c.autore.replace(/\s+/g, " ") + ", " + (c.licenza === "Public domain" ? "pubblico dominio" : c.licenza) + ", Wikimedia Commons";
+    });
+    var anni = d3.range(2020, 2027);
+    var perAnno = d3.rollup(rows.filter(function (d) { return !d.radar; }), function (v) { return v.length; }, function (d) { return d.anno; });
+    var tipoAnno = d3.rollup(rows.filter(function (d) { return !d.radar; }), function (v) { return v.length; }, function (d) { return d.anno; }, function (d) { return d.tipo; });
+    var totale = d3.sum(anni, function (a) { return perAnno.get(a) || 0; });
+    if (totale !== 945) console.warn("Totale diverso dal titolo:", totale);
+
+    // legenda
+    d3.select("#key").selectAll("span").data(TIPI).join("span")
+      .html(function (t) { return '<i style="background:' + t.c + '"></i>' + t.l; });
+
+    // bottoni e scheda
+    var sel = 0;
+    var btns = d3.select("#btns").selectAll("button").data(schede).join("button")
+      .attr("class", "big5__btn").attr("type", "button").attr("aria-pressed", "false")
+      .html(function (s) { return '<span class="num">' + s.n + "</span>" + s.nome; })
+      .on("click", function (e, s) { open(sel === s.n ? 0 : s.n); });
+    var card = d3.select("#card");
+    function open(n) {
+      sel = n;
+      btns.attr("aria-pressed", function (s) { return s.n === n ? "true" : "false"; });
+      d3.selectAll(".spike").interrupt().style("opacity", function (d) { return n && d.big !== n ? 0.25 : 0.9; });
+      d3.selectAll(".mark").classed("is-sel", function (d) { return d.big === n; });
+      if (!n) { card.classed("is-on", false).html(""); return; }
+      var s = schede.find(function (x) { return x.n === n; }), t = COL[s.tipo];
+      card.html(
+        '<figure class="card__img"><img src="../assets/foto/' + s.foto + '" alt="" loading="lazy"><figcaption class="card__cred">' + (CRED[s.foto] || "") + "</figcaption></figure>" +
+        "<div>" +
+          '<p class="card__meta"><span><i style="background:' + t.c + '"></i>' + t.l + "</span><span>" + s.quando + "</span><span>Provenienza: " + s.chi + "</span></p>" +
+          '<h2 class="card__t">' + s.nome + "</h2>" +
+          '<div class="card__n">' + s.numero + '</div><div class="card__nl">' + s.numero_etichetta + "</div>" +
+          '<p class="card__p">' + s.testo + "</p>" +
+        "</div>" +
+        '<button class="card__x" type="button" aria-label="Chiudi">×</button>'
+      ).classed("is-on", true);
+      card.select(".card__x").on("click", function () { open(0); });
+    }
+
+    var host = document.getElementById("grafico");
+    var qs = +(new URLSearchParams(location.search).get("scheda") || 0);
+    var tip = R.tooltip(host);
+    R.dismissOutside(host, tip.hide);
+
+    R.responsive(host, function (W, phase) {
+      var narrow = R.isNarrow(W);
+      var labW = narrow ? 44 : 78, rowH = narrow ? 58 : 66, top = 22, amp = (rowH / 2) - 6;
+      var pw = W - labW - 2, H = top + rowH * anni.length + 8;
+      var x = d3.scaleLinear().domain([0, 1]).range([labW, labW + pw]);
+      var a = d3.scaleLinear().domain([0, 9]).range([1.5, amp]);
+      var w = narrow ? 0.7 : 0.9;
+
+      var svg = d3.select(host).selectAll("svg").data([0]).join("svg")
+        .attr("width", W).attr("height", H).attr("role", "img")
+        .attr("aria-label", "Attacchi informatici con vittime negli Stati Uniti per anno: " + anni.map(function (y) { return y + " " + (perAnno.get(y) || 0); }).join(", ") + ". Totale " + fmt(totale));
+      svg.selectAll("*").remove();
+      svg.append("title").text("Il sismografo degli attacchi informatici agli Stati Uniti");
+
+      // mesi in alto
+      var mstep = narrow ? 3 : 1;
+      svg.append("g").selectAll("text").data(d3.range(0, 12, mstep)).join("text")
+        .attr("class", "mth").attr("x", function (m) { return x(m / 12) + 2; }).attr("y", 12).text(function (m) { return MESI[m]; });
+
+      var g = svg.append("g").selectAll("g").data(anni).join("g")
+        .attr("transform", function (y, i) { return "translate(0," + (top + i * rowH) + ")"; });
+
+      // fascia della settimana di novembre 2026 (guasti non attribuiti), 10-20 novembre
+      var bandA = (313.5) / 365, bandB = (323.5) / 365;
+      var g26 = g.filter(function (y) { return y === 2026; });
+      g26.append("rect").attr("class", "band").attr("x", x(bandA)).attr("width", Math.max(3, x(bandB) - x(bandA)))
+        .attr("y", 4).attr("height", rowH - 8);
+
+      g.append("line").attr("class", "base").attr("x1", x(0))
+        .attr("x2", function (y) { return y === 2026 ? x(323.5 / 365) : x(1); })
+        .attr("y1", rowH / 2).attr("y2", rowH / 2);
+      g.append("text").attr("class", "yr").attr("x", 0).attr("y", rowH / 2 - (narrow ? 4 : 2)).text(function (y) { return narrow ? "’" + String(y).slice(2) : y; });
+      g.append("text").attr("class", "yr-n").attr("x", 0).attr("y", rowH / 2 + 13)
+        .text(function (y) { var n = perAnno.get(y) || 0; return narrow ? fmt(n) : fmt(n) + " attacchi"; });
+
+      // tratti
+      function zig(d) {
+        var cx = x(d.pos), h = d.g == null ? 1.5 : a(d.g), b = rowH / 2;
+        return "M" + (cx - w * 2) + "," + b + "L" + (cx - w) + "," + (b - h) + "L" + (cx + w) + "," + (b + h * 0.55) + "L" + (cx + w * 2) + "," + b;
+      }
+      g.each(function (y) {
+        var gg = d3.select(this);
+        var data = rows.filter(function (d) { return d.anno === y; });
+        var p = gg.selectAll("path.spike").data(data).join("path")
+          .attr("class", "spike")
+          .attr("d", zig)
+          .style("stroke", function (d) { return COL[d.tipo].c; })
+          .style("stroke-dasharray", function (d) { return d.radar ? "2 1.5" : null; });
+        R.enter(p, phase,
+          function (s) { s.style("opacity", 0); },
+          function (s) { s.style("opacity", function (d) { return sel && d.big !== sel ? 0.25 : 0.9; }); });
+        if (phase === "play") p.transition().delay(function (d) { return (y - 2020) * 120 + d.pos * 700; }).duration(220)
+          .style("opacity", function (d) { return sel && d.big !== sel ? 0.25 : 0.9; });
+      });
+
+      // area di hover per riga: composizione dell'anno
+      g.append("rect").attr("class", "row-hit").attr("x", 0).attr("y", 0).attr("width", W).attr("height", rowH)
+        .on("pointermove pointerdown", function (e, y) {
+          var m = tipoAnno.get(y) || new Map(), pt = d3.pointer(e, host);
+          tip.show(R.tipHTML({
+            title: y === 2026 ? "2026, fino al 20 novembre" : String(y),
+            value: fmt(perAnno.get(y) || 0), unit: "attacchi",
+            rows: TIPI.map(function (t) { return [t.l, fmt(m.get(t.k) || 0)]; })
+          }), pt[0], pt[1]);
+        })
+        .on("pointerleave", tip.hide);
+
+      // segni dei cinque attacchi
+      var bigs = rows.filter(function (d) { return d.big; }).sort(function (p, q) { return p.anno - q.anno || p.pos - q.pos; });
+      bigs.forEach(function (d, i) { var pr = bigs[i - 1]; d.ox = pr && pr.anno === d.anno && x(d.pos) - (x(pr.pos) + (pr.ox || 0)) < 20 ? 20 - (x(d.pos) - (x(pr.pos) + (pr.ox || 0))) : 0; });
+      var mk = svg.append("g").selectAll("g").data(bigs).join("g").attr("class", function (d) { return "mark" + (d.big === sel ? " is-sel" : ""); })
+        .attr("transform", function (d) { return "translate(" + x(d.pos) + "," + (top + (d.anno - 2020) * rowH) + ")"; })
+        .on("click", function (e, d) { open(sel === d.big ? 0 : d.big); });
+      mk.append("line").attr("x1", function (d) { return d.ox; }).attr("x2", 0).attr("y1", 9).attr("y2", function (d) { return rowH / 2 - (d.g == null ? 1.5 : a(d.g)); });
+      mk.append("circle").attr("r", 9).attr("cx", function (d) { return d.ox; });
+      mk.append("text").attr("text-anchor", "middle").attr("dy", "0.35em").attr("x", function (d) { return d.ox; }).text(function (d) { return d.big; });
+      R.enter(mk, phase, function (s) { s.style("opacity", 0); }, function (s) { s.style("opacity", 1); }, 900);
+
+      // annotazione: novembre 2026
+      var yb = top + 6 * rowH;
+      var ax = x(bandA) - 6;
+      var ann = svg.append("g");
+      ann.append("path").attr("class", "ann-line").attr("d", "M" + (x(bandA) + 1) + "," + (yb + 6) + "L" + ax + "," + (yb + rowH + 4));
+      var t = ann.append("text").attr("class", "ann").attr("text-anchor", "end").attr("x", ax).attr("y", yb + rowH + 16)
+        .text("Metà novembre: guasti a Nsa, voli, banche e Microsoft, non attribuiti. Tratteggiato il furto di dati rivendicato da n0n");
+      R.wrap(t, narrow ? 220 : 340, 1.3);
+      var bb = ann.node().getBBox();
+      svg.attr("height", Math.max(H, bb.y + bb.height + 6));
+      R.enter(ann, phase, function (s) { s.style("opacity", 0); }, function (s) { s.style("opacity", 1); }, 1100);
+    });
+    if (qs >= 1 && qs <= 5) open(qs);
+  }).catch(function (e) { R.fail("#grafico", e); });
+})();
+</script>
+</body>
+</html>

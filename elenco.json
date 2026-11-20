@@ -1,5 +1,5 @@
 {
- "generato": "2026-11-19T18:01:58",
+ "generato": "2026-11-20T12:03:46",
  "indirizzo_base": "https://liberostracquadanio-del.github.io/liberostracquadanio/",
  "grafici": [
   {
@@ -48,6 +48,54 @@
    "fonte": "Fonte: Ministero dell’Interno (decreti 5 novembre 2025 e 10 marzo 2026), Istat, Italia Domani (Progetti del Pnrr)",
    "codice_script": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-asili-nido-lep/03-mappa/\" width=\"100%\" height=\"1340\" frameborder=\"0\" scrolling=\"no\" title=\"Asili nido, cerca il tuo Comune\"></iframe>\n<script>\n(function(){if(window.__radarQNv2)return;window.__radarQNv2=1;var O=\"https://liberostracquadanio-del.github.io\";var MQ=window.matchMedia(\"(prefers-color-scheme:dark)\");function frames(){return Array.prototype.filter.call(document.getElementsByTagName(\"iframe\"),function(f){return(f.getAttribute(\"src\")||\"\").indexOf(O+\"/\")===0;});}function theme(){var t=document.documentElement.getAttribute(\"data-theme\");return t===\"dark\"||t===\"light\"?t:(MQ.matches?\"dark\":\"light\");}function bgOf(el){for(;el&&el.nodeType===1;el=el.parentElement){var c=getComputedStyle(el).backgroundColor;if(c&&c !==\"transparent\"&&!/rgba\\([^)]*,\\s*0\\)$/.test(c))return c;}return null;}function send(f){try{f.contentWindow.postMessage({sentinel:\"radar-qn\",type:\"theme\",theme:theme(),bg:bgOf(f.parentElement)},O);}catch(e){}}function sendAll(){frames().forEach(send);}window.addEventListener(\"message\",function(e){if(e.origin !==O)return;var d=e.data;if(!d||d.sentinel !==\"radar-qn\"||d.type !==\"height\")return;frames().forEach(function(f){if(f.contentWindow !==e.source)return;var h=Math.ceil(+d.height);if(h > 0&&20000 > h)f.style.height=h+\"px\";send(f);});});new MutationObserver(function(){sendAll();setTimeout(sendAll,400);}).observe(document.documentElement,{attributes:true,attributeFilter:[\"data-theme\"]});if(MQ.addEventListener)MQ.addEventListener(\"change\",sendAll);})();\n</script>",
    "codice_fisso": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-asili-nido-lep/03-mappa/\" title=\"Asili nido, cerca il tuo Comune\" style=\"width:100%;border:0;height:1370px\" loading=\"lazy\"></iframe>",
+   "problemi": []
+  },
+  {
+   "articolo": "2026-11-attacchi-cyber-usa",
+   "grafico": "01-sismografo",
+   "percorso": "2026-11-attacchi-cyber-usa/01-sismografo",
+   "indirizzo": "https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-attacchi-cyber-usa/01-sismografo/",
+   "titolo": "Il sismografo degli attacchi",
+   "pubblicato": "2026-11-20",
+   "modificato": "2026-11-20",
+   "altezza_360": 1078,
+   "altezza_640": 973,
+   "altezza_fissa": 1108,
+   "fonte": "Fonte: EuRepoC (European Repository of Cyber Incidents), dati al 20/11/2026; per novembre 2026 cronache di Cnbc e SecurityWeek. Gravità: indice EuRepoC da 0 a 9. Con la data nota solo per mese o anno, la posizione è indicativa; dal 2023 la raccolta è più ampia",
+   "codice_script": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-attacchi-cyber-usa/01-sismografo/\" width=\"100%\" height=\"973\" frameborder=\"0\" scrolling=\"no\" title=\"Il sismografo degli attacchi\"></iframe>\n<script>\n(function(){if(window.__radarQNv2)return;window.__radarQNv2=1;var O=\"https://liberostracquadanio-del.github.io\";var MQ=window.matchMedia(\"(prefers-color-scheme:dark)\");function frames(){return Array.prototype.filter.call(document.getElementsByTagName(\"iframe\"),function(f){return(f.getAttribute(\"src\")||\"\").indexOf(O+\"/\")===0;});}function theme(){var t=document.documentElement.getAttribute(\"data-theme\");return t===\"dark\"||t===\"light\"?t:(MQ.matches?\"dark\":\"light\");}function bgOf(el){for(;el&&el.nodeType===1;el=el.parentElement){var c=getComputedStyle(el).backgroundColor;if(c&&c !==\"transparent\"&&!/rgba\\([^)]*,\\s*0\\)$/.test(c))return c;}return null;}function send(f){try{f.contentWindow.postMessage({sentinel:\"radar-qn\",type:\"theme\",theme:theme(),bg:bgOf(f.parentElement)},O);}catch(e){}}function sendAll(){frames().forEach(send);}window.addEventListener(\"message\",function(e){if(e.origin !==O)return;var d=e.data;if(!d||d.sentinel !==\"radar-qn\"||d.type !==\"height\")return;frames().forEach(function(f){if(f.contentWindow !==e.source)return;var h=Math.ceil(+d.height);if(h > 0&&20000 > h)f.style.height=h+\"px\";send(f);});});new MutationObserver(function(){sendAll();setTimeout(sendAll,400);}).observe(document.documentElement,{attributes:true,attributeFilter:[\"data-theme\"]});if(MQ.addEventListener)MQ.addEventListener(\"change\",sendAll);})();\n</script>",
+   "codice_fisso": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-attacchi-cyber-usa/01-sismografo/\" title=\"Il sismografo degli attacchi\" style=\"width:100%;border:0;height:1108px\" loading=\"lazy\"></iframe>",
+   "problemi": []
+  },
+  {
+   "articolo": "2026-11-attacchi-cyber-usa",
+   "grafico": "02-chi-attacca",
+   "percorso": "2026-11-attacchi-cyber-usa/02-chi-attacca",
+   "indirizzo": "https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-attacchi-cyber-usa/02-chi-attacca/",
+   "titolo": "Chi attacca gli Usa",
+   "pubblicato": "2026-11-20",
+   "modificato": "2026-11-20",
+   "altezza_360": 1056,
+   "altezza_640": 694,
+   "altezza_fissa": 1086,
+   "fonte": "Fonte: EuRepoC (European Repository of Cyber Incidents), dati al 20/11/2026. Provenienza: attribuzioni di governi, aziende di sicurezza o rivendicazioni",
+   "codice_script": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-attacchi-cyber-usa/02-chi-attacca/\" width=\"100%\" height=\"694\" frameborder=\"0\" scrolling=\"no\" title=\"Chi attacca gli Usa\"></iframe>\n<script>\n(function(){if(window.__radarQNv2)return;window.__radarQNv2=1;var O=\"https://liberostracquadanio-del.github.io\";var MQ=window.matchMedia(\"(prefers-color-scheme:dark)\");function frames(){return Array.prototype.filter.call(document.getElementsByTagName(\"iframe\"),function(f){return(f.getAttribute(\"src\")||\"\").indexOf(O+\"/\")===0;});}function theme(){var t=document.documentElement.getAttribute(\"data-theme\");return t===\"dark\"||t===\"light\"?t:(MQ.matches?\"dark\":\"light\");}function bgOf(el){for(;el&&el.nodeType===1;el=el.parentElement){var c=getComputedStyle(el).backgroundColor;if(c&&c !==\"transparent\"&&!/rgba\\([^)]*,\\s*0\\)$/.test(c))return c;}return null;}function send(f){try{f.contentWindow.postMessage({sentinel:\"radar-qn\",type:\"theme\",theme:theme(),bg:bgOf(f.parentElement)},O);}catch(e){}}function sendAll(){frames().forEach(send);}window.addEventListener(\"message\",function(e){if(e.origin !==O)return;var d=e.data;if(!d||d.sentinel !==\"radar-qn\"||d.type !==\"height\")return;frames().forEach(function(f){if(f.contentWindow !==e.source)return;var h=Math.ceil(+d.height);if(h > 0&&20000 > h)f.style.height=h+\"px\";send(f);});});new MutationObserver(function(){sendAll();setTimeout(sendAll,400);}).observe(document.documentElement,{attributes:true,attributeFilter:[\"data-theme\"]});if(MQ.addEventListener)MQ.addEventListener(\"change\",sendAll);})();\n</script>",
+   "codice_fisso": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-attacchi-cyber-usa/02-chi-attacca/\" title=\"Chi attacca gli Usa\" style=\"width:100%;border:0;height:1086px\" loading=\"lazy\"></iframe>",
+   "problemi": []
+  },
+  {
+   "articolo": "2026-11-attacchi-cyber-usa",
+   "grafico": "03-ransomware-fbi",
+   "percorso": "2026-11-attacchi-cyber-usa/03-ransomware-fbi",
+   "indirizzo": "https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-attacchi-cyber-usa/03-ransomware-fbi/",
+   "titolo": "Ransomware denunciati",
+   "pubblicato": "2026-11-20",
+   "modificato": "2026-11-20",
+   "altezza_360": 528,
+   "altezza_640": 517,
+   "altezza_fissa": 558,
+   "fonte": "Fonte: Fbi, Internet Crime Complaint Center (IC3), Internet Crime Report 2020-2025. Solo i casi denunciati",
+   "codice_script": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-attacchi-cyber-usa/03-ransomware-fbi/\" width=\"100%\" height=\"517\" frameborder=\"0\" scrolling=\"no\" title=\"Ransomware denunciati\"></iframe>\n<script>\n(function(){if(window.__radarQNv2)return;window.__radarQNv2=1;var O=\"https://liberostracquadanio-del.github.io\";var MQ=window.matchMedia(\"(prefers-color-scheme:dark)\");function frames(){return Array.prototype.filter.call(document.getElementsByTagName(\"iframe\"),function(f){return(f.getAttribute(\"src\")||\"\").indexOf(O+\"/\")===0;});}function theme(){var t=document.documentElement.getAttribute(\"data-theme\");return t===\"dark\"||t===\"light\"?t:(MQ.matches?\"dark\":\"light\");}function bgOf(el){for(;el&&el.nodeType===1;el=el.parentElement){var c=getComputedStyle(el).backgroundColor;if(c&&c !==\"transparent\"&&!/rgba\\([^)]*,\\s*0\\)$/.test(c))return c;}return null;}function send(f){try{f.contentWindow.postMessage({sentinel:\"radar-qn\",type:\"theme\",theme:theme(),bg:bgOf(f.parentElement)},O);}catch(e){}}function sendAll(){frames().forEach(send);}window.addEventListener(\"message\",function(e){if(e.origin !==O)return;var d=e.data;if(!d||d.sentinel !==\"radar-qn\"||d.type !==\"height\")return;frames().forEach(function(f){if(f.contentWindow !==e.source)return;var h=Math.ceil(+d.height);if(h > 0&&20000 > h)f.style.height=h+\"px\";send(f);});});new MutationObserver(function(){sendAll();setTimeout(sendAll,400);}).observe(document.documentElement,{attributes:true,attributeFilter:[\"data-theme\"]});if(MQ.addEventListener)MQ.addEventListener(\"change\",sendAll);})();\n</script>",
+   "codice_fisso": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-attacchi-cyber-usa/03-ransomware-fbi/\" title=\"Ransomware denunciati\" style=\"width:100%;border:0;height:558px\" loading=\"lazy\"></iframe>",
    "problemi": []
   },
   {
@@ -202,12 +250,12 @@
    "titolo": "Per pareggiare Anthropic servono le prime 33 società italiane",
    "pubblicato": "2026-11-17",
    "modificato": "2026-11-19",
-   "altezza_360": 1389,
+   "altezza_360": 1410,
    "altezza_640": 1214,
-   "altezza_fissa": 1419,
+   "altezza_fissa": 1440,
    "fonte": "Fonte: valutazioni di companiesmarketcap al 17 novembre 2026; Sec (prospetto definitivo di Anthropic, 19 novembre 2026)",
    "codice_script": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-ipo-anthropic/02-piazza-affari/\" width=\"100%\" height=\"1214\" frameborder=\"0\" scrolling=\"no\" title=\"Per pareggiare Anthropic servono le prime 33 società italiane\"></iframe>\n<script>\n(function(){if(window.__radarQNv2)return;window.__radarQNv2=1;var O=\"https://liberostracquadanio-del.github.io\";var MQ=window.matchMedia(\"(prefers-color-scheme:dark)\");function frames(){return Array.prototype.filter.call(document.getElementsByTagName(\"iframe\"),function(f){return(f.getAttribute(\"src\")||\"\").indexOf(O+\"/\")===0;});}function theme(){var t=document.documentElement.getAttribute(\"data-theme\");return t===\"dark\"||t===\"light\"?t:(MQ.matches?\"dark\":\"light\");}function bgOf(el){for(;el&&el.nodeType===1;el=el.parentElement){var c=getComputedStyle(el).backgroundColor;if(c&&c !==\"transparent\"&&!/rgba\\([^)]*,\\s*0\\)$/.test(c))return c;}return null;}function send(f){try{f.contentWindow.postMessage({sentinel:\"radar-qn\",type:\"theme\",theme:theme(),bg:bgOf(f.parentElement)},O);}catch(e){}}function sendAll(){frames().forEach(send);}window.addEventListener(\"message\",function(e){if(e.origin !==O)return;var d=e.data;if(!d||d.sentinel !==\"radar-qn\"||d.type !==\"height\")return;frames().forEach(function(f){if(f.contentWindow !==e.source)return;var h=Math.ceil(+d.height);if(h > 0&&20000 > h)f.style.height=h+\"px\";send(f);});});new MutationObserver(function(){sendAll();setTimeout(sendAll,400);}).observe(document.documentElement,{attributes:true,attributeFilter:[\"data-theme\"]});if(MQ.addEventListener)MQ.addEventListener(\"change\",sendAll);})();\n</script>",
-   "codice_fisso": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-ipo-anthropic/02-piazza-affari/\" title=\"Per pareggiare Anthropic servono le prime 33 società italiane\" style=\"width:100%;border:0;height:1419px\" loading=\"lazy\"></iframe>",
+   "codice_fisso": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-ipo-anthropic/02-piazza-affari/\" title=\"Per pareggiare Anthropic servono le prime 33 società italiane\" style=\"width:100%;border:0;height:1440px\" loading=\"lazy\"></iframe>",
    "problemi": []
   },
   {
@@ -251,10 +299,10 @@
    "pubblicato": "2026-11-17",
    "modificato": "2026-11-19",
    "altezza_360": 924,
-   "altezza_640": 758,
+   "altezza_640": 738,
    "altezza_fissa": 954,
-   "fonte": "Fonte: Sec, prospetto definitivo di Anthropic (dati al 30 settembre 2026); companiesmarketcap",
-   "codice_script": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-ipo-anthropic/05-dipendenti/\" width=\"100%\" height=\"758\" frameborder=\"0\" scrolling=\"no\" title=\"A 83 dollari le azioni dei dipendenti valgono 235 miliardi\"></iframe>\n<script>\n(function(){if(window.__radarQNv2)return;window.__radarQNv2=1;var O=\"https://liberostracquadanio-del.github.io\";var MQ=window.matchMedia(\"(prefers-color-scheme:dark)\");function frames(){return Array.prototype.filter.call(document.getElementsByTagName(\"iframe\"),function(f){return(f.getAttribute(\"src\")||\"\").indexOf(O+\"/\")===0;});}function theme(){var t=document.documentElement.getAttribute(\"data-theme\");return t===\"dark\"||t===\"light\"?t:(MQ.matches?\"dark\":\"light\");}function bgOf(el){for(;el&&el.nodeType===1;el=el.parentElement){var c=getComputedStyle(el).backgroundColor;if(c&&c !==\"transparent\"&&!/rgba\\([^)]*,\\s*0\\)$/.test(c))return c;}return null;}function send(f){try{f.contentWindow.postMessage({sentinel:\"radar-qn\",type:\"theme\",theme:theme(),bg:bgOf(f.parentElement)},O);}catch(e){}}function sendAll(){frames().forEach(send);}window.addEventListener(\"message\",function(e){if(e.origin !==O)return;var d=e.data;if(!d||d.sentinel !==\"radar-qn\"||d.type !==\"height\")return;frames().forEach(function(f){if(f.contentWindow !==e.source)return;var h=Math.ceil(+d.height);if(h > 0&&20000 > h)f.style.height=h+\"px\";send(f);});});new MutationObserver(function(){sendAll();setTimeout(sendAll,400);}).observe(document.documentElement,{attributes:true,attributeFilter:[\"data-theme\"]});if(MQ.addEventListener)MQ.addEventListener(\"change\",sendAll);})();\n</script>",
+   "fonte": "Fonte: Sec, prospetto definitivo di Anthropic (dati al 30 settembre 2026)",
+   "codice_script": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-ipo-anthropic/05-dipendenti/\" width=\"100%\" height=\"738\" frameborder=\"0\" scrolling=\"no\" title=\"A 83 dollari le azioni dei dipendenti valgono 235 miliardi\"></iframe>\n<script>\n(function(){if(window.__radarQNv2)return;window.__radarQNv2=1;var O=\"https://liberostracquadanio-del.github.io\";var MQ=window.matchMedia(\"(prefers-color-scheme:dark)\");function frames(){return Array.prototype.filter.call(document.getElementsByTagName(\"iframe\"),function(f){return(f.getAttribute(\"src\")||\"\").indexOf(O+\"/\")===0;});}function theme(){var t=document.documentElement.getAttribute(\"data-theme\");return t===\"dark\"||t===\"light\"?t:(MQ.matches?\"dark\":\"light\");}function bgOf(el){for(;el&&el.nodeType===1;el=el.parentElement){var c=getComputedStyle(el).backgroundColor;if(c&&c !==\"transparent\"&&!/rgba\\([^)]*,\\s*0\\)$/.test(c))return c;}return null;}function send(f){try{f.contentWindow.postMessage({sentinel:\"radar-qn\",type:\"theme\",theme:theme(),bg:bgOf(f.parentElement)},O);}catch(e){}}function sendAll(){frames().forEach(send);}window.addEventListener(\"message\",function(e){if(e.origin !==O)return;var d=e.data;if(!d||d.sentinel !==\"radar-qn\"||d.type !==\"height\")return;frames().forEach(function(f){if(f.contentWindow !==e.source)return;var h=Math.ceil(+d.height);if(h > 0&&20000 > h)f.style.height=h+\"px\";send(f);});});new MutationObserver(function(){sendAll();setTimeout(sendAll,400);}).observe(document.documentElement,{attributes:true,attributeFilter:[\"data-theme\"]});if(MQ.addEventListener)MQ.addEventListener(\"change\",sendAll);})();\n</script>",
    "codice_fisso": "<iframe src=\"https://liberostracquadanio-del.github.io/liberostracquadanio/2026-11-ipo-anthropic/05-dipendenti/\" title=\"A 83 dollari le azioni dei dipendenti valgono 235 miliardi\" style=\"width:100%;border:0;height:954px\" loading=\"lazy\"></iframe>",
    "problemi": []
   },
