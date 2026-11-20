@@ -96,7 +96,7 @@
       .html(function (t) { return '<i style="background:' + t.c + '"></i>' + t.l; });
 
     var STEPS = [fmt(tot) + " attacchi", "Senza mandante", "Chi attacca e come"];
-    var step = 2, played = false;
+    var step = 2, played = false, qp = new URLSearchParams(location.search).get("passo");
     var sb = d3.select("#steps").selectAll("button").data(STEPS).join("button")
       .attr("type", "button").text(function (s) { return s; })
       .on("click", function (e, s) { go(STEPS.indexOf(s), true); });
@@ -177,7 +177,7 @@
 
       if (phase === "play") { played = true; go(0, false); setTimeout(function () { go(1, true); }, 900); setTimeout(function () { go(2, true); }, 2300); }
       else if (phase === "pre") { go(0, false); }
-      else { go(played ? step : 2, false); }
+      else { go(qp != null ? +qp : (played ? step : 2), false); }
     }
 
     function go(st, anim) {
@@ -202,10 +202,10 @@
         var t = g.append("text").attr("class", "lab-t").attr("x", 0).attr("y", 18);
         t.append("tspan").text(fmt(NA.totale) + " senza mandante (" + R.pct(quota, 1) + ")");
         t.append("tspan").attr("class", "lab-s").attr("dx", 8).text(L.narrow ? "" : "Quasi la metà è ransomware di gruppi criminali");
-        if (L.narrow) g.append("text").attr("class", "lab-s").attr("x", 0).attr("y", L.wallTop + L.naRows * L.u + 16).text("Quasi la metà è ransomware di gruppi criminali");
+        if (L.narrow) g.append("text").attr("class", "lab-s").attr("x", 0).attr("y", L.wallTop + (st < 2 ? L.wallRows : L.naRows) * L.u + 16).text("Quasi la metà è ransomware di gruppi criminali");
       }
       if (st === 1) {
-        g.append("text").attr("class", "lab-t").attr("x", 0).attr("y", L.wallTop + L.naRows * L.u + (L.narrow ? 38 : 24))
+        g.append("text").attr("class", "lab-t").attr("x", 0).attr("y", L.wallTop + L.wallRows * L.u + (L.narrow ? 38 : 22))
           .text(fmt(tot - NA.totale) + " con un Paese indicato come responsabile");
       }
       if (st === 2) {
