@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
 <meta name="radar:altezza-640" content="955">
-<meta name="radar:altezza-360" content="1044">
+<meta name="radar:altezza-360" content="1060">
 <meta name="radar:titolo" content="Il sismografo degli attacchi">
 <meta name="radar:pubblicato" content="2026-11-20">
 <meta name="radar:modificato" content="2026-11-20">
@@ -33,8 +33,13 @@
     background: var(--ink); color: var(--bg); font: 700 11px/1 var(--sans); flex: none; }
   .big5__btn[aria-pressed="true"] .num { background: var(--bg); color: var(--ink); }
 
-  .card { display: none; margin: 14px 0 0; border-top: 2px solid var(--ink); padding-top: 14px; position: relative; }
-  .card.is-on { display: grid; grid-template-columns: 42% 1fr; gap: 18px; animation: cardIn .35s ease-out; }
+  .radar { position: relative; }
+  .veil { display: none; position: absolute; left: 0; right: 0; z-index: 5; background: var(--bg); opacity: .84; }
+  .veil.is-on { display: block; }
+  .card { display: none; position: absolute; z-index: 6; margin: 0; box-sizing: border-box;
+    background: var(--tip-bg); border: 1px solid var(--rule); border-top: 2px solid var(--ink); border-radius: 2px;
+    padding: 16px; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+  .card.is-on { display: grid; grid-template-columns: 42% 1fr; gap: 18px; align-content: start; animation: cardIn .3s ease-out; }
   @keyframes cardIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
   @media (prefers-reduced-motion: reduce) { .card.is-on { animation: none; } }
   .card__img { margin: 0; }
@@ -46,12 +51,16 @@
   .card__n { font: 700 28px/1 var(--sans); letter-spacing: -0.02em; color: var(--ink); }
   .card__nl { font-size: 12.5px; color: var(--ink-2); margin: 3px 0 10px; }
   .card__p { font-size: 14px; line-height: 1.5; color: var(--ink); margin: 0; }
-  .card__x { position: absolute; top: 10px; right: 0; width: 28px; height: 28px; border: 0; background: transparent;
+  .card__x { position: absolute; top: 8px; right: 8px; width: 28px; height: 28px; border: 0; background: transparent;
     color: var(--ink); font: 400 22px/1 var(--sans); cursor: pointer; border-radius: 50%; background: var(--bg); z-index: 2; }
   .card__x:hover { color: var(--ink); }
   @media (max-width: 519px) {
+    .card { padding: 12px; }
     .card.is-on { grid-template-columns: 1fr; gap: 10px; }
     .card__img img { aspect-ratio: 16 / 9; }
+    .card__t { font-size: 20px; margin-bottom: 6px; }
+    .card__n { font-size: 24px; }
+    .card__p { font-size: 13.5px; line-height: 1.45; }
   }
 
   .r-key { margin-top: 18px; }
@@ -84,11 +93,13 @@
   <section class="big5" aria-label="I cinque attacchi più gravi">
     <p class="big5__lab"><span class="num" aria-hidden="true"></span>I cinque attacchi più importanti</p>
     <div class="big5__btns" id="btns"></div>
-    <article class="card" id="card" aria-live="polite"></article>
   </section>
 
   <div class="r-key" id="key"></div>
   <figure class="r-chart" id="grafico"></figure>
+
+  <div class="veil" id="veil"></div>
+  <article class="card" id="card" role="dialog" aria-modal="false" aria-live="polite"></article>
 
   <footer class="r-foot">
     <span>Fonte: EuRepoC (European Repository of Cyber Incidents), dati al 20/11/2026. Gravità: indice EuRepoC da 0 a 9. Con la data nota solo per mese o anno, la posizione è indicativa; dal 2023 la raccolta è più ampia</span>
@@ -148,7 +159,7 @@
       btns.attr("aria-pressed", function (s) { return s.n === n ? "true" : "false"; });
       d3.selectAll(".spike").interrupt().style("opacity", function (d) { return n && d.big !== n ? 0.25 : 0.9; });
       d3.selectAll(".mark").classed("is-sel", function (d) { return d.big === n; });
-      if (!n) { card.classed("is-on", false).html(""); return; }
+      if (!n) { card.classed("is-on", false).html(""); veil.classed("is-on", false); return; }
       var s = schede.find(function (x) { return x.n === n; }), t = COL[s.tipo];
       card.html(
         '<figure class="card__img"><img src="../assets/foto/' + s.foto + '" alt="" loading="lazy"></figure>' +
@@ -161,7 +172,24 @@
         '<button class="card__x" type="button" aria-label="Chiudi">×</button>'
       ).classed("is-on", true);
       card.select(".card__x").on("click", function () { open(0); });
+      place();
     }
+    var veil = d3.select("#veil").on("click", function () { open(0); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape" && sel) open(0); });
+    // il popup copre il grafico sotto i bottoni, senza cambiare l'altezza della pagina
+    function place() {
+      if (!sel) return;
+      var root = document.querySelector(".radar").getBoundingClientRect();
+      var b = document.getElementById("btns").getBoundingClientRect();
+      var f = document.querySelector(".r-foot").getBoundingClientRect();
+      var top = b.bottom - root.top + 10, bottom = f.top - root.top - 6;
+      veil.style("top", (top - 4) + "px").style("height", (bottom - top + 4) + "px");
+      card.style("top", top + "px").style("left", (b.left - root.left) + "px").style("width", b.width + "px")
+        .style("max-height", (bottom - top) + "px");
+    }
+    window.addEventListener("resize", function () { setTimeout(place, 150); });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(place);
+    if (window.ResizeObserver) new ResizeObserver(function () { place(); }).observe(document.querySelector(".radar"));
 
     var host = document.getElementById("grafico");
     var qs = +(new URLSearchParams(location.search).get("scheda") || 0);
