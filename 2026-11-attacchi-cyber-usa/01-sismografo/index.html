@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<meta name="radar:altezza-640" content="973">
-<meta name="radar:altezza-360" content="1078">
+<meta name="radar:altezza-640" content="991">
+<meta name="radar:altezza-360" content="1080">
 <meta name="radar:titolo" content="Il sismografo degli attacchi">
 <meta name="radar:pubblicato" content="2026-11-20">
 <meta name="radar:modificato" content="2026-11-20">
@@ -47,7 +47,7 @@
   .card__nl { font-size: 12.5px; color: var(--ink-2); margin: 3px 0 10px; }
   .card__p { font-size: 14px; line-height: 1.5; color: var(--ink); margin: 0; }
   .card__x { position: absolute; top: 10px; right: 0; width: 28px; height: 28px; border: 0; background: transparent;
-    color: var(--ink-2); font: 400 22px/1 var(--sans); cursor: pointer; }
+    color: var(--ink); font: 400 22px/1 var(--sans); cursor: pointer; border-radius: 50%; background: var(--bg); z-index: 2; }
   .card__x:hover { color: var(--ink); }
   @media (max-width: 519px) {
     .card.is-on { grid-template-columns: 1fr; gap: 10px; }
@@ -91,7 +91,7 @@
   <figure class="r-chart" id="grafico"></figure>
 
   <footer class="r-foot">
-    <span>Fonte: EuRepoC (European Repository of Cyber Incidents), dati al 20/11/2026; per novembre 2026 cronache di Cnbc e SecurityWeek. Gravità: indice EuRepoC da 0 a 9. Con la data nota solo per mese o anno, la posizione è indicativa; dal 2023 la raccolta è più ampia</span>
+    <span>Fonte: EuRepoC (European Repository of Cyber Incidents), dati al 20/11/2026; per novembre 2026 cronache di Cnbc e SecurityWeek. Foto di repertorio; Stryker: Pfree2014, CC BY-SA 4.0, Wikimedia Commons. Gravità: indice EuRepoC da 0 a 9. Con la data nota solo per mese o anno, la posizione è indicativa; dal 2023 la raccolta è più ampia</span>
     <span>Elaborazione Radar – QN</span>
   </footer>
 </main>
@@ -151,7 +151,7 @@
       if (!n) { card.classed("is-on", false).html(""); return; }
       var s = schede.find(function (x) { return x.n === n; }), t = COL[s.tipo];
       card.html(
-        '<figure class="card__img"><img src="../assets/foto/' + s.foto + '" alt="" loading="lazy"><figcaption class="card__cred">' + (CRED[s.foto] || "") + "</figcaption></figure>" +
+        '<figure class="card__img"><img src="../assets/foto/' + s.foto + '" alt="" loading="lazy"></figure>' +
         "<div>" +
           '<p class="card__meta"><span><i style="background:' + t.c + '"></i>' + t.l + "</span><span>" + s.quando + "</span><span>Provenienza: " + s.chi + "</span></p>" +
           '<h2 class="card__t">' + s.nome + "</h2>" +
